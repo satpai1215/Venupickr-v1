@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)file:///Users/Satyan/Desktop/iwd%20local/html_css_final/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <meta charset="utf-8">
+	    <meta name="description" content="Your description goes here">
+	    <meta name="keywords" content="one, two, three">
+		
+			<title>Mo' Mondays</title>
+			
+			<!-- external CSS link -->
+			<link rel="stylesheet" href="css/reset.css">
+			<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="sidebar">
+				<ul id="nav">
+				    <li class="home active"><a href="home.html">Home</a></li>
+				    <li class="event-history"><a href="history.html">Event History</a></li>
+				    <li class="faq"><a href="#">How It Works</a></li>
+				    <li class="rules"><a href="#">Contact</a></li>
+				</ul>
+
+                <div id="eventControls">
+                    <ul>
+                        <p>Event Controls</p>
+                        <li class="eventControl Event4"><a href="#showCreateEventForm">Create Event</a></li>
+                        <li class="eventControl Event2"><a href="#showEventList">See Event List</a></li>
+                    </ul>
+                </div> <!--eventControls-->
+
+                <div id="showCreateEventForm" class="modalDialog">
+                    <div id="createEventForm">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>Enter Event Info</h2>
+                        <form>
+                            <fieldset>
+
+                                    <label>Event Name:</label><input type="text" class = "input" id="formEventName" name="formEventName" placeholder="e.g. Christine's Birthday" value="Satyan's Birthday"/>
+                                    <label>Event Date:</label><input type="date" class = "input" id="formEventDate" name="formEventDate" value = "2013-12-15">
+                                    <label>Event Time:</label><input type="time" class = "input" id="formEventTime" name="formEventTime" value = "20:00:00">
+                                    <label>Comments:</label><textarea class = "input" id="formEventComments" name="formEventComments" placeholder="additional information, special requests, etc."></textarea>
+                            </fieldset>
+                        <button id="eventFormSubmit">CREATE EVENT!</button>
+                        </form>
+                    </div>
+                </div> <!--createEventForm-->
+
+                <div id="showEventList" class="modalDialog">
+                    <div id="eventListDialog">
+                        <a href="" title="Close" class="close">X</a>
+                        <h2>Current Events On the Clock</h2>
+                        <ol id="eventList">
+
+                        </ol>
+                    </div>
+
+                </div> <!--showEventList-->
+			</div><!--sidebar-->
+		
+			<div id="main">
+				<h1>Mo' Mondays Mo' Problems</h1>
+				<div id="timer-container">
+					<h2>TIME LEFT FOR VOTING</h2>
+					<div id="eventTimer"></div>
+				</div> <!--timer-container-->
+                <button id="userEntryButton" onclick="overlay()">ADD A VENUE</button>
+				<div id="userEntry">
+					<h2>SUGGEST A VENUE FOR:</h2>
+					<h3></h3>
+					<form id = "venueEntry">
+						<fieldset>
+							<ol>
+							<li><label>Venue Name:</label><input type="text" id="venueName" name="venueName" placeholder="Enter a Venue"></li>
+                            <li><label>Venue Location:</label><input type="text" id="venueLocation" name="venueLocation" placeholder="e.g. Sutter and Polk"></li>
+                            <li><label>Venue Type:</label>
+                                <select id="venueDropDown">
+                                    <optgroup label="Bars">
+                                        <option>Restaurant Bar</option>
+                                        <option>Sports Bar</option>
+                                        <option>Dive Bar</option>
+                                    </optgroup>
+                                    <optgroup label="Lounges">
+                                        <option>Upscale Lounge</option>
+                                        <option>Restaurant Lounge</option>
+                                        <option>Casual Lounge</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option>Other Venue:</option>
+                                    </optgroup>
+                                </select></li>
+							</ol>
+                            <button id = "venueEntrySubmit">ADD VENUE TO LIST! >>></button>
+						</fieldset>
+					</form>
+				</div> <!--userEntry-->
+
+				<div id="venueList" class="float-right">
+					<h4>Recommended Venues for:<br/><span id="eventNameHeader"></span></h4>
+
+					<ul>
+                        <!--script for adding row to venueList
+						<li class="listItem">
+							<div class = "venueSticky">
+								Placeholder
+							</div>
+                            <button class = "voteButton" onclick ="voteClick()">VOTE!</button>
+							<div class = "voteCount"> </div>
+						</li> -->
+
+					</ul>
+				</div><!--venueList-->
+			</div><!--main-->
+			<footer>Created by Satyan Pai</footer>
+		</div><!--container-->
+	
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js"></script>
+		<script src="js/runner.js"></script>
+
+	</body>
+</html>

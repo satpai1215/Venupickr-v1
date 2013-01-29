@@ -1,0 +1,189 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1095" measuredH="637" mockupW="956" mockupH="637">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="139" y="0" w="956" h="637" measuredW="200" measuredH="178" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Home%0AEvent%20History%0AFAQ%0AAbout</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="441" y="8" w="-1" h="-1" measuredW="480" measuredH="50" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mo%27%20Mondays%20Mo%27%20Problems</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Canvas" x="630" y="79" w="442" h="537" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::SubTitle" x="630" y="83" w="442" h="-1" measuredW="392" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <italic>true</italic>
+        <size>16</size>
+        <text>Recommended%20Venues%20for%20%22Mo%20Mondays%2011/20/2012%22</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::SubTitle" x="630" y="103" w="442" h="-1" measuredW="191" measuredH="20" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>true</bold>
+        <italic>false</italic>
+        <size>12</size>
+        <text>Time%20Left%20for%20Voting%3A%2022%3A15%3A10sec</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="1055" y="79" w="-1" h="537" measuredW="16" measuredH="100" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Arrow" x="630" y="269" w="425" h="10" measuredW="150" measuredH="100" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Arrow" x="630" y="123" w="425" h="10" measuredW="150" measuredH="100" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="__group__" x="647" y="135" w="408" h="129" measuredW="408" measuredH="129" zOrder="9" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Map" x="234" y="1" w="147" h="96" measuredW="252" measuredH="222" zOrder="0" locked="false" isInGroup="15"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="234" y="102" w="79" h="27" measuredW="73" measuredH="29" zOrder="1" locked="false" isInGroup="15">
+          <controlProperties>
+            <color>14540253</color>
+            <size>20</size>
+            <text>Vote%21</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="322" y="105" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="2" locked="false" isInGroup="15">
+          <controlProperties>
+            <text>Vote%20Count%3A%208</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Paragraph" x="0" y="0" w="200" h="99" measuredW="200" measuredH="80" zOrder="3" locked="false" isInGroup="15">
+          <controlProperties>
+            <size>14</size>
+            <text>1.%09R%20Bar%0A%09Type%3A%20Sports%20Bar%0A%09Location%3A%20Polk%20and%20Sutter%0A%09Recommended%20By%3A%20John%20P.%0A%09</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="16" controlTypeID="__group__" x="647" y="283" w="409" h="129" measuredW="409" measuredH="129" zOrder="10" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Map" x="234" y="1" w="147" h="96" measuredW="252" measuredH="222" zOrder="0" locked="false" isInGroup="16"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="234" y="102" w="79" h="27" measuredW="73" measuredH="29" zOrder="1" locked="false" isInGroup="16">
+          <controlProperties>
+            <color>14540253</color>
+            <size>20</size>
+            <text>Vote%21</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="322" y="105" w="-1" h="-1" measuredW="87" measuredH="21" zOrder="2" locked="false" isInGroup="16">
+          <controlProperties>
+            <text>Vote%20Count%3A%202</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Paragraph" x="0" y="0" w="234" h="99" measuredW="200" measuredH="80" zOrder="3" locked="false" isInGroup="16">
+          <controlProperties>
+            <size>14</size>
+            <text>2.%09Churchill%0A%09Type%3A%20Bar%2C%20Lounge%0A%09Location%3A%20Church%20and%20Market%0A%09Recommended%20By%3A%20Rowena%20M.%0A%09</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Arrow" x="630" y="417" w="425" h="10" measuredW="150" measuredH="100" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Arrow" x="630" y="568" w="425" h="10" measuredW="150" measuredH="100" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <leftArrow>false</leftArrow>
+        <rightArrow>false</rightArrow>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Paragraph" x="647" y="594" w="234" h="19" measuredW="200" measuredH="80" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <text>4.%09Nick%27s%20Crispy%20Tacos%0A%09</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="__group__" x="647" y="434" w="407" h="129" measuredW="407" measuredH="129" zOrder="11" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Map" x="234" y="1" w="147" h="96" measuredW="252" measuredH="222" zOrder="0" locked="false" isInGroup="26"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="234" y="102" w="79" h="27" measuredW="73" measuredH="29" zOrder="1" locked="false" isInGroup="26">
+          <controlProperties>
+            <color>14540253</color>
+            <size>20</size>
+            <text>Vote%21</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="322" y="105" w="-1" h="-1" measuredW="85" measuredH="21" zOrder="2" locked="false" isInGroup="26">
+          <controlProperties>
+            <text>Vote%20Count%3A%201</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Paragraph" x="0" y="0" w="234" h="99" measuredW="200" measuredH="80" zOrder="3" locked="false" isInGroup="26">
+          <controlProperties>
+            <size>14</size>
+            <text>3.%09Wine%20Jar%0A%09Type%3A%20Lounge%0A%09Location%3A%20Fillmore%20and%20Sutter%0A%09Recommended%20By%3A%20Satyan%20P.%0A%09</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="33" controlTypeID="__group__" x="294" y="139" w="292" h="266" measuredW="292" measuredH="266" zOrder="14" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::PointyButton" x="81" y="239" w="105" h="-1" measuredW="102" measuredH="27" zOrder="0" locked="false" isInGroup="33">
+          <controlProperties>
+            <color>13421772</color>
+            <direction>right</direction>
+            <size>16</size>
+            <text>Add%20to%20List%21</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::SubTitle" x="0" y="0" w="-1" h="-1" measuredW="292" measuredH="33" zOrder="1" locked="false" isInGroup="33">
+          <controlProperties>
+            <bold>true</bold>
+            <italic>false</italic>
+            <text>SUGGEST%20A%20VENUE%20FOR%3A</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="72" y="70" w="137" h="-1" measuredW="124" measuredH="27" zOrder="2" locked="false" isInGroup="33">
+          <controlProperties>
+            <align>center</align>
+            <text>Enter%20Venue%20Name</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="72" y="112" w="137" h="-1" measuredW="120" measuredH="27" zOrder="3" locked="false" isInGroup="33">
+          <controlProperties>
+            <align>center</align>
+            <text>Enter%20Venue%20Type</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="72" y="154" w="-1" h="-1" measuredW="138" measuredH="27" zOrder="4" locked="false" isInGroup="33">
+          <controlProperties>
+            <align>center</align>
+            <text>Enter%20Venue%20Location</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="81" y="197" w="-1" h="-1" measuredW="113" measuredH="27" zOrder="5" locked="false" isInGroup="33">
+          <controlProperties>
+            <align>center</align>
+            <text>Enter%20Your%20Name</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="63" y="27" w="-1" h="-1" measuredW="161" measuredH="21" zOrder="6" locked="false" isInGroup="33">
+          <controlProperties>
+            <italic>true</italic>
+            <text>%22Mo%20Mondays%2011/20/2012%22</text>
+            <underline>false</underline>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
