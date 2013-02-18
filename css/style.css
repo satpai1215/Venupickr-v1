@@ -340,16 +340,18 @@ body{
     height: 50px;
     font-size: 1.2em;
     border-radius: 5px;
-    visibility: hidden;
+    visibility: visible;
 }
 #userEntry{
 	width: 300px;
 	position: absolute;
 	left: 6%;
 	bottom: 20%;
-    visibility: hidden;
+    visibility: visible;
 }
-
+    .ui-autocomplete-loading {
+        background: white url('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/images/ui-anim_basic_16x16.gif') right center no-repeat;
+    }
 	#userEntry h3{
 		text-align: center;
 		margin-bottom: 20px;

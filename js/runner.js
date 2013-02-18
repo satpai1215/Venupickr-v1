@@ -2,6 +2,110 @@ var voteCountArray = [];
 var venueCount = 0;
 var currentEventsArray = [];
 
+function AC(){
+$( "#venueName" ).autocomplete({
+    source: function(request, response) {
+        yelpRequest(request, response)
+    },
+    autoFocus: true,
+    minLength: 2,
+    delay: 500,
+    select: function( event, ui ) {
+        console.log( ui.item ?
+            "Selected: " + ui.item.label :
+            "Nothing selected, input was " + this.value);
+    },
+    open: function() {
+        $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+    },
+    close: function() {
+        $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+    }
+});
+}
+
+
+function yelpRequest(request, response) {
+
+    var auth = {
+        //
+        // Update with your auth tokens.
+        //
+        consumerKey: "xIeBBXL6bTqP5MDheNuehw",
+        consumerSecret: "843wPzWYIVym8o9MG4X5jwsMt9U",
+        accessToken: "5C_yXJuWHwqk1nK1Vbmm8-V8F6plW8Jf",
+        // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
+        // You wouldn't actually want to expose your access token secret like this in a real application.
+        accessTokenSecret: "l8fc-v7JWbKrdck9Kw3PBW6vOmI",
+        serviceProvider: {
+            signatureMethod: "HMAC-SHA1"
+        }
+    };
+    //var term = "soda popinski"
+    var near = 'San+Francisco';
+
+    var accessor = {
+        consumerSecret: auth.consumerSecret,
+        tokenSecret: auth.accessTokenSecret
+    };
+
+    parameters = [];
+    parameters.push(['term', request.term]);
+    parameters.push(['location', near]);
+    parameters.push(['callback', 'cb']);
+    parameters.push(['oauth_consumer_key', auth.consumerKey]);
+    parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
+    parameters.push(['oauth_token', auth.accessToken]);
+    parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+    parameters.push(['featureClass', 'P']);
+    parameters.push(['style', 'full']);
+    parameters.push(['maxRows', 12]);
+    parameters.push(['name_startsWith', request.term]);
+
+    var message = {
+        'action': 'http://api.yelp.com/v2/search',
+        'method': 'GET',
+        'parameters': parameters
+    };
+
+    OAuth.setTimestampAndNonce(message);
+    OAuth.SignatureMethod.sign(message, accessor);
+
+    var parameterMap = OAuth.getParameterMap(message.parameters);
+    parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
+
+    $.ajax({
+        'url': message.action,
+        'data': parameterMap,
+        'cache': true,
+        'dataType': 'jsonp',
+        'success' : function(data) {
+            console.log(data.businesses);
+            response($.map(data.businesses, function(item){
+                    return {
+                        label: item.name,
+                        value: item.name
+                    }
+                }
+            /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+            response( $.grep( data.businesses, function( item ){
+                    if (matcher.test(item.name))
+                        return item.name;
+            }*/
+
+            ));
+
+        }
+        /*'success': function(data, textStats, XMLHttpRequest) {
+            console.log(data);
+            var output = prettyPrint(data);
+            $("#results").html(output);
+            for (var i = 0; i < 10; i++) {
+                $("#txtArea").append(data.businesses[i].name);
+            }}*/
+    });
+}
+
 //increments voteCountArray for venue at specific index
 function voteClick(index) {
     voteCountArray[index] += 1;
@@ -32,7 +136,6 @@ function overlay() {
         $("#userEntry").css("visibility", "hidden");
         $("#userEntryButton").css("visibility", "visible");
     }
-
 }
 
 //countdown timer for upcoming events
@@ -138,7 +241,7 @@ $(function() {
     var d = new Date("2013/01/07 18:00:00");
     var crap = new mmObject(eventName, d, "Satyan");
     crap.init();*/
-
+    AC();
     //create Event form submissions
     $("#eventFormSubmit").click(function (event) {
         event.preventDefault();
