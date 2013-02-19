@@ -11,9 +11,7 @@ $( "#venueName" ).autocomplete({
     minLength: 2,
     delay: 500,
     select: function( event, ui ) {
-        console.log( ui.item ?
-            "Selected: " + ui.item.label :
-            "Nothing selected, input was " + this.value);
+        $("input#venueLocation").val(ui.item.address);
     },
     open: function() {
         $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -81,16 +79,16 @@ function yelpRequest(request, response) {
         'dataType': 'jsonp',
         'success' : function(data) {
             console.log(data.businesses);
-            response($.map(data.businesses, function(item){
+            response($.map(data.businesses.slice(0, 10), function(item){
                     return {
                         label: item.name,
-                        value: item.name
-                    }
-                }
+                        value: item.name,
+                        address: item.location.address
+                    }}
+
             /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             response( $.grep( data.businesses, function( item ){
-                    if (matcher.test(item.name))
-                        return item.name;
+                    return (matcher.test(item.name))
             }*/
 
             ));

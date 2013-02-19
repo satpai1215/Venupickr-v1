@@ -352,6 +352,13 @@ body{
     .ui-autocomplete-loading {
         background: white url('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/images/ui-anim_basic_16x16.gif') right center no-repeat;
     }
+    ul.ui-autocomplete.ui-menu{
+        width:300px;
+        background: white;
+    }
+   .ui-helper-hidden-accessible {
+        display: none;
+   }
 	#userEntry h3{
 		text-align: center;
 		margin-bottom: 20px;
@@ -361,6 +368,9 @@ body{
 		margin: 0px 30px;
 		font-size: 0.9em;
 	}
+    #userEntry #venueLocation {
+        height: 50px;
+    }
 	#userEntry li{
 		padding-bottom: 10px;
 	}
