@@ -365,20 +365,25 @@ body{
 		font-style: italic;
 	}
 	#userEntry form{
-		margin: 0px 30px;
+		margin: 0px 10px;
 		font-size: 0.9em;
 	}
-    #userEntry #venueLocation {
+    #userEntry #venueName {
+        width: 150px;
+    }
+    #userEntry #venueInfo {
         height: 50px;
+        width:  150px;
+        margin: 2px 0px;
+        padding: 1px;
+        border: inset 1px rgb(238, 238, 238);
+        resize: none;
     }
 	#userEntry li{
 		padding-bottom: 10px;
 	}
-	#userEntry input, select{
+	#userEntry input, textarea{
 		float:right;
-	}
-	#userEntry select{
-		width: 125px;
 	}
 	#userEntry ol{
 		margin-bottom: 20px;
@@ -388,6 +393,7 @@ body{
 		margin: 0 auto;
         float: right;
         font-weight: bold;
+        margin-top: 20px;
 	}
 
 /*----------------------------------------------------------------------------- 

@@ -72,27 +72,13 @@
 					<form id = "venueEntry">
 						<fieldset>
 							<ol>
-							<li><label>Venue Name:</label><input type="text" id="venueName" name="venueName" placeholder="Enter a Venue"></li>
-                            <li><label>Venue Location:</label><input type="text" id="venueLocation" name="venueLocation" placeholder="e.g. Sutter and Polk"></li>
-                            <li><label>Venue Type:</label>
-                                <select id="venueDropDown">
-                                    <optgroup label="Bars">
-                                        <option>Restaurant Bar</option>
-                                        <option>Sports Bar</option>
-                                        <option>Dive Bar</option>
-                                    </optgroup>
-                                    <optgroup label="Lounges">
-                                        <option>Upscale Lounge</option>
-                                        <option>Restaurant Lounge</option>
-                                        <option>Casual Lounge</option>
-                                    </optgroup>
-                                    <optgroup label="Other">
-                                        <option>Other Venue:</option>
-                                    </optgroup>
-                                </select></li>
+							<li><label>Venue Name:</label><input type="text" id="venueName" name="venueName" placeholder="Enter a Venue" /></li>
+                            <li><label>Venue Location:</label><textarea id="venueInfo" name="venueInfo" placeholder="e.g. Sutter and Polk"></textarea></li>
+
 							</ol>
-                            <button id = "venueEntrySubmit">ADD VENUE TO LIST! >>></button>
+
 						</fieldset>
+                        <button id = "venueEntrySubmit">ADD VENUE TO LIST! >>></button>
 					</form>
 				</div> <!--userEntry-->
 

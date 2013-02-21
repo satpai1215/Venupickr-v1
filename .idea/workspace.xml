@@ -23,16 +23,7 @@
       <file leaf-file-name="runner.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/runner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="56" selection-start="3068" selection-end="3068" vertical-scroll-proportion="-6.5">
+            <state line="177" column="29" selection-start="5443" selection-end="5443" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,7 +32,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="29" selection-start="3666" selection-end="3666" vertical-scroll-proportion="0.3548387">
+            <state line="96" column="0" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.516129">
               <folding />
             </state>
           </provider>
@@ -50,7 +41,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="17" selection-start="8651" selection-end="8651" vertical-scroll-proportion="0.0">
+            <state line="395" column="14" selection-start="9114" selection-end="9114" vertical-scroll-proportion="-19.26923">
               <folding />
             </state>
           </provider>
@@ -69,8 +60,8 @@
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/history.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/runner.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -359,13 +350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="17" selection-start="8651" selection-end="8651" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="56" selection-start="3068" selection-end="3068" vertical-scroll-proportion="-6.5">
@@ -373,16 +357,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="395" column="14" selection-start="9114" selection-end="9114" vertical-scroll-proportion="-19.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/runner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
+        <state line="177" column="29" selection-start="5443" selection-end="5443" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="29" selection-start="3666" selection-end="3666" vertical-scroll-proportion="0.3548387">
+        <state line="96" column="0" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.516129">
           <folding />
         </state>
       </provider>

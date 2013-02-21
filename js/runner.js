@@ -11,7 +11,10 @@ $( "#venueName" ).autocomplete({
     minLength: 2,
     delay: 500,
     select: function( event, ui ) {
-        $("input#venueLocation").val(ui.item.address);
+        ui.item.address.forEach(function(line) {
+            $("#venueInfo").append(line + "\n");
+        });
+
     },
     open: function() {
         $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -83,7 +86,7 @@ function yelpRequest(request, response) {
                     return {
                         label: item.name,
                         value: item.name,
-                        address: item.location.address
+                        address: item.location.display_address
                     }}
 
             /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
@@ -202,10 +205,11 @@ function mmObject(eventName, eventDate, eventOwner) {
 
     //adds venue to venueList element
     function addVenue(event) {
+        console.log("poop");
         event.preventDefault();
 
         //check that fields are completed
-        if($("#venueName").val() === "" || $("#venueLocation").val() === "") {
+        if($("#venueName").val() === "" || $("#venueInfo").val() === "") {
             alert ("One or more required fields is empty");
         }
         else {
@@ -214,7 +218,7 @@ function mmObject(eventName, eventDate, eventOwner) {
             //var userName = prompt("Please enter your name:");
             //if(userName !== "" && userName !== null) {
                 $("#venueList ul").append('<li class="listItem"><div class = "venueSticky">' +
-                    $("#venueName").val() + '<br/>' + $("#venueLocation").val()+ '<br/>' + '(' + $("#venueDropDown").val() +')' + '<br/>' + '<div align="right">- ' + eventOwner + ' -</div><br/>'+
+                    $("#venueName").val() + '<br/>' + $("#venueInfo").val()+ '<br/>' + '(' + $("#venueDropDown").val() +')' + '<br/>' + '<div align="right">- ' + eventOwner + ' -</div><br/>'+
                     '</div><button class = \"voteButton\" onclick = \"voteClick($(\'.voteButton\').index(this))\">VOTE!</button><div class = \"voteCount\">0</div></li>');
 
                 //clear entry fields
