@@ -1,4 +1,7 @@
 MoMondays::Application.routes.draw do
+  resources :venues
+
+
   resources :events
 
 
