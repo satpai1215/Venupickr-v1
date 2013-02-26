@@ -17,16 +17,9 @@
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.text_field :date %>
+    <%= f.datetime_select :date %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :votecount %><br />
-    <%= f.number_field :votecount %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

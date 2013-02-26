@@ -1,11 +1,13 @@
 MoMondays::Application.routes.draw do
-  resources :venues
+  devise_for :users
 
 
   resources :events
 
 
   resources :users
+
+  root :to => 'events#index'
 
 
   # The priority is based upon order of creation:

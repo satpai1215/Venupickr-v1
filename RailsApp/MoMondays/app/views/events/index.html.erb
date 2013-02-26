@@ -1,29 +1,33 @@
-<h1>Listing events</h1>
+<div id = "currentEventList">
+    <h1>Events on the Clock:</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Stage</th>
+                <th>Time Left to Vote</th>
+                <th>Created By</th>
+                <th></th>
+                <th></th>
+            </tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Address</th>
-    <th>Votecount</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <% @events.each do |event| %>
+              <tr>
+                <td><%= link_to event.name, event_path(event) %></td>
+                <td><%= event.date.strftime("%B %d, %Y") %></td>
+                <td><%= event.date.strftime("%I:%M%p") %></td>
+                <td>Voting</td>
+                <td></td>
+                <td><%= event.user.username %></td>
+                <%= display_modifiers(event) %>
+              </tr>
+            <% end %>
+        </table>
+</div> <!--currentEventList -->
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.date %></td>
-    <td><%= event.address %></td>
-    <td><%= event.votecount %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<div id = "newEventCreate">
 <%= link_to 'New Event', new_event_path %>
+</div>
+
+
