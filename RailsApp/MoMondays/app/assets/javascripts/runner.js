@@ -139,30 +139,6 @@ function overlay() {
     }
 }
 
-//countdown timer for upcoming events
-function updateCountdown(d) {
-    var currentDate = new Date();
-    var timeMS = Math.abs(d - currentDate);
-    var seconds = Math.round(timeMS/1000);
-    var minutes = Math.floor(seconds/60);
-    seconds %= 60;
-    var hours = Math.floor(minutes/60);
-    minutes %= 60;
-    var days = Math.floor(hours/24);
-    hours %= 24;
-
-    $("#eventTimer").html(days + ((days === 1) ? " Day": " Days") + '<br/>' + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
-
-
-}
-
-//converts numbers to two digit strings for countdown timer
-function numChecker(num) {
-    if(num <10){
-        return "0" + num;
-    }
-    return num;
-}
 
 /********************
 'mmObject' DEFINITION: STORES ALL THE INFO FOR A GIVEN USER-CREATED EVENT
@@ -234,65 +210,64 @@ function mmObject(eventName, eventDate, eventOwner) {
  END 'mmObject' DEFINITION
  *********************/
 
+//creates countdown timers in events#index view for each event
+function createTimersinView()
+{
+	var eventDate = [];
+	for (var i = 0; i < gon.numEvents; i++) { 
+		var dateFromView = $("#eventIndexTimer" + i).data("date");
+		var dateString = parseDate(dateFromView)
+		eventDate.push(new Date(dateString));
+	}
+	for(var i=0; i < eventDate.length; i++) {
+		var x= eventDate[i];
+		var now = new Date();
+		if (eventDate[i] - now > 0) {
+	  		setInterval(function(x, i) {return function() {updateCountdown(x, i)}}(x, i) , 1000);
+	  	}
+
+	}
+}
+
+//parses date string object returned from rails events#index view
+function parseDate(date) {
+	var dateStrings = date.split(" ");
+
+	//dateStrings[0] = "2013-01-05", dateStrings[1] = "16:00:00", for example
+	return dateStrings[0] + " " + dateStrings [1];
+}
+
+
+//updates countdown timer for upcoming events
+function updateCountdown(d, i) {
+    var currentDate = new Date();
+    var timeMS = Math.abs(d - currentDate);
+    var seconds = Math.round(timeMS/1000);
+    var minutes = Math.floor(seconds/60);
+    seconds %= 60;
+    var hours = Math.floor(minutes/60);
+    minutes %= 60;
+    var days = Math.floor(hours/24);
+    hours %= 24;
+
+    $("#eventIndexTimer" + i).html(days + ((days === 1) ? " Day": " Days") + " " + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
+}
+
+//converts numbers to two digit strings for countdown timer
+function numChecker(num) {
+    if(num <10){
+        return "0" + num;
+    }
+    return num;
+}
 
 /********************
  $(document).ready() function
  *********************/
 $(function() {
-   /* var eventName = "Mo Mondays"
-    var d = new Date("2013/01/07 18:00:00");
-    var crap = new mmObject(eventName, d, "Satyan");
-    crap.init();*/
-    AC();
-    //create Event form submissions
-    $("#eventFormSubmit").click(function (event) {
-        event.preventDefault();
-
-        var t = $("#formEventTime").val() + ":00";
-        var d = new Date($("#formEventDate").val() + " " + t);
-
-        var newEvent = new mmObject($("#formEventName").val(), d, "userName");
-        newEvent.init();
-        currentEventsArray.push(newEvent);
-
-        $("#createEventForm form")[0].reset();
-        $("#createEventForm a").attr("href", "#" + "mmEvent" + currentEventsArray.indexOf(newEvent));
-       // $("#createEventForm a").attr("target", "_blank");
-        //$("#createEventForm a").click();
-
-        $(".modalDialog").css("visibility", "hidden");
-        $("#userEntryButton").css("visibility", "visible");
-    });
-
-
-
-/*
-    $( "#userEntry" ).dialog({
-        autoOpen: true,
-        height: 800,
-        width: 350,
-        modal: true,
-        buttons: {
-            "Add Venue to List": function() {
-
-            },
-            Cancel: function() {
-                $( this ).dialog( "close" );
-            }
-        },
-        close: function() {
-
-        }
-    });
-
-    $( "#entryButton" ).click(function() {
-            $( "#userEntry" ).dialog( "open" );
-    });
-
-*/
+	   //var dateFromIndex = $("#eventIndexTimer").data("date");
+	   //var dateIndex = $(".eventIndexTimer").data("index");
+	   //var eventDate = new Date(dateFromIndex);
+    	//var t = setInterval(function() {updateCountdown(eventDate, dateIndex)} , 1000);
 
 });
-
-
-
-

@@ -11,9 +11,5 @@ module EventsHelper
     	return html.html_safe
 	end
 
-	def update_countdown(event)
-		((DateTime.now-event.date)*3600*24).to_s
-	end
-
 
 end
