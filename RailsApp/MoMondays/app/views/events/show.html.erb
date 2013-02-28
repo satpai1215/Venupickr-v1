@@ -1,34 +1,30 @@
-<h1><%= @event.name %></h1>
-<h2> Date: <%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></h2>
+<div id = "event-main">
+	<h1><%= @event.name %></h1>
+	<h2> Date: <%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></h2>
 
-<%= render :partial => 'venues/form', :locals => { :event => @event } %> 
+	<div id = "venueEntry">
+		<h2>Suggest a Venue:</h2>
+		<%= render :partial => 'venues/form', :locals => { :event => @event } %> 
+	</div>
 
-<div id = "venueList">
-	<h3>Recommended Venues</h3>
-	<table>
-		<tr>
-		    <th>Name</th>
-		    <th>Address</th>
-		   	<th>Vote Count</th>
-		    <th>Suggested By</th>
-		    <th>Suggested At</th>
-		    <th></th>
-		    <th></th>
-		</tr>
+	<div id = "venueList">
+		<h3>Recommended Venues</h3>
+	
+		<ul>
+			<% @event.venues.each_with_index do |venue, index| %>
+				<li class = "listItem">
+					<div class = "venueSticky">
+						<%= venue.name %>
+					    <%= venue.address %>
+					    <%= venue.votecount %>
+					    <%= venue.user.username %>
+				    	<%= display_modifiers(venue) %>
+				   </div>
+				</li>
+			<% end %>
+		</ul>
+	</div><!-- venueList -->
 
-		<% @event.venues.each_with_index do |venue, index| %>
-		  <tr>
-		    <td><%= venue.name %></td>
-		    <td><%= venue.address %></td>
-		    <td><%= venue.votecount %></td>
-		    <td><%= venue.user.username %></td>
-		    <td><%= venue.created_at %></td>
-		    <td><%= display_modifiers(@event) %></td>
-		  </tr>
-		<% end %>
-	</table>
-</div> <!-- venueList -->
-
-
+</div>
 <%= display_modifiers(@event) %> |
 <%= link_to 'Back', events_path %>

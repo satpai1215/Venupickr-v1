@@ -1,0 +1,642 @@
+/*
+Theme for Mo' Mondays Project
+Created By: Satyan
+
+[Table Of Contents] 
+
+	01- BODY
+	02- HEADER 
+	03- CONTAINER 
+	04- SIDEBAR (nav, eventlist)
+	05- MAIN (venueEntry, venueList)
+	06- FOOTER
+	07- MISC
+
+*/
+
+
+/*----------------------------------------------------------------------------- 
+=01 BODY 
+-----------------------------------------------------------------------------*/
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+/*----------------------------------------------------------------------------- 
+=03 CONTAINER 
+-----------------------------------------------------------------------------*/
+
+#container{
+	margin: 30px auto;
+	position: relative;
+	width: 960px;
+}
+
+#container:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/*----------------------------------------------------------------------------- 
+=04 SIDEBAR 
+-----------------------------------------------------------------------------*/
+
+#sidebar{ 
+	min-height: 650px;
+	float: left;
+	width: 120px;
+	height: 100%;
+	padding: 50px 0px 0px 0px;
+	background: none;
+	position: relative;
+}
+/*----------------------------------------------------------------------------- 
+=04 NAV
+-----------------------------------------------------------------------------*/
+	#nav{
+	
+	}
+
+	#nav:after {
+	  content: ".";
+	  display: block;
+	  height: 0;
+	  clear: both;
+	  visibility: hidden;
+	}
+
+	#nav li{
+		margin-bottom: 5px;
+	}
+
+	#nav li a{
+		display: block;
+		text-decoration: none;
+		text-align: right;
+		border-top: solid 2px black;
+		border-bottom: solid 2px black;
+		border-left: solid 2px black;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		padding: 5px 10px 5px 0px;
+		color: black;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+	}
+		#nav li a:hover{
+			font-weight: bold;
+			background: #F9F9C9;
+			color: black;
+		}
+
+		#nav li.active a{
+			font-weight: bold;
+			background: #F9a9C9;
+			color: black;
+		}
+
+/*----------------------------------------------------------------------------- 
+=04 EVENT CONTROLS
+-----------------------------------------------------------------------------*/
+	#eventControls{
+		text-align: center;
+		padding: 0px 0px 0px 0px;
+		position: absolute;
+		z-index: 100;
+		right: -20px;
+		bottom: 5%;
+	}
+		#eventControls p{
+			text-align: center;
+			font-style: italic;
+		}
+		#eventControls li.eventControl{
+			z-index: 100;
+			width: 155px;
+			height: 40px;
+			padding-top: 10px;
+			
+		}
+		#eventControls li a{
+			background: url('../images/color_tabs_sprite.jpg') no-repeat;	
+			background-size: 100% auto;
+			display: block;
+			text-decoration: none;
+			padding-top: 10px;
+			height: 30px;
+			width: 100%;
+			/*border: solid 2px black;
+			border-radius: 5px;*/
+			font-size: 1.1em;
+			color: black;
+			text-shadow: 0.1em 0.1em 0.2em white;
+		}
+		#eventControls li a:hover{
+			font-weight: bold;
+		}
+			#eventControls li.Event1 a{
+				background-position: -5px -5px;
+			}
+			#eventControls li.Event2 a{
+				background-position: -5px -55px;
+			}
+			#eventControls li.Event3 a{
+				background-position: -5px -106px;
+			}
+			#eventControls li.Event4 a{
+				background-position: -5px -153px;
+			}
+
+/*-----------------------------------------------------------------------------
+=05 MODAL FORM STYLING
+-----------------------------------------------------------------------------*/
+.modalDialog {
+    position: fixed;
+    visibility: visible;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+    .modalDialog:target {
+        opacity:1;
+        pointer-events: auto;
+    }
+    .modalDialog h2 {
+        text-align: left;
+        border-bottom: solid 2px black;
+        margin: 5px 5px 10px 5px;
+        font-weight: bolder;
+    }
+
+    .modalDialog #createEventForm {
+        width: 330px;
+        height: 265px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        border: solid 4px gray;
+        background: #eed3d7;
+        background: -moz-linear-gradient(#eed3d7, #999);
+        background: -webkit-linear-gradient(#eed3d7, #999);
+        background: -o-linear-gradient(#fff, #eed3d7);
+    }
+
+        #createEventForm li {
+            width: 100%;
+            height: 30px;
+            margin: 0 auto;
+            display: block;
+        }
+        #createEventForm label {
+            display: block;
+            text-align: left;
+            margin-top: 5px;
+            margin-left: 5px;
+            width: 100px;
+            height: 20px;
+            float: left;
+        }
+        #createEventForm .input {
+            margin-left: 15px;
+            margin-bottom: 7px;
+            display: block;
+            height: 20px;
+            width: 200px;
+            float: left;
+        }
+        #createEventForm #formEventComments {
+            height: 100px;
+            resize: none;
+        }
+        #createEventForm #formEventTime {
+            width: 80px;
+            margin-right: 25px;
+        }
+
+        #createEventForm button {
+            float: right;
+            font-weight: bolder;
+            margin-right: 10px;
+            margin-top: 8px;
+            display: block;
+        }
+
+    .modalDialog #eventListDialog {
+        width: 400px;
+        height: 400px;
+        scroll: auto;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #eed3d7;
+        background: -moz-linear-gradient(#eed3d7, #999);
+        background: -webkit-linear-gradient(#eed3d7, #999);
+        background: -o-linear-gradient(#fff, #eed3d7);
+    }
+
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+
+    .close:hover { background: #00d9ff; }
+/*----------------------------------------------------------------------------- 
+=05 EVENT-MAIN 
+-----------------------------------------------------------------------------*/
+
+#event-main{
+	background: url('../images/lined_paper.png');
+	width: 836px;
+	padding-top: 30px;
+	min-height: 650px;
+	float: right;
+	position: relative;
+	border: solid 2px black;
+	border-radius: 15px;
+		-moz-box-shadow: 0px 5px 20px 0px #000;
+		-webkit-box-shadow: 0px 5px 20px 0px #000;
+		box-shadow: 0px 5px 20px 0px #000;
+}
+
+	#event-main h1{
+		font-family: CF Midnight;
+		font-weight: bolder;
+		font-size: 4.0em;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	#event-main h2{
+		text-align: center;
+		margin-bottom: 5px;
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+
+/*----------------------------------------------------------------------------- 
+=05 EVENT TIMER
+-----------------------------------------------------------------------------*/
+
+#timer-container{
+	width: 300px;
+	position: absolute;
+	left: 6%;
+	top: 20%;
+	color: red;
+}
+    #timer-container h2{
+        font-size: 1.55em;
+    }
+
+	#eventTimer{
+		text-align: center;
+		padding-top: 30px;
+        line-height: 1.4em;
+		font-size: 2.0em;
+        font-style: italic;
+	}
+	#eventTimer script{
+		z-index: 100;
+	}
+
+
+/*----------------------------------------------------------------------------- 
+=05 VENUE-ENTRY FORM 
+-----------------------------------------------------------------------------*/
+
+#venueEntry{
+	width: 300px;
+	position: absolute;
+	left: 6%;
+	bottom: 20%;
+    visibility: visible;
+}
+    .ui-autocomplete-loading {
+        background: white url('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/images/ui-anim_basic_16x16.gif') right center no-repeat;
+    }
+    ul.ui-autocomplete.ui-menu{
+        width:300px;
+        background: white;
+    }
+   .ui-helper-hidden-accessible {
+        display: none;
+   }
+	#venueEntry h2{
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	#venueEntry form{
+		margin: 0px 10px;
+		font-size: 0.9em;
+	}
+    #venueEntry #venue_name {
+        width: 150px;
+        float: right;
+    }
+    #venueEntry #venue_address {
+        height: 50px;
+        width:  150px;
+        margin: 2px 0px;
+        padding: 1px;
+        border: inset 1px rgb(238, 238, 238);
+        resize: none;
+        float: right;
+    }
+	#venueEntry .field{
+		padding-bottom: 10px;
+	}
+	#venueEntry #venueSubmitButton{
+		display: block;
+		margin: 0 auto;
+        float: right;
+        font-weight: bold;
+        margin-top: 20px;
+	}
+
+/*----------------------------------------------------------------------------- 
+=05 VENUELIST , EVENTHISTORY
+-----------------------------------------------------------------------------*/
+#venueList {
+	position: absolute;
+	top: 100px;
+	background: white;
+	border: ridge 5px gray;
+	padding-top: 2px;
+
+	right: 2.5%;
+	background: white;
+	width: 425px;
+	height: 540px;
+
+    float: right;
+}
+
+
+	#venueList h4 {
+		text-align: center;
+        font-weight: bold;
+        font-size: 1.3em;
+        line-height: 1.2em;
+		height: 50px;
+		border-bottom: solid 3px gray;
+	}
+
+    #venueList #eventNameHeader {
+        font-style: italic;
+        font-weight: normal;
+    }
+
+	#venueList ul {
+		background-image: url('../images/corkboard_pattern.jpg');
+		background-attachment: local;
+		height: 490px;
+		overflow-y: scroll;
+		font-family: Verdana, sans-serif;
+	}
+
+	#venueList li.listItem{
+        position: relative;
+		width: 100%;
+		height: 200px;
+        padding-top: 5px;
+	}
+		.venueSticky{
+			font-family: fatpen;
+			font-size: 1em;
+            line-height: 2em;
+			border: solid 2px black;
+				-moz-box-shadow: 0px 5px 5px 0px #000;
+				-webkit-box-shadow: 0px 2px 5px 0px #000;
+				box-shadow: 0px 2px 5px 0px #000;
+			background: #F9F9C9;
+    		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+    		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+    		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
+    		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
+			padding: 10px 10px 10px 10px;
+		}
+
+        #venueList .venueSticky{
+            float:left;
+            height: 70%;
+            width: 60%;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+	#venueList li.listItem button{
+		font-size: 1.25em;
+		border-radius: 5px;
+		background-color: #E3E1E2;
+        float:right;
+		margin-top: 10px;
+		margin-right: 25px;
+	}
+
+    #venueList li.listItem .voteCount {
+        margin-top: 10px;
+        margin-right: 25px;
+        float: right;
+        display: inline;
+        font-size: 4em;
+        text-align: center;
+        width: 80px;
+    }
+
+
+
+/*-----------------------------------------------------------------------------
+=05 EVENTHISTORY
+-----------------------------------------------------------------------------*/
+#eventHistory{
+    position: absolute;
+    top: 100px;
+    border: ridge 5px gray;
+    padding-top: 5px;
+
+    right: 20%;
+    left: 20%;
+    bottom: 2.5%;
+    background: white;
+}
+
+#eventHistory h4{
+    text-align: center;
+    line-height: 1.2em;
+    height: 50px;
+    border-bottom: solid 3px gray;
+}
+
+#eventHistory ul{
+    background-image: url('../images/corkboard_pattern.jpg');
+    background-attachment: local;
+    height: 490px;
+    overflow-y: scroll;
+    font-family: Verdana, sans-serif;
+}
+
+#eventHistory li.listItem{
+    width: 100%;
+    height: 200px;
+}
+
+#eventHistory .venueSticky{
+    height: 70%;
+    width: 50%;
+    margin: 10px auto;
+}
+
+/*-----------------------------------------------------------------------------
+=05 CURRENT EVENT LIST (HOMEPAGE)
+-----------------------------------------------------------------------------*/
+#currentEventList {
+    position: absolute;
+    top: 100px;
+    border: solid 3px black;
+    padding-top: 2px;
+
+    right: 15%;
+    left: 15%;
+    background: white;
+    height: 540px;
+
+    border-radius: 15px;
+    -moz-box-shadow: 0px 5px 20px 0px #000;
+    -webkit-box-shadow: 0px 5px 20px 0px #000;
+    box-shadow: 0px 5px 20px 0px #000;
+}
+        #currentEventList h4 {
+            text-align: center;
+            padding: 10px 0px;
+            font-weight: bold;
+            font-size: 1.75em;
+        }
+
+        #currentEventList ul {
+            overflow-y: auto;
+        }
+        #currentEventList #tableHeader {
+            padding-top: 2.5px;
+            padding-bottom: 2.5px;
+            padding-right: 10px;
+            border-bottom: ridge 2px gray;
+            border-top: ridge 2px gray;
+            height: 20px;
+
+        }
+        #currentEventList #tableHeader div {
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            height:100%;
+        }
+        #currentEventList #tableHeader div.eventItemName{
+            width: 40%;
+            height: 100%;
+        }
+        #currentEventList #tableHeader div.eventSubmitter {
+            width: 20%;
+            height: 100%;
+        }
+        #currentEventList #tableHeader div.eventItemDate{
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }
+        #currentEventList #tableHeader div.eventItemTimer{
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }
+        #currentEventList li.eventItem {
+            position: relative;
+            height: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+            border-bottom: solid 2px black;
+        }
+        #currentEventList li.eventItem div{
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+        }
+        #currentEventList li.eventItem div.eventItemName{
+            width: 40%;
+            height: 100%;
+        }
+        #currentEventList li.eventItem div.eventSubmitter {
+            width: 20%;
+            height: 100%;
+        }
+        #currentEventList li.eventItem div.eventItemDate{
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }
+        #currentEventList li.eventItem div.eventItemTimer{
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }
+
+/*----------------------------------------------------------------------------- 
+=06 FOOTER 
+-----------------------------------------------------------------------------*/
+footer{
+	clear: both;
+	text-align: center;
+	padding: 5px 0px;
+	width: 836px;
+	float: right;
+	font-size: 2em;
+	font-weight: bolder;
+
+}
+
+/*----------------------------------------------------------------------------- 
+=07 MISC 
+-----------------------------------------------------------------------------*/
+
+.clear{
+	clear: both;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}

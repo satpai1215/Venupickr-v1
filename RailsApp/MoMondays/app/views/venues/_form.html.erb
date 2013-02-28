@@ -12,11 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address %>
     <%= f.text_field :address %>
   </div>
 
@@ -26,8 +27,7 @@
     <#%= f.select :event_id, [[event.name,event.id]] %> -->
   </div>
 
-
   <div class="actions">
-    <%= f.submit "Suggest Venue" %>
+    <%= f.submit "Suggest Venue", id: "venueSubmitButton" %>
   </div>
 <% end %>
