@@ -7,6 +7,8 @@ MoMondays::Application.routes.draw do
 
   resources :users
 
+  resources :venues
+
   root :to => 'events#index'
 
 

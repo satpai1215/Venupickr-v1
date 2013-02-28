@@ -20,7 +20,7 @@
                 <td>Voting</td>
                 <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.date.to_s} %>Event Completed</td>
                 <td><%= event.user.username %></td>
-                <%= display_modifiers(event) %>
+                <td><%= display_modifiers(event) %></td>
               </tr>
             <% end %>
         </table>
@@ -30,8 +30,8 @@
 <%= link_to 'Create New Event', new_event_path %>
 </div>
 
-<div id = "pastEventList">
-    <h1>Past Events<h1>
+<div id = "recentEventList">
+    <h1>Recent Events:<h1>
 
 
 </div>

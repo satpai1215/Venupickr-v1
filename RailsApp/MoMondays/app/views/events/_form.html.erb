@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.datetime_select :date, :ampm => true, :default => {:hour => 18, :minute => 0} %>
   </div>
 
   <div class="actions">

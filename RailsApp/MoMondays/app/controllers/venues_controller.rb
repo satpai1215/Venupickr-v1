@@ -24,7 +24,7 @@ class VenuesController < ApplicationController
   # GET /venues/new
   # GET /venues/new.json
   def new
-    @venue = Venue.new
+    # @venue = Venue.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +41,11 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(params[:venue])
+    @venue.user = current_user
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to @venue, notice: 'Venue was successfully created.' }
+        format.html { redirect_to @venue.event, notice: 'Venue was successfully created.' }
         format.json { render json: @venue, status: :created, location: @venue }
       else
         format.html { render action: "new" }
