@@ -128,6 +128,24 @@ function voteClick(index) {
     });
 }
 
+function voteSort() {
+
+
+    var $list = $("#venueList .listItem");
+
+    $list.sort(function(a, b) {
+        var aVotes = $(a).children("div.voteCount").text();
+        var bVotes = $(b).children("div.voteCount").text();
+
+        return parseInt(bVotes) - parseInt(aVotes);
+
+    });
+
+    $.each($list, function(index, li){
+        $("#venueList ul").append(li);
+    });
+}
+
 function overlay() {
     if( $("#userEntry").css("visibility") == "hidden") {
         $("#userEntry").css("visibility", "visible");
@@ -181,7 +199,6 @@ function mmObject(eventName, eventDate, eventOwner) {
 
     //adds venue to venueList element
     function addVenue(event) {
-        console.log("poop");
         event.preventDefault();
 
         //check that fields are completed

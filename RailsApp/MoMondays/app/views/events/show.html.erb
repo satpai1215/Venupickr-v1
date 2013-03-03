@@ -4,7 +4,7 @@
 
 	<div id = "venueEntry">
 		<h2>Suggest a Venue:</h2>
-		<%= render :partial => 'venues/form', :locals => { :event => @event } %> 
+		<%= render :partial => "venues/new" %> 
 	</div>
 
 	<div id = "venueList">
@@ -16,10 +16,13 @@
 					<div class = "venueSticky">
 						<%= venue.name %>
 					    <%= venue.address %>
-					    <%= venue.votecount %>
 					    <%= venue.user.username %>
 				    	<%= display_modifiers_venue(venue) %>
 				   </div>
+				   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :id => venue.id%>
+					<!--<button class = "voteButton" onclick ="voteClick($('.voteButton').index(this))">VOTE!</button> -->
+					<div class = "voteCount"><%= venue.votecount %> </div>
+					<script> voteSort() </script>
 				</li>
 			<% end %>
 		</ul>
@@ -27,3 +30,4 @@
 
 <%= display_modifiers_event(@event) %> |
 <%= link_to 'Back', events_path %>
+

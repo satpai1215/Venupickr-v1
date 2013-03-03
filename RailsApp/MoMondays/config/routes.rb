@@ -9,6 +9,9 @@ MoMondays::Application.routes.draw do
 
   resources :venues
 
+  
+  match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+
   root :to => 'events#index'
 
 

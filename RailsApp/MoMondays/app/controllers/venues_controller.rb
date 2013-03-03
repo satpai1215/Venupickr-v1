@@ -42,6 +42,7 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(params[:venue])
     @venue.user = current_user
+    @venue.votecount = 0
 
     respond_to do |format|
       if @venue.save
@@ -81,4 +82,13 @@ class VenuesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def increment_vote
+    @venue = Venue.find(params[:id])
+    num = @venue.votecount
+    @venue.update_attributes(:votecount => num + 1 )
+
+    redirect_to @venue.event
+  end
+
 end
