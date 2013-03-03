@@ -3,7 +3,7 @@ var venueCount = 0;
 var currentEventsArray = [];
 
 function AC(){
-$( "#venueName" ).autocomplete({
+$( "#venue_name" ).autocomplete({
     source: function(request, response) {
         yelpRequest(request, response)
     },
@@ -11,9 +11,12 @@ $( "#venueName" ).autocomplete({
     minLength: 2,
     delay: 500,
     select: function( event, ui ) {
+        var addy = ""
         ui.item.address.forEach(function(line) {
-            $("#venueInfo").append(line + "\n");
+            addy += line + "\n";
         });
+        $("#venue_address").val(addy);
+        $("#venue_url").val(ui.item.url)
 
     },
     open: function() {
@@ -86,7 +89,8 @@ function yelpRequest(request, response) {
                     return {
                         label: item.name,
                         value: item.name,
-                        address: item.location.display_address
+                        address: item.location.display_address,
+                        url: item.url
                     }}
 
             /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );

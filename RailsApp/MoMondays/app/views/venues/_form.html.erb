@@ -18,18 +18,29 @@
 
   <div class="field">
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_area :address, :size => "20x4" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
   </div>
 
  <div class = "field">
-  
-  <%=f.hidden_field :event_id, value: event.id %>
+  <% if @venue.new_record? %>
+    <%=f.hidden_field :event_id, value: event.id %>
+  <% else %>
+    <%=f.hidden_field :event_id, value: @venue.event_id %>
+  <% end %>
+
 
    <!-- <#%= f.label :event %><br />
     <#%= f.select :event_id, [[event.name,event.id]] %> -->
   </div>
 
   <div class="actions">
-    <%= f.submit "Suggest Venue", id: "venueSubmitButton" %>
+    <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), id: "venueSubmitButton" %>
   </div>
 <% end %>
+
+<script> AC() </script>

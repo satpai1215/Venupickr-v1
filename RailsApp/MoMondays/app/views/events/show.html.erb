@@ -1,10 +1,12 @@
 
 	<h1><%= @event.name %></h1>
 	<h2> Date: <%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></h2>
+	<%= display_modifiers_event(@event) %> |
+	<%= link_to 'Back', events_path %>
 
 	<div id = "venueEntry">
 		<h2>Suggest a Venue:</h2>
-		<%= render :partial => "venues/new" %> 
+		<%= render :partial => "venues/form", :locals => { :event => @event} %> 
 	</div>
 
 	<div id = "venueList">
@@ -15,8 +17,9 @@
 				<li class = "listItem">
 					<div class = "venueSticky">
 						<%= venue.name %>
-					    <%= venue.address %>
-					    <%= venue.user.username %>
+					    Address: <%= venue.address %>
+					    <% if venue.url != "" %><%= link_to "Yelp Page", venue.url, :target => '_blank' %><% end %>
+					    Suggested By: <%= venue.user.username %>
 				    	<%= display_modifiers_venue(venue) %>
 				   </div>
 				   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :id => venue.id%>
@@ -28,6 +31,6 @@
 		</ul>
 	</div><!-- venueList -->
 
-<%= display_modifiers_event(@event) %> |
-<%= link_to 'Back', events_path %>
+
+
 

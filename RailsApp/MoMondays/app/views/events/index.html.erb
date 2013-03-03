@@ -1,5 +1,14 @@
+<div id = "newsFeed">
+    <h1>Recent Activity</h1>
+    <ul>
+    </ul>
+</div>
+
 <div id = "currentEventList">
     <h1>Events on the Clock:</h1>
+    <div id = "newEventCreate">
+        <%= link_to 'Create New Event', new_event_path %>
+    </div>
         <table>
             <tr>
                 <th>Name</th>
@@ -25,10 +34,6 @@
             <% end %>
         </table>
 </div> <!--currentEventList -->
-
-<div id = "newEventCreate">
-    <%= link_to 'Create New Event', new_event_path %>
-</div>
 
 
  <script> createTimersinView() </script>

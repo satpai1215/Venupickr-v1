@@ -40,17 +40,22 @@ class VenuesController < ApplicationController
   # POST /venues
   # POST /venues.json
   def create
-    @venue = Venue.new(params[:venue])
-    @venue.user = current_user
-    @venue.votecount = 0
+    if Venue.exists?(:user_id => current_user.id)
+      redirect_to :back, 
+                notice: "You have already suggested a venue for this event. Try editing your existing venue."
+    else
+      @venue = Venue.new(params[:venue])
+      @venue.user = current_user
+      @venue.votecount = 0
 
-    respond_to do |format|
-      if @venue.save
-        format.html { redirect_to @venue.event, notice: 'Venue added successfully created.' }
-        format.json { render json: @venue.event, status: :created, location: @venue.event }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @venue.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @venue.save
+          format.html { redirect_to @venue.event, notice: 'Venue added successfully created.' }
+          format.json { render json: @venue.event, status: :created, location: @venue.event }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @venue.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -88,7 +93,7 @@ class VenuesController < ApplicationController
     num = @venue.votecount
     @venue.update_attributes(:votecount => num + 1 )
 
-    redirect_to @venue.event
+    redirect_to @venue.event, notice: "Your vote has been recorded."
   end
 
 end
