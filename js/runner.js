@@ -223,7 +223,7 @@ function mmObject(eventName, eventDate, eventOwner) {
 
                 //clear entry fields
                 $("#venueEntry")[0].reset();
-                overlay();
+                //overlay();
 
             //}
         }
