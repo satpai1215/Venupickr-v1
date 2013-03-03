@@ -1,4 +1,4 @@
-<div id = "event-main">
+
 	<h1><%= @event.name %></h1>
 	<h2> Date: <%= @event.date.strftime("%B %d, %Y at %I:%M%p") %></h2>
 
@@ -18,13 +18,12 @@
 					    <%= venue.address %>
 					    <%= venue.votecount %>
 					    <%= venue.user.username %>
-				    	<%= display_modifiers(venue) %>
+				    	<%= display_modifiers_venue(venue) %>
 				   </div>
 				</li>
 			<% end %>
 		</ul>
 	</div><!-- venueList -->
 
-</div>
-<%= display_modifiers(@event) %> |
+<%= display_modifiers_event(@event) %> |
 <%= link_to 'Back', events_path %>

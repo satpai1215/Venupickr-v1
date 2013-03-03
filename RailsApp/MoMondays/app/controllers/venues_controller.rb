@@ -45,8 +45,8 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to @venue.event, notice: 'Venue was successfully created.' }
-        format.json { render json: @venue, status: :created, location: @venue }
+        format.html { redirect_to @venue.event, notice: 'Venue added successfully created.' }
+        format.json { render json: @venue.event, status: :created, location: @venue.event }
       else
         format.html { render action: "new" }
         format.json { render json: @venue.errors, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.update_attributes(params[:venue])
-        format.html { redirect_to @venue, notice: 'Venue was successfully updated.' }
+        format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +77,7 @@ class VenuesController < ApplicationController
     @venue.destroy
 
     respond_to do |format|
-      format.html { redirect_to venues_url }
+      format.html { redirect_to @venue.event }
       format.json { head :no_content }
     end
   end

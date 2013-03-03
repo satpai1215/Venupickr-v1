@@ -273,7 +273,7 @@ body{
 =05 EVENT-MAIN 
 -----------------------------------------------------------------------------*/
 
-#event-main{
+#main{
 	background: url('../images/lined_paper.png');
 	width: 836px;
 	padding-top: 30px;
@@ -287,7 +287,7 @@ body{
 		box-shadow: 0px 5px 20px 0px #000;
 }
 
-	#event-main h1{
+	#main h1{
 		font-family: CF Midnight;
 		font-weight: bolder;
 		font-size: 4.0em;
@@ -295,7 +295,7 @@ body{
 		padding-bottom: 10px;
 	}
 
-	#event-main h2{
+	#main h2{
 		text-align: center;
 		margin-bottom: 5px;
 		font-weight: bold;
@@ -519,20 +519,13 @@ body{
 =05 CURRENT EVENT LIST (HOMEPAGE)
 -----------------------------------------------------------------------------*/
 #currentEventList {
-    position: absolute;
-    top: 100px;
-    border: solid 3px black;
+    position: relative;
     padding-top: 2px;
+    width: 100%;
 
-    right: 15%;
-    left: 15%;
     background: white;
-    height: 540px;
+    height: 650px;
 
-    border-radius: 15px;
-    -moz-box-shadow: 0px 5px 20px 0px #000;
-    -webkit-box-shadow: 0px 5px 20px 0px #000;
-    box-shadow: 0px 5px 20px 0px #000;
 }
         #currentEventList h4 {
             text-align: center;
@@ -548,8 +541,6 @@ body{
             padding-top: 2.5px;
             padding-bottom: 2.5px;
             padding-right: 10px;
-            border-bottom: ridge 2px gray;
-            border-top: ridge 2px gray;
             height: 20px;
 
         }
@@ -615,14 +606,11 @@ body{
 =06 FOOTER 
 -----------------------------------------------------------------------------*/
 footer{
-	clear: both;
+    bottom: 10px;
 	text-align: center;
 	padding: 5px 0px;
-	width: 836px;
-	float: right;
 	font-size: 2em;
 	font-weight: bolder;
-
 }
 
 /*----------------------------------------------------------------------------- 
