@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :username, :password_confirmation, :remember_me
   has_many :events, dependent: :destroy
   has_many :venues,  dependent: :destroy
+  has_many :voters, dependent: :destroy
 
   validates :username, :email, presence: true, uniqueness: true
   validates :password, presence: true

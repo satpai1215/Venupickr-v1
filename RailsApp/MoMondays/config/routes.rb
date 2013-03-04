@@ -1,4 +1,5 @@
 MoMondays::Application.routes.draw do
+
   get "updates/index"
 
   devise_for :users

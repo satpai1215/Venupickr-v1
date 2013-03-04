@@ -45,6 +45,8 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.user = current_user
 
+    @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}.")
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -60,6 +62,7 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+    @update = Update.create!(:content => "#{current_user} just updated #{@event}.")
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -77,6 +80,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    @update = Update.create!(:content => "#{current_user} just deleted #{@event}.")
 
     respond_to do |format|
       format.html { redirect_to events_url }

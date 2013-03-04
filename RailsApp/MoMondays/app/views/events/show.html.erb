@@ -22,7 +22,7 @@
 					    Suggested By: <%= venue.user.username %>
 				    	<%= display_modifiers_venue(venue) %>
 				   </div>
-				   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :id => venue.id%>
+				   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id %>
 					<!--<button class = "voteButton" onclick ="voteClick($('.voteButton').index(this))">VOTE!</button> -->
 					<div class = "voteCount"><%= venue.votecount %> </div>
 					<script> voteSort() </script>
