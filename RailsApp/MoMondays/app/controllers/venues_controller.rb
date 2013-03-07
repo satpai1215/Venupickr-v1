@@ -1,25 +1,4 @@
 class VenuesController < ApplicationController
-  # GET /venues
-  # GET /venues.json
-  def index
-    @venues = Venue.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @venues }
-    end
-  end
-
-  # GET /venues/1
-  # GET /venues/1.json
-  def show
-    @venue = Venue.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @venue }
-    end
-  end
 
   # GET /venues/new
   # GET /venues/new.json
@@ -40,11 +19,11 @@ class VenuesController < ApplicationController
   # POST /venues
   # POST /venues.json
   def create
-    if Venue.exists?(:user_id => current_user.id)
+    @venue = Venue.new(params[:venue])
+    if Venue.exists?(:user_id => current_user.id, :event_id => @venue.event_id)
       redirect_to :back, 
                 notice: "You have already suggested a venue for this event. Try editing your existing venue."
     else
-      @venue = Venue.new(params[:venue])
       @venue.user = current_user
       @venue.votecount = 0
       @update = Update.create!(:content => "#{current_user} just suggested a venue for #{@venue.event}.")
@@ -103,6 +82,7 @@ class VenuesController < ApplicationController
       @venue.update_attributes(:votecount => num + 1 )
 
       Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id)
+      Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: #{@venue.event}.")
 
       redirect_to @venue.event, notice: "Your vote has been recorded."
     end

@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303235056) do
+ActiveRecord::Schema.define(:version => 20130307044830) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.datetime "date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.time     "time"
+    t.string   "stage"
+    t.datetime "event_start"
+    t.integer  "vote_start"
   end
 
   create_table "updates", :force => true do |t|

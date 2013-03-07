@@ -16,6 +16,9 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
+    @vote_date = @event.event_start - @event.vote_start.days
+    gon.vote_date = @vote_date
+    gon.event_date = @event.event_start
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,25 +46,29 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-    @event.user = current_user
+   
+      @event.user = current_user
+      @event.stage = "pre-voting"
 
-    @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}.")
+      @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}.")
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @event.save
+          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          format.json { render json: @event, status: :created, location: @event }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
-    end
+
   end
 
   # PUT /events/1
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+
     @update = Update.create!(:content => "#{current_user} just updated #{@event}.")
 
     respond_to do |format|
@@ -87,4 +94,5 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

@@ -18,7 +18,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Stage</th>
-                <th>Time Left to Vote</th>
+                <th>Time Left Until Event</th>
                 <th>Created By</th>
                 <th></th>
                 <th></th>
@@ -27,10 +27,10 @@
             <% @events.each_with_index do |event, index| %>
               <tr>
                 <td><%= link_to event.name, event_path(event) %></td>
-                <td><%= event.date.strftime("%B %d, %Y") %></td>
-                <td><%= event.date.strftime("%I:%M%p") %></td>
-                <td>Voting</td>
-                <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.date.to_s} %>Event Completed</td>
+                <td><%= event.event_start.strftime("%B %d, %Y") %></td>
+                <td><%= event.event_start.strftime("%I:%M%p") %></td>
+                <td><%= check_event_stage(event)%></td>
+                <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %>Event Completed</td>
                 <td><%= event.user.username %></td>
                 <td><%= display_modifiers_event(event) %></td>
               </tr>
@@ -39,4 +39,4 @@
 </div> <!--currentEventList -->
 
 
- <script> createTimersinView() </script>
+ <script> createTimersinView(); </script>

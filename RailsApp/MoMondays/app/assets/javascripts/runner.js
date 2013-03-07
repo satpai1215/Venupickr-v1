@@ -5,10 +5,10 @@ var currentEventsArray = [];
 function AC(){
 $( "#venue_name" ).autocomplete({
     source: function(request, response) {
-        yelpRequest(request, response)
+          yelpRequest(request, response);
     },
     autoFocus: true,
-    minLength: 2,
+    minLength: 1,
     delay: 500,
     select: function( event, ui ) {
         var addy = ""
@@ -30,24 +30,23 @@ $( "#venue_name" ).autocomplete({
 
 
 function yelpRequest(request, response) {
-
+    console.log(request.term);
     var auth = {
         //
         // Update with your auth tokens.
         //
         consumerKey: "xIeBBXL6bTqP5MDheNuehw",
         consumerSecret: "843wPzWYIVym8o9MG4X5jwsMt9U",
-        accessToken: "5C_yXJuWHwqk1nK1Vbmm8-V8F6plW8Jf",
+        accessToken: "NQQE9MaKFgSgzrzTKWKLSfVIaWPxYfa_",
         // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
         // You wouldn't actually want to expose your access token secret like this in a real application.
-        accessTokenSecret: "l8fc-v7JWbKrdck9Kw3PBW6vOmI",
+        accessTokenSecret: "VVkDuwQTQPiLxW0yMJX_K4OSRqc",
         serviceProvider: {
             signatureMethod: "HMAC-SHA1"
         }
     };
     //var term = "soda popinski"
     var near = 'San+Francisco';
-
     var accessor = {
         consumerSecret: auth.consumerSecret,
         tokenSecret: auth.accessTokenSecret
@@ -85,30 +84,25 @@ function yelpRequest(request, response) {
         'dataType': 'jsonp',
         'success' : function(data) {
             console.log(data.businesses);
-            response($.map(data.businesses.slice(0, 10), function(item){
-                    return {
+            //var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+            var matcher = new RegExp("^" + request.term, "i");
+            response($.map(data.businesses, function(item){
+                if (matcher.test(item.name)) {
+                  return {
                         label: item.name,
                         value: item.name,
                         address: item.location.display_address,
                         url: item.url
-                    }}
+                    }
+                }
+            }));
+        }});
+
 
             /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             response( $.grep( data.businesses, function( item ){
                     return (matcher.test(item.name))
             }*/
-
-            ));
-
-        }
-        /*'success': function(data, textStats, XMLHttpRequest) {
-            console.log(data);
-            var output = prettyPrint(data);
-            $("#results").html(output);
-            for (var i = 0; i < 10; i++) {
-                $("#txtArea").append(data.businesses[i].name);
-            }}*/
-    });
 }
 
 //increments voteCountArray for venue at specific index
@@ -133,7 +127,6 @@ function voteClick(index) {
 }
 
 function voteSort() {
-
 
     var $list = $("#venueList .listItem");
 
@@ -231,6 +224,16 @@ function mmObject(eventName, eventDate, eventOwner) {
  END 'mmObject' DEFINITION
  *********************/
 
+function createCountdown(end_date, selector) {
+    var dateString = parseDate(end_date);
+    var end_timer = new Date(dateString);
+    now = new Date();
+    if(end_timer - now > 0) {
+        var t = setInterval(function() {updateCountdown(end_timer, selector)} , 1000);
+    }
+}
+
+
 //creates countdown timers in events#index view for each event
 function createTimersinView()
 {
@@ -244,7 +247,7 @@ function createTimersinView()
 		var x= eventDate[i];
 		var now = new Date();
 		if (eventDate[i] - now > 0) {
-	  		setInterval(function(x, i) {return function() {updateCountdown(x, i)}}(x, i) , 1000);
+	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
 	  	}
 
 	}
@@ -260,7 +263,7 @@ function parseDate(date) {
 
 
 //updates countdown timer for upcoming events
-function updateCountdown(d, i) {
+function updateCountdown(d, selector) {
     var currentDate = new Date();
     var timeMS = Math.abs(d - currentDate);
     var seconds = Math.round(timeMS/1000);
@@ -271,7 +274,7 @@ function updateCountdown(d, i) {
     var days = Math.floor(hours/24);
     hours %= 24;
 
-    $("#eventIndexTimer" + i).html(days + ((days === 1) ? " Day": " Days") + " " + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
+    $(selector).html(days + ((days === 1) ? " Day": " Days") + " " + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
 }
 
 //converts numbers to two digit strings for countdown timer
