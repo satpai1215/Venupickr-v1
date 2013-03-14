@@ -17,8 +17,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
-    gon.vote_date = @vote_date
-    gon.event_date = @event.event_start
 
     respond_to do |format|
       format.html # show.html.erb

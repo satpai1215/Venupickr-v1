@@ -23,7 +23,7 @@ module EventsHelper
 
 	def display_date_or_countdown(vote_date)
 
-		if(vote_date.past?)
+		if(vote_date).past?
 			return "You have \<span id = 'voteCountdown'></span>\ to vote!".html_safe
 		else
 			return "Voting Begins On:  \<span id = 'voteDate'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ ".html_safe

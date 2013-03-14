@@ -1,7 +1,7 @@
 <div id = "newsFeed">
     <h1>Recent Activity</h1>
     <ul>
-        <% Update.last(10).reverse.each do |update| %>
+        <% Update.last(5).reverse.each do |update| %>
             <li><%= update.content %> <%= time_ago_in_words(update.created_at) %> ago</li>
         <% end %>
     </ul>
@@ -18,19 +18,18 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Stage</th>
-                <th>Time Left Until Event</th>
+                <th>Event Starts In:</th>
                 <th>Created By</th>
-                <th></th>
                 <th></th>
             </tr>
 
             <% @events.each_with_index do |event, index| %>
               <tr>
                 <td><%= link_to event.name, event_path(event) %></td>
-                <td><%= event.event_start.strftime("%B %d, %Y") %></td>
+                <td><%= event.event_start.strftime("%d%b%Y") %></td>
                 <td><%= event.event_start.strftime("%I:%M%p") %></td>
                 <td><%= check_event_stage(event)%></td>
-                <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %>Event Completed</td>
+                <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %></td>
                 <td><%= event.user.username %></td>
                 <td><%= display_modifiers_event(event) %></td>
               </tr>

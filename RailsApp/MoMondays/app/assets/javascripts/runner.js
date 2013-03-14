@@ -265,16 +265,22 @@ function parseDate(date) {
 //updates countdown timer for upcoming events
 function updateCountdown(d, selector) {
     var currentDate = new Date();
-    var timeMS = Math.abs(d - currentDate);
-    var seconds = Math.round(timeMS/1000);
-    var minutes = Math.floor(seconds/60);
-    seconds %= 60;
-    var hours = Math.floor(minutes/60);
-    minutes %= 60;
-    var days = Math.floor(hours/24);
-    hours %= 24;
+    if (d - currentDate <=0) {
+        $(selector).html("Time's Up!");
+    }
+    else {
 
-    $(selector).html(days + ((days === 1) ? " Day": " Days") + " " + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
+        var timeMS = Math.abs(d - currentDate);
+        var seconds = Math.round(timeMS/1000);
+        var minutes = Math.floor(seconds/60);
+        seconds %= 60;
+        var hours = Math.floor(minutes/60);
+        minutes %= 60;
+        var days = Math.floor(hours/24);
+        hours %= 24;
+
+        $(selector).html(days + ((days === 1) ? " Day": " Days") + " " + numChecker(hours) + ":" + numChecker(minutes) + ":" + numChecker(seconds));
+    }
 }
 
 //converts numbers to two digit strings for countdown timer

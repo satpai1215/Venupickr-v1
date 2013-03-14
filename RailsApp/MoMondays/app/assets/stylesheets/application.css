@@ -12,3 +12,118 @@
  *= require_tree .
  *= require jquery.ui.autocomplete
  */
+
+ body {
+ 	background: #C0D1ED;
+ 	font-family: verdana, arial, helvetica, sans-serif;
+ }
+
+ /*----------------------------------------------------------------------------- 
+=03 CONTAINER 
+-----------------------------------------------------------------------------*/
+
+#container{
+	margin: 20px auto;
+	position: relative;
+	width: 960px;
+}
+
+#container:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+ /*----------------------------------------------------------------------------- 
+= MAIN
+-----------------------------------------------------------------------------*/
+
+ #main {
+ 	background: #ededed;
+ 	width: 796px;
+	padding: 20px;
+	min-height: 650px;
+	float: right;
+	position: relative;
+	border: solid 2px black;
+	border-radius: 15px;
+		-moz-box-shadow: 0px 5px 20px 0px #000;
+		-webkit-box-shadow: 0px 5px 20px 0px #000;
+		box-shadow: 0px 5px 20px 0px #000;
+ }
+ 	#main h1 {
+ 		text-align: center;
+ 		margin-bottom: 2px;
+ 		font-size: 1.8em;
+
+ 	}
+/*----------------------------------------------------------------------------- 
+= LOGIN NAV
+-----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------- 
+= SIDEBAR AND NAV
+-----------------------------------------------------------------------------*/
+
+#sidebar{ 
+	min-height: 650px;
+	float: left;
+	width: 120px;
+	height: 100%;
+	padding: 50px 0px 0px 0px;
+	background: none;
+	position: relative;
+}
+
+nav ul {
+	padding-left: 5px;
+}
+
+nav ul li {
+	margin-bottom: 5px;
+	list-style-type: none;
+	font-weight: bold;
+}
+
+	nav li a{
+		display: block;
+		text-decoration: none;
+		text-align: right;
+		border-top: solid 2px black;
+		border-bottom: solid 2px black;
+		border-left: solid 2px black;
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+		padding: 5px 10px 5px 0px;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+	}
+		nav li a:hover{
+			font-weight: bold;
+			background: #F9F9C9;
+			color: black;
+		}
+
+		nav li.active a{
+			font-weight: bold;
+			background: #F9a9C9;
+			color: black;
+		}
+
+
+
+/*----------------------------------------------------------------------------- 
+=06 FOOTER 
+-----------------------------------------------------------------------------*/
+footer{
+	clear: both;
+	text-align: center;
+	padding: 20px 0px 0px 0px;
+	width: 836px;
+	float: right;
+	font-size: 2em;
+	font-weight: bolder;
+
+}
