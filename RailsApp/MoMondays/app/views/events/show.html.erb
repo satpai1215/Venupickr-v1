@@ -1,17 +1,25 @@
 
-	<h1><%= @event.name %></h1>
-	<%= display_modifiers_event(@event) %>
-	<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
-	<h3> <%= display_date_or_countdown(@vote_date) %></h3>
-	<h4>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</h4>
+<div id = "eventShow">
 
-	<!-- only show Suggest Venue Form if Event is in 'pre-voting' stage -->
-	<% if @event.stage == "pre-voting" %>
-		<div id = "venueEntry">
-			<h2>Suggest a Venue:</h2>
-			<%= render :partial => "venues/form", :locals => { :event => @event} %> 
-		</div>
-	<% end %>
+	<div id = "eventShowHeader">
+		<h1><%= @event.name %></h1>
+		<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
+		<div id = "eventModifiers"><%= display_modifiers_event(@event) %></div>
+	</div>
+	<div id = "eventControls">
+
+		<div id ="stageHeader">Event Stage: <%= display_event_stage(@event) %> </div>
+		<h3> <%= display_date_or_countdown(@vote_date) %></h3>
+
+		<!-- only show Suggest Venue Form if Event is in 'pre-voting' stage -->
+		<% if @event.stage === "Pre-voting" %>
+				<div id = "venueEntry">
+					<h4>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</h4>
+					<%#= render :partial => "venues/form", :locals => { :event => @event} %> 
+					<%= link_to "Suggest a Venue -->", new_venue_path(:event_id => @event.id), :id => "suggestVenueLink" %>
+				</div>
+		<% end %>
+	</div>
 
 	<div id = "venueList">
 		<h3>Recommended Venues</h3>
@@ -35,8 +43,7 @@
 		</ul>
 	</div><!-- venueList -->
 
-
-	<%= link_to 'Back to Home', events_path %>
+</div> <!--#eventShow -->
 
 	<%= javascript_tag do %>
   		createCountdown("<%= @event.event_start.to_s %>", "#voteCountdown");

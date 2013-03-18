@@ -3,7 +3,9 @@
 one:
   event: 
   user: 
+  venue: 
 
 two:
   event: 
   user: 
+  venue: 

@@ -27,13 +27,7 @@
   </div>
 
  <div class = "field">
-  <% if @venue.new_record? %>
-    <%=f.hidden_field :event_id, value: event.id %>
-  <% else %>
     <%=f.hidden_field :event_id, value: @venue.event_id %>
-  <% end %>
-
-
    <!-- <#%= f.label :event %><br />
     <#%= f.select :event_id, [[event.name,event.id]] %> -->
   </div>
@@ -42,5 +36,7 @@
     <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), id: "venueSubmitButton" %>
   </div>
 <% end %>
+
+<%= link_to 'Back to Event Page', event_path(@venue.event) %>
 
 <script> AC() </script>

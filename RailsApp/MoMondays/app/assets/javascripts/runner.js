@@ -89,16 +89,16 @@ function yelpRequest(request, response) {
             response($.map(data.businesses, function(item){
                 if (matcher.test(item.name)) {
                   return {
-                        label: item.name,
+                        label: (item.location.neighborhoods == null ? 
+                            item.name : item.name + " (" + item.location.neighborhoods[0] + ")"),
                         value: item.name,
                         address: item.location.display_address,
+                        //neighborhood: item.location.neighborhood[0],
                         url: item.url
                     }
                 }
             }));
         }});
-
-
             /*var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             response( $.grep( data.businesses, function( item ){
                     return (matcher.test(item.name))

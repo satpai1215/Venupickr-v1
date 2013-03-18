@@ -32,4 +32,53 @@
 			text-align: center;
 		}
 
+#eventShow {
+	font-size: 0.75em;
+}
+	#eventShow h1, h2 {
+		text-align: center;
+		margin: 2px 0px 0px 2px;
+	}
+	#eventShowHeader {
+		margin-bottom: 30px;
+	}
+	#eventModifiers {
+		text-align: center;
+	}
+
+	#venueList {
+		float:right;
+		width: 540px;
+		height: 400px;
+		background: white;
+		border: ridge 5px gray;
+		padding: 10px;
+		background: white;
+	}
+
+	#suggestVenueLink {
+		display: block;
+		text-decoration: none;
+		text-align: center;
+		font-weight: bold;
+		width: 150px;
+		border-top: solid 2px black;
+		border: solid 2px black;
+		border-radius: 5px;
+		padding: 5px 10px 5px 10px;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+	}
+
+		#suggestVenueLink:hover{
+			background: #F9F9C9;
+			color: black;
+		}
+
+	#eventControls {
+		float: left;
+		width: 100px;
+	}	
+
+
 

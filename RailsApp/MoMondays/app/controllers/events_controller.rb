@@ -46,9 +46,9 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
    
       @event.user = current_user
-      @event.stage = "pre-voting"
+      @event.stage = "Pre-voting"
 
-      @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}.")
+      @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}")
 
       respond_to do |format|
         if @event.save
@@ -67,7 +67,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    @update = Update.create!(:content => "#{current_user} just updated #{@event}.")
+    @update = Update.create!(:content => "#{current_user} just updated #{@event}")
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -85,7 +85,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    @update = Update.create!(:content => "#{current_user} just deleted #{@event}.")
+    @update = Update.create!(:content => "#{current_user} just deleted #{@event}")
 
     respond_to do |format|
       format.html { redirect_to events_url }
