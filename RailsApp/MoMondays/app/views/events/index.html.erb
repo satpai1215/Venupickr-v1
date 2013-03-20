@@ -1,7 +1,7 @@
 <div id = "newsFeed">
-    <h1>Recent Activity</h1>
+    <h2>Recent Activity</h2>
     <ul>
-        <% Update.last(5).reverse.each do |update| %>
+        <% Update.last(10).reverse.each do |update| %>
             <li><%= update.content %> <%= time_ago_in_words(update.created_at) %> ago</li>
         <% end %>
     </ul>
@@ -9,10 +9,11 @@
 
 <div id = "currentEventList">
     <h1>Events on the Clock:</h1>
-    <div id = "newEventCreate">
-        <%= link_to 'Create New Event', new_event_path %>
-    </div>
+            <%= link_to 'Create New Event', new_event_path, :id => "newEventCreate" %>
+
+        <div id ="tableContainer">
         <table>
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Date</th>
@@ -22,19 +23,22 @@
                 <th>Created By</th>
                 <th></th>
             </tr>
-
+        </thead>
+        <tbody>
             <% @events.each_with_index do |event, index| %>
               <tr>
                 <td><%= link_to event.name, event_path(event) %></td>
                 <td><%= event.event_start.strftime("%d%b%Y") %></td>
                 <td><%= event.event_start.strftime("%I:%M%p") %></td>
-                <td><%= check_event_stage(event)%></td>
+                <td><%= display_event_stage(event)%></td>
                 <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %></td>
                 <td><%= event.user.username %></td>
                 <td><%= display_modifiers_event(event) %></td>
               </tr>
             <% end %>
+        </tbody>
         </table>
+    </div>
 </div> <!--currentEventList -->
 
 

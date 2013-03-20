@@ -1,0 +1,12 @@
+
+#appInfo p {
+	margin: 0 50px;
+	text-align: justify;
+}
+
+	#first  {
+		margin-left: 100px;
+		margin-right: 100px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}

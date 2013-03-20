@@ -17,6 +17,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
+    if @vote_date.past?
+      @event.update_attributes(:stage => "Voting")
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -46,7 +49,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
    
       @event.user = current_user
-      @event.stage = "Pre-voting"
+      @event.stage = "Pre-Voting"
 
       @update = Update.create!(:content => "#{current_user} just created a new event: #{@event}")
 

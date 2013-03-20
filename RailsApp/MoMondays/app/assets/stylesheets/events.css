@@ -1,29 +1,118 @@
 /*----------------------------------------------------------------------------- 
 = RECENT ACTIVITY/NEWSFEED
 -----------------------------------------------------------------------------*/
+#newsFeed {
 
+}
+#newsFeed h2 {
+	float: left;
+	width: 75px;
+	margin-left: 60px;
+	margin-top: 30px;
+
+	font-style: italic;
+}
+
+#newsFeed ul {
+	float:right;
+	background: white;
+
+	border: solid 2px black;
+	border-radius: 15px;
+	padding: 5px 10px;
+	margin: 0 auto;
+	margin-right: 40px;
+	width: 550px;
+	height: 100px;
+	list-style: none;
+	overflow-y: auto;
+
+	text-align: center;
+	color: green;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#newsFeed li {
+	border-bottom: dashed 1px black;
+	padding: 5px 0px;
+}
+
+#newsFeed:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 
 
 /*----------------------------------------------------------------------------- 
 = CURRENT EVENT LIST 
 -----------------------------------------------------------------------------*/
-#newEventCreate {
-	text-align: center
+#currentEventList {
+	position: absolute;
+	margin-top: 50px;
+}
+#currentEventList h1 {
+	float: left;
+	padding-left: 10px;
 }
 
+#newEventCreate {
+		float:left;
+		text-decoration: none;
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.6em;
+		width: 110px;
+		border-top: solid 2px black;
+		border: solid 2px black;
+		border-radius: 5px;
+		padding: 5px 5px 5px 5px;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+
+		margin-top: 30px;
+		margin-left: 25px;
+}
+		#newEventCreate:hover{
+			background: #F9F9C9;
+			color: black;
+		}
+
+#tableContainer {
+	background: white;
+
+	clear: both;	
+	width: 750px;
+	border: solid 2px black;
+	border-radius: 15px;
+	padding: 20px;
+	margin: 20px auto;
+	height: 350px;
+	overflow-y: auto;
+}
 #currentEventList table {
-	margin: 30px auto;
+
 }
 		#currentEventList table th:first-child{
 			width: 150px;
 			text-align: left;
+			height: 20px;
 		}
+
 		#currentEventList table th{
 			padding-right: 10px;
 			padding-left: 10px;
 		}
+
 		#currentEventList table tr{
 			height: 25px;
+			border-bottom: dashed 2px gray;
+		}
+		#currentEventList table tr:hover{
+			background: #F9F9C9;
 		}
 		#currentEventList table td:first-child{
 			text-align: left;
@@ -31,6 +120,10 @@
 		#currentEventList table td{
 			text-align: center;
 		}
+
+/*----------------------------------------------------------------------------- 
+= SHOW EVENT VIEW
+-----------------------------------------------------------------------------*/
 
 #eventShow {
 	font-size: 0.75em;
@@ -49,12 +142,77 @@
 	#venueList {
 		float:right;
 		width: 540px;
-		height: 400px;
+		height: 530px;
 		background: white;
 		border: ridge 5px gray;
+		border-radius: 15px;
 		padding: 10px;
 		background: white;
 	}
+		#venueList h3 {
+			border-bottom: solid 3px black;
+		}
+		#venueList ul {
+			position: relative;
+			overflow-y: auto;
+			height: 475px;
+			padding-left: 5px;
+		}
+
+		#venueList li.listItem{
+	        position: relative;
+			width: 100%;
+			height: 200px;
+	        padding-top: 5px;
+		}
+		.venueSticky{
+			font-family: fatpen;
+			font-size: 1em;
+            line-height: 2em;
+			border: solid 2px black;
+				-moz-box-shadow: 0px 5px 5px 0px #000;
+				-webkit-box-shadow: 0px 2px 5px 0px #000;
+				box-shadow: 0px 2px 5px 0px #000;
+			background: #F9F9C9;
+    		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+    		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+    		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
+    		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
+			padding: 10px 10px 10px 10px;
+		}
+
+        #venueList .venueSticky{
+            float:left;
+            height: 70%;
+            width: 60%;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+	#venueList li.listItem input{
+		font-size: 1.25em;
+		border-radius: 5px;
+		background-color: #E3E1E2;
+        float:right;
+		margin-top: 10px;
+		margin-right: 25px;
+	}
+	#venueList li.listItem input:hover{
+		background: #F9F9C9;
+		cursor: pointer;
+		
+	}
+
+    #venueList li.listItem .voteCount {
+    	margin-top: 15px;
+    	margin-right: 20px;
+        float: right;
+        display: inline;
+        font-size: 4em;
+        text-align: center;
+        width: 80px;
+    }
+
 
 	#suggestVenueLink {
 		display: block;
@@ -77,7 +235,8 @@
 
 	#eventControls {
 		float: left;
-		width: 100px;
+		width: 200px;
+		padding-top: 100px;
 	}	
 
 

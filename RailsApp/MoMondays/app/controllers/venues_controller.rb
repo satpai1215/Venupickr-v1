@@ -47,14 +47,16 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     respond_to do |format|
+
       if @venue.update_attributes(params[:venue])
-        #reset votecount for venue if it is modified
-        @venue.update_attributes(:votecount => 0)
+        if(@venue.changed?)
+          #reset votecount for venue if it is modified
+          @venue.update_attributes(:votecount => 0)
+          #remove voting records for venue if it is modified
+          Voter.destroy_all(:venue_id => @venue.id)
 
-        #remove voting records for venue if it is modified
-        Voter.destroy_all(:venue_id => @venue.id)
-
-        @update = Update.create!(:content => "#{current_user} just modified a venue for #{@venue.event}")
+          @update = Update.create!(:content => "#{current_user} just modified a venue for #{@venue.event}")
+       end
 
         format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
         format.json { head :no_content }

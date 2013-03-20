@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   has_many :voters, dependent: :destroy
 
   validates :name, presence: true
-  validate :vote_start_is_not_past
+  validate :vote_start_is_not_past, :on => :create
 
   def to_s
     self.name
@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   	date = (self.event_start - self.vote_start.days)
 
   	if date.past?
-  		errors.add(:vote_start, " happens in the past" )
+  		errors.add(:vote_start, "happens in the past" )
   	end
   end
 end

@@ -23,7 +23,8 @@
 -----------------------------------------------------------------------------*/
 
 #container{
-	margin: 20px auto;
+	margin: 25px auto;
+	margin-bottom: 10px;
 	position: relative;
 	width: 960px;
 }
@@ -36,11 +37,25 @@
   visibility: hidden;
 }
 
+#container h1, h2 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#container > h1 {
+	position: absolute;
+	left: 14%;
+	top: -3.25%;
+	font-size: 1.5em;
+	font-family: CF Midnight;
+}
+
  /*----------------------------------------------------------------------------- 
 = MAIN
 -----------------------------------------------------------------------------*/
 
  #main {
+
+ 	position: absolute;
  	background: #ededed;
  	width: 796px;
 	padding: 20px;
@@ -56,13 +71,17 @@
  	#main h1 {
  		text-align: center;
  		margin-bottom: 2px;
- 		font-size: 1.8em;
+ 		font-size: 2em;
 
  	}
 /*----------------------------------------------------------------------------- 
 = LOGIN NAV
 -----------------------------------------------------------------------------*/
-
+#login-nav {
+	font-size: 0.8em;
+	float: right;
+	padding-right: 12px;
+}
 /*----------------------------------------------------------------------------- 
 = SIDEBAR AND NAV
 -----------------------------------------------------------------------------*/
@@ -118,12 +137,12 @@ nav ul li {
 =06 FOOTER 
 -----------------------------------------------------------------------------*/
 footer{
-	clear: both;
+	margin: 10px auto;
+	position: relative;
+	width: 840px;
+	padding-left: 120px;
 	text-align: center;
-	padding: 10px 0px 0px 0px;
-	width: 836px;
-	float: right;
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: bolder;
 
 }

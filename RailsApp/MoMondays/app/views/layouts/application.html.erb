@@ -8,21 +8,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-			<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
 	<div id = "container">
-		
+		<h1>Mo' Mondays Mo' Problems</h1>
 		<div id = "sidebar">
 			<nav>	
 				<ul>
 					<li><%= link_to "Home", events_path %></li>
 					<li><%= link_to "Event History", events_path %></li>
+					<li><%= link_to "Rules", pages_info_path %></li>
 				</ul>
 			</nav>
 		</div>
 
 
-		<div id="login_nav">
+		<div id="login-nav">
 			<% if user_signed_in? %>
 				Logged in as <%= current_user %> 
 				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -36,9 +35,9 @@
 		<div id = "main">
 			<%= yield %>
 		</div>
-
-		<footer>created by Satyan Pai</footer>
 	</div> <!--container -->
+
+	<footer>created by Satyan Pai</footer>
 
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
