@@ -11,3 +11,35 @@
 #rulesPageContent h2 {
 	text-align: center;
 }
+
+#previousEventList {
+		position: absolute;
+		bottom: 5%;
+		top: 15%;
+		right: 10%;
+		width: 650px;
+		background: white;
+		border: ridge 5px gray;
+		border-radius: 15px;
+		padding: 10px;
+		background: white;
+	}
+	#previousEventList ul {
+		padding-left: 0px;
+		list-style: none;
+	}
+	#previousEventList li{
+		margin: 0 auto;
+		width: 80%;
+		height: 30px;
+	}
+	#previousEventList li#headings {
+		margin: 0 auto;
+		width: 80%;
+		border-bottom: solid 2px black;
+	}
+	#previousEventList h2 {
+		display: inline;
+		margin: 0 35px;
+		text-align: center;
+	}
