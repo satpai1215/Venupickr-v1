@@ -2,6 +2,10 @@ var voteCountArray = [];
 var venueCount = 0;
 var currentEventsArray = [];
 
+/********************
+YELP API AJAX REQUEST FUNCTIONS
+ *********************/
+
 function AC(){
 $( "#venue_name" ).autocomplete({
     source: function(request, response) {
@@ -104,6 +108,11 @@ function yelpRequest(request, response) {
                     return (matcher.test(item.name))
             }*/
 }
+/********************
+END YELP API AJAX REQUEST FUNCTIONS
+ *********************/
+
+
 
 //increments voteCountArray for venue at specific index
 function voteClick(index) {
@@ -154,74 +163,8 @@ function overlay() {
     }
 }
 
-
 /********************
-'mmObject' DEFINITION: STORES ALL THE INFO FOR A GIVEN USER-CREATED EVENT
-*********************/
-function mmObject(eventName, eventDate, eventOwner) {
-
-    this.name = eventName;
-    this.date = eventDate;
-    this.owner = eventOwner;
-    this.init = init;
-    this.changeEventDate = changeEventDate;
-    this.changeEventName = changeEventName;
-    this.addVenue = addVenue;
-
-
-    function init() {
-        var d = this.date;
-        var t = setInterval(function() {updateCountdown(d)} , 1000);
-        publishEventInfo();
-        $("form#venueEntry").submit(function(event) {
-            addVenue(event);
-        });
-    }
-
-    function changeEventDate(newdate) {
-        this.date = newdate;
-        publishEventInfo();
-        var t = setInterval(function() {updateCountdown(newdate)} , 1000);
-    }
-
-    function changeEventName(newname) {
-        this.name = newname;
-        publishEventInfo();
-    }
-
-    function publishEventInfo() {
-        $("#userEntry h3").text('"' + eventName + '"' + " " + (numChecker(eventDate.getMonth()+1)) + "-" + numChecker(eventDate.getDate()) + "-" + eventDate.getFullYear());
-        $("#eventNameHeader").text('"' + eventName + '"' + " " + (numChecker(eventDate.getMonth()+1)) + "-" + numChecker(eventDate.getDate()) + "-" + eventDate.getFullYear());
-    }
-
-    //adds venue to venueList element
-    function addVenue(event) {
-        event.preventDefault();
-
-        //check that fields are completed
-        if($("#venueName").val() === "" || $("#venueInfo").val() === "") {
-            alert ("One or more required fields is empty");
-        }
-        else {
-            venueCount = voteCountArray.push(0);
-
-            //var userName = prompt("Please enter your name:");
-            //if(userName !== "" && userName !== null) {
-                $("#venueList ul").append('<li class="listItem"><div class = "venueSticky">' +
-                    $("#venueName").val() + '<br/>' + $("#venueInfo").val()+ '<br/>' + '(' + $("#venueDropDown").val() +')' + '<br/>' + '<div align="right">- ' + eventOwner + ' -</div><br/>'+
-                    '</div><button class = \"voteButton\" onclick = \"voteClick($(\'.voteButton\').index(this))\">VOTE!</button><div class = \"voteCount\">0</div></li>');
-
-                //clear entry fields
-                $("#venueEntry")[0].reset();
-                overlay();
-
-            //}
-        }
-
-    }
-}
-/********************
- END 'mmObject' DEFINITION
+COUTNDOWN CREATION FUNCTIONS
  *********************/
 
 function createCountdown(end_date, selector) {
@@ -290,6 +233,10 @@ function numChecker(num) {
     }
     return num;
 }
+/********************
+END COUTNDOWN CREATION FUNCTIONS
+ *********************/
+
 
 /********************
  $(document).ready() function

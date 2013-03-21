@@ -40,8 +40,9 @@ module EventsHelper
 		return html
 	end
 
-	def display_event_stage(event)
-		return event.stage
+	def display_event_stage(stage)
+		return (stage == "Pre-Voting" ? "Venue Suggestion" : "Voting")
+
 	end
 
 

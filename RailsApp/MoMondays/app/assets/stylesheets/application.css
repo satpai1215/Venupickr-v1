@@ -59,7 +59,7 @@
  	background: #ededed;
  	width: 796px;
 	padding: 20px;
-	min-height: 650px;
+	height: 650px;
 	float: right;
 	position: relative;
 	border: solid 2px black;
@@ -81,6 +81,7 @@
 	font-size: 0.8em;
 	float: right;
 	padding-right: 12px;
+	margin-bottom: 2px;
 }
 /*----------------------------------------------------------------------------- 
 = SIDEBAR AND NAV

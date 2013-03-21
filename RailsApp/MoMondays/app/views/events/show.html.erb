@@ -1,13 +1,16 @@
 
 <div id = "eventShow">
 	<div id = "eventShowHeader">
-		<h1><%= @event.name %></h1>
-		<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
+		<div id="eventNameDate">
+			<h1><%= @event.name %></h1>
+			<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
+		</div>
+
 		<div id = "eventModifiers"><%= display_modifiers_event(@event) %></div>
 	</div>
 
 	<div id = "eventControls">
-		<div id ="stageHeader">Event Stage: <%= @event.stage %> </div>
+		<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>
 		<%= display_countdowns_and_venue_link(@vote_date) %>
 		<% if(!@vote_date.past?) %>
 			<%=link_to "Suggest a Venue -->", new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink" %>
@@ -29,9 +32,11 @@
 					    Suggested By: <%= venue.user.username %>
 				    	<%= display_modifiers_venue(venue) %>
 				   </div>
-				   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id %>
-					<!--<button class = "voteButton" onclick ="voteClick($('.voteButton').index(this))">VOTE!</button> -->
-					<div class = "voteCount"><%= venue.votecount %> </div>
+				   <% if(@vote_date.past?) %>
+					   <%= button_to "VOTE!", :controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id %>
+						<!--<button class = "voteButton" onclick ="voteClick($('.voteButton').index(this))">VOTE!</button> -->
+						<div class = "voteCount"><%= venue.votecount %> </div>
+					<% end %>
 					<script> voteSort() </script>
 				</li>
 			<% end %>

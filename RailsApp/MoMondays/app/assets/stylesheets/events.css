@@ -23,7 +23,7 @@
 	margin: 0 auto;
 	margin-right: 40px;
 	width: 550px;
-	height: 100px;
+	height: 110px;
 	list-style: none;
 	overflow-y: auto;
 
@@ -73,7 +73,7 @@
 		text-shadow: 0.1em 0.1em 0.2em white;
 		background: #E3E1E2;
 
-		margin-top: 30px;
+		margin-top: 32px;
 		margin-left: 25px;
 }
 		#newEventCreate:hover{
@@ -128,21 +128,33 @@
 #eventShow {
 	font-size: 0.75em;
 }
-	#eventShow h1, h2 {
-		text-align: center;
-		margin: 2px 0px 0px 2px;
-	}
+
 	#eventShowHeader {
-		margin-bottom: 30px;
+		width: 570px;
+		float: right;
+		margin-bottom: 0px;
+
+	}
+	#eventNameDate {
+		float: left;
+		margin: 2px 0px 0px 2px;
+		margin-left: 10px;
+	}
+	#eventNameDate h1,h2{
+		text-align: left;
+		margin: 0;
 	}
 	#eventModifiers {
-		text-align: center;
+		float: right;
+		margin-right: 10px;
+		margin-top: 40px;
+		margin-bottom: 5px;
 	}
 
 	#venueList {
 		float:right;
 		width: 540px;
-		height: 530px;
+		height: 510px;
 		background: white;
 		border: ridge 5px gray;
 		border-radius: 15px;
@@ -151,12 +163,14 @@
 	}
 		#venueList h3 {
 			border-bottom: solid 3px black;
+			margin-bottom: 0px;
 		}
 		#venueList ul {
 			position: relative;
 			overflow-y: auto;
 			height: 475px;
 			padding-left: 5px;
+			margin-top: 0px;
 		}
 
 		#venueList li.listItem{

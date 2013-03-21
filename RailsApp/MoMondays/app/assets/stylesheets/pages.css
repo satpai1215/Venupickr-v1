@@ -4,9 +4,10 @@
 	text-align: justify;
 }
 
-	#first  {
-		margin-left: 100px;
-		margin-right: 100px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
+#rulesPageContent ul, ol{
+	width: 600px;
+	margin: 10px auto;
+}
+#rulesPageContent h2 {
+	text-align: center;
+}

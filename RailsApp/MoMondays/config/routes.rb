@@ -1,6 +1,7 @@
 MoMondays::Application.routes.draw do
 
   get "pages/info"
+  get "pages/history"
 
   get "updates/index"
 

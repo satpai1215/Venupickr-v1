@@ -30,7 +30,7 @@
                 <td><%= link_to event.name, event_path(event) %></td>
                 <td><%= event.event_start.strftime("%d%b%Y") %></td>
                 <td><%= event.event_start.strftime("%I:%M%p") %></td>
-                <td><%= display_event_stage(event)%></td>
+                <td><%= event.stage%></td>
                 <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %></td>
                 <td><%= event.user.username %></td>
                 <td><%= display_modifiers_event(event) %></td>
