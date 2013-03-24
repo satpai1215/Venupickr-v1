@@ -1,3 +1,4 @@
+
 module EventsHelper
 
 	def display_modifiers_event(event)
@@ -50,9 +51,9 @@ module EventsHelper
 			html << "#{link_to "Yelp Page", venue.url, :target => '_blank'} </br>"
 		end
 
-		html << "Suggested By: #{venue.user.username}"
+		html << "Suggested By: #{venue.user.username} </br>"
 		
-		#html << display_modifiers_venue(venue)
+		html << display_modifiers_venue(venue)
 
 		return html.html_safe
 

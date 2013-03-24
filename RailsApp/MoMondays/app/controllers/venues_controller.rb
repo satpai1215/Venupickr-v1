@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  before_filter :authenticate_user!
 
   # GET /venues/new
   # GET /venues/new.json
@@ -27,7 +28,7 @@ class VenuesController < ApplicationController
     else
       @venue.user = current_user
       @venue.votecount = 0
-      @update = Update.create!(:content => "#{current_user} just suggested a venue for #{@venue.event}")
+      @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
 
       respond_to do |format|
         if @venue.save
@@ -55,7 +56,7 @@ class VenuesController < ApplicationController
           #remove voting records for venue if it is modified
           Voter.destroy_all(:venue_id => @venue.id)
 
-          @update = Update.create!(:content => "#{current_user} just modified a venue for #{@venue.event}")
+          @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
        end
 
         format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
@@ -71,7 +72,7 @@ class VenuesController < ApplicationController
   # DELETE /venues/1.json
   def destroy
     @venue = Venue.find(params[:id])
-    @update = Update.create!(:content => "#{current_user} just deleted a venue for #{@venue.event}")
+    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"")
 
 
     respond_to do |format|
@@ -93,7 +94,7 @@ class VenuesController < ApplicationController
       @venue.update_attributes(:votecount => num + 1 )
 
       Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
-      Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: #{@venue.event}")
+      Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
 
       redirect_to @venue.event, notice: "Your vote has been recorded."
     end

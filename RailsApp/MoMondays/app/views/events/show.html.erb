@@ -3,7 +3,7 @@
 	<div id = "eventShowHeader">
 		<div id="eventNameDate">
 			<h1><%= @event.name %></h1>
-			<div id = "eventModifiers"><%= display_modifiers_event(@event) %></div>
+			<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
 			<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
 			<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>
 		</div>
@@ -31,18 +31,19 @@
 
 				  	<div id = "voteControls">
 					   <% if(@vote_date.past?) %>
-					   		<div class = "voteCount"><%= "Votes: #{venue.votecount}" %> </div>
+					   		<div class = "voteCount"><%= venue.votecount %></div>
 						   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, :class => "voteButton" %>
+						   <script> voteSort()</script>
 						<% end %>
-						<script> voteSort() </script>
 					</div>
 				</li>
 			<% end %>
+			
 		</ul>
 	</div><!-- venueList -->
 
 </div> <!--#eventShow -->
-
+<script> voteSort()</script>
 	<%= javascript_tag do %>
   		createCountdown("<%= @event.event_start.to_s %>", "#voteCountdown");
   		createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");

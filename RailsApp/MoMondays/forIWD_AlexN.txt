@@ -19,7 +19,8 @@ FUTURE WORK:  LOTS to do still!
 
 -need to determine to how to hide Yelp OAuth authentication information
 
--create a more visually-pleasing, simple design for the site (also a mobile-friendly one).  Design and UX is not my forte :(
+-create a more visuallypleasing, simple design for the site (also a
+-mobilefriendly one).  Design and UX is not my forte :(
 
 KNOWN BUGS:
 

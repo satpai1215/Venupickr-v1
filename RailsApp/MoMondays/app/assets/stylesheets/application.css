@@ -15,7 +15,7 @@
 
  body {
  	background: #C0D1ED;
- 	font-family: verdana, arial, helvetica, sans-serif;
+ 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
  /*----------------------------------------------------------------------------- 
@@ -44,7 +44,7 @@
 #container > h1 {
 	position: absolute;
 	left: 14%;
-	top: -3.25%;
+	top: -3.75%;
 	font-size: 1.5em;
 	font-family: CF Midnight;
 }
@@ -54,7 +54,6 @@
 -----------------------------------------------------------------------------*/
 
  #main {
-
  	position: absolute;
  	background: #ededed;
  	width: 796px;

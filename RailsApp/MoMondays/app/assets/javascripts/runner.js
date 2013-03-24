@@ -114,39 +114,16 @@ END YELP API AJAX REQUEST FUNCTIONS
 
 
 
-//increments voteCountArray for venue at specific index
-function voteClick(index) {
-    voteCountArray[index] += 1;
-    var votes = parseInt($(".voteCount").eq(index).text());
-    $(".voteCount").eq(index).text(votes + 1);
-
-    var $list = $("#venueList .listItem");
-
-    $list.sort(function(a, b) {
-        var aVotes = $(a).children("div.voteCount").text();
-        var bVotes = $(b).children("div.voteCount").text();
-
-        return parseInt(bVotes) - parseInt(aVotes);
-
-    });
-
-    $.each($list, function(index, li){
-        $("#venueList ul").append(li);
-    });
-}
-
 function voteSort() {
 
     var $list = $("#venueList .listItem");
 
     $list.sort(function(a, b) {
-        var aVotes = $(a).children("div.voteCount").text();
-        var bVotes = $(b).children("div.voteCount").text();
+        var aVotes = $(a).find(".voteCount").text();
+        var bVotes = $(b).find(".voteCount").text();
 
         return parseInt(bVotes) - parseInt(aVotes);
-
     });
-
     $.each($list, function(index, li){
         $("#venueList ul").append(li);
     });
