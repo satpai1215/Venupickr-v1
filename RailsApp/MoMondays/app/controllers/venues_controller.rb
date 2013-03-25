@@ -23,7 +23,7 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(params[:venue])
     if Venue.exists?(:user_id => current_user.id, :event_id => @venue.event_id)
-      redirect_to :back, 
+      redirect_to @venue.event, 
                 notice: "You have already suggested a venue for this event. Try removing your existing venue."
     else
       @venue.user = current_user

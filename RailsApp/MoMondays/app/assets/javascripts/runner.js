@@ -12,7 +12,7 @@ $( "#venue_name" ).autocomplete({
           yelpRequest(request, response);
     },
     autoFocus: true,
-    minLength: 1,
+    minLength: 3,
     delay: 500,
     select: function( event, ui ) {
         var addy = ""

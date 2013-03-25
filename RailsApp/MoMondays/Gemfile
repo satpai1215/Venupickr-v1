@@ -29,6 +29,11 @@ gem 'gon'
 
 gem 'awesome_print'
 
+gem 'whenever', :require => false
+
+gem 'yelp'
+gem 'yelpster'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,4 +1,3 @@
-
 <div id = "eventShow">
 	<div id = "eventShowHeader">
 		<div id="eventNameDate">
@@ -12,11 +11,7 @@
 
 	<div id = "eventControls">
 		<%= display_countdowns_and_venue_button(@vote_date) %>
-		<% if(!@vote_date.past?) %>
-			<%=link_to "Suggest a Venue -->", new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink" %>
-		<% end %>
 		<%#= render :partial => "venues/form", :locals => { :event => @event} %> 
-
 	</div>
 
 	<div id = "venueList">

@@ -15,6 +15,12 @@ module EventsHelper
 		html = ""
 		html << '<h3>' + display_date_or_countdown(vote_date) + '</h3>'
 		html << display_prevoting_countdown(vote_date)
+
+		if(!@vote_date.past?)
+			html << "#{link_to "Suggest a Venue -->", 
+			new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink"}"
+		end
+
 		return html.html_safe
 	end
 
@@ -45,7 +51,7 @@ module EventsHelper
 
 	def generate_venue_sticky(venue)
 		html = ""
-		html << "#{venue.name} </br>"
+		html << "<b>#{venue.name}</b> </br>"
 		html << "Address: #{venue.address} </br>"
 		if venue.url != "" 
 			html << "#{link_to "Yelp Page", venue.url, :target => '_blank'} </br>"
