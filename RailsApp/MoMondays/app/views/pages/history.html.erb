@@ -6,19 +6,19 @@
         <table>
             <thead id = "eventHistoryHeadings">
             <tr>
+                <th>Date</th>
                 <th>Event Name</th>
                 <th>Created By</th>
-                <th>Date</th>
                 <th>Winning Venue</th>
             </tr>
         </thead>
         <tbody>
-            <% Event.where(:stage => "Pre-Voting").each do |event| %>
+            <% Event.where(:stage => "Finished").order('event_start DESC').each do |event| %>
                       <tr class = "notfirst">
+                        <td><%= event.event_start.strftime("%d%b%Y") %></td>
                         <td><%= link_to event.name, event_path(event) %>
                         <td><%= event.user.username %></td>
-                        <td><%= event.event_start.strftime("%d%b%Y") %></td>
-                        <td></td>
+                        <td><%= Venue.find(event.winner).name %></td>
                       </tr>
             <% end %>
         </tbody>

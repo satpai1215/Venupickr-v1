@@ -4,8 +4,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-    gon.numEvents = Event.count
+    #only display events that are not finished
+    @events = Event.find(:all, :conditions => ["stage != ?", "Finished"])
+    gon.numEvents = @events.count
+
+    @events.each do |event|
+      check_event_finish(event)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +24,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
-    if @vote_date.past?
+    if @vote_date.past? && @event.stage != "Finished"
       @event.update_attributes(:stage => "Voting")
     end
 
@@ -95,6 +100,17 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+  end
+
+  def check_event_finish(event)
+    if(event.event_start.past?)
+      event_finish(event)
+    end
+  end
+
+  def event_finish(event)
+    event.update_attributes(:stage => "Finished")
+    event.update_attributes(:winner => event.venues.order("votecount DESC").first.id)
   end
 
 end

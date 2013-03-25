@@ -22,10 +22,10 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(params[:venue])
-    if Venue.exists?(:user_id => current_user.id, :event_id => @venue.event_id)
-      redirect_to @venue.event, 
-                notice: "You have already suggested a venue for this event. Try removing your existing venue."
-    else
+   # if Venue.exists?(:user_id => current_user.id, :event_id => @venue.event_id)
+   #   redirect_to @venue.event, 
+   #             notice: "You have already suggested a venue for this event. Try removing your existing venue."
+   # else
       @venue.user = current_user
       @venue.votecount = 0
       @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
@@ -39,7 +39,7 @@ class VenuesController < ApplicationController
           format.json { render json: @venue.errors, status: :unprocessable_entity }
         end
       end
-    end
+    #end
   end
 
   # PUT /venues/1
@@ -86,10 +86,10 @@ class VenuesController < ApplicationController
   def increment_vote
      @venue = Venue.find(params[:venue_id])
 
-    if (Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ]))
-      redirect_to :back, notice: "You have already voted for this event."
+   # if (Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ]))
+  #    redirect_to :back, notice: "You have already voted for this event."
 
-    else
+   # else
       num = @venue.votecount
       @venue.update_attributes(:votecount => num + 1 )
 
@@ -97,7 +97,7 @@ class VenuesController < ApplicationController
       Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
 
       redirect_to @venue.event, notice: "Your vote has been recorded."
-    end
+  #  end
   end
 
 end

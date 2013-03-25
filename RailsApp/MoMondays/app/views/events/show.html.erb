@@ -10,7 +10,7 @@
 	</div>
 
 	<div id = "eventControls">
-		<%= display_countdowns_and_venue_button(@vote_date) %>
+		<%= display_countdowns_and_venue_button(@event) %>
 		<%#= render :partial => "venues/form", :locals => { :event => @event} %> 
 	</div>
 
@@ -25,7 +25,7 @@
 				   </div>
 
 				  	<div id = "voteControls">
-					   <% if(@vote_date.past?) %>
+					   <% if(@event.stage == "Voting") %>
 					   		<div class = "voteCount"><%= venue.votecount %></div>
 						   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, :class => "voteButton" %>
 						   <script> voteSort()</script>

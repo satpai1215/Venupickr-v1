@@ -1,16 +1,6 @@
 
 module EventsHelper
 
-	def check_event_finish(event)
-		if(event.event_start.past?)
-			event_finish(event)
-		end
-	end
-
-	def event_finish(event)
-		event.stage = "Finished"
-	end
-
 	def display_modifiers_event(event)
 		html = ""
 		if(current_user == event.user && event.stage != "Finished")
@@ -21,12 +11,12 @@ module EventsHelper
     	return html.html_safe
 	end
 
-	def display_countdowns_and_venue_button(vote_date)
+	def display_countdowns_and_venue_button(event)
 		html = ""
-		html << '<h3>' + display_date_or_countdown(vote_date) + '</h3>'
-		html << display_prevoting_countdown(vote_date)
+		html << '<h3>' + display_date_or_countdown(event) + '</h3>'
+		html << display_prevoting_countdown(event)
 
-		if(!@vote_date.past?)
+		if(event.stage == "Pre-Voting")
 			html << "#{link_to "Suggest a Venue -->", 
 			new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink"}"
 		end
@@ -34,20 +24,23 @@ module EventsHelper
 		return html.html_safe
 	end
 
-	def display_date_or_countdown(vote_date)
+	def display_date_or_countdown(event)
 
-		if vote_date.past?
+		
+		if event.stage == "Pre-Voting"
+			return "Voting Begins On:</br>  \<span id = 'voteDate'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
+		elsif event.stage == "Voting"
 			return "Time Left to Vote:</br> \<span id = 'voteCountdown'></span>\ "
 		else
-			return "Voting Begins On:</br>  \<span id = 'voteDate'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
+			return "<span id = 'eventOverHeading'>EVENT OVER</span>"
 
 		end
 	end
 
-	def display_prevoting_countdown(vote_date)
+	def display_prevoting_countdown(event)
 		html = ""
 		#only show Suggest Venue Form if Event is in 'pre-voting' stage
-		if !vote_date.past?
+		if event.stage == "Pre-Voting"
 			html << '<p>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</p>'
 		end
 		
@@ -55,7 +48,7 @@ module EventsHelper
 	end
 
 	def display_event_stage(stage)
-		return (stage == "Pre-Voting" ? "Venue Suggestion" : "Voting")
+		return (stage == "Pre-Voting" ? "Venue Suggestion" : stage)
 
 	end
 
