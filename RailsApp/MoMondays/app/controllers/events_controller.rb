@@ -53,10 +53,9 @@ class EventsController < ApplicationController
       @event.user = current_user
       @event.stage = "Pre-Voting"
 
-      @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
-
       respond_to do |format|
         if @event.save
+          @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
         else
