@@ -1,14 +1,27 @@
-<h1>Previous Events</h1>
 
-<div id = "previousEventList">
-	<ul>
-		<li id = "headings">
-			<h2>Event Name</h2>
-			<h2>Date</h2>
-			<h2>Winning Venue</h2>
-		</li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-</div><!-- previousEventList -->
+
+<div id = "eventHistory" class ="eventList">
+	<h1>Previous Events</h1>
+	<div id = "eventHistoryTable" class = "tableContainer">
+        <table>
+            <thead id = "eventHistoryHeadings">
+            <tr>
+                <th>Event Name</th>
+                <th>Created By</th>
+                <th>Date</th>
+                <th>Winning Venue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Event.where(:stage => "Pre-Voting").each do |event| %>
+                      <tr class = "notfirst">
+                        <td><%= link_to event.name, event_path(event) %>
+                        <td><%= event.user.username %></td>
+                        <td><%= event.event_start.strftime("%d%b%Y") %></td>
+                        <td></td>
+                      </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div><!-- tableContainer -->
+</div><!-- eventList -->

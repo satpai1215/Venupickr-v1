@@ -46,22 +46,70 @@
   visibility: hidden;
 }
 
-
 /*----------------------------------------------------------------------------- 
-= CURRENT EVENT LIST 
+= INDEX EVENT VIEW
 -----------------------------------------------------------------------------*/
-#currentEventList {
+.eventList {
 	position: absolute;
 	margin-top: 10px;
 }
-#currentEventList h1 {
+.eventList h1 {
 	float: left;
 	padding-left: 10px;
 }
 
-#currentEventList #eventIndexModifiers {
+.eventList #eventIndexModifiers {
 	font-size: 0.85em;
 }
+
+.tableContainer {
+	background: white;
+
+	clear: both;	
+	width: 750px;
+	border: solid 2px black;
+	border-radius: 15px;
+	padding: 20px;
+	margin: 20px auto;
+	height: 350px;
+	overflow-y: auto;
+}
+
+.tableContainer a {
+	color: black;
+}
+
+.tableContainer a:hover {
+	color: red;
+	background: none;
+}
+
+		.eventList table th:first-child{
+			width: 210px;
+			text-align: left;
+			height: 20px;
+		}
+
+		.eventList table th{
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		.eventList table tr{
+			height: 25px;
+			border-bottom: dashed 2px gray;
+		}
+		.eventList table tr.notfirst:hover{
+			background: #F9F9C9;
+		}
+		.eventList table td:first-child{
+			text-align: left;
+		}
+		.eventList table td{
+			text-align: center;
+			padding-right: 10px;
+			padding-left: 10px;
+		}
 
 #newEventCreate {
 		float:left;
@@ -83,57 +131,6 @@
 		#newEventCreate:hover{
 			background: #F9F9C9;
 			color: black;
-		}
-
-#tableContainer {
-	background: white;
-
-	clear: both;	
-	width: 750px;
-	border: solid 2px black;
-	border-radius: 15px;
-	padding: 20px;
-	margin: 20px auto;
-	height: 350px;
-	overflow-y: auto;
-}
-
-#tableContainer a {
-	color: black;
-}
-
-#tableContainer a:hover {
-	color: red;
-	background: none;
-}
-#currentEventList table {
-
-}
-		#currentEventList table th:first-child{
-			width: 210px;
-			text-align: left;
-			height: 20px;
-		}
-
-		#currentEventList table th{
-			padding-right: 10px;
-			padding-left: 10px;
-		}
-
-		#currentEventList table tr{
-			height: 25px;
-			border-bottom: dashed 2px gray;
-		}
-		#currentEventList table tr.notfirst:hover{
-			background: #F9F9C9;
-		}
-		#currentEventList table td:first-child{
-			text-align: left;
-		}
-		#currentEventList table td{
-			text-align: center;
-			padding-right: 10px;
-			padding-left: 10px;
 		}
 
 /*----------------------------------------------------------------------------- 

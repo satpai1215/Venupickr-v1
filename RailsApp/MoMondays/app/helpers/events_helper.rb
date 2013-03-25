@@ -1,9 +1,19 @@
 
 module EventsHelper
 
+	def check_event_finish(event)
+		if(event.event_start.past?)
+			event_finish(event)
+		end
+	end
+
+	def event_finish(event)
+		event.stage = "Finished"
+	end
+
 	def display_modifiers_event(event)
 		html = ""
-		if(current_user == event.user)
+		if(current_user == event.user && event.stage != "Finished")
 			html<< "(" + link_to('Edit', edit_event_path(event)) + " | "
         	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' })
         	html << ")"

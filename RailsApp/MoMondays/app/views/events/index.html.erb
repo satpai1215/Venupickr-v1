@@ -7,11 +7,11 @@
     </ul>
 </div>
 
-<div id = "currentEventList">
+<div class = "eventList">
     <h1>Events on the Clock:</h1>
     <%= link_to 'Create New Event', new_event_path, :id => "newEventCreate" %>
 
-        <div id ="tableContainer">
+        <div class ="tableContainer">
         <table>
             <thead>
             <tr>
@@ -25,14 +25,16 @@
         </thead>
         <tbody>
             <% @events.each_with_index do |event, index| %>
-              <tr class = "notfirst">
-                <td><%= link_to event.name, event_path(event) %><br/><span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span></td>
-                <td><%= event.event_start.strftime("%d%b%Y") %></td>
-                <td><%= event.event_start.strftime("%I:%M%p") %></td>
-                <td><%= event.stage%></td>
-                <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %></td>
-                <td><%= event.user.username %></td>
-              </tr>
+                <% if event.stage != "Finished" %>
+                      <tr class = "notfirst">
+                        <td><%= link_to event.name, event_path(event) %><br/><span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span></td>
+                        <td><%= event.event_start.strftime("%d%b%Y") %></td>
+                        <td><%= event.event_start.strftime("%I:%M%p") %></td>
+                        <td><%= event.stage%></td>
+                        <td><%= tag "div", id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %></td>
+                        <td><%= event.user.username %></td>
+                      </tr>
+                <% end %>
             <% end %>
         </tbody>
         </table>
