@@ -1,7 +1,8 @@
 <div id = "eventShow">
 	<div id = "eventShowHeader">
 		<div id="eventNameDate">
-			<h1><%= @event.name %></h1>
+			<h1><%= @event.name %></h2>
+			
 			<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
 			<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
 			<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>

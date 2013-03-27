@@ -32,7 +32,7 @@ class VenuesController < ApplicationController
 
       respond_to do |format|
         if @venue.save
-          format.html { redirect_to @venue.event, notice: 'Venue added successfully created.' }
+          format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
         else
           format.html { render action: "new" }
