@@ -1,11 +1,11 @@
 class AutoMailer < ActionMailer::Base
   default from: "from@example.com"
 
-
-  def event_email(event)
-  	@event = event
-  	@url = event_url(@event, :host => "0.0.0.0:3000") %>
+  def event_email(event_id)
+  	@event = Event.find(event_id)
+  	@url = event_url(@event, :host => "0.0.0.0:3000")
   	mail(:to => "pai.satyan@gmail.com", :subject => "Your Event Has Finished")
   end
+  handle_asynchronously :event_email
 
 end

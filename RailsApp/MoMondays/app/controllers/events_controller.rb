@@ -60,6 +60,8 @@ class EventsController < ApplicationController
 
       respond_to do |format|
         if @event.save
+          #flash[:alert] = "#{@event.event_start}"
+          AutoMailer.delay({:run_at => @event.event_start}).event_email(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
