@@ -8,4 +8,9 @@ class AutoMailer < ActionMailer::Base
   end
   handle_asynchronously :event_email
 
+  def vote_email(event_id)
+  	@event = Event.find(event_id)
+  end
+
+
 end

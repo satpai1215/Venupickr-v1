@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :user_id, :stage, :event_start, :vote_start, :winner
+  attr_accessible :name, :user_id, :stage, :event_start, :vote_start, :winner, :event_email_job_id,
+                  :voting_email_job_id
   belongs_to :user
   has_many :venues, dependent: :destroy
   has_many :voters, dependent: :destroy

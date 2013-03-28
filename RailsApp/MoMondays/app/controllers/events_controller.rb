@@ -8,10 +8,6 @@ class EventsController < ApplicationController
     @events = Event.find(:all, :conditions => ["stage != ?", "Finished"])
     gon.numEvents = @events.count
 
-    @events.each do |event|
-      check_event_finish(event)
-    end
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -61,7 +57,9 @@ class EventsController < ApplicationController
       respond_to do |format|
         if @event.save
           #flash[:alert] = "#{@event.event_start}"
-          AutoMailer.delay({:run_at => @event.event_start}).event_email(@event.id)
+          #@event.event_email_job_id = @event.@event.delay({:run_at => @event.event_start}).event_finish(@event.id)
+          write_jobs(@event.id)
+
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
@@ -78,10 +76,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
-
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
+
+        write_jobs(@event.id)
+
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -95,6 +95,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
+    destroy_jobs(@event.id)
     @event.destroy
     @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"")
 
@@ -104,15 +105,49 @@ class EventsController < ApplicationController
     end
   end
 
-  def check_event_finish(event)
-    if(event.event_start.past?)
-      event_finish(event)
-    end
-  end
+=begin
 
-  def event_finish(event)
+  def event_finish(event_id)
+    @event = Event.find(event_id)
     event.update_attributes(:stage => "Finished")
     event.update_attributes(:winner => event.venues.order("votecount DESC").first.id)
+    #Automailer.event_email(event_id).deliver
   end
+
+  def voting_begin(event_id)
+    @event = Event.find(event_id)
+    event.update_attributes(:stage => "Voting")
+    Automailer.vote_email(event_id).deliver
+  end
+
+=end  
+
+private
+
+  def write_jobs(event_id)
+    @event = Event.find(event_id)
+
+    #delete delayed_jobs if it exists
+    destroy_jobs(event_id)
+
+    #rewrite delayed_jobs for updated event
+    event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start)
+    vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
+
+    # save id of delayed job on Event record
+    @event.update_attributes(:event_email_job_id => event_job.id)
+    @event.update_attributes(:voting_email_job_id => vote_job.id)
+
+  end
+
+  def destroy_jobs(event_id)
+    @event = Event.find(event_id)
+    Delayed::Job.find(@event.event_email_job_id).destroy if @event.event_email_job_id
+    Delayed::Job.find(@event.voting_email_job_id).destroy if @event.voting_email_job_id
+
+  end
+
+
+
 
 end
