@@ -20,9 +20,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
-    if @vote_date.past? && @event.stage != "Finished"
-      @event.update_attributes(:stage => "Voting")
-    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -51,16 +48,16 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
    
-      @event.user = current_user
-      @event.stage = "Pre-Voting"
+    @event.user = current_user
+    @event.stage = "Pre-Voting"
 
       respond_to do |format|
         if @event.save
           #flash[:alert] = "#{@event.event_start}"
           #@event.event_email_job_id = @event.@event.delay({:run_at => @event.event_start}).event_finish(@event.id)
           write_jobs(@event.id)
-
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
+          
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
         else
