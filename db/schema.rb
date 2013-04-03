@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20130327051312) do
 
   create_table "venues", :force => true do |t|
     t.string   "name"
-    t.text     "address",    :limit => 255
+    t.text     "address"
     t.integer  "votecount"
     t.integer  "event_id"
     t.integer  "user_id"
