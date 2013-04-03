@@ -13,13 +13,15 @@
             </tr>
         </thead>
         <tbody>
-            <% Event.where(:stage => "Finished").order('event_start DESC').each do |event| %>
-                      <tr class = "notfirst">
-                        <td><%= event.event_start.strftime("%d%b%Y") %></td>
-                        <td><%= link_to event.name, event_path(event) %>
-                        <td><%= event.user.username %></td>
-                        <td><%= Venue.find(event.winner).name %></td>
-                      </tr>
+            <%if !Event.find(:all).empty? %>
+                <%Event.where(:stage => "Finished").order('event_start DESC').each do |event| %>
+                          <tr class = "notfirst">
+                            <td><%= event.event_start.strftime("%d%b%Y") %></td>
+                            <td><%= link_to event.name, event_path(event) %>
+                            <td><%= event.user.username %></td>
+                            <td><%= Venue.find(event.winner).name %></td>
+                          </tr>
+                <% end %>
             <% end %>
         </tbody>
         </table>
