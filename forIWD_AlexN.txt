@@ -1,0 +1,29 @@
+Hey Alex,
+
+Here is what I've finished of my final project.  It's not fully completed yet, but I think I have a good framework for what I wanted to do with it. There is definitely some things I need to tweak and make it a completed application (Listed in "Future Work" below). Here is a basic summary to help guide you
+
+PURPOSE:  Mo Mondays is a web application designed to choose venues for events created by users.  Essentially users can create events, and then other users (or the event creator) can suggest venues for the events.  After a certain period of time, venues are locked and people can vote on which of the suggested venues they want to hold the event. The venue with the most votes at 6hours before the start of the event will be chosen as the event's venue.
+
+RUBY/RAILS FRAMEWORK:  Currently the application has a User, Event, Venue, Voter, and Update Models. The Voter model is used as sort of an intersection table to keep track of who voted for which venues and to make sure each user can only vote once per event.  The Update model was designed specifically for the "Recent Activity" feed on the homepage so that users can see recent activity by users within the application.
+
+JAVASCRIPT USAGE: All the javascript written for this app is in the "runner.js" file. Javascript is used mostly to create countdown timers for each event and to keep track of when voting can start. Javascript is also used to sort the venue list based on votes. In addition I used javascript with ajax to integrate the Yelp API into the venue suggestion form.  An autocomplete box is used in the venue_new form.  When the user enters the venue name, the Yelp API returns matching venues with locations in the dropdown dialog (I'm having some issues with the RegEx expression matching right now, but I will figure that out later.) 
+
+CURRENT FEATURES:  Currently, users can create events and set a start_date for voting to start.  All users can then suggest venues for the event up until the "vote_start" time.  When voting starts, venue suggestion is turned off and voting begins.
+
+FUTURE WORK:  LOTS to do still!
+- Was having some trouble incorporating javascript/ajax into the rails framework.  Would eventually like the venue suggestion and voting to happen asynchronously with ajax so that the page doesnt reload everytime a venue is suggested or voted on. 
+
+- Still need to establish the functionality of what happens when the voting time runs out.  I want the application to automatically send an email listing the event details and the top voted venue (need to account for cases when two venues have the same # of votes, and also what happens when an event doesn't have any venues suggested).  Also need to load the event in the "Event History" page after it takes place
+
+-create guestList for events. Meaning event creators can specify which users have access to their event.  Also keep track of who is coming to events (RSVP list)
+
+-need to determine to how to hide Yelp OAuth authentication information
+
+-create a more visuallypleasing, simple design for the site (also a
+-mobilefriendly one).  Design and UX is not my forte :(
+
+KNOWN BUGS:
+
+-Users can view events when they are not logged in (which is intended).  When they try to modify an event , they are redirected to the login page.  But after login, devise redirects to the home page instead of back to the event page or the intended path  before login.  I think this has something to do with the "root" being defined and devise redirects there, but I haven't been able to get around this yet
+
+-Yelp API works but probably not most efficiently.  I need to figure out a better way to generate the ajax-returned venue list without creating an ajax request everytime the user enters something (caching?)

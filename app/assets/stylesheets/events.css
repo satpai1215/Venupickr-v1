@@ -1,0 +1,288 @@
+/*----------------------------------------------------------------------------- 
+= RECENT ACTIVITY/NEWSFEED
+-----------------------------------------------------------------------------*/
+#newsFeed {
+
+}
+#newsFeed h2 {
+	float: left;
+	width: 75px;
+	margin-left: 60px;
+	margin-top: 30px;
+
+	font-style: italic;
+}
+
+#newsFeed ul {
+	float:right;
+	background: white;
+
+	border: solid 2px black;
+	border-radius: 15px;
+	padding: 5px 10px;
+	margin: 0 auto;
+	margin-right: 40px;
+	width: 550px;
+	height: 150px;
+	list-style: none;
+	overflow-y: auto;
+
+	text-align: center;
+	color: green;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#newsFeed li {
+	border-bottom: dashed 1px black;
+	padding: 5px 0px;
+}
+
+#newsFeed:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/*----------------------------------------------------------------------------- 
+= INDEX EVENT VIEW
+-----------------------------------------------------------------------------*/
+.eventList {
+	position: absolute;
+	margin-top: 10px;
+}
+.eventList h1 {
+	float: left;
+	padding-left: 10px;
+}
+
+.eventList #eventIndexModifiers {
+	font-size: 0.85em;
+}
+
+.tableContainer {
+	background: white;
+
+	clear: both;	
+	width: 750px;
+	border: solid 2px black;
+	border-radius: 15px;
+	padding: 20px;
+	margin: 20px auto;
+	height: 350px;
+	overflow-y: auto;
+}
+
+.tableContainer a {
+	color: black;
+}
+
+.tableContainer a:hover {
+	color: red;
+	background: none;
+}
+
+		.eventList table th:first-child{
+			width: 210px;
+			text-align: left;
+			height: 20px;
+		}
+
+		.eventList table th{
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		.eventList table tr{
+			height: 25px;
+			border-bottom: dashed 2px gray;
+		}
+		.eventList table tr.notfirst:hover{
+			background: #F9F9C9;
+		}
+		.eventList table td:first-child{
+			text-align: left;
+		}
+		.eventList table td{
+			text-align: center;
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+#newEventCreate {
+		float:left;
+		text-decoration: none;
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.8em;
+		width: 130px;
+		border-top: solid 2px black;
+		border: solid 2px black;
+		border-radius: 5px;
+		padding: 5px 5px 5px 5px;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+
+		margin-top: 30px;
+		margin-left: 25px;
+}
+		#newEventCreate:hover{
+			background: #F9F9C9;
+			color: black;
+		}
+
+/*----------------------------------------------------------------------------- 
+= SHOW EVENT VIEW
+-----------------------------------------------------------------------------*/
+
+#eventShow {
+
+}
+
+	#eventShowHeader {
+		margin-bottom: 0px;
+		margin-left: 15px;
+		width: 100%;
+	}
+	#eventNameDate {
+		margin: 0px 0px 0px 0px;
+	}
+	#eventNameDate h1,h2{
+		text-align: left;
+		margin: 0 auto;
+			}
+	#eventShowModifiers {
+		float: right;
+		margin-right: 35px;
+	}
+
+	#venueList {
+		position: absolute;
+		bottom: 5%;
+		right: 10%;
+		width: 650px;
+		height: 450px;
+		background: white;
+		border: ridge 5px gray;
+		border-radius: 15px;
+		padding: 10px;
+		background: white;
+	}
+		#venueList h2 {
+			border-bottom: solid 3px black;
+			margin-bottom: 0px;
+		}
+		#venueList ul {
+			overflow-y: auto;
+			height: 415px;
+			padding-left: 5px;
+			margin-top: 5px;
+		}
+
+		#venueList li.listItem{
+			list-style: none;
+			float: left;
+			width: 100%;
+	        padding-bottom: 25px;
+		}
+		.venueSticky {
+			font-family: whatever it takes;
+			font-size: 2em;
+			line-height: 1em;
+			border: solid 2px black;
+				-moz-box-shadow: 0px 5px 5px 0px #000;
+				-webkit-box-shadow: 0px 2px 5px 0px #000;
+				box-shadow: 0px 2px 5px 0px #000;
+			background: #F9F9C9;
+    		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+    		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+    		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
+    		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
+			padding: 10px 10px 10px 10px;
+		}
+
+        #venueList .venueSticky {
+            float:left;
+            width: 40%;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        #venueList .venueSticky a {
+            color: blue;
+        }
+        #venueList .venueSticky a:hover {
+            color: red;
+            background: none;
+        }
+        #venueList #voteControls {
+        	margin-top: 10%;
+        	float: right;
+        	margin-right: 100px;
+        }
+        #venueList .voteButton {
+        	width: 80px;
+        	font-size: 10em;
+        	margin-left: 15px;
+        }
+
+	    #venueList li.listItem .voteCount {
+	        font-size: 2em;
+	        text-align: center;
+	        margin-bottom: 10px;
+	        font-weight: bold;
+	    }
+
+
+	#suggestVenueLink {
+		position: absolute;
+		right: 85px;
+		top: 190px;
+		z-index: 10000000;
+
+		display: block;
+		text-decoration: none;
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.65em;
+		width: 120px;
+		margin-right: 15px;
+		border-top: solid 2px black;
+		border: solid 2px black;
+		border-radius: 5px;
+		padding: 5px 10px 5px 10px;
+		text-shadow: 0.1em 0.1em 0.2em white;
+		background: #E3E1E2;
+
+	}
+
+		#suggestVenueLink:hover{
+			background: #F9F9C9;
+			color: black;
+		}
+
+	#eventControls {
+		width: 100%;
+		margin-top: 15px;
+		right: 3.5%;
+	}	
+	#eventControls h3, h4 {
+		margin: 0;
+		font-family: Lucida Sans Unicode;
+		font-weight: bolder;
+	}
+	#eventControls h3 {
+		float: left;
+		margin-left: 60px;
+		margin-top: 5px;
+		font-size: 1em;
+		font-style: italic;
+	}	
+	#eventControls p {
+		width: 180px;
+		margin: 15px 70px 0px 0px;
+		text-align: right;
+		float: right;
+
+	}	

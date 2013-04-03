@@ -1,0 +1,28 @@
+
+#appInfo p {
+	margin: 0 50px;
+	text-align: justify;
+}
+
+#rulesPageContent ul, ol{
+	width: 600px;
+	margin: 10px auto;
+}
+#rulesPageContent h2 {
+	text-align: center;
+}
+
+#eventHistoryTable {
+	height: 500px;
+}
+#eventHistoryTable table {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#eventHistoryHeadings {
+	font-size: 1.2em;
+	text-align: center;
+}
+
+

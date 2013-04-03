@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoMondays</title>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id = "container">
+		<h1>Mo' Mondays Mo' Problems (BETA)</h1>
+		<div id = "sidebar">
+			<nav>	
+				<ul>
+					<li><%= link_to "Home", events_path %></li>
+					<li><%= link_to "Rules", pages_info_path %></li>
+					<li><%= link_to "Event History", pages_history_path %></li>
+				</ul>
+			</nav>
+		</div>
+
+
+		<div id="login-nav">
+			<% if user_signed_in? %>
+				Logged in as <%= current_user %> 
+				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			<% else %>
+				<%= link_to "Sign Up", new_user_registration_path %> |
+				<%= link_to "Sign In", new_user_session_path %>
+			<% end %>
+		</div>
+
+		
+		<div id = "main">
+			<%= yield %>
+
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
+
+	</div> <!--container -->
+
+	<footer>created by Satyan Pai</footer>
+
+        <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+        <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+</body>
+
+</html>

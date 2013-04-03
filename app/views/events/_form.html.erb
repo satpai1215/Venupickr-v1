@@ -1,0 +1,33 @@
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" id = "event_name_input">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field" id = "event_time_input">
+    <%= f.label :event_start, "When is the Event?" %><br />
+    <%= f.datetime_select :event_start, :ampm => true, :use_short_month => true, :default => {:day => Time.now.day, :hour => '20', :minute => '0'}, :start_year => Time.now.year%> <br />
+  </div>
+
+  <div class="field" id = "vote_time_input">
+    <%= f.label :vote_start, "How many days BEFORE your event will voting open?" %><br />
+  <%= f.select :vote_start,  :options => (1..10).to_a %> <br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
