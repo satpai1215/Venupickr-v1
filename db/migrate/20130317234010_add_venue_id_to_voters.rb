@@ -1,9 +1,9 @@
 class AddVenueIdToVoters < ActiveRecord::Migration
   def up
-  	add_column :voters, :references, :venue
+  	add_column :voters, :venue_id, :integer
   end
 
   def down
-  	remove_column :voters, :references, :venue
+  	remove_column :voters, :venue_id, :integer
   end
 end
