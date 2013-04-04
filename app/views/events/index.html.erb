@@ -1,6 +1,6 @@
 <div id = "newsFeed">
-    <h2>Recent Activity</h2>
     <ul>
+        <h2>Recent Activity:</h2>
         <% Update.last(10).reverse.each do |update| %>
             <li><%= update.content %> <%= time_ago_in_words(update.created_at) %> ago</li>
         <% end %>
@@ -16,16 +16,16 @@
                 <%if !Event.find(:all).empty? %>
                 <% Event.where("stage != ?", "Finished").order('event_start DESC').each_with_index do |event, index| %>
                         <li>
-                              <div id = "eventLabel">
+                            <div id = "eventLabel">
                                 <%= link_to event.name, event_path(event) %> <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span> <br/>
-                                <%= event.event_start.strftime("%d%b%Y") %>
-                                <%= event.event_start.strftime("%I:%M%p") %>
-                                <%= event.stage%>
-                                <%= event.user.username %>
-                                </div>
-                                <%= content_tag :div, id: "eventTimer" do %>
+                                Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                    <%= event.event_start.strftime("%I:%M%p") %>
+                                <br/> Created By: <%= event.user.username %>
+                            </div>
+                                <%= content_tag :div, id: "eventClock" do %>
+                                <div id = "eventStage">Stage: <%=event.stage%></div>
                                     Event Starts In: <br/>
-                                <%= tag :span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %>
+                                <%= tag :span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %> 
                                 <% end %>
                         </li>
 
