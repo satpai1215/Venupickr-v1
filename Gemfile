@@ -26,6 +26,7 @@ end
 gem "oauth", "~> 0.4.7"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'will_paginate'
 
 gem 'gon'
 
