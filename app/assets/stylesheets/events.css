@@ -3,12 +3,13 @@
 -----------------------------------------------------------------------------*/
 #newsFeed {
 	float: right;
-	margin-top: 45px;
+	margin-top: 25px;
 }
 #newsFeed h2 {
-	font-style: italic;
-	text-align: center;
-	color: black;
+	text-align: left;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 #newsFeed ul {
@@ -17,20 +18,18 @@
 
 	border: solid 2px black;
 	padding: 5px 10px;
-	margin: 0 auto;
-	margin-right: 10px;
-	width: 250px;
-	height: 250px;
+	margin: 0px auto;
+	width: 270px;
+	height: 300px;
 	list-style: none;
 	overflow-y: auto;
 
 	text-align: center;
 	color: green;
-	font-weight: bold;
 	font-style: italic;
 }
 
-#newsFeed li, #newsFeed h2 {
+#newsFeed li {
 	border-bottom: dashed 1px black;
 	padding: 5px 0px;
 }
@@ -41,12 +40,13 @@
 -----------------------------------------------------------------------------*/
 #eventList {
 	float: left;
+	margin-top: 10px;
 }
-#eventList h1 {
-	margin-top: 8px;
+#eventList h2 {
+	margin-top: 10px;
 	padding-left: 5px;
 	font-size: 1.7em;
-	text-align: center;
+	font-weight: bold;
 	float: left;
 }
 
@@ -64,8 +64,9 @@
 	list-style: none;
 	margin: 0px;
 	padding-left: 0px;
-	width: 480px;
-	height: 650px;
+	width: 500px;
+	height: 560px;
+	overflow-y: auto;
 }
 
 #eventList li {
@@ -97,6 +98,10 @@
 		font-size: 1.2em;
 	}
 
+	#eventName {
+		font-weight: bold;
+	}
+
 	#eventClock {
 		width: 29%;
 		margin: 0px auto;
@@ -109,17 +114,19 @@
 		text-decoration: none;
 		text-align: center;
 		font-weight: bold;
-		font-size: 0.8em;
-		width: 125px;
+		font-size: 0.85em;
+		width: 145px;
+
 		border-top: solid 2px black;
 		border: solid 2px black;
 		border-radius: 5px;
+
 		padding: 5px 5px 5px 5px;
 		text-shadow: 0.1em 0.1em 0.2em white;
 		background: #DE9EA6;
 		color: black;
 
-		margin-right: 0px;
+		margin-right: 20px;
 		margin-top: 10px;
 
 }
@@ -136,14 +143,14 @@
 }
 
 	#eventShowHeader {
-		margin-bottom: 0px;
+		margin-bottom: 20px;
 		margin-left: 15px;
 		width: 100%;
 	}
 	#eventNameDate {
 		margin: 0px 0px 0px 0px;
 	}
-	#eventNameDate h1,h2{
+	#eventNameDate h1, #eventNameDate h2{
 		text-align: left;
 		margin: 0 auto;
 			}
@@ -152,21 +159,53 @@
 		margin-right: 35px;
 	}
 
+	#eventControls {
+		width: 100%;
+		margin: 10px auto;
+		height: 20px;
+		right: 3.5%;
+	}	
+	#eventControls h3, #eventControls h4 {
+		margin: 0;
+		font-family: Lucida Sans Unicode;
+		font-weight: bolder;
+	}
+	#eventControls h3 {
+		float: left;
+		margin-left: 70px;
+		font-size: 1em;
+		font-style: italic;
+	}	
+	#eventControls p {
+		width: 180px;
+		margin: 0px 70px 0px 0px;
+		text-align: right;
+		float: right;
+
+	}
+
+
 	#venueList {
-		position: absolute;
-		bottom: 5%;
-		right: 10%;
 		width: 650px;
 		height: 450px;
+		margin: 0px auto;
 		background: white;
 		border: ridge 5px gray;
 		border-radius: 15px;
-		padding: 10px;
+		padding: 0px 10px;
 		background: white;
 	}
-		#venueList h2 {
+		#venueList-header {
 			border-bottom: solid 3px black;
 			margin-bottom: 0px;
+		}
+
+		#venueList h2 {
+			display: inline-block;
+			padding-top: 10px;
+			margin-bottom: 10px;
+			font-size: 1.2em;
+			font-weight: bold;
 		}
 		#venueList ul {
 			overflow-y: auto;
@@ -230,21 +269,16 @@
 
 
 	#suggestVenueLink {
-		position: absolute;
-		right: 85px;
-		top: 190px;
-		z-index: 10000000;
-
-		display: block;
+		float: right;
 		text-decoration: none;
 		text-align: center;
 		font-weight: bold;
-		font-size: 0.65em;
-		width: 120px;
-		margin-right: 15px;
+		font-size: 0.85em;
+		width: 130px;
 		border-top: solid 2px black;
 		border: solid 2px black;
 		border-radius: 5px;
+		margin-top: 5px;
 		padding: 5px 10px 5px 10px;
 		text-shadow: 0.1em 0.1em 0.2em white;
 		background: #E3E1E2;
@@ -255,28 +289,4 @@
 			background: #F9F9C9;
 			color: black;
 		}
-
-	#eventControls {
-		width: 100%;
-		margin-top: 15px;
-		right: 3.5%;
-	}	
-	#eventControls h3, h4 {
-		margin: 0;
-		font-family: Lucida Sans Unicode;
-		font-weight: bolder;
-	}
-	#eventControls h3 {
-		float: left;
-		margin-left: 60px;
-		margin-top: 5px;
-		font-size: 1em;
-		font-style: italic;
-	}	
-	#eventControls p {
-		width: 180px;
-		margin: 15px 70px 0px 0px;
-		text-align: right;
-		float: right;
-
-	}	
+	

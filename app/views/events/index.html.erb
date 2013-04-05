@@ -1,6 +1,6 @@
 <div id = "newsFeed">
+    <h2>Recent Activity:</h2>
     <ul>
-        <h2>Recent Activity:</h2>
         <% Update.last(10).reverse.each do |update| %>
             <li><%= update.content %> <%= time_ago_in_words(update.created_at) %> ago</li>
         <% end %>
@@ -9,7 +9,7 @@
 </div>
 
 <div id = "eventList">
-    <h1>Events on the Clock:</h1>
+    <h2>Events on the Clock:</h2>
     <%= link_to 'Create New Event', new_event_path, :id => "newEventCreate" %>
 
             <ul>
@@ -17,7 +17,8 @@
                 <% Event.where("stage != ?", "Finished").order('event_start DESC').each_with_index do |event, index| %>
                         <li>
                             <div id = "eventLabel">
-                                <%= link_to event.name, event_path(event) %> <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span> <br/>
+                                <span id = "eventName"><%= link_to event.name, event_path(event) %> </span>
+                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span> <br/>
                                 Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
                                     <%= event.event_start.strftime("%I:%M%p") %>
                                 <br/> Created By: <%= event.user.username %>

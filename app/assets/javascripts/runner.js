@@ -220,6 +220,7 @@ END COUTNDOWN CREATION FUNCTIONS
  $(document).ready() function
  *********************/
 $(function() {
+
 	   //var dateFromIndex = $("#eventIndexTimer").data("date");
 	   //var dateIndex = $(".eventIndexTimer").data("index");
 	   //var eventDate = new Date(dateFromIndex);

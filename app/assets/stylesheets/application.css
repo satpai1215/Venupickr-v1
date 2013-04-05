@@ -8,9 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require 'reset'
  *= require_self
- *= require_tree .
- *= require jquery.ui.autocomplete
+ *= require_tree
  */
 
  body {
@@ -18,35 +18,25 @@
  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
  }
 
+
+
+#container > h1 {
+	float: left;
+	margin-left: 5px;
+	font-size: 1.9em;
+	font-family: CF Midnight;
+	font-weight: bold;
+}
+
  /*----------------------------------------------------------------------------- 
 =03 CONTAINER 
 -----------------------------------------------------------------------------*/
 
-#container{
-	margin: 25px auto;
-	margin-bottom: 10px;
+#container {
+	margin: 20px auto;
+	margin-bottom: 0px;
 	position: relative;
-	width: 960px;
-}
-
-#container:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-#container h1, h2 {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-#container > h1 {
-	position: absolute;
-	left: 14%;
-	top: -3.75%;
-	font-size: 1.5em;
-	font-family: CF Midnight;
+	width: 840px;
 }
 
  /*----------------------------------------------------------------------------- 
@@ -54,13 +44,13 @@
 -----------------------------------------------------------------------------*/
 
  #main {
- 	position: absolute;
+ 	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	height:	650px;
+ 	clear: both;
  	background: #ededed;
- 	width: 796px;
-	padding: 20px;
-	height: 650px;
-	float: right;
-	position: relative;
+ 	width: 800px;
+	padding: 10px 20px;
 	border: solid 2px black;
 	/*border-radius: 15px;
 		-moz-box-shadow: 0px 5px 20px 0px #000;
@@ -73,49 +63,54 @@
  		font-size: 2em;
 
  	}
+ 	#main:after {
+	  content: ".";
+	  display: block;
+	  height: 0;
+	  clear: both;
+	  visibility: hidden;
+	}
 /*----------------------------------------------------------------------------- 
 = LOGIN NAV
 -----------------------------------------------------------------------------*/
 #login-nav {
-	font-size: 0.8em;
+	font-size: 1em;
+	margin-top: 8px;
 	float: right;
-	padding-right: 12px;
-	margin-bottom: 2px;
 }
 /*----------------------------------------------------------------------------- 
 = SIDEBAR AND NAV
 -----------------------------------------------------------------------------*/
 
-#sidebar{ 
-	min-height: 650px;
-	float: left;
-	width: 120px;
-	height: 100%;
-	padding: 50px 0px 0px 0px;
-	background: none;
-	position: relative;
+nav{  
+
 }
+
 
 nav ul {
-	padding-left: 5px;
+	width: 100%;
+	text-align: center;
+	border-bottom: solid 3px black;
+	padding-bottom: 10px;
 }
 
+
 nav ul li {
-	margin-bottom: 5px;
+	display: inline-block;
+	margin-right: 15px;
 	list-style-type: none;
 	font-weight: bold;
+	width: 20%;
 }
 
 	nav li a{
 		display: block;
+		border: solid 2px black;
+		border-radius: 5px;
 		text-decoration: none;
-		text-align: right;
-		border-top: solid 2px black;
-		border-bottom: solid 2px black;
-		border-left: solid 2px black;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
-		padding: 5px 10px 5px 0px;
+		text-align: center;
+		font-size: 0.9em;
+		padding: 5px;
 		text-shadow: 0.1em 0.1em 0.2em white;
 		background: #E3E1E2;
 	}
@@ -125,9 +120,9 @@ nav ul li {
 			color: black;
 		}
 
-		nav li.active a{
+		nav li a:active{
 			font-weight: bold;
-			background: #F9a9C9;
+			background: #F9F9C9;
 			color: black;
 		}
 
@@ -135,13 +130,12 @@ nav ul li {
 /*----------------------------------------------------------------------------- 
 =06 FOOTER 
 -----------------------------------------------------------------------------*/
-footer{
-	margin: 10px auto;
-	position: relative;
-	width: 840px;
-	padding-left: 120px;
+footer {
+	clear: both;
+	margin: 2px auto;
+	width: 100%;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.25em;
 	font-weight: bolder;
 
 }

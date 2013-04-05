@@ -4,7 +4,7 @@
 	text-align: justify;
 }
 
-#rulesPageContent ul, ol{
+#rulesPageContent ul, #rulesPageContent ol{
 	width: 600px;
 	margin: 10px auto;
 }

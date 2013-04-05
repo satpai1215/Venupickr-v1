@@ -11,15 +11,10 @@ module EventsHelper
     	return html.html_safe
 	end
 
-	def display_countdowns_and_venue_button(event)
+	def display_countdowns(event)
 		html = ""
 		html << '<h3>' + display_date_or_countdown(event) + '</h3>'
 		html << display_prevoting_countdown(event)
-
-		if(event.stage == "Pre-Voting")
-			html << "#{link_to "Suggest a Venue -->", 
-			new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink"}"
-		end
 
 		return html.html_safe
 	end
@@ -36,6 +31,18 @@ module EventsHelper
 
 		end
 	end
+
+	def display_venue_suggest_button(event)
+		html = ""
+
+		if(event.stage == "Pre-Voting")
+			html << "#{link_to "Suggest a Venue", 
+			new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink"}"
+		end
+
+		return html.html_safe
+	end
+
 
 	def display_prevoting_countdown(event)
 		html = ""

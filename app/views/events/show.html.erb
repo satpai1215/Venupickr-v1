@@ -11,13 +11,16 @@
 	</div>
 
 	<div id = "eventControls">
-		<%= display_countdowns_and_venue_button(@event) %>
+		<%= display_countdowns(@event) %>
 		<%#= render :partial => "venues/form", :locals => { :event => @event} %> 
 	</div>
 
 	<div id = "venueList">
-		<h2>Recommended Venues</h2>
-	
+		<div id = "venueList-header">
+			<h2>Recommended Venues</h2>
+			<%= display_venue_suggest_button(@event) %>
+		</div>
+		
 		<ul>
 			<% @event.venues.each do |venue| %>
 				<li class = "listItem">
