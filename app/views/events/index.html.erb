@@ -13,12 +13,16 @@
     <%= link_to 'Create New Event', new_event_path, :id => "newEventCreate" %>
 
             <ul>
-                <%if !Event.find(:all).empty? %>
-                <% Event.where("stage != ?", "Finished").order('event_start DESC').each_with_index do |event, index| %>
+                <%if Event.find(:all).empty? %>
+                    <div id = "noEventsLabel">  
+                        <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
+                    </div>
+                <% else %>
+                    <% Event.where("stage != ?", "Finished").order('event_start DESC').each_with_index do |event, index| %>
                         <li>
                             <div id = "eventLabel">
-                                <span id = "eventName"><%= link_to event.name, event_path(event) %> </span>
-                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span> <br/>
+                                <span id = "eventName"><%= link_to event.name, event_path(event) %> </span> <br/>
+                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span>
                                 Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
                                     <%= event.event_start.strftime("%I:%M%p") %>
                                 <br/> Created By: <%= event.user.username %>

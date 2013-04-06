@@ -6,7 +6,7 @@ module EventsHelper
 		if(current_user == event.user && event.stage != "Finished")
 			html<< "(" + link_to('Edit', edit_event_path(event)) + " | "
         	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' })
-        	html << ")"
+        	html << ")" + "<br/>"
     	end
     	return html.html_safe
 	end
