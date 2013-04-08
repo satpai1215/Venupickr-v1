@@ -3,6 +3,8 @@ class Venue < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
+  has_many :voters, dependent: :destroy
+
   def to_s
     self.name
   end

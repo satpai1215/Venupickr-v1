@@ -1,4 +1,12 @@
-$("#venue_" + <%= escape_javascript(@venue.id.to_s)%>+ " .voteCount").text(<%= escape_javascript(@venue.votecount.to_s) %>);
-voteSort();
+<% if @already_voted %>
+	$("#notice").text("You have already voted for this event");
 
-$("#notice").text("Your vote has been recorded");
+<% else %> {
+	$("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @venue.votecount %>);
+	voteSort();
+	$("#notice").text("Your vote has been recorded");
+}
+
+<% end %>
+
+

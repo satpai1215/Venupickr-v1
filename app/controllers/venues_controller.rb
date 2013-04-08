@@ -81,24 +81,34 @@ class VenuesController < ApplicationController
       format.js {}
       format.json { head :no_content }
 
-    @venue.destroy
+      @venue.destroy
     end
   end
 
   def increment_vote
      @venue = Venue.find(params[:venue_id])
+     @already_voted = Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
 
+
+    if (@already_voted)
+
+    #   respond_to do |format|
+    #     format.html {redirect_to @venue.event, notice: "You have already voted for this event"}
+    #     format.js {redirect_to @venue.event, notice: "You have already voted for this event"}
+
+    else
       num = @venue.votecount
       @venue.update_attributes(:votecount => num + 1 )
 
       Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
       Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
+    end
 
     respond_to do |format|
-      format.html {redirect_to @venue.event, notice: "Your vote has been recorded."}
-      format.js
+        format.html {redirect_to @venue.event, notice: "Your vote has been recorded."}
+        format.js
     end
-  #  end
+
   end
 
 end
