@@ -5,7 +5,7 @@ module EventsHelper
 		html = ""
 		if(current_user == event.user && event.stage != "Finished")
 			html<< "(" + link_to('Edit', edit_event_path(event)) + " | "
-        	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' })
+        	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :remote => true)
         	html << ")" + "<br/>"
     	end
     	return html.html_safe
@@ -37,7 +37,7 @@ module EventsHelper
 
 		if(event.stage == "Pre-Voting")
 			html << "#{link_to "Suggest a Venue", 
-			new_venue_path(:event_id => @event.id, :user => current_user), :id => "suggestVenueLink"}"
+			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink"}}"
 		end
 
 		return html.html_safe

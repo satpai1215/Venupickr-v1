@@ -10,6 +10,8 @@
  *
  *= require 'reset'
  *= require_self
+ *= require jquery.ui.autocomplete
+ *= require jquery.ui.dialog
  *= require_tree
  */
 
@@ -29,7 +31,7 @@
 }
 
  /*----------------------------------------------------------------------------- 
-=03 CONTAINER 
+= CONTAINER 
 -----------------------------------------------------------------------------*/
 
 #container {
@@ -40,16 +42,25 @@
 }
 
  /*----------------------------------------------------------------------------- 
+= NOTICE 
+-----------------------------------------------------------------------------*/
+#notice {
+	text-align: center;
+	background: white;
+	padding: 30px auto;
+}
+
+ /*----------------------------------------------------------------------------- 
 = MAIN
 -----------------------------------------------------------------------------*/
 
  #main {
  	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 13px;
-	height:	650px;
  	clear: both;
  	background: #ededed;
  	width: 800px;
+ 	min-height: 700px;
 	padding: 10px 20px;
 	border: solid 2px black;
 	/*border-radius: 15px;
@@ -112,12 +123,13 @@ nav ul li {
 		font-size: 0.9em;
 		padding: 5px;
 		text-shadow: 0.1em 0.1em 0.2em white;
-		background: #E3E1E2;
+		background: #F9F9C9;
+		color: black;
 	}
 		nav li a:hover{
 			font-weight: bold;
-			background: #F9F9C9;
-			color: black;
+			background: #E3E1E2;
+			color: gray;
 		}
 
 		nav li a:active{

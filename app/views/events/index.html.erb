@@ -10,7 +10,8 @@
 
 <div id = "eventList">
     <h2>Events on the Clock:</h2>
-    <%= link_to 'Create New Event', new_event_path, :id => "newEventCreate" %>
+    <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate"} %>
+     <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
 
             <ul>
                 <%if Event.find(:all).empty? %>
@@ -18,9 +19,9 @@
                         <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
                     </div>
                 <% else %>
-                    <% Event.where("stage != ?", "Finished").order('event_start DESC').each_with_index do |event, index| %>
-                        <li>
-                            <div id = "eventLabel">
+                    <% Event.where("stage != ?", "Finished").order('event_start ASC').each_with_index do |event, index| %>
+                        <li id = <%= "event_" + (event.id).to_s %>>
+                            <div class = "eventLabel" >
                                 <span id = "eventName"><%= link_to event.name, event_path(event) %> </span> <br/>
                                 <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span>
                                 Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
@@ -37,7 +38,11 @@
                     <% end %>
                 <% end %>
             </ul>
-</div> <!--currentEventList -->
+            <div id = "eventPagination">More Events: <%= link_to "#" %></div>
+
+</div> <!--eventList -->
+
+
 
 
  <script> createTimersinView(); </script>

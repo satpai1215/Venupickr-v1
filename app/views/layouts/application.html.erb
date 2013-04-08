@@ -4,8 +4,8 @@
   <title>MoMondays</title>
   <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "jquery", "application" %>
+<%= csrf_meta_tag %>
 </head>
 <body>
 
@@ -30,11 +30,12 @@
 					<li><%= link_to "Event History", pages_history_path %></li>
 				</ul>
 			</nav>
+			
+			<div id="notice"><%= notice %></div>
+			<p class="alert"><%= alert %></p>
 
 			<%= yield %>
 
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
 		</div>
 
 	</div> <!--container -->

@@ -98,6 +98,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to events_url }
+      format.js {}
       format.json { head :no_content }
     end
   end
@@ -139,8 +140,13 @@ private
 
   def destroy_jobs(event_id)
     @event = Event.find(event_id)
-    Delayed::Job.find(@event.event_email_job_id).destroy if @event.event_email_job_id
-    Delayed::Job.find(@event.voting_email_job_id).destroy if @event.voting_email_job_id
+    if @event.event_email_job_id and Delayed::Job.exists?(@event.event_email_job_id)
+      Delayed::Job.find(@event.event_email_job_id).destroy
+    end
+
+    if @event.voting_email_job_id and Delayed::Job.exists?(@event.voting_email_job_id)
+      Delayed::Job.find(@event.voting_email_job_id).destroy
+    end
 
   end
 

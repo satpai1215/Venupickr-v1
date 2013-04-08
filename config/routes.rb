@@ -17,6 +17,7 @@ MoMondays::Application.routes.draw do
 
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+ # match '/events/new', :controller => 'events', :action => 'new'
 
   root :to => 'events#index'
 

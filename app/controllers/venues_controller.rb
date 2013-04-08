@@ -10,6 +10,7 @@ class VenuesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @venue }
+      format.js
     end
   end
 
@@ -76,7 +77,8 @@ class VenuesController < ApplicationController
 
 
     respond_to do |format|
-      format.html { redirect_to @venue.event }
+      format.html { redirect_to @venue.event, notice: "You have successfully removed your suggested venue" }
+      format.js {}
       format.json { head :no_content }
 
     @venue.destroy
@@ -86,17 +88,16 @@ class VenuesController < ApplicationController
   def increment_vote
      @venue = Venue.find(params[:venue_id])
 
-   # if (Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ]))
-  #    redirect_to :back, notice: "You have already voted for this event."
-
-   # else
       num = @venue.votecount
       @venue.update_attributes(:votecount => num + 1 )
 
       Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
       Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
 
-      redirect_to @venue.event, notice: "Your vote has been recorded."
+    respond_to do |format|
+      format.html {redirect_to @venue.event, notice: "Your vote has been recorded."}
+      format.js
+    end
   #  end
   end
 

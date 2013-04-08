@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jquery.ui.dialog
 //= require_tree .
 
 $(function() {
-  //$("#event_date").datepicker();
+ // $("#createVenueForm").dialog();
 });

@@ -1,0 +1,4 @@
+$("#venue_" + <%= escape_javascript(@venue.id.to_s)%>+ " .voteCount").text(<%= escape_javascript(@venue.votecount.to_s) %>);
+voteSort();
+
+$("#notice").text("Your vote has been recorded");

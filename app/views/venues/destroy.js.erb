@@ -1,0 +1,3 @@
+$("#venue_" + <%= escape_javascript(@venue.id.to_s) %>).remove();
+
+$("#notice").text("You successfully removed your suggested venue");
