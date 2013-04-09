@@ -46,7 +46,7 @@ class VenuesController < ApplicationController
         else
           format.html { render action: "new" }
           format.json { render json: @venue.errors, status: :unprocessable_entity }
-          format.js
+          format.js {render action: "new"}
         end
       end
     #end
@@ -100,10 +100,10 @@ class VenuesController < ApplicationController
 
 
     if (@already_voted)
-
-    #   respond_to do |format|
-    #     format.html {redirect_to @venue.event, notice: "You have already voted for this event"}
-    #     format.js {redirect_to @venue.event, notice: "You have already voted for this event"}
+       respond_to do |format|
+         format.html {redirect_to @venue.event, notice: "You have already voted for this event"}
+         format.js
+       end
 
     else
       num = @venue.votecount
@@ -111,11 +111,11 @@ class VenuesController < ApplicationController
 
       Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
       Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
-    end
 
-    respond_to do |format|
+      respond_to do |format|
         format.html {redirect_to @venue.event, notice: "Your vote has been recorded."}
         format.js
+      end
     end
 
   end

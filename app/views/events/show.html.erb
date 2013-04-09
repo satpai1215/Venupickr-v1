@@ -29,7 +29,7 @@
 				   </div>
 
 				  	<div id = "voteControls">
-					   <% if(@event.stage == "Voting") %>
+					   <% if(@event.stage == "Pre-Voting") %>
 					   		<div class = "voteCount"><%= venue.votecount %></div>
 						   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true } %>
 						   <script> voteSort()</script>

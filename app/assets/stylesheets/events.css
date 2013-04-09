@@ -85,12 +85,14 @@
 	background: #F9F9C9;
 }
 	.eventLabel {
-		width: 70%;
+		width: 66%;
 		height: 100%;
-		margin: 0px;
+		padding-left: 10px;
 		float: left;
-		border-right: solid 2px black;
+		border-right-width: 2px;
+		border-right-style: groove;
 		line-height: 1.5em;
+
 	}
 	.eventLabel a {
 		text-decoration: none;
@@ -103,7 +105,7 @@
 	}
 
 	#eventClock {
-		width: 28%;
+		width: 30%;
 		float:left;
 		text-align: center;
 		margin-left: 5px;
@@ -117,6 +119,8 @@
 		font-style: normal;
 		line-height: 1.3em;
 		height: 30px;
+		width: 120px;
+		margin-left: 10px;
 		display: block;
 	}
 
@@ -209,27 +213,6 @@
         background: -o-linear-gradient(#fff, #eed3d7);*/
     }
 
-    .close {
-        background: #606061;
-        color: #FFFFFF;
-        line-height: 25px;
-        position: absolute;
-        right: -12px;
-        text-align: center;
-        top: -10px;
-        width: 24px;
-        text-decoration: none;
-        font-weight: bold;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        border-radius: 12px;
-        -moz-box-shadow: 1px 1px 3px #000;
-        -webkit-box-shadow: 1px 1px 3px #000;
-        box-shadow: 1px 1px 3px #000;
-    }
-
-    .close:hover { background: #00d9ff; }
-
 /*----------------------------------------------------------------------------- 
 = SHOW EVENT VIEW
 -----------------------------------------------------------------------------*/
@@ -239,7 +222,7 @@
 }
 
 	#eventShowHeader {
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 		margin-top: 15px;
 		margin-left: 15px;
 		width: 100%;
@@ -280,7 +263,7 @@
 		font-style: italic;
 	}	
 	#eventControls p {
-		width: 200px;
+		width: 250px;
 		margin: 0px 70px 0px 0px;
 		text-align: right;
 		float: right;
@@ -289,12 +272,11 @@
 
 	#venueList {
 		width: 650px;
-		height: 450px;
 		margin: 15px auto;
 		background: white;
 		border: ridge 5px gray;
 		border-radius: 15px;
-		padding: 0px 10px;
+		padding: 10px 10px;
 		background: white;
 	}
 		#venueList-header {
@@ -311,7 +293,7 @@
 		}
 		#venueList ul {
 			overflow-y: auto;
-			height: 400px;
+			height: 500px;
 			padding-left: 5px;
 			margin-top: 5px;
 		}
