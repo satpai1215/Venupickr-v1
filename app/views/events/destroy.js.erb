@@ -1,4 +1,7 @@
-$("#event_" + <%= escape_javascript(@event.id.to_s) %>).remove();
+//$("#event_" + <%=@event.id %>).remove();
 
+<% if !Event.exists? %>
+	$("#eventList ul").append('<div id = "noEventsLabel"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>');
+<% end %>
 
 

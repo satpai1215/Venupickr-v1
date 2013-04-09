@@ -17,6 +17,13 @@ class VenuesController < ApplicationController
   # GET /venues/1/edit
   def edit
     @venue = Venue.find(params[:id])
+
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.json { render json: @venue }
+      format.js {render action: 'new'}
+    end
+
   end
 
   # POST /venues
@@ -35,9 +42,11 @@ class VenuesController < ApplicationController
         if @venue.save
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
+          format.js
         else
           format.html { render action: "new" }
           format.json { render json: @venue.errors, status: :unprocessable_entity }
+          format.js
         end
       end
     #end

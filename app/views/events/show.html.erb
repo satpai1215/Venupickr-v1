@@ -17,7 +17,7 @@
 
 	<div id = "venueList">
 		<div id = "venueList-header">
-			<h2>Recommended Venues</h2>
+			<h2>Recommended Venue List</h2>
 			<%= display_venue_suggest_button(@event) %>
 		</div>
 		
@@ -29,7 +29,7 @@
 				   </div>
 
 				  	<div id = "voteControls">
-					   <% if(@event.stage == "Pre-Voting") %>
+					   <% if(@event.stage == "Voting") %>
 					   		<div class = "voteCount"><%= venue.votecount %></div>
 						   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true } %>
 						   <script> voteSort()</script>
@@ -41,8 +41,7 @@
 		</ul>
 	</div><!-- venueList -->
 
-<div id="createVenueForm" class = "modalDialog">
-        <%= render 'venues/form' %>
+<div id = "createVenueForm" class = "modal-dialog" title = "Enter Venue Information">
 </div> <!--createEventForm-->
 
 </div> <!--#eventShow -->

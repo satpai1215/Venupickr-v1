@@ -1,11 +1,13 @@
 
 module EventsHelper
 
+	#event#index helper methods
+
 	def display_modifiers_event(event)
 		html = ""
 		if(current_user == event.user && event.stage != "Finished")
 			html<< "(" + link_to('Edit', edit_event_path(event)) + " | "
-        	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :remote => true)
+        	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
         	html << ")" + "<br/>"
     	end
     	return html.html_safe
@@ -18,6 +20,16 @@ module EventsHelper
 
 		return html.html_safe
 	end
+
+	def action_links(event)
+		html = ""
+		link_text = (event.stage == "Pre-Voting" ? "Suggest a Venue!" : "Vote for a Venue!")
+		html << link_to(link_text, event_path(event))
+		return html.html_safe
+	end
+	
+
+	#event#show helper methods
 
 	def display_date_or_countdown(event)
 
@@ -35,9 +47,9 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.stage != "Vofdng")
+		if(event.stage != "Voting")
 			html << "#{link_to "Suggest a Venue", 
-			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink"}}"
+			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :remote => true}}"
 		end
 
 		return html.html_safe

@@ -10,7 +10,7 @@
 
 <div id = "eventList">
     <h2>Events on the Clock:</h2>
-    <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate"} %>
+    <% if Event.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate"} %> <% end %>
      <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
 
             <ul>
@@ -28,17 +28,17 @@
                                     <%= event.event_start.strftime("%I:%M%p") %>
                                 <br/> Created By: <%= event.user.username %>
                             </div>
-                                <%= content_tag :div, id: "eventClock" do %>
-                                <div id = "eventStage">Stage: <%=event.stage%></div>
-                                    Event Starts In: <br/>
-                                <%= tag :span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s} %> 
-                                <% end %>
-                        </li>
+                                <div id = "eventClock">
+                                Event Starts In: <br/>
+                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s})%></span><br/>
 
+                                 <div class = "eventActionLink"><%=action_links(event)%></div>
+                               </div>
+                        </li>
                     <% end %>
                 <% end %>
             </ul>
-            <div id = "eventPagination">More Events: <%= link_to "#" %></div>
+           <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
 
 </div> <!--eventList -->
 

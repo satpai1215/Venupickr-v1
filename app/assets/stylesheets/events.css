@@ -73,11 +73,11 @@
    	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);
 
 	display: block;	
-	width: 466px;
+	width: 470px;
 	border: solid 2px black;
 	border-radius: 5px;
 	margin: 5px 0px 5px 0px;
-	padding: 5px;
+	padding: 5px 3px;
 	height: 80px;	
 }
 
@@ -90,6 +90,7 @@
 		margin: 0px;
 		float: left;
 		border-right: solid 2px black;
+		line-height: 1.5em;
 	}
 	.eventLabel a {
 		text-decoration: none;
@@ -102,10 +103,43 @@
 	}
 
 	#eventClock {
-		width: 29%;
-		margin: 0px auto;
+		width: 28%;
 		float:left;
 		text-align: center;
+		margin-left: 5px;
+		font-style: italic;
+	}
+
+	.eventIndexTimer {
+		color: red;
+		font-weight: bold;
+		font-size: 1.2em;
+		font-style: normal;
+		line-height: 1.3em;
+		height: 30px;
+		display: block;
+	}
+
+	.eventActionLink {
+		margin-top: 5px;
+		margin-left: 2px;
+	}
+
+	.eventActionLink a {
+		display: block;
+
+		text-decoration: none;
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.9em;
+		font-style: normal;
+		padding: 2px 2px;
+		border: solid 2px black;
+		border-radius: 5px;
+	}
+
+	.eventActionLink a:hover {
+		background: black;
 	}
 
 #newEventCreate {
@@ -145,7 +179,7 @@
 -----------------------------------------------------------------------------*/
 .modalDialog {
     position: fixed;
-    visibility: visible;
+    visibility: hidden;
     font-family: Arial, Helvetica, sans-serif;
     top: 0;
     right: 0;
@@ -160,18 +194,19 @@
     pointer-events: none;
 }
     #createVenueForm {
-    	visibility: visible;
-        width: 330px;
-        height: 265px;
-        position: relative;
-        margin: 10% auto;
+    	   width: 400px;
+    	/*display: none;
+        height: 200px;
+        position: absolute;
+        top: 25%;
+        left: 25%;
         padding: 5px 20px 13px 20px;
         border-radius: 10px;
         border: solid 4px gray;
         background: #eed3d7;
         background: -moz-linear-gradient(#eed3d7, #999);
         background: -webkit-linear-gradient(#eed3d7, #999);
-        background: -o-linear-gradient(#fff, #eed3d7);
+        background: -o-linear-gradient(#fff, #eed3d7);*/
     }
 
     .close {
@@ -204,20 +239,27 @@
 }
 
 	#eventShowHeader {
-		margin-bottom: 20px;
+		margin-bottom: 50px;
+		margin-top: 15px;
 		margin-left: 15px;
 		width: 100%;
 	}
 	#eventNameDate {
 		margin: 0px 0px 0px 0px;
+		line-height: 1.2em;
 	}
 	#eventNameDate h1, #eventNameDate h2{
 		text-align: left;
 		margin: 0 auto;
-			}
+	}
+	#eventNameDate h1 {
+		margin-bottom: 15px;
+	}
 	#eventShowModifiers {
-		float: right;
-		margin-right: 35px;
+		position: absolute;
+		right: 4%;
+		top: 15%;
+		font-size: 1.2em;
 	}
 
 	#eventControls {
@@ -234,22 +276,21 @@
 	#eventControls h3 {
 		float: left;
 		margin-left: 70px;
-		font-size: 1em;
+		font-size: 1.2em;
 		font-style: italic;
 	}	
 	#eventControls p {
-		width: 180px;
+		width: 200px;
 		margin: 0px 70px 0px 0px;
 		text-align: right;
 		float: right;
-
+		font-size: 1.1em;
 	}
-
 
 	#venueList {
 		width: 650px;
 		height: 450px;
-		margin: 0px auto;
+		margin: 15px auto;
 		background: white;
 		border: ridge 5px gray;
 		border-radius: 15px;

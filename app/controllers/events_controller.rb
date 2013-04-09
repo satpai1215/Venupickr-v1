@@ -98,7 +98,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to events_url }
-      format.js {}
+      format.js
       format.json { head :no_content }
     end
   end

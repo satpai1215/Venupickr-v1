@@ -17,5 +17,19 @@
 //= require_tree .
 
 $(function() {
- // $("#createVenueForm").dialog();
+
+ $('.delete-event').bind('ajax:success', function() {  
+    $(this).closest('li').slideUp();  
+	});
+
+ $('.delete-venue').bind('ajax:success', function() {  
+    $(this).closest('li').slideUp();  
+	});
+
+ $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, hide: 500});
+ $('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
+ 	//$('#createVenueForm').css('visibility', 'visible');
+ 	$('#createVenueForm').dialog("open");
+
+ 	});
 });
