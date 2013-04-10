@@ -131,7 +131,7 @@ nav ul li {
 		nav li a:hover{
 			font-weight: bold;
 			background: #E3E1E2;
-			color: gray;
+			color: blue;
 		}
 
 		nav li a:active{

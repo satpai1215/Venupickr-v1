@@ -17,6 +17,11 @@
 //= require_tree .
 
 $(function() {
+	$(document).ajaxError(function (e, xhr, settings) {
+        if (xhr.status == 401) {
+           $('#notice').html(xhr.responseText);
+        }
+    });
 
  $('.delete-event').bind('ajax:success', function() {  
     $(this).closest('li').slideUp();  
