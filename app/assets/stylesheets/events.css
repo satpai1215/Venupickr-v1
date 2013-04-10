@@ -399,9 +399,9 @@
 
 	
 	.createForm label {
-		margin-bottom: 5px;
 		font-weight: bold;
 		display: block;
+		margin: 5px auto;
 		text-align: center;
 	}
 	.createForm #venue_name, #venue_url {
@@ -417,5 +417,8 @@
 	}
 	.ui-dialog-title {
 		text-align: center;
+	}
+	.ui-widget-overlay {
+		opacity: 0.8;
 	}
 	
