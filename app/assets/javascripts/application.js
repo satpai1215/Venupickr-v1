@@ -32,9 +32,14 @@ $(function() {
 	});
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, hide: 500});
+ $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, hide: 500});
  $('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
  	//$('#createVenueForm').css('visibility', 'visible');
  	$('#createVenueForm').dialog("open");
-
  	});
+
+  $('#newEventCreate, .edit-event').bind('ajax:success', function () {
+ 	$('#createEventForm').dialog("open");
+ 	});
+
 });

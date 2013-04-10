@@ -35,12 +35,20 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
+      format.js
     end
   end
 
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.json { render json: @event }
+      format.js {render action: 'new'}
+    end
+
   end
 
   # POST /events
@@ -60,9 +68,11 @@ class EventsController < ApplicationController
           
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
+          format.js
         else
           format.html { render action: "new" }
           format.json { render json: @event.errors, status: :unprocessable_entity }
+          format.js {render action: "new"}
         end
       end
 

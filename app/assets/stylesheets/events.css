@@ -367,35 +367,55 @@
 		}
 
 /*----------------------------------------------------------------------------- 
-= CREATE VENUE FORM
+= CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
-#createVenueForm {
+.createForm {
 	font-size: 0.8em;
-	width: 400px;
 }
-	#createVenueForm .field {
+	.createForm .field {
 		margin-top: 5px;
 	}
+
+	#createVenueForm {
+	}
+		#createVenueForm #venue_address {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+		}
+	#createEventForm .field {
+		margin-bottom: 15px;
+	}
+		#event_vote_start, #datetime_select {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#event_name{
+			width: 80%;
+			display: block;
+			margin: 0 auto;
+		}
+
 	
-	#createVenueForm label {
+	.createForm label {
 		margin-bottom: 5px;
 		font-weight: bold;
 		display: block;
 		text-align: center;
 	}
-	#createVenueForm #venue_name, #venue_url {
+	.createForm #venue_name, #venue_url {
 		width: 100%;
 	}
-	#createVenueForm #venue_address {
-		display: block;
-		margin: 0 auto;
-		text-align: center;
-	}
-	#createVenueForm #venueSubmitButton {
+
+	.createForm .actions input {
 		width: 150px;
-		font-size: 5em;
+		font-size: 1em;
 		display: block;
 		margin: 0 auto;
 		cursor: pointer;
+	}
+	.ui-dialog-title {
+		text-align: center;
 	}
 	
