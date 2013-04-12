@@ -10,7 +10,7 @@
 
 <div id = "eventList">
     <h2>Events on the Clock:</h2>
-    <% if Event.where("stage != ? ", "Finished").count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :remote => true} %> <% end %>
+    <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :remote => true} %> <% end %>
      <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
 
             <ul>

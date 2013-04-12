@@ -73,7 +73,7 @@ module EventsHelper
 
 	def generate_venue_sticky(venue)
 		html = ""
-		html << "<b>#{venue.name}</b> </br>"
+		html << "<span class = 'venueSticky_name'>#{venue.name}</span> </br>"
 		html << "Address: #{venue.address} </br>"
 		if venue.url != "" 
 			html << "#{link_to "Yelp Page", venue.url, :target => '_blank'} </br>"
