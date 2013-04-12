@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------*/
 #newsFeed {
 	float: right;
-	margin-top: 25px;
+	margin-top: 18px;
 }
 #newsFeed h2 {
 	text-align: left;
@@ -30,7 +30,7 @@
 }
 
 #newsFeed li {
-	border-bottom: dashed 1px black;
+	border-bottom: double 5px black;
 	padding: 5px 0px;
 }
 

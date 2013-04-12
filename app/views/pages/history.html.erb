@@ -19,7 +19,7 @@
                             <td><%= event.event_start.strftime("%d%b%Y") %></td>
                             <td><%= link_to event.name, event_path(event) %>
                             <td><%= event.user.username %></td>
-                            <td><%= Venue.find(event.winner).name %></td>
+                            <td><%= Venue.find(event.winner).name unless event.winner == nil %></td>
                           </tr>
                 <% end %>
             <% end %>

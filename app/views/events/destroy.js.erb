@@ -1,4 +1,4 @@
-//$("#event_" + <%=@event.id %>).remove();
+$("#notice").text("Event Deleted Successfully.");
 
 <% if !Event.exists? %>
 	$("#eventList ul").append('<div id = "noEventsLabel"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>');

@@ -66,7 +66,7 @@ class EventsController < ApplicationController
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           
-          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          format.html { redirect_to events_path, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
           format.js
         else
