@@ -18,7 +18,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @venue = Venue.new({:event_id => @event.id})
+   # @venue = Venue.new({:event_id => @event.id})
+    @venues = @event.venues.order("votecount DESC")
     @vote_date = @event.event_start - @event.vote_start.days
 
     respond_to do |format|
@@ -108,7 +109,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to events_url }
-      format.js
+      format.js {flash[:notice] = "Event Deleted Successfully."}
       format.json { head :no_content }
     end
   end

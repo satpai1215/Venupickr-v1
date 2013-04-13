@@ -18,11 +18,17 @@
 #eventHistoryTable table {
 	width: 90%;
 	margin: 0 auto;
+	overflow: auto;
 }
 
-#eventHistoryHeadings {
+#eventHistoryHeadings th {
 	font-size: 1.2em;
 	text-align: center;
+	padding-bottom: 10px;
 }
 
+#eventHistoryTable td {
+	text-align: center;
+	padding-bottom: 10px;
+}
 

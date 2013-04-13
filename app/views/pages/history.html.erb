@@ -10,19 +10,19 @@
                 <th>Event Name</th>
                 <th>Created By</th>
                 <th>Winning Venue</th>
+                <th>Suggested By</th>
             </tr>
         </thead>
         <tbody>
-            <%if !Event.find(:all).empty? %>
-                <%Event.where(:stage => "Finished").order('event_start DESC').each do |event| %>
+                <% @finished_events.each do |event| %>
                           <tr class = "notfirst">
                             <td><%= event.event_start.strftime("%d%b%Y") %></td>
                             <td><%= link_to event.name, event_path(event) %>
                             <td><%= event.user.username %></td>
                             <td><%= Venue.find(event.winner).name unless event.winner == nil %></td>
+                            <td><%= Venue.find(event.winner).user.username unless event.winner == nil %></td>
                           </tr>
                 <% end %>
-            <% end %>
         </tbody>
         </table>
     </div><!-- tableContainer -->

@@ -22,14 +22,14 @@
 		</div>
 		
 		<ul>
-			<% @event.venues.each do |venue| %>
+			<% @venues.each do |venue| %>
 				<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %> >
 					<div class = "venueSticky">
 						<%= generate_venue_sticky(venue) %>
 				   </div>
 				   	<div class = "voteControls">
-							<div class = "voteCount"><%= venue.votecount %></div>
 						   <% if(@event.stage == "Voting") %>
+						   <div class = "voteCount"><%= venue.votecount %></div>
 							   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true } %>
 							   <script> voteSort()</script>
 							<% end %>

@@ -1,4 +1,4 @@
-$("#notice").text("Event Deleted Successfully.");
+window.location = '<%= events_path %>'; 
 
 <% if !Event.exists? %>
 	$("#eventList ul").append('<div id = "noEventsLabel"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>');

@@ -47,7 +47,7 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.stage == "Pre-Voting")
+		if(event.stage != "Pre-Voting")
 			html << "#{link_to "Suggest a Venue", 
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :remote => true}}"
 		end
@@ -73,15 +73,15 @@ module EventsHelper
 
 	def generate_venue_sticky(venue)
 		html = ""
-		html << "<span class = 'venueSticky_name'>#{venue.name}</span> </br>"
-		html << "Address: #{venue.address} </br>"
+		html << "<div class = 'venueSticky_name'>#{venue.name}</div>"
+		html << "<div class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</div>"
+		html << "Address: #{venue.address}"
 		if venue.url != "" 
-			html << "#{link_to "Yelp Page", venue.url, :target => '_blank'} </br>"
+			html << "#{link_to "Yelp Page", venue.url, :target => '_blank'}</br>"
 		end
 
 		html << "Suggested By: #{venue.user.username} </br>"
-		
-		html << display_modifiers_venue(venue)
+	
 
 		return html.html_safe
 

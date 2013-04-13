@@ -17,7 +17,7 @@ $( "#venue_name" ).autocomplete({
     select: function( event, ui ) {
         var addy = ""
         ui.item.address.forEach(function(line) {
-            addy += line + "\n";
+            addy += line + "</br>";
         });
         $("#venue_address").val(addy);
         $("#venue_url").val(ui.item.url)
