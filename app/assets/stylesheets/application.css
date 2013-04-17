@@ -9,37 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require 'reset'
+ *= require bootstrap.min.css
  *= require jquery.ui.autocomplete
  *= require jquery.ui.dialog
  *= require_self
- *= require_tree
+ *= require "events"
+ *= require "pages"
  */
-
- body {
- 	background: #C0D1ED;
- 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
- }
-
-
-
-#container > h1 {
-	float: left;
-	margin-left: 5px;
-	font-size: 1.9em;
-	font-family: CF Midnight, Helvetica, Arial, sans-serif;
-	font-weight: bold;
-}
-
- /*----------------------------------------------------------------------------- 
-= CONTAINER 
------------------------------------------------------------------------------*/
-
-#container {
-	margin: 20px auto;
-	margin-bottom: 0px;
-	position: relative;
-	width: 840px;
-}
 
  /*----------------------------------------------------------------------------- 
 = NOTICE 
@@ -47,9 +23,31 @@
 #notice {
 	text-align: center;
 	background: white;
-	padding: 30px auto;
+	padding: 100px auto;
 	font-weight: bold;
 	font-size: 1.5em;
+	color: green;
+}
+
+ /*----------------------------------------------------------------------------- 
+= HEADER
+-----------------------------------------------------------------------------*/
+ #page_title > h1 {
+	font-family: CF Midnight, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	margin-top: 15px;
+}
+ #page_header nav ul {
+ 	margin-bottom: 5px;
+
+ }
+
+ /*----------------------------------------------------------------------------- 
+= LOGIN NAV
+-----------------------------------------------------------------------------*/
+#login-nav {
+	margin-top: 8px;
+	text-align: right;
 }
 
  /*----------------------------------------------------------------------------- 
@@ -57,99 +55,22 @@
 -----------------------------------------------------------------------------*/
 
  #main {
- 	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 13px;
- 	clear: both;
  	background: #ededed;
- 	width: 800px;
  	min-height: 700px;
-	padding: 10px 20px 20px 30px;
-	border: solid 2px black;
-	/*border-radius: 15px;
+	border-radius: 5px;
 		-moz-box-shadow: 0px 5px 20px 0px #000;
 		-webkit-box-shadow: 0px 5px 20px 0px #000;
-		box-shadow: 0px 5px 20px 0px #000;*/
+		box-shadow: 0px 5px 20px 0px #000;
  }
- 	#main h1 {
- 		text-align: center;
- 		margin-bottom: 2px;
- 		font-size: 2em;
 
- 	}
- 	#main:after {
-	  content: ".";
-	  display: block;
-	  height: 0;
-	  clear: both;
-	  visibility: hidden;
-	}
-/*----------------------------------------------------------------------------- 
-= LOGIN NAV
------------------------------------------------------------------------------*/
-#login-nav {
-	font-size: 1em;
-	margin-top: 8px;
-	float: right;
-}
-/*----------------------------------------------------------------------------- 
-= SIDEBAR AND NAV
------------------------------------------------------------------------------*/
-
-nav{  
-
-}
-
-
-nav ul {
-	width: 100%;
-	text-align: center;
-	border-bottom: solid 3px black;
-	padding-bottom: 10px;
-}
-
-
-nav ul li {
-	display: inline-block;
-	margin-right: 15px;
-	list-style-type: none;
-	font-weight: bold;
-	width: 20%;
-}
-
-	nav li a{
-		display: block;
-		border: solid 2px black;
-		border-radius: 5px;
-		text-decoration: none;
-		text-align: center;
-		font-size: 0.9em;
-		padding: 5px;
-		text-shadow: 0.1em 0.1em 0.2em white;
-		background: #F9F9C9;
-		color: black;
-	}
-		nav li a:hover{
-			font-weight: bold;
-			background: #E3E1E2;
-			color: blue;
-		}
-
-		nav li a:active{
-			font-weight: bold;
-			background: #F9F9C9;
-			color: black;
-		}
-
-
-/*----------------------------------------------------------------------------- 
-=06 FOOTER 
+ /*----------------------------------------------------------------------------- 
+FOOTER 
 -----------------------------------------------------------------------------*/
 footer {
-	clear: both;
-	margin: 5px auto;
+	margin: 10px auto;
 	width: 100%;
+	font-size: 2em;
 	text-align: center;
-	font-size: 1.25em;
 	font-weight: bolder;
 
 }

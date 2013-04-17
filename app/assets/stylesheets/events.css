@@ -1,204 +1,78 @@
-/*----------------------------------------------------------------------------- 
-= RECENT ACTIVITY/NEWSFEED
------------------------------------------------------------------------------*/
-#newsFeed {
-	float: right;
-	margin-top: 18px;
-}
-#newsFeed h2 {
-	text-align: left;
-	font-size: 1.5em;
-	font-weight: bold;
-	margin-bottom: 5px;
-}
-
-#newsFeed ul {
-	float:right;
-	background: white;
-
-	border: solid 2px black;
-	padding: 5px 10px;
-	margin: 0px auto;
-	width: 270px;
-	height: 300px;
-	list-style: none;
-	overflow-y: auto;
-
-	text-align: center;
-	color: green;
-	font-style: italic;
-}
-
-#newsFeed li {
-	border-bottom: double 5px black;
-	padding: 5px 0px;
-}
-
-
-/*----------------------------------------------------------------------------- 
-= INDEX EVENT VIEW
------------------------------------------------------------------------------*/
-#eventList {
-	float: left;
-	margin-top: 10px;
-}
 #eventList h2 {
-	margin-top: 10px;
-	padding-left: 5px;
-	font-size: 1.7em;
-	font-weight: bold;
-	float: left;
+	padding-left: 10px;
 }
 
-#eventList a:hover {
-	background: none;
-	color: blue;
+#newEventCreate {
+	float: right;
+	margin-top: 20px;
+	margin-right: 3px;
 }
 
-#eventList #eventIndexModifiers a{
-	font-size: 0.9em;
-}
-
-#eventList ul {
-	clear: both;
-	list-style: none;
-	margin: 0px;
-	padding-left: 0px;
-	width: 500px;
-	height: 560px;
-}
-
-#eventList li {
-	background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
-   	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);
-
-	display: block;	
-	width: 470px;
-	border: solid 2px black;
+#eventList ul li {
+	margin-left: 5px;
+	margin-bottom: 5px;
+	border: inset 2px gray;
 	border-radius: 5px;
-	margin: 5px 0px 5px 0px;
-	padding: 5px 3px;
-	height: 80px;	
+	padding: 5px;
+
+	background: white;
+	/*background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
+   	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);*/
 }
 
-#eventList li:hover {
-	/*background: #F9F9C9;*/
+#eventList ul li:hover {
+	background: #F9F9C9;
 }
+	
 	.eventLabel {
-		width: 66%;
-		height: 100%;
 		padding-left: 10px;
-		float: left;
-		border-right-width: 2px;
-		border-right-style: groove;
-		line-height: 1.5em;
-
 	}
-	.eventLabel a {
-		text-decoration: none;
-		color: black;
-		font-size: 1.2em;
-	}
-
 	#eventName {
 		font-weight: bold;
+		font-size: 1.5em;
 	}
 
-	#eventClock {
-		width: 30%;
-		float:left;
+#eventList ul li .span2 {
+	margin-left: 50px;
+}
+	.eventClock p {
 		text-align: center;
-		margin-left: 5px;
-		font-style: italic;
+		margin-bottom: 0px;
 	}
 
 	.eventIndexTimer {
 		color: red;
+		text-align: center;
 		font-weight: bold;
 		font-size: 1.2em;
 		font-style: normal;
 		line-height: 1.3em;
-		height: 30px;
-		width: 120px;
-		margin-left: 10px;
 		display: block;
+		height: 15px;
+		margin-bottom: 5px 0px;
 	}
 
 	.eventActionLink {
-		margin-top: 5px;
-		margin-left: 2px;
-	}
-	.eventActionLink:hover {
-		background: #F9F9C9;
-	}
-
-	.eventActionLink a {
-		display: block;
-		text-decoration: none;
-		text-align: center;
-		font-weight: bold;
-		font-size: 0.9em;
-		font-style: normal;
-		border: solid 2px black;
-		border-radius: 5px;
-		padding: 2px 2px;
-		color: black;
-	}
-	.eventActionLink a:hover {
-		color: black;
+		margin-top: 10px;
 	}
 
 
-#newEventCreate {
-		float: right;
-		text-decoration: none;
-		text-align: center;
-		font-weight: bold;
-		font-size: 0.85em;
-		width: 145px;
-
-		border-top: solid 2px black;
-		border: solid 2px black;
-		border-radius: 5px;
-
-		padding: 5px 5px 5px 5px;
-		text-shadow: 0.1em 0.1em 0.2em white;
-		background: #DE9EA6;
-		color: black;
-
-		margin-right: 20px;
-		margin-top: 5px;
-
+#newsFeed {
+	min-height: 700px;
+	border-left: solid 2px gray;
 }
-		#newEventCreate:hover{
-			background: #E3E1E2;
-		}
 
-#eventPagination {
-	clear: both;
+#newsFeed h2 {
 	text-align: center;
-	margin-top: 40px;
-	width: 466px;
 }
 
-/*-----------------------------------------------------------------------------
-= EVENT CREATE MODAL DIALOG
------------------------------------------------------------------------------*/
-.modalDialog {
-    position: fixed;
-    visibility: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.8);
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
+#newsFeed ul {
+	padding: 0px 20px;
+	margin-left: 0px;
+}
+#newsFeed li {
+	border-bottom: groove 2px black;
+	padding: 5px 0px;
 }
 
 
@@ -210,215 +84,7 @@
 
 }
 
-	#eventShowHeader {
-		margin-bottom: 40px;
-		margin-top: 15px;
-		margin-left: 15px;
-		width: 100%;
-	}
-	#eventNameDate {
-		margin: 0px 0px 0px 0px;
-		line-height: 1.2em;
-	}
-	#eventNameDate h1, #eventNameDate h2{
-		text-align: left;
-		margin: 0 auto;
-	}
-	#eventNameDate h1 {
-		margin-bottom: 15px;
-	}
-	#eventShowModifiers {
-		position: absolute;
-		right: 4%;
-		top: 15%;
-		font-size: 1.2em;
-	}
-
-	#eventControls {
-		width: 100%;
-		margin: 10px auto;
-		height: 20px;
-		right: 3.5%;
-	}	
-	#eventControls h3, #eventControls h4 {
-		margin: 0;
-		font-family: Lucida Sans Unicode;
-		font-weight: bolder;
-	}
-	#eventControls h3 {
-		float: left;
-		margin-left: 70px;
-		font-size: 1.2em;
-		font-style: italic;
-	}	
-	#eventControls p {
-		width: 250px;
-		margin: 0px 70px 0px 0px;
-		text-align: right;
-		float: right;
-		font-size: 1.1em;
-	}
-
-/*----------------------------------------------------------------------------- 
-= VENUELIST
------------------------------------------------------------------------------*/
-
-	#venueList {
-	width: 650px;
-	margin: 15px auto;
-	background: white;
-	border: ridge 5px gray;
-	border-radius: 15px;
-	padding: 10px 10px;
-	background: white;
-	}
-	#venueList-header {
-		border-bottom: solid 3px black;
-		margin-bottom: 0px;
-	}
-
-	#venueList h2 {
-		display: inline-block;
-		padding-top: 10px;
-		margin-bottom: 10px;
-		font-size: 1.2em;
-		font-weight: bold;
-	}
-	#venueList ul {
-		overflow-y: auto;
-		height: 500px;
-		padding-left: 5px;
-		margin-top: 5px;
-	}
-
-	#venueList li.listItem{
-		list-style: none;
-		float: left;
-		width: 100%;
-	    padding-bottom: 25px;
-	}
-	.venueSticky {
-		font-family: whatever it takes;
-		font-size: 2em;
-		line-height: 1em;
-		border: solid 2px black;
-			-moz-box-shadow: 0px 5px 5px 0px #000;
-			-webkit-box-shadow: 0px 2px 5px 0px #000;
-			box-shadow: 0px 2px 5px 0px #000;
-		background: #F9F9C9;
-		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
-		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
-		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
-		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
-		padding: 10px 10px 10px 10px;
-	}
-
-	#venueList .venueSticky {
-	    float:left;
-	    width: 40%;
-	    margin-left: 15px;
-	    margin-top: 5px;
-	}
-	#venueList .venueSticky a {
-	    color: blue;
-	}
-	#venueList .venueSticky a:hover {
-	    color: red;
-	    background: none;
-	}
-	#venueList #voteControls {
-		margin-top: 10%;
-		float: right;
-		margin-right: 100px;
-	}
-	#venueList .voteButton {
-		width: 80px;
-		font-size: 1em;
-		margin-left: 15px;
-	}
-
-	#venueList li.listItem .voteCount {
-	    font-size: 2em;
-	    text-align: center;
-	    margin-bottom: 10px;
-	    font-weight: bold;
-	}
-
-	#suggestVenueLink {
-		float: right;
-		text-decoration: none;
-		text-align: center;
-		font-weight: bold;
-		font-size: 0.85em;
-		width: 130px;
-		border-top: solid 2px black;
-		border: solid 2px black;
-		border-radius: 5px;
-		margin-top: 5px;
-		padding: 5px 10px 5px 10px;
-		text-shadow: 0.1em 0.1em 0.2em white;
-		background: #E3E1E2;
-
-	}
-
-		#suggestVenueLink:hover{
-			background: #F9F9C9;
-			color: black;
-		}
-
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
-.createForm {
-	font-size: 0.8em;
-}
-	.createForm .field {
-		margin-top: 5px;
-	}
 
-	#createVenueForm {
-	}
-		#createVenueForm #venue_address {
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-		}
-	#createEventForm .field {
-		margin-bottom: 15px;
-	}
-		#event_vote_start, #datetime_select {
-			display: block;
-			margin: 0 auto;
-			text-align: center;
-		}
-		#event_name{
-			width: 80%;
-			display: block;
-			margin: 0 auto;
-		}
-
-	
-	.createForm label {
-		font-weight: bold;
-		display: block;
-		margin: 5px auto;
-		text-align: center;
-	}
-	.createForm #venue_name, #venue_url {
-		width: 100%;
-	}
-
-	.createForm .actions input {
-		width: 150px;
-		font-size: 1em;
-		display: block;
-		margin: 0 auto;
-		cursor: pointer;
-	}
-	.ui-dialog-title {
-		text-align: center;
-	}
-	.ui-widget-overlay {
-		opacity: 0.8;
-	}
-	

@@ -1,4 +1,6 @@
-
+#eventList h2 {
+	padding-left: 10px;
+}
 #appInfo p {
 	margin: 0 50px;
 	text-align: justify;
@@ -10,6 +12,10 @@
 }
 #rulesPageContent h2 {
 	text-align: center;
+}
+
+#eventHistory h2 {
+	padding-left: 10px;
 }
 
 #eventHistoryTable {

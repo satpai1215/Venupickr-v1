@@ -24,7 +24,7 @@ module EventsHelper
 	def action_links(event)
 		html = ""
 		link_text = (event.stage == "Pre-Voting" ? "Suggest a Venue!" : "Vote for a Venue!")
-		html << link_to(link_text, event_path(event))
+		html << link_to(link_text, event_path(event), {:class => "btn btn-block btn-primary"})
 		return html.html_safe
 	end
 	

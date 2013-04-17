@@ -1,46 +1,64 @@
-<div id = "newsFeed">
-    <h2>Recent Activity:</h2>
-    <ul>
-        <% Update.last(10).reverse.each do |update| %>
-            <li><%= time_ago_in_words(update.created_at) %> ago: <%= update.content %></li>
-        <% end %>
+<div class = "row">
+        <div class = "span8">
 
-    </ul>
-</div>
+            <div  id = "eventList" >
 
-<div id = "eventList">
-    <h2>Events on the Clock:</h2>
-    <% if Event.where("stage != ? ", "Finished").count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :remote => true} %> <% end %>
-     <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
-
-            <ul>
-                <%if Event.find(:all).empty? %>
-                    <div id = "noEventsLabel">  
-                        <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
-                    </div>
-                <% else %>
-                    <% Event.where("stage != ?", "Finished").order('event_start ASC').each_with_index do |event, index| %>
-                        <li id = <%= "event_" + (event.id).to_s %>>
-                            <div class = "eventLabel" >
-                                <span id = "eventName"><%= link_to event.name, event_path(event) %> </span> <br/>
-                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span>
-                                Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
-                                    <%= event.event_start.strftime("%I:%M%p") %>
-                                <br/> Created By: <%= event.user.username %>
+            <div class = "row">
+                <div class = "span5"><h2>Events on the Clock:</h2></div>
+                <div class = "span3">
+                    <% if Event.where("stage != ? ", "Finished").count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :class => "btn btn-success", :remote => true} %> <% end %>
+                </div>
+             <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
+            </div>
+                    <ul>
+                        <%if Event.find(:all).empty? %>
+                            <div id = "noEventsLabel">  
+                                <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
                             </div>
-                                <div id = "eventClock">
-                                Event Starts In: <br/>
-                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s})%></span><br/>
+                        <% else %>
+                            <% Event.where("stage != ?", "Finished").order('event_start ASC').each_with_index do |event, index| %>
+                                
+                                    <li id = <%= "event_" + (event.id).to_s %>>
+                                      <div class = "row">
+                                            <div class = "span5">
+                                            <div class = "eventLabel" >
+                                                <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
+                                                <span id = "eventName"><%= event.name %></span> <br/>
+                                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span>
+                                                Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                                    <%= event.event_start.strftime("%I:%M%p") %>
+                                                <br/> Created By: <%= event.user.username %>
+                                            </div></div>
+                                            <div class = "span2">
+                                                <div class = "eventClock">
+                                                <p>Event Starts In:</p>
+                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s})%></span>
 
-                                 <div class = "eventActionLink"><%=action_links(event)%></div>
-                               </div>
-                        </li>
-                    <% end %>
+                                                 <div class = "eventActionLink"><%=action_links(event)%></div>
+                                            </div></div>
+                                        </div>
+                                    </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                   <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
+
+            </div> <!--eventList -->
+        </div> <!--span8-->
+
+    <div class = "span4">
+        <div id = "newsFeed">
+            <h2>Recent Activity:</h2>
+            <ul>
+                <% Update.last(10).reverse.each do |update| %>
+                    <li><%= time_ago_in_words(update.created_at) %> ago: <%= update.content %></li>
                 <% end %>
-            </ul>
-           <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
 
-</div> <!--eventList -->
+            </ul>
+        </div><!--newsFeed-->
+    </div><!--span4-->
+
+</div> <!--row-->
 
 <div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
     </div> <!--createVenueForm-->

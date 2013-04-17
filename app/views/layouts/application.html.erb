@@ -9,38 +9,50 @@
 </head>
 <body>
 
-	<div id = "container">
-		<h1>Mo' Mondays Mo' Problems (BETA)</h1>
+	<div id = "container" class = "container">
+		<div id = "page_header">
 
-		<div id="login-nav">
-			<% if user_signed_in? %>
-				Logged in as <%= current_user %> 
-				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-			<% else %>
-				<%= link_to "Sign Up", new_user_registration_path %> |
-				<%= link_to "Sign In", new_user_session_path %>
-			<% end %>
-		</div>
+			<div id = "page_title"><h1>Mo' Mondays Mo' Problems (BETA)</h1></div>
 
-		<div id = "main">
-			<nav>	
-				<ul>
-					<li><%= link_to "Home", events_path %></li>
-					<li><%= link_to "Rules", pages_info_path %></li>
-					<li><%= link_to "Event History", pages_history_path %></li>
-				</ul>
-			</nav>
+			<div class = "row">
+				<div class = "span9">
+					<nav>	
+						<ul class = "nav nav-pills">
+							<li class = "active"><%= link_to "Home", events_path %></li>
+							<li><%= link_to "Rules", pages_info_path %></li>
+							<li><%= link_to "Event History", pages_history_path %></li>
+						</ul>
+					</nav>
+				</div>
+
+				<div id="login-nav" class = "span3">
+						<% if user_signed_in? %>
+							Logged in as <%= current_user %> 
+							<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+						<% else %>
+							<%= link_to "Sign Up", new_user_registration_path %> |
+							<%= link_to "Sign In", new_user_session_path %>
+						<% end %>
+					</div>
+				</div>
+		</div>  <!--page_header-->
+
+
+				<div id = "main">
 			
-			<div id="notice"><%= notice %></div>
-			<p class="alert"><%= alert %></p>
+					<div id="notice"><%= notice %></div>
+					<!--<p class="alert"><%= alert %></p>-->
 
-			<%= yield %>
+					<%= yield %>
 
-		</div>
+				</div> <!--main-->
 
-	</div> <!--container -->
 
 	<footer>created by Satyan Pai</footer>
+	</div> <!--container -->
+
+
+
 
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
