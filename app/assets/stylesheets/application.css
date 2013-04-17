@@ -22,11 +22,8 @@
 -----------------------------------------------------------------------------*/
 #notice {
 	text-align: center;
-	background: white;
-	padding: 100px auto;
 	font-weight: bold;
 	font-size: 1.5em;
-	color: green;
 }
 
  /*----------------------------------------------------------------------------- 
@@ -36,17 +33,19 @@
 	font-family: CF Midnight, Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	margin-top: 15px;
-}
+}	
+
  #page_header nav ul {
  	margin-bottom: 5px;
-
  }
+
 
  /*----------------------------------------------------------------------------- 
 = LOGIN NAV
 -----------------------------------------------------------------------------*/
 #login-nav {
 	margin-top: 8px;
+	margin-left: 5px;
 	text-align: right;
 }
 
