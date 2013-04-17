@@ -14,21 +14,16 @@
 	text-align: center;
 }
 
+
+/*----------------------------------------------------------------------------- 
+= EVENT HISTORY TABLE (pages/history)
+-----------------------------------------------------------------------------*/
 #eventHistory h2 {
 	padding-left: 10px;
 }
 
-#eventHistoryTable {
-	height: 500px;
-}
 #eventHistoryTable table {
-	width: 90%;
-	margin: 0 auto;
 }
 
-#eventHistoryHeadings {
-	font-size: 1.2em;
-	text-align: center;
-}
 
 

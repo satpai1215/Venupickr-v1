@@ -1,50 +1,56 @@
-<div id = "eventShow">
-	<div id = "eventShowHeader">
-		<div id="eventNameDate">
-			<h1><%= @event.name %></h2>
-			
-			<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
-			<h2> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h2>
-			<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>
-		</div>
-
-	</div>
-
-	<div id = "eventControls">
-		<%= display_countdowns(@event) %>
-		<%#= render :partial => "venues/form", :locals => { :event => @event} %> 
-	</div>
-
-	<div id = "venueList">
-		<div id = "venueList-header">
-			<h2>Recommended Venue List</h2>
-			<%= display_venue_suggest_button(@event) %>
-		</div>
+<div class = "row">
+	<div id = "eventShow">
 		
-		<ul>
-			<% @event.venues.each do |venue| %>
-				<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %> >
-					<div class = "venueSticky">
-						<%= generate_venue_sticky(venue) %>
-				   </div>
+			<div class = "span5">
+				<div id = "eventSideBar">
+					<div id = "eventShowHeader">
+						<div id="eventNameDate"><h2><%= @event.name %></h2></div>
+						<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
 
-				  	<div id = "voteControls">
-					   <% if(@event.stage == "Voting") %>
-					   		<div class = "voteCount"><%= venue.votecount %></div>
-						   <%= button_to "VOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true } %>
-						   <script> voteSort()</script>
-						<% end %>
+						<h3> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h3>
+						<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>
 					</div>
-				</li>
-			<% end %>
-			
-		</ul>
-	</div><!-- venueList -->
 
-	<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
-	</div> <!--createVenueForm-->
+					<div id = "eventControls">
+						<%= display_countdowns(@event) %>
+						<%= display_venue_suggest_button(@event) %>
+					</div>
+				</div> <!--eventSidebar -->
+			</div> <!--span5-->
+		<div class = "span7">
+				<div id = "venueList">
+					<div id = "venueList-header">
+						<h3>Recommended Venue List</h3>
+					</div>
+					
+					<ul>
+						<% @event.venues.each do |venue| %>
+							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
+								
+								<div class = "venueSticky">
+									<%= generate_venue_sticky(venue) %>
+							   </div>
 
-</div> <!--#eventShow -->
+							  	<div id = "voteControls">
+								   <% if(@event.stage != "Voting") %>
+								   		<div class = "voteCount"><%= venue.votecount %></div>
+									   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
+									   <script> voteSort()</script>
+									<% end %>
+								</div>
+							</li>
+						<% end %>
+						
+					</ul>
+				</div><!-- venueList -->
+		</div> <!--span8-->
+
+				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
+				</div> <!--createVenueForm-->
+
+		</div> <!--#eventShow -->
+</div> <!--row-->
+
 <script> voteSort()</script>
 	<%= javascript_tag do %>
   		createCountdown("<%= @event.event_start.to_s %>", "#voteCountdown");

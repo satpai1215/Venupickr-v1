@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require jquery.ui.dialog
-//= require_tree .
+//= require_tree
 
 $(function() {
 	$(document).ajaxError(function (e, xhr, settings) {

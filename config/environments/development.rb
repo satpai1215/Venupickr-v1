@@ -29,12 +29,6 @@ MoMondays::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  
-  # Add the fonts path
-  config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-
-  # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
 
   # Do not compress assets
   config.assets.compress = false

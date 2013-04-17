@@ -15,7 +15,7 @@ module EventsHelper
 
 	def display_countdowns(event)
 		html = ""
-		html << '<h3>' + display_date_or_countdown(event) + '</h3>'
+		html << '<h4>' + display_date_or_countdown(event) + '</h4>'
 		html << display_prevoting_countdown(event)
 
 		return html.html_safe
@@ -49,7 +49,7 @@ module EventsHelper
 
 		if(event.stage == "Pre-Voting")
 			html << "#{link_to "Suggest a Venue", 
-			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :remote => true}}"
+			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
 		end
 
 		return html.html_safe
@@ -60,7 +60,7 @@ module EventsHelper
 		html = ""
 		#only show Suggest Venue Form if Event is in 'pre-voting' stage
 		if event.stage == "Pre-Voting"
-			html << '<p>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</p>'
+			html << '<h4>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</p>'
 		end
 		
 		return html
