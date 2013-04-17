@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   has_many :voters, dependent: :destroy
 
   validates :name, presence: true
-  #validate :vote_start_is_not_past, :on => :create
+  validate :vote_start_is_not_past, :on => :create
 
   def to_s
     self.name

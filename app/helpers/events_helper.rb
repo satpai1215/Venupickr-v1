@@ -47,7 +47,7 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.stage != "Pre-Voting")
+		if(event.stage == "Pre-Voting")
 			html << "#{link_to "Suggest a Venue", 
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :remote => true}}"
 		end
