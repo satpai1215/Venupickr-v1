@@ -1,7 +1,9 @@
-$("#notice").text("Event Deleted Successfully.");
+'<%= flash[:notice] = "Event Deleted Successfully." %>';
 
 <% if !Event.exists? %>
 	$("#eventList ul").append('<div id = "noEventsLabel"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>');
 <% end %>
+
+window.location = '<%= events_path %>';
 
 

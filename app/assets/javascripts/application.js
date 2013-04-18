@@ -35,11 +35,18 @@ $(function() {
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, hide: 500});
  $('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
  	//$('#createVenueForm').css('visibility', 'visible');
- 	$('#createVenueForm').dialog("open");
+    	$('#createVenueForm').dialog("open");
  	});
 
   $('#newEventCreate, .edit-event').bind('ajax:success', function () {
- 	$('#createEventForm').dialog("open");
+ 	    $('#createEventForm').dialog("open");
  	});
+
+  $('nav a').click(function () {
+    $.cookie('lastclicked',this.id);
+    $('nav a').removeClass('active');  
+    $(this).addClass('current');
+    return false;  
+  });
 
 });

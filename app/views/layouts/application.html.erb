@@ -15,7 +15,7 @@
 			<div id = "page_title"><h1>Mo' Mondays Mo' Problems (BETA)</h1></div>
 
 			<div class = "row">
-				<div class = "span9">
+				<div class = "span5">
 					<nav>	
 						<ul class = "nav nav-pills">
 							<li><%= link_to "Home", events_path %></li>
@@ -25,10 +25,11 @@
 					</nav>
 				</div>
 
-				<div id="login-nav" class = "span3">
+				<div id="login-nav" class = "span7">
 						<% if user_signed_in? %>
 							Logged in as <%= current_user %> 
-							<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+							<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
+							<%= link_to "Edit", edit_user_path(current_user)%>
 						<% else %>
 							<%= link_to "Sign Up", new_user_registration_path %> |
 							<%= link_to "Sign In", new_user_session_path %>
@@ -39,8 +40,8 @@
 
 
 				<div id = "main">
-			
-					<div id = "notice" class="alert"><%= notice %></div>
+					
+					<div id = "notice"><%= notice %></div>
 					<!--<p class="alert"><%= alert %></p>-->
 
 					<%= yield %>

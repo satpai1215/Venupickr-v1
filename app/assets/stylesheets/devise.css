@@ -1,0 +1,8 @@
+.user_session_page {
+	padding-left: 50px;
+	padding-top: 10px;
+}
+
+.user_session_page label {
+	display: inline;
+}

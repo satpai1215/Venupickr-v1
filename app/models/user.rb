@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :voters, dependent: :destroy
 
   validates :username, :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, :on => :create
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   def to_s

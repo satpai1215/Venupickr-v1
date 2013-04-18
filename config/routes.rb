@@ -8,13 +8,11 @@ MoMondays::Application.routes.draw do
   devise_for :users
 
 
-  resources :events
-
-
-  resources :users
-
+  resources :events 
+  resources :users, :except => [:index, :show]
   resources :venues
 
+  match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
  # match '/events/new', :controller => 'events', :action => 'new'

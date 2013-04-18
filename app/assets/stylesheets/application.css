@@ -15,6 +15,7 @@
  *= require_self
  *= require "events"
  *= require "pages"
+ *= require "devise"
  */
 
  /*----------------------------------------------------------------------------- 
@@ -24,6 +25,8 @@
 	text-align: center;
 	font-weight: bold;
 	font-size: 1.5em;
+	color: #c09853;
+	background: #fcf8e3;
 }
 
  /*----------------------------------------------------------------------------- 
