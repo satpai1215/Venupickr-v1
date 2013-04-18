@@ -6,3 +6,7 @@
 .user_session_page label {
 	display: inline;
 }
+
+#user_remember_me {
+	margin-top: 0px;
+}

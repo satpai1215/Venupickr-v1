@@ -34,7 +34,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+     @user = User.find(params[:id])
+
+    if current_user != @user
+      redirect_to events_path, notice: 'You cannot edit another user'
+    end
   end
 
   # POST /users
