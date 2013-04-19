@@ -1,18 +1,39 @@
-#eventList h2 {
-	padding-left: 10px;
+#appInfo {
+	font-size: 1.3em;
+	padding-top: 10px;
+}
+
+#appInfo h2 {
+	text-align: center;
 }
 #appInfo p {
 	margin: 0 50px;
 	text-align: justify;
 }
 
-#rulesPageContent ul, #rulesPageContent ol{
+#rulesPageContent {
+	margin-left: 50px;
+	font-size: 0.9em;
+}
+
+#rulesPageContent ol{
 	width: 600px;
 	margin: 10px auto;
+	margin-bottom: 30px;
+	list-style: decimal;
 }
-#rulesPageContent h2 {
-	text-align: center;
+
+#rulesPageContent ul{
+	width: 600px;
+	margin: 5px auto;
+	margin-bottom: 30px;
+	list-style: circle;
 }
+#rulesPageContent h3 {
+	margin-left: 60px;
+}
+
+#rulesPageContent 
 
 
 /*----------------------------------------------------------------------------- 

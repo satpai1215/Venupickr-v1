@@ -33,15 +33,17 @@ module EventsHelper
 
 	def display_date_or_countdown(event)
 
+		html = ""
 		
 		if event.stage == "Pre-Voting"
-			return "Voting Begins On:</br>  \<span id = 'voteDate'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
+			html << "<h4>Voting Begins On:</h4>  \<span class = 'infoSubHead'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
 		elsif event.stage == "Voting"
-			return "Time Left to Vote:</br> \<span id = 'voteCountdown'></span>\ "
+			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'></span>\ "
 		else
-			return "<span id = 'eventOverHeading'>EVENT OVER</span>"
-
+			html << "<span id = 'eventOverHeading'>EVENT OVER</span>"
 		end
+
+		return html.html_safe
 	end
 
 	def display_venue_suggest_button(event)
@@ -60,10 +62,10 @@ module EventsHelper
 		html = ""
 		#only show Suggest Venue Form if Event is in 'pre-voting' stage
 		if event.stage == "Pre-Voting"
-			html << '<h4>You have <span id = "venueSuggestCountdown"></span> to suggest a venue!</p>'
+			html << '<h4>Time Left for Venue Suggestion:</h4><span id = "venueSuggestCountdown" class = "infoSubHead red"></span>'
 		end
 		
-		return html
+		return html.html_safe
 	end
 
 	def display_event_stage(stage)

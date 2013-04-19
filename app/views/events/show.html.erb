@@ -4,15 +4,21 @@
 			<div class = "span5">
 				<div id = "eventSideBar">
 					<div id = "eventShowHeader">
-						<div id="eventNameDate"><h2><%= @event.name %></h2></div>
+						<div id="eventNameDate"><h1><%= @event.name %></h1></div>
 						<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
 
-						<h3> Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></h3>
-						<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>
+						<h3>by <%= @event.user.username%></h3>
+						<div class = 'eventInfoText'><h4>Event Date:</h4>
+							<span class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span></div>
+						<div class = 'eventInfoText'>
+							<%= display_date_or_countdown(@event) %></div>
+						<div class = 'eventInfoText'>
+							<%= display_prevoting_countdown(@event) %></div>
+						
+						<!--<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>-->
 					</div>
 
-					<div id = "eventControls">
-						<%= display_countdowns(@event) %>
+					<div id = "suggestVenueControl">
 						<%= display_venue_suggest_button(@event) %>
 					</div>
 				</div> <!--eventSidebar -->
@@ -32,7 +38,7 @@
 							   </div>
 
 							  	<div id = "voteControls">
-								   <% if(@event.stage != "Voting") %>
+								   <% if(@event.stage == "Voting") %>
 								   		<div class = "voteCount"><%= venue.votecount %></div>
 									   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
 									   <script> voteSort()</script>
