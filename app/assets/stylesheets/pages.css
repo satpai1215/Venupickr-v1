@@ -33,14 +33,17 @@
 	margin-left: 60px;
 }
 
-#rulesPageContent 
+#rulesPageContent {
+
+}
 
 
 /*----------------------------------------------------------------------------- 
 = EVENT HISTORY TABLE (pages/history)
 -----------------------------------------------------------------------------*/
 #eventHistory h2 {
-	padding-left: 10px;
+	padding-left: 20px;
+	padding-top: 20px;
 }
 #eventHistoryTable {
 	margin-top: 20px;

@@ -103,11 +103,15 @@
 
 .eventInfoText {
 	line-height: 0.5em;
+	font-size: 1.3em;
 	margin-bottom: 50px;
 }
 
-.infoSubHead {
+.eventInfoText h4 {
 	font-size: 1.2em;
+}
+
+.infoSubHead {
 }
 .red {
 	color: red;
