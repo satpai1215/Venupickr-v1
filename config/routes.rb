@@ -7,7 +7,7 @@ MoMondays::Application.routes.draw do
   resources :users, :only => [:edit, :update, :destroy]
 
   resources :events 
-  resources :venues, :except =>[:index, :show]
+  resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
 
   match "/users/:id/edit" => 'devise/registrations#edit'
   

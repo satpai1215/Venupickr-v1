@@ -1,1 +1,9 @@
-$('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
+<% if @already_suggested_venue and current_user != @event_user %>
+	$("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.");
+
+<% else %> {
+	$('#createVenueForm').dialog("open");
+	$('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
+}
+<% end %>
+

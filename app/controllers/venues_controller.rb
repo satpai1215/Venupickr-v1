@@ -4,13 +4,24 @@ class VenuesController < ApplicationController
   # GET /venues/new
   # GET /venues/new.json
   def new
-    @venue = Venue.new
-    @venue.event_id = params[:event_id]
+    @event_id = params[:event_id]
+    @event_user = Event.find(@event_id).user
+    @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @venue }
-      format.js
+    #only allow multiple venue suggestion if user is event owner
+    if @already_suggested_venue and (current_user != @event_user)
+      respond_to do |format|
+        format.html { redirect_to event_path(@event_id),
+                      notice: "You have already suggested a venue for this event. Try removing your existing venue."}
+        format.js
+      end
+    else
+      @venue = Venue.new
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @venue }
+        format.js
+      end
     end
   end
 
@@ -30,10 +41,8 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(params[:venue])
-   # if Venue.exists?(:user_id => current_user.id, :event_id => @venue.event_id)
-   #   redirect_to @venue.event, 
-   #             notice: "You have already suggested a venue for this event. Try removing your existing venue."
-   # else
+
+    if(@venue.event != nil)
       @venue.user = current_user
       @venue.votecount = 0
       @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
@@ -49,7 +58,11 @@ class VenuesController < ApplicationController
           format.js {render action: "new"}
         end
       end
-    #end
+
+    #checks that new venue is linked to an event, not just created via URL
+    else
+      redirect_to events_path, notice: 'You are not allowed to do this.'
+    end
   end
 
   # PUT /venues/1

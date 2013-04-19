@@ -110,8 +110,11 @@
 		margin: 5px 0px;
 	}
 
-	#venueList li.listItem {
-
+	#venueList li.listItem{
+		list-style: none;
+		float: left;
+		width: 100%;
+	    margin-bottom: 25px;
 	}
 
 	.venueSticky {
@@ -128,7 +131,7 @@
 	}
 
 	#venueList #voteControls {
-		margin-top: 30px;
+		margin-top: 20px;
 		margin-right: 10px;
 		float: right;
 		width: 80px;
