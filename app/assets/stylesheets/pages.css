@@ -21,8 +21,27 @@
 #eventHistory h2 {
 	padding-left: 10px;
 }
+#eventHistoryTable {
+	margin-top: 20px;
+	background: white;
+	border: ridge 5px gray;
+	border-radius: 20px;
+	padding: 10px 10px;
+	height: 500px;
+	overflow-y: auto;
+}
 
 #eventHistoryTable table {
+	padding: 10px 10px;
+	overflow-y: scroll;
+}
+
+
+#eventHistoryTable table td {
+	text-align: center;
+}
+#eventHistoryTable table th {
+	text-align: center;
 }
 
 
