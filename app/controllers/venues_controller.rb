@@ -28,6 +28,7 @@ class VenuesController < ApplicationController
   # GET /venues/1/edit
   def edit
     @venue = Venue.find(params[:id])
+    @event_id = @venue.event.id
 
     respond_to do |format|
       format.html # edit.html.erb

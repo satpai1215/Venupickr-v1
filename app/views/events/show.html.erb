@@ -38,8 +38,10 @@
 							   </div>
 
 							  	<div id = "voteControls">
-								   <% if(@event.stage == "Voting") %>
+								   <% if(@event.stage == "Voting" || "Finished") %>
 								   		<div class = "voteCount"><%= venue.votecount %></div>
+								   <% end %>
+								   <% if(@event.stage == "Voting") %>
 									   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
 									   <script> voteSort()</script>
 									<% end %>
@@ -53,7 +55,8 @@
 
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
 				</div> <!--createVenueForm-->
-
+				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
+   				 </div> <!--createVenueForm-->
 		</div> <!--#eventShow -->
 </div> <!--row-->
 
