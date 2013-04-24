@@ -9,17 +9,13 @@
 
     <p>
       Voting has just finished for <%="#{@event.name} submitted by #{@event.user}" %><br/>
-      Event Page: <%= @url %>
+      <%= link_to("Event Page", @url) %>
     </p>
     <p>
       Below is the event information: <br/>
-      Winning Venue: <%= "#{@event.venue.name} suggested by #{event.venue.user}"  %> <br/>
-      Address: <%= @event.venue.address  %> <br/>
-      <% if @event.venue.url != "" %>
-        Venue Webpage: <%= @event.venue.url  %> <br/>
-      <% end %>
-      Date: <%= event.event_start.strftime("%d%b%Y") %> <br/>
-      Start Time: <%= event.event_start.strftime("%I:%M%p") %><br/>
+
+      Date: <%= @event.event_start.strftime("%d%b%Y") %> <br/>
+      Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
     </p>
 
     <p>Hope to see you there!</p>
