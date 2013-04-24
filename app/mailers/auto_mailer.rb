@@ -10,6 +10,8 @@ class AutoMailer < ActionMailer::Base
 
   def vote_email(event_id)
   	@event = Event.find(event_id)
+    @url = event_url(@event, :host => "0.0.0.0:3000")
+    mail(:to => "pai.satyan@gmail.com", :subject => "Your Event Has Finished")
   end
 
 

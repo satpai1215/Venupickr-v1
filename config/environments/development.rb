@@ -22,8 +22,8 @@ config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
   #:domain               => 'baci.lindsaar.net',
-  :user_name            => 'pai.satyan@gmail.com',
-  :password             => 'Fru!t4521',
+  :user_name            => 'MoMondaysMailer@gmail.com',
+  :password             => 'moproblems',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 
