@@ -16,6 +16,7 @@
 //= require jquery.ui.dialog
 //= require_tree
 
+
 $(function() {
 	$(document).ajaxError(function (e, xhr, settings) {
         if (xhr.status == 401) {
@@ -42,7 +43,7 @@ $(function() {
  	});
 
   $('nav a').click(function () {
-    $.cookie('lastclicked',this.id);
+    //$.cookie('lastclicked',this.id);
     $('nav a').removeClass('active');  
     $(this).addClass('current');
     return false;  

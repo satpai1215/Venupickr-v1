@@ -35,6 +35,7 @@ gem 'awesome_print'
 gem 'whenever', :require => false
 
 gem 'delayed_job_active_record'
+gem "workless", "~> 1.1.1"
 
 group :production do
 	gem 'pg'

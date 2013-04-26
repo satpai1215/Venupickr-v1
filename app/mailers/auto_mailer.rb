@@ -1,5 +1,5 @@
 class AutoMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "MoMondaysMailer@gmail.com"
 
   def event_email(event_id)
   	@event = Event.find(event_id)
@@ -11,7 +11,7 @@ class AutoMailer < ActionMailer::Base
   def vote_email(event_id)
   	@event = Event.find(event_id)
     @url = event_url(@event, :host => "0.0.0.0:3000")
-    mail(:to => "pai.satyan@gmail.com", :subject => "Voting for #{@event.name} Has Started")
+    mail(:to => "pai.satyan@gmail.com", :subject => "Voting for '#{@event.name}'' Has Started")
   end
 
 

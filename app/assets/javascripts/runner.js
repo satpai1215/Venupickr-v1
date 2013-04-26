@@ -115,7 +115,7 @@ END YELP API AJAX REQUEST FUNCTIONS
 
 
 function voteSort() {
-
+    console.log("poop");
     var $list = $("#venueList .listItem");
 
     $list.sort(function(a, b) {
@@ -145,6 +145,7 @@ COUTNDOWN CREATION FUNCTIONS
  *********************/
 
 function createCountdown(end_date, selector) {
+    console.log("pop");
     var dateString = parseDate(end_date);
     var end_timer = new Date(dateString);
     now = new Date();
@@ -160,7 +161,7 @@ function createTimersinView()
 	var eventDate = [];
 	for (var i = 0; i < gon.numEvents; i++) { 
 		var dateFromView = $("#eventIndexTimer" + i).data("date");
-       // console.log(dateFromView);
+        console.log(dateFromView);
 		var dateString = parseDate(dateFromView)
 		eventDate.push(new Date(dateString));
 	}

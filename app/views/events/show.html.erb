@@ -43,7 +43,7 @@
 								   <% end %>
 								   <% if(@event.stage == "Voting") %>
 									   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
-									   <script> voteSort()</script>
+									   <script> voteSort(); </script>
 									<% end %>
 								</div>
 							</li>
@@ -60,7 +60,6 @@
 		</div> <!--#eventShow -->
 </div> <!--row-->
 
-<script> voteSort()</script>
 	<%= javascript_tag do %>
   		createCountdown("<%= @event.event_start.to_s %>", "#voteCountdown");
   		createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
