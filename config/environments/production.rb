@@ -20,7 +20,19 @@ MoMondays::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-
+    # Mailer options
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  #:domain               => 'baci.lindsaar.net',
+  :user_name            => 'MoMondaysMailer@gmail.com',
+  :password             => 'moproblems',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
