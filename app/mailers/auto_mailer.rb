@@ -3,14 +3,14 @@ class AutoMailer < ActionMailer::Base
 
   def event_email(event_id)
   	@event = Event.find(event_id)
-  	@url = event_url(@event, :host => "0.0.0.0:3000")
+  	@url = event_url(@event)
   	mail(:to => "pai.satyan@gmail.com", :subject => "Your Event Has Finished")
   end
   #handle_asynchronously :event_email
 
   def vote_email(event_id)
   	@event = Event.find(event_id)
-    @url = event_url(@event, :host => "0.0.0.0:3000")
+    @url = event_url(@event)
     mail(:to => "pai.satyan@gmail.com", :subject => "Voting for '#{@event.name}'' Has Started")
   end
 
