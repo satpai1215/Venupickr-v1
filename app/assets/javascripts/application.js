@@ -32,15 +32,13 @@ $(function() {
     $(this).closest('li').slideUp();  
 	});
 
- $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, hide: 500});
- $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, hide: 500});
+ $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500});
+ $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500});
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //  	$('#createVenueForm').dialog("open");
  //	});
 
-  $('#newEventCreate, .edit-event').bind('ajax:success', function () {
- 	    $('#createEventForm').dialog("open");
- 	});
+
 
   $('nav a').click(function () {
     //$.cookie('lastclicked',this.id);

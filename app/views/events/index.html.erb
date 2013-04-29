@@ -11,7 +11,7 @@
              <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
             </div>
                     <ul>
-                        <%if Event.find(:all).empty? %>
+                        <%if Event.where("stage != ? ", "Finished").count === 0 %>
                             <div id = "noEventsLabel">  
                                 <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
                             </div>

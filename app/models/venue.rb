@@ -4,6 +4,7 @@ class Venue < ActiveRecord::Base
   belongs_to :event
 
   has_many :voters, dependent: :destroy
+  #validates :name, :address, presence: true
 
   def to_s
     self.name

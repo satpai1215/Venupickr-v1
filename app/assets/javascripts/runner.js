@@ -145,7 +145,6 @@ COUTNDOWN CREATION FUNCTIONS
  *********************/
 
 function createCountdown(end_date, selector) {
-    console.log("pop");
     var dateString = parseDate(end_date);
     var end_timer = new Date(dateString);
     now = new Date();

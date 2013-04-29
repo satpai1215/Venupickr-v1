@@ -85,6 +85,13 @@
 	color: green;
 }
 
+#noEventsLabel {
+	font-weight: bold;
+	color: red;
+	text-align: center;
+}
+
+
 
 /*----------------------------------------------------------------------------- 
 = SHOW EVENT VIEW
@@ -202,4 +209,59 @@
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
+.new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
+	text-align: center;
+}
+
+.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#error_explanation {
+  width: 90%;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+	   text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+#venue_url {
+	width: 300px;
+}
+
+#datetime_select select:nth-child(1) {
+	width: 75px;
+}
+
+#datetime_select select:nth-child(4) {
+	width: 75px;
+}
+
+#datetime_select select {
+	width: 55px;
+	font-size: 0.75em;
+}
+
+#event_vote_start {
+	width: 55px;
+}
 
