@@ -115,7 +115,7 @@ END YELP API AJAX REQUEST FUNCTIONS
 
 
 function voteSort() {
-    console.log("poop");
+    //console.log("poop");
     var $list = $("#venueList .listItem");
 
     $list.sort(function(a, b) {

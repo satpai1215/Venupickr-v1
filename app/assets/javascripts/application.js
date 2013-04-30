@@ -40,11 +40,4 @@ $(function() {
 
 
 
-  $('nav a').click(function () {
-    //$.cookie('lastclicked',this.id);
-    $('nav a').removeClass('active');  
-    $(this).addClass('current');
-    return false;  
-  });
-
 });

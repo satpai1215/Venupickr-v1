@@ -54,7 +54,8 @@ class VenuesController < ApplicationController
           format.json { render json: @venue.event, status: :created, location: @venue.event }
           format.js
         else
-          format.html { render action: "new" }
+          @event_id = @venue.event.id
+          format.html { render action: "new"}
           format.json { render json: @venue.errors, status: :unprocessable_entity }
           format.js {render action: "new"}
         end
@@ -101,11 +102,10 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @venue.event, notice: "You have successfully removed your suggested venue" }
-      format.js {}
+      format.js
       format.json { head :no_content }
-
-      @venue.destroy
     end
+      @venue.destroy
   end
 
   def increment_vote
