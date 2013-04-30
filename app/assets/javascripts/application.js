@@ -19,18 +19,19 @@
 
 $(function() {
 	$(document).ajaxError(function (e, xhr, settings) {
-        if (xhr.status == 401) {
-           $('#notice').html(xhr.responseText);
-        }
+       // if (xhr.status == 401) {
+          $('#notice').html(xhr.responseText);
+       // }
     });
 
+/*
  $('.delete-event').bind('ajax:success', function() {  
     $(this).closest('li').slideUp();  
 	});
 
  $('.delete-venue').bind('ajax:success', function() {  
     $(this).closest('li').slideUp();  
-	});
+	}); */
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500});
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500});

@@ -160,7 +160,7 @@ function createTimersinView()
 	var eventDate = [];
 	for (var i = 0; i < gon.numEvents; i++) { 
 		var dateFromView = $("#eventIndexTimer" + i).data("date");
-        console.log(dateFromView);
+        //console.log(dateFromView);
 		var dateString = parseDate(dateFromView)
 		eventDate.push(new Date(dateString));
 	}

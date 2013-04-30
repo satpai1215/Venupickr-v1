@@ -4,12 +4,13 @@ MoMondays::Application.routes.draw do
   get "pages/history"
 
   devise_for :users
+
   resources :users, :only => [:edit, :update, :destroy]
 
   resources :events 
   resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
 
-  match "/users/:id/edit" => 'devise/registrations#edit'
+  #match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
  # match '/events/new', :controller => 'events', :action => 'new'

@@ -70,9 +70,9 @@ class EventsController < ApplicationController
           format.json { render json: @event, status: :created, location: @event }
           format.js
         else
-          format.html { redirect_to action: "new" }
+          format.html { render action: "new" }
           format.json { render json: @event.errors, status: :unprocessable_entity }
-          format.js {redirect_to action: "new"}
+          format.js {render action: "new"}
         end
       end
 

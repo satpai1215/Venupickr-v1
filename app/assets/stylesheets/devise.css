@@ -1,12 +1,61 @@
 .user_session_page {
-	padding-left: 50px;
-	padding-top: 10px;
+	padding-top: 50px;
+	width: 40%;
+	margin: 0 auto;
+}
+
+.user_session_page h2 {
+	text-align: center;
+}
+
+.user_session_page form {
+	width: 100%;
+	margin: 0 auto;
+
 }
 
 .user_session_page label {
 	display: inline;
 }
 
+.user_session_page input {
+	width: 95%;
+}
+
+.user_session_page .actions {
+	width: 35%;
+	margin: 30px auto;
+	margin-top: 10px;
+	padding-right: 0px;
+}
+
+.sign_in_btn {
+	width: 100%;
+}
+
+.user_session_page a {
+	display: block;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#user_remember_select {
+	width: 40%;
+	text-align: center;
+	margin: 0 auto;
+}
+
 #user_remember_me {
 	margin-top: 0px;
+	width: 10px;
+	text-align: center;
+}
+
+.cancel_action {
+	margin: 50px auto;
+	width: 70%;
+	text-align: center;
+}
+#cancel_btn {
+	width: 60%;
 }
