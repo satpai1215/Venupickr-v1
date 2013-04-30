@@ -62,7 +62,7 @@ class EventsController < ApplicationController
       respond_to do |format|
         if @event.save
           #flash[:alert] = "#{@event.event_start}"
-          #@event.event_email_job_id = @event.@event.delay({:run_at => @event.event_start}).event_finish(@event.id)
+          #AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           
@@ -91,9 +91,11 @@ class EventsController < ApplicationController
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
+        format.js {render :js => %(window.location = '#{events_path}')}
       else
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end

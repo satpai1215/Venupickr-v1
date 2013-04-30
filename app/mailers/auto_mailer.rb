@@ -1,6 +1,12 @@
 class AutoMailer < ActionMailer::Base
   default from: "MoMondaysMailer@gmail.com"
 
+  def event_create_email(event_id)
+    @event = Event.find(event_id)
+    @url = event_url(@event)
+    mail(:to => "pai.satyan@gmail.com", :subject => "#{@event.user} Has Created '#{@event.name}' on MoMondays")
+  end
+
   def event_email(event_id)
   	@event = Event.find(event_id)
   	@url = event_url(@event)

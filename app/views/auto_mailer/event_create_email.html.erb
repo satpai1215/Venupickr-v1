@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <p><%= @event.user %> has just created a new event on MoMondays </p>
+    
+    <h2>EVENT INFORMATION</h2>
+    <p>Event Name: "<%= @event.name %>"</p>
+    <p>Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> </p>
+    <p>Start Time: <%= @event.event_start.strftime("%I:%M%p") %></p>
+    <p>
+      Click Here to Suggest Venues! <%= link_to("Event Page", @url) %>
+    </p>
+
+    <p>Hope to see you there!</p>
+  </body>
+</html>

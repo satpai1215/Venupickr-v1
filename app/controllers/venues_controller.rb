@@ -83,12 +83,14 @@ class VenuesController < ApplicationController
 
           @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
        end
-
         format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
         format.json { head :no_content }
+        format.js { render :js => %(window.location = '#{event_path(@venue.event.id)}')}
       else
+        @event_id = @venue.event.id
         format.html { render action: "edit" }
         format.json { render json: @venue.errors, status: :unprocessable_entity }
+        format.js { render action: "new" }
       end
     end
   end

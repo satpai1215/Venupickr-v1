@@ -1,5 +1,4 @@
 -Validate upon change of event date
 -What to do if event has no venues suggested and countdown ends
--Ajax event/venue creation errors in form
--redirect after event delete from event #show
--Ajax update addition if easy
+-Limit Update Model
+-Yelp Ajax hide tokens
