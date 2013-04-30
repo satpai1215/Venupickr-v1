@@ -2,6 +2,7 @@
 -What to do if event has no venues suggested and countdown ends
 -Limit Update Model
 -Yelp Ajax hide tokens
+-have a checkbox to determine if people other than event_owner can suggest venues
 
 
 No Venue Suggested Exception:
