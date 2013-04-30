@@ -13,7 +13,8 @@
     </p>
     <p>
       Below is the event information: <br/>
-      Date: <%= @event.event_start.strftime("%d%b%Y") %> <br/>
+      Event Name: "<%= @event.name %>" <br/>
+      Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
       Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
     </p>
 

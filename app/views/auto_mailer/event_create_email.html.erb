@@ -5,12 +5,16 @@
   </head>
 
   <body>
-    <p><%= @event.user %> has just created a new event on MoMondays </p>
     
-    <h2>EVENT INFORMATION</h2>
-    <p>Event Name: "<%= @event.name %>"</p>
-    <p>Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> </p>
-    <p>Start Time: <%= @event.event_start.strftime("%I:%M%p") %></p>
+    <h2>AN EVENT HAS BEEN CREATED!</h2>
+    <p><%= @event.user %> has just created a new event on MoMondays </p>
+
+    <p>
+      Below is the event information: <br/>
+      Event Name: "<%= @event.name %>" <br/>
+      Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
+      Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
+    </p>
     <p>
       Click Here to Suggest Venues! <%= link_to("Event Page", @url) %>
     </p>

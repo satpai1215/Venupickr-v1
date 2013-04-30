@@ -54,9 +54,10 @@
 
 .cancel_action {
 	margin: 50px auto;
-	width: 70%;
+	width: 40%;
 	text-align: center;
 }
 #cancel_btn {
-	width: 60%;
+	width: 80%;
+	font-size: 0.8em;
 }
