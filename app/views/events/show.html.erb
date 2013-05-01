@@ -21,6 +21,16 @@
 					<div id = "suggestVenueControl">
 						<%= display_venue_suggest_button(@event) %>
 					</div>
+
+					<div id = "rsvpList">
+						<p>Are you going?</p>
+						<ul>
+							<% Rsvp.where(:event_id => @event.id).each do |rsvp| %>
+								<li class = "rsvpItem"><%= rsvp.user.username %></li>
+							<% end %>
+						</ul>
+					</div>
+
 				</div> <!--eventSidebar -->
 			</div> <!--span5-->
 		<div class = "span7">
