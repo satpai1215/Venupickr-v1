@@ -5586,3 +5586,90 @@ Served asset /application.js - 304 Not Modified (0ms)
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-01 04:31:42.721157' AND (locked_at IS NULL OR locked_at < '2013-05-01 00:31:42.721189') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:23740') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
   [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-01 04:31:47.722806' AND (locked_at IS NULL OR locked_at < '2013-05-01 00:31:47.722838') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:23740') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-01 04:31:52.724449' AND (locked_at IS NULL OR locked_at < '2013-05-01 00:31:52.724482') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:23740') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to AddVenueIdToVoters (20130317234010)
+Migrating to CreateVoters (20130317235337)
+Migrating to AddWinnerToEvents (20130325062730)
+Migrating to CreateDelayedJobs (20130326040418)
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+Migrating to AddRsvpToEvents (20130501043410)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" ADD "rsvp" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130501043410')[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to AddRsvpToEvents (20130501043410)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer, "rsvp" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","rsvp") VALUES (215, 'Only Event Left', '2013-04-30 05:13:35.456274', '2013-04-30 06:06:50.286065', 8, 'Voting', '2013-05-01 05:16:00.000000', 1, NULL, 417, 418, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","rsvp") VALUES (217, 'No Venue Event', '2013-04-30 06:26:38.352565', '2013-04-30 06:27:00.194789', 8, 'Voting', '2013-05-01 06:27:00.000000', 1, NULL, 421, 422, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","rsvp") VALUES (218, 'Birthday PArty', '2013-04-30 06:31:44.376192', '2013-04-30 06:32:03.311852', 9, 'Voting', '2013-05-01 06:32:00.000000', 1, NULL, 423, 424, NULL)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (215, 'Only Event Left', '2013-04-30 05:13:35.456274', '2013-04-30 06:06:50.286065', 8, 'Voting', '2013-05-01 05:16:00.000000', 1, NULL, 417, 418)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (217, 'No Venue Event', '2013-04-30 06:26:38.352565', '2013-04-30 06:27:00.194789', 8, 'Voting', '2013-05-01 06:27:00.000000', 1, NULL, 421, 422)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (218, 'Birthday PArty', '2013-04-30 06:31:44.376192', '2013-04-30 06:32:03.311852', 9, 'Voting', '2013-05-01 06:32:00.000000', 1, NULL, 423, 424)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130501043410'[0m
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to AddVenueIdToVoters (20130317234010)
+Migrating to CreateVoters (20130317235337)
+Migrating to AddWinnerToEvents (20130325062730)
+Migrating to CreateDelayedJobs (20130326040418)
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+Migrating to CreateRsvps (20130501045136)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "rsvps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_rsvps_on_user_id" ON "rsvps" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_rsvps_on_event_id" ON "rsvps" ("event_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130501045136')[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m

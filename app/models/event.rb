@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
   validates :name, presence: true
   validate :vote_start_is_not_past, :on => :create
 
+  serialize :rsvp
+
   def to_s
     self.name
   end
