@@ -1,0 +1,10 @@
+<% if @already_rsvp %>
+	$("#notice").text("You have already RSVP'd for this event");
+
+<% else %> {
+	$("#rsvpList ul").append("<li><%= escape_javascript(current_user.username) %></li>");
+	voteSort();
+	$("#notice").text("You have successfully RSVP'd to this event");
+}
+
+<% end %>

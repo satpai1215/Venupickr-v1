@@ -115,22 +115,31 @@ class EventsController < ApplicationController
     end
   end
 
-=begin
+  #rsvp_yes
+  def rsvp_yes
+    @event = Event.find(params[:event_id])
+    if !user_signed_in?
+      #redirect_to @event, notice: "You must be signed in to RSVP."
+    else
+       @already_rsvp = Rsvp.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
 
-  def event_finish(event_id)
-    @event = Event.find(event_id)
-    event.update_attributes(:stage => "Finished")
-    event.update_attributes(:winner => event.venues.order("votecount DESC").first.id)
-    #Automailer.event_email(event_id).deliver
+      if (@already_rsvp)
+         respond_to do |format|
+           format.html {redirect_to @venue.event, notice: "You have already RSVP'd for this event"}
+           format.js
+         end
+
+      else
+        Rsvp.create!(:user_id => current_user.id, :event_id => @event.id)
+        Update.create!(:content => "#{current_user} just RSVP'd for #{@event.name}")
+
+        respond_to do |format|
+          format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
+          format.js
+        end
+      end
+    end
   end
-
-  def voting_begin(event_id)
-    @event = Event.find(event_id)
-    event.update_attributes(:stage => "Voting")
-    Automailer.vote_email(event_id).deliver
-  end
-
-=end  
 
 private
 

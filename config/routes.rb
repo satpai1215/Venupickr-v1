@@ -13,6 +13,7 @@ MoMondays::Application.routes.draw do
   #match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+  match '/venue/rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
  # match '/events/new', :controller => 'events', :action => 'new'
 
   root :to => 'events#index'

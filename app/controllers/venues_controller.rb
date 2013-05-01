@@ -113,7 +113,7 @@ class VenuesController < ApplicationController
   def increment_vote
 
     if !user_signed_in?
-      redirect_to @venue.event, notice: "You must be signed in to vote."
+      #redirect_to @venue.event, notice: "You must be signed in to vote."
     else
 
        @venue = Venue.find(params[:venue_id])

@@ -22,14 +22,17 @@
 						<%= display_venue_suggest_button(@event) %>
 					</div>
 
-					<div id = "rsvpList">
-						<p>Are you going?</p>
-						<ul>
-							<% Rsvp.where(:event_id => @event.id).each do |rsvp| %>
-								<li class = "rsvpItem"><%= rsvp.user.username %></li>
-							<% end %>
-						</ul>
-					</div>
+					<% if @event.stage == "Finished" %>
+						<div id = "rsvpList">
+							<p>Are you going?</p>
+							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
+							<ul>
+								<% Rsvp.where(:event_id => @event.id).each do |rsvp| %>
+									<li class = "rsvpItem"><%= rsvp.user.username %></li>
+								<% end %>
+							</ul>
+						</div> <!--rsvpList -->
+					<% end %>
 
 				</div> <!--eventSidebar -->
 			</div> <!--span5-->
