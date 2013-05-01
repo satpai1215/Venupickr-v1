@@ -1,4 +1,5 @@
 -Validate upon change of event date
+- add graphic for loading (esp when events are created to prevent double submission)
 -What to do if event has no venues suggested and countdown ends
 -Limit Update Model
 -Yelp Ajax hide tokens

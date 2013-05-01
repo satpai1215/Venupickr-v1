@@ -24,13 +24,13 @@ class AutoMailer < ActionMailer::Base
   def no_venue_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => "pai.satyan@gmail.com", :subject => "No Venues Suggested for '#{@event.name}'")
+    mail(:to => @event.user.email, :subject => "No Venues Suggested for '#{@event.name}'")
   end
 
   def no_venue_email_final(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => "pai.satyan@gmail.com", :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
+    mail(:to => @event.user.email, :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
   end
 
 
