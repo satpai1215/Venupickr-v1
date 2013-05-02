@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :username, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :username, :password_confirmation, :remember_me, :access_code
   has_many :events, dependent: :destroy
   has_many :venues,  dependent: :destroy
   has_many :voters, dependent: :destroy
@@ -15,8 +15,17 @@ class User < ActiveRecord::Base
   validates :password, presence: true, :on => :create
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
+  validate :access_code_match, :on => :create
+
   def to_s
     self.username
+  end
+
+  def access_code_match
+
+    if self.access_code != "balderdash"
+      errors.add(:access_code, "does not match.  Ask Satyan for the correct code" )
+    end
   end
 
 end
