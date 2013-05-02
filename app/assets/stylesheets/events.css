@@ -9,6 +9,7 @@
 }
 
 #eventList ul {
+	max-height: 650px;
 }
 
 #eventList ul li {
@@ -73,7 +74,7 @@
 	padding: 0px 20px;
 	margin-left: 0px;
 	overflow-y: auto; 
-	height: 600px;
+	max-height: 650px;
 }
 #newsFeed li {
 	border-bottom: groove 2px black;
@@ -101,19 +102,24 @@
 
 }
 
+#eventShow h1 {
+	text-shadow: 0.07em 0.07em #D1CBCD;
+}
+
+#eventHeader-container {
+	margin-bottom: 50px;
+}
+
+#eventHeader-container h4 {
+	margin: 0px 0px;
+}
+
 #eventSideBar {
 	margin-top: 30px;
 	padding-left: 35px;
 	text-align: center;
 }
 
-#eventShowHeader {
-	text-align: center;
-}
-#eventShowHeader h3 {
-	margin-top: 0px;
-	margin-bottom: 40px;
-}
 
 .eventInfoText {
 	line-height: 0.5em;
@@ -123,6 +129,7 @@
 
 .eventInfoText h4 {
 	font-size: 1.2em;
+	text-shadow: 0.07em 0.07em #D1CBCD;
 }
 
 .infoSubHead {
@@ -132,8 +139,8 @@
 	font-weight: bold;
 }
 #suggestVenueLink {
-	margin-top: 50px;
-	display: block;
+	float: right;
+	margin-top: 5px;
 }
 
 #venueList {
@@ -162,6 +169,7 @@
 		float: left;
 		width: 100%;
 	    margin-bottom: 25px;
+	    margin-top: 10px;
 	}
 
 	.venueSticky {

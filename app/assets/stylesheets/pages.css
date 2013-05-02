@@ -4,11 +4,12 @@
 }
 
 #appInfo h2 {
-	text-align: center;
+	margin-left: 50px;
 }
 #appInfo p {
 	margin: 0 50px;
 	text-align: justify;
+	font-size: 0.8em;
 }
 
 #rulesPageContent {

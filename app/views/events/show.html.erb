@@ -3,24 +3,21 @@
 		
 			<div class = "span5">
 				<div id = "eventSideBar">
-					<div id = "eventShowHeader">
+					<div id = "eventHeader-container">
 						<div id="eventNameDate"><h1><%= @event.name %></h1></div>
+						<h4>Created by: <%= @event.user.username%></h4>
 						<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
+					</div>
 
-						<h3>by <%= @event.user.username%></h3>
+					<div id = "eventInfo-container">
 						<div class = 'eventInfoText'><h4>Event Date:</h4>
 							<span class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span></div>
 						<div class = 'eventInfoText'>
 							<%= display_date_or_countdown(@event) %></div>
 						<div class = 'eventInfoText'>
 							<%= display_prevoting_countdown(@event) %></div>
-						
+					</div>
 						<!--<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>-->
-					</div>
-
-					<div id = "suggestVenueControl">
-						<%= display_venue_suggest_button(@event) %>
-					</div>
 
 					<% if @event.stage == "Finished" %>
 						<div id = "rsvpList">
@@ -40,6 +37,9 @@
 			</div> <!--span5-->
 		<div class = "span7">
 				<div id = "venueList">
+					<div id = "suggestVenueControl">
+						<%= display_venue_suggest_button(@event) %>
+					</div>
 					<div id = "venueList-header">
 						<h3>Recommended Venue List</h3>
 					</div>
