@@ -21410,3 +21410,4 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-01 22:21:19
 Served asset /application.js - 304 Not Modified (0ms)
   [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-02 05:21:21.455677' AND (locked_at IS NULL OR locked_at < '2013-05-02 01:21:21.455700') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:24251') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-02 05:21:26.457309' AND (locked_at IS NULL OR locked_at < '2013-05-02 01:21:26.457333') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:24251') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+Connecting to database specified by database.yml
