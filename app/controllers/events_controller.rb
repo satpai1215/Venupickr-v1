@@ -21,6 +21,14 @@ class EventsController < ApplicationController
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
 
+    if @event.stage == "Pre-Voting"
+       @no_venues_text = "No venues have been suggested yet.  Suggest one!"
+    elsif @event.stage == "Voting"
+           @no_venues_text = "No venues were suggested for this event during the venue suggestion phase.  
+           Now only the event owner can suggest venues. When he/she does, you can vote on them"
+    else
+      @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

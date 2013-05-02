@@ -168,10 +168,7 @@
 		float:left;
 		font-family: Courier;
 		line-height: 1em;
-		border: solid 2px black;
-			-moz-box-shadow: 0px 5px 5px 0px #000;
-			-webkit-box-shadow: 0px 2px 5px 0px #000;
-			box-shadow: 0px 2px 5px 0px #000;
+
 		background: white;
 		padding: 10px;
 		width: 70%;
@@ -199,13 +196,42 @@
 			margin-bottom: 15px;
 
 		}
+/*----------------------------------------------------------------------------- 
+= FINISHED EVENT#SHOW
+-----------------------------------------------------------------------------*/
+#eventOverHeading {
+	font-size: 2em;
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+	line-height: 1.2em;
+}
 
-	#eventOverHeading {
-		font-size: 2em;
-		color: red;
-		font-style: italic;
-		font-weight: bold;
-	}
+#rsvpList p {
+	float: left;
+	margin-left: 70px;
+	margin-top: 5px;
+	font-size: 1.5em;
+}
+#rsvpButton {
+	float: left;
+	margin-left: 10px;
+}
+
+#rsvpList ul {
+	clear: both;
+	margin: 0 auto;
+	padding: 10px;
+	width: 60%;
+	max-height: 260px;
+	overflow-y: auto;
+	
+	border: solid 2px black;
+	border-radius: 30px;
+		-moz-box-shadow: 0px 5px 5px 0px #000;
+		-webkit-box-shadow: 0px 2px 5px 0px #000;
+		box-shadow: 0px 2px 5px 0px #000;
+}
 
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS

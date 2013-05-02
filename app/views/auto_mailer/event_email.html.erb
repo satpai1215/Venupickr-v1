@@ -8,8 +8,7 @@
     <h1>EVENT INFORMATION</h1>
 
     <p>
-      Voting has just finished for <%="#{@event.name} submitted by #{@event.user}" %><br/>
-      <%= link_to("Event Page", @url) %>
+      Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %><br/>
     </p>
     <p>
       Below is the event information: <br/>
@@ -24,6 +23,8 @@
       URL: <%= @winner.url %> <br/>
       SUGGESTED BY: <%= @winner.user.username %> <br/>
     </p>
+
+    <p>Are you going? RSVP on the <%= link_to("Event Page", @url) %></p>
 
     <p>Hope to see you there!</p>
   </body>

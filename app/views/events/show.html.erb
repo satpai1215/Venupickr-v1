@@ -25,8 +25,10 @@
 					<% if @event.stage == "Finished" %>
 						<div id = "rsvpList">
 							<p>Are you going?</p>
-							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
+							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "voteButton btn btn-success", :id => "rsvpButton", :remote => true } %>
+							
 							<ul>
+								<h4>Who's Going?</h4>
 								<% Rsvp.where(:event_id => @event.id).each do |rsvp| %>
 									<li class = "rsvpItem"><%= rsvp.user.username %></li>
 								<% end %>
@@ -43,25 +45,31 @@
 					</div>
 					
 					<ul>
-						<% @event.venues.each do |venue| %>
-							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
-								
-								<div class = "venueSticky">
-									<%= generate_venue_sticky(venue) %>
-							   </div>
+						<%if @event.venues.count === 0 %>
+                            <div id = "noEventsLabel">  
+                                <li> <%= @no_venues_text %></li>
+                            </div>
 
-							  	<div id = "voteControls">
-								   <% if(@event.stage == "Voting" || "Finished") %>
-								   		<div class = "voteCount"><%= venue.votecount %></div>
-								   <% end %>
-								   <% if(@event.stage == "Voting") %>
-									   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
-									   <script> voteSort(); </script>
-									<% end %>
-								</div>
-							</li>
+                        <% else %>
+							<% @event.venues.each do |venue| %>
+								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
+									
+									<div class = "venueSticky">
+										<%= generate_venue_sticky(venue) %>
+								   </div>
+
+								  	<div id = "voteControls">
+									   <% if(@event.stage == "Voting" || "Finished") %>
+									   		<div class = "voteCount"><%= venue.votecount %></div>
+									   <% end %>
+									   <% if(@event.stage == "Voting") %>
+										   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
+										   <script> voteSort(); </script>
+										<% end %>
+									</div>
+								</li>
+							<% end %>
 						<% end %>
-						
 					</ul>
 				</div><!-- venueList -->
 		</div> <!--span8-->

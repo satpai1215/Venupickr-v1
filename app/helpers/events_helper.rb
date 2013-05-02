@@ -36,12 +36,13 @@ module EventsHelper
 
 		html = ""
 		
-		if event.stage == "Pre-Voting"
+		if event.stage === "Pre-Voting"
 			html << "<h4>Voting Begins On:</h4>  \<span class = 'infoSubHead'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
-		elsif event.stage == "Voting"
+		elsif event.stage === "Voting"
 			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'></span>\ "
 		else
-			html << "<span id = 'eventOverHeading'>EVENT OVER</span>"
+			event_end_text = (event.venues.count == 0 ? "EVENT CANCELLED <br/> (No Venues Suggested)" : "EVENT SET" )
+			html << "<span id = 'eventOverHeading'>#{event_end_text}</span>"
 		end
 
 		return html.html_safe
@@ -50,7 +51,7 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.stage == "Pre-Voting" or current_user == event.user)
+		if((current_user === event.user or event.stage === "Pre-Voting") and event.stage != "Finished")
 			html << "#{link_to "Suggest a Venue", 
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
 		end

@@ -4,7 +4,7 @@
 -Limit Update Model
 -Yelp Ajax hide tokens
 -have a checkbox to determine if people other than event_owner can suggest venues
--add RSVP capability
+-add access code
 
 
 No Venue Suggested Exception:
