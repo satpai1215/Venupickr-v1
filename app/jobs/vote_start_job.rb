@@ -12,5 +12,6 @@ class VoteStartJob < Struct.new(:event_id)
     		
     	end
 	end
+	
 
 end

@@ -1,0 +1,9 @@
+# Logfile created on 2013-05-07 23:28:44 -0700 by logger.rb/31641
+2013-05-07T23:28:44-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] Starting job worker
+2013-05-08T23:33:04-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] EventFinishJob completed after 0.1309
+2013-05-08T23:33:08-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] EventFinishJob#perform_without_delay completed after 3.8909
+2013-05-08T23:33:08-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] 2 jobs processed at 0.4880 j/s, 0 failed ...
+2013-05-08T23:37:03-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] EventFinishJob completed after 0.0393
+2013-05-08T23:37:06-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] EventFinishJob#perform_without_delay completed after 2.2294
+2013-05-08T23:37:06-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] 2 jobs processed at 0.8736 j/s, 0 failed ...
+2013-05-08T23:37:10-0700: [Worker(delayed_job.workless host:Satyans-MacBook-Pro.local pid:29271)] Exiting...

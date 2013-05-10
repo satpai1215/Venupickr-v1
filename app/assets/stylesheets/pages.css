@@ -27,16 +27,13 @@
 #rulesPageContent ul{
 	width: 600px;
 	margin: 5px auto;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	list-style: circle;
 }
 #rulesPageContent h3 {
 	margin-left: 60px;
 }
 
-#rulesPageContent {
-
-}
 
 
 /*----------------------------------------------------------------------------- 
