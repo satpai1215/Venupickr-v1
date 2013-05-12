@@ -56,12 +56,12 @@ function yelpRequest(request, response) {
         //
         // Update with your auth tokens.
         //
-        consumerKey: "xIeBBXL6bTqP5MDheNuehw",
-        consumerSecret: "843wPzWYIVym8o9MG4X5jwsMt9U",
-        accessToken: "NQQE9MaKFgSgzrzTKWKLSfVIaWPxYfa_",
+        consumerKey: '<%= escape_javascript(YelpTokens::TOKENS[:consumerKey]) %>',
+        consumerSecret: '<%= escape_javascript(YelpTokens::TOKENS[:consumerSecret]) %>',
+        accessToken: '<%= escape_javascript(YelpTokens::TOKENS[:accessToken]) %>',
         // This example is a proof of concept, for how to use the Yelp v2 API with javascript.
         // You wouldn't actually want to expose your access token secret like this in a real application.
-        accessTokenSecret: "VVkDuwQTQPiLxW0yMJX_K4OSRqc",
+        accessTokenSecret: '<%= escape_javascript(YelpTokens::TOKENS[:accessTokenSecret]) %>',
         serviceProvider: {
             signatureMethod: "HMAC-SHA1"
         }

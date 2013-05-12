@@ -1,13 +1,6 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!
 
-  autocomplete :venue, :name, :full => true, :display_value => :shit_face, :extra_data =>[:address]
-
-  def shit_face
-    self.name + self.address
-
-  end
-
   # GET /venues/new
   # GET /venues/new.json
   def new
@@ -79,17 +72,20 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
 
+    @venue.assign_attributes(params[:venue])
+    if(@venue.changed?)
+        #reset votecount for venue if it is modified
+        @venue.assign_attributes(:votecount => 0)
+
+        #remove voting records for venue if it is modified
+        Voter.destroy_all(:venue_id => @venue.id)
+
+        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
+    end
+
     respond_to do |format|
-
-      if @venue.update_attributes(params[:venue])
-        if(@venue.changed?)
-          #reset votecount for venue if it is modified
-          @venue.update_attributes(:votecount => 0)
-          #remove voting records for venue if it is modified
-          Voter.destroy_all(:venue_id => @venue.id)
-
-          @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
-       end
+      if @venue.save
+        
         format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
         format.json { head :no_content }
         format.js { render :js => %(window.location = '#{event_path(@venue.event.id)}')}

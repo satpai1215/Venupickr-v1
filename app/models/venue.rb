@@ -10,7 +10,4 @@ class Venue < ActiveRecord::Base
     self.name
   end
 
-   def shit_face
-    self.name + self.address
-  end
 end

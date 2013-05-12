@@ -59,7 +59,7 @@
 								   </div>
 
 								  	<div id = "voteControls">
-									   <% if(@event.stage == "Voting" || "Finished") %>
+									   <% if(@event.stage == "Voting" || @event.stage == "Finished") %>
 									   		<div class = "voteCount"><%= venue.votecount %></div>
 									   <% end %>
 									   <% if(@event.stage == "Voting") %>
