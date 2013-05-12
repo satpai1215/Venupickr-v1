@@ -9,4 +9,8 @@ class Venue < ActiveRecord::Base
   def to_s
     self.name
   end
+
+   def shit_face
+    self.name + self.address
+  end
 end

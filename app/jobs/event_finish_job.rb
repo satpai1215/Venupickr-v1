@@ -15,6 +15,4 @@ class EventFinishJob < Struct.new(:event_id)
     	end
 	end
 
-	handle_asynchronously :perform
-
 end

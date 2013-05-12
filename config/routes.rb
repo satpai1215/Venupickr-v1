@@ -2,6 +2,7 @@ MoMondays::Application.routes.draw do
 
   get "pages/info"
   get "pages/history"
+  get "venues/autocomplete_venue_name"
 
   devise_for :users
 

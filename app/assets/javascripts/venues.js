@@ -1,35 +1,14 @@
-console.log("new.js.erb");
-<% if @already_suggested_venue and current_user != @event_user %>
-	$("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.");
-
-<% else %> {
-	$('#createVenueForm').dialog("open");
-	$('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
-
-	AC();
-}
-<% end %>
-
 /********************
 YELP API AJAX REQUEST FUNCTIONS
  *********************/
 
 function AC(){
-/*	$("#venue_name").keyup(function(event) {
-		query = $("#venue_name").val().toString();
-		if (query.length > 4) {
-			yelpRequest(query, response);
-		}
-
-		
-
-	});*/
 $( "#venue_name" ).autocomplete({
     source: function(request, response) {
           yelpRequest(request, response);
     },
     autoFocus: true,
-    minLength: 4,
+    minLength: 3,
     delay: 500,
     select: function( event, ui ) {
         var addy = ""
@@ -81,10 +60,10 @@ function yelpRequest(request, response) {
     parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
     parameters.push(['oauth_token', auth.accessToken]);
     parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
-    //parameters.push(['featureClass', 'P']);
-    //parameters.push(['style', 'full']);
-    parameters.push(['limit', 5]);
-    parameters.push(['sort', 0]);
+    parameters.push(['featureClass', 'P']);
+    parameters.push(['style', 'full']);
+    parameters.push(['maxRows', 12]);
+    parameters.push(['name_startsWith', request.term]);
 
     var message = {
         'action': 'http://api.yelp.com/v2/search',

@@ -1,6 +1,13 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!
 
+  autocomplete :venue, :name, :full => true, :display_value => :shit_face, :extra_data =>[:address]
+
+  def shit_face
+    self.name + self.address
+
+  end
+
   # GET /venues/new
   # GET /venues/new.json
   def new
