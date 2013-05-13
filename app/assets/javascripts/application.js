@@ -30,9 +30,10 @@ $(function() {
     $(this).closest('li').slideUp();  
 	}); */
 
- $('.delete-venue').bind('ajax:success', function() {  
-    $(this).closest('li').slideUp();  
-	}); 
+$('#eventSubmitButton').bind('ajax:loading', function(){
+  $('.loading-gif').show();
+});
+
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500});
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500});

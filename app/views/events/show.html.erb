@@ -6,12 +6,15 @@
 					<div id = "eventHeader-container">
 						<div id="eventNameDate"><h1><%= @event.name %></h1></div>
 						<h4>Created by: <%= @event.user.username%></h4>
-						<div id = "eventShowModifiers"><%= display_modifiers_event(@event) %></div>
+						<%= display_delete_event(@event) %>
+
 					</div>
 
 					<div id = "eventInfo-container">
 						<div class = 'eventInfoText'><h4>Event Date:</h4>
-							<span class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span></div>
+
+							<div class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %>  <%= display_edit_event(@event) %></div>
+						</div>
 						<div class = 'eventInfoText'>
 							<%= display_date_or_countdown(@event) %></div>
 						<div class = 'eventInfoText'>

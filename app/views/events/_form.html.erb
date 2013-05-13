@@ -28,10 +28,11 @@
     <div class="field">
     <%= f.label :vote_start, "How many days BEFORE your event will voting open?" %>
     <%= f.select :vote_start,  :options => (1..10).to_a %>
-    </div
+    </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit (@event.new_record? ? "Create Venue": "Update Event"), {id: "eventSubmitButton"} %>
+        <%= image_tag("ajax-loader.gif", :class => "loading-gif",  :style => "display:none") %>
   </div>
 <% end %>

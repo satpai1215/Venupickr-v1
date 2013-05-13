@@ -24,7 +24,7 @@
                                             <div class = "eventLabel" >
                                                 <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
                                                 <span id = "eventName"><%= event.name %></span> <br/>
-                                                <span id = "eventIndexModifiers"><%= display_modifiers_event(event) %></span>
+                                                <span id = "eventIndexModifiers"><%= display_delete_event(event) %></span>
                                                 Scheduled: <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                     <%= event.event_start.strftime("%I:%M%p") %>
                                                 <br/> Created By: <%= event.user.username %>

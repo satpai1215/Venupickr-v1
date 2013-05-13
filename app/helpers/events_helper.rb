@@ -3,17 +3,24 @@ module EventsHelper
 
 	#event#index helper methods
 
-	def display_modifiers_event(event)
+	def display_edit_event(event)
 		html = ""
 		if(current_user == event.user)
-			html<< "(" 
 			if(event.stage == "Finished")
-				html<< link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
+				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
+				html << ")" + "<br/>"	
 			end
+    	end
+    	return html.html_safe
+	end
+
+	def display_delete_event(event)
+		html = ""
+		if(current_user == event.user)
 			if(event.stage != "Finished")
-        	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
-        	end
-        	html << ")" + "<br/>"
+	        	html << "(" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
+	        	html << ")" + "<br/>"
+			end
     	end
     	return html.html_safe
 	end
