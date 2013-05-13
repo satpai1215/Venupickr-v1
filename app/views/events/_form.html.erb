@@ -24,10 +24,12 @@
     </div>
   </div>
 
-  <div class="field">
-  <%= f.label :vote_start, "How many days BEFORE your event will voting open?" %>
-  <%= f.select :vote_start,  :options => (1..10).to_a %>
-  </div>
+  <% if @event.stage != 'Finished' %>
+    <div class="field">
+    <%= f.label :vote_start, "How many days BEFORE your event will voting open?" %>
+    <%= f.select :vote_start,  :options => (1..10).to_a %>
+    </div
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

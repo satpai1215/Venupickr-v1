@@ -100,7 +100,7 @@ class EventsController < ApplicationController
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
-        format.js {render :js => %(window.location = '#{events_path}')}
+        format.js {render :js => %(window.location = '#{event_path(@event.id)}')}
       else
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }

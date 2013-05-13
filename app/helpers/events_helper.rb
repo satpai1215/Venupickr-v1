@@ -5,9 +5,14 @@ module EventsHelper
 
 	def display_modifiers_event(event)
 		html = ""
-		if(current_user == event.user && event.stage != "Finished")
-			html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true) + " | "
+		if(current_user == event.user)
+			html<< "(" 
+			if(event.stage == "Finished")
+				html<< link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
+			end
+			if(event.stage != "Finished")
         	html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
+        	end
         	html << ")" + "<br/>"
     	end
     	return html.html_safe

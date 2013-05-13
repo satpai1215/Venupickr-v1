@@ -4,11 +4,10 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :venues, dependent: :destroy
   has_many :voters, dependent: :destroy
+  has_many :rsvps, dependent: :destroy
 
   validates :name, presence: true
   validate :vote_start_is_not_past, :on => :create
-
-  serialize :rsvp
 
   def to_s
     self.name
