@@ -52,6 +52,20 @@
 	text-align: center;
 }
 
+#notification_email_select {
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+#user_notification_emails {
+	width: 20px;
+	margin-top: 0px;
+}
+
+#user_notification_emails label {
+	margin-top: 0px;
+}
+
 .cancel_action {
 	margin: 50px auto;
 	width: 40%;

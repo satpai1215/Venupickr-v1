@@ -29,6 +29,11 @@
         <%= f.password_field :password_confirmation %>
       </div>
 
+      <div class ="field" id = "notification_email_select">
+        <%= f.check_box :notification_emails %>
+        <%= f.label  :notification_emails, "Send Notification Emails?" %>
+      </div>
+
       <div class="field">
         <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
         <%= f.password_field :current_password %>

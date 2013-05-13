@@ -35,11 +35,14 @@ COUTNDOWN CREATION FUNCTIONS
 
 function createCountdown(end_date, selector) {
     var dateString = parseDate(end_date);
+    //make dateString firefox/IE compatible
+    dateString = dateString.replace(/-/g, "/");
     var end_timer = new Date(dateString);
     now = new Date();
     if(end_timer - now > 0) {
         var t = setInterval(function() {updateCountdown(end_timer, selector)} , 1000);
     }
+
 }
 
 
@@ -49,8 +52,9 @@ function createTimersinView()
 	var eventDate = [];
 	for (var i = 0; i < gon.numEvents; i++) { 
 		var dateFromView = $("#eventIndexTimer" + i).data("date");
-        //console.log(dateFromView);
 		var dateString = parseDate(dateFromView)
+        //make dateString firefox/IE compatible
+        dateString = dateString.replace(/-/g, "/");
 		eventDate.push(new Date(dateString));
 	}
 	for(var i=0; i < eventDate.length; i++) {

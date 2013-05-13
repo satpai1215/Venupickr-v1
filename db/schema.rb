@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502051259) do
+ActiveRecord::Schema.define(:version => 20130513053240) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(:version => 20130502051259) do
     t.string   "email"
     t.string   "password"
     t.string   "username"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "encrypted_password",     :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130502051259) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "access_code"
+    t.boolean  "notification_emails",    :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
