@@ -31,7 +31,7 @@ $(function() {
 	}); */
 
 $('#eventSubmitButton').bind('ajax:loading', function(){
-  $('.loading-gif').show();
+  $('#event-loading-gif').show();
 });
 
 

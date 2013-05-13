@@ -11,7 +11,7 @@
 #eventList ul {
 	max-height: 650px;
 	margin-left: 0px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #eventList ul li {
