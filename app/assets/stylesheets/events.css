@@ -9,7 +9,7 @@
 }
 
 #eventList ul {
-	max-height: 650px;
+	max-height: 640px;
 	margin-left: 0px;
 	overflow-y: auto;
 }
@@ -76,7 +76,7 @@
 	padding: 0px 20px;
 	margin-left: 0px;
 	overflow-y: auto; 
-	max-height: 650px;
+	max-height: 640px;
 }
 #newsFeed li {
 	border-bottom: groove 2px black;

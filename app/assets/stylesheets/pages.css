@@ -13,27 +13,42 @@
 }
 
 #rulesPageContent {
-	margin-left: 50px;
 	font-size: 0.9em;
 }
 
-#rulesPageContent ol{
-	width: 600px;
+
+#appActions-container {
+	font-size: 0.9em;
+	margin-left: 0px;
+}
+
+.appActions {
+	display: block;
+	border: solid 2px black;
+	border-radius: 15px;
 	margin: 10px auto;
-	margin-bottom: 30px;
-	list-style: decimal;
-}
+	background: white;
 
-#rulesPageContent ul{
 	width: 600px;
-	margin: 5px auto;
-	margin-bottom: 10px;
-	list-style: circle;
-}
-#rulesPageContent h3 {
-	margin-left: 60px;
 }
 
+.appActions h3 {
+	margin: 2px 10px;
+	text-align: center;
+}
+
+.appActionsInfo {
+	margin: 0px 5px;
+	padding: 5px 20px;
+	padding-bottom: 10px;
+
+	list-style: circle;
+	list-style-position: inside;
+}
+
+#eventCompletionInfo-container {
+	clear: both;
+}
 
 
 /*----------------------------------------------------------------------------- 
