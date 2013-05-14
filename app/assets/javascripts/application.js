@@ -34,6 +34,11 @@ $('#eventSubmitButton').bind('ajax:loading', function(){
   $('#event-loading-gif').show();
 });
 
+ $('#user_notification_emails').change(function() {  
+    if (!$(this).prop('checked')) {
+      window.alert("Are you sure?  You will no longer get reminders about events and voting.");
+    }
+  }); 
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500});
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500});
