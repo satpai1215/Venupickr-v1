@@ -54,7 +54,7 @@
                             </div>
 
                         <% else %>
-							<% @event.venues.each do |venue| %>
+							<% @event.venues.order("votecount DESC, created_at ASC").each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 									
 									<div class = "venueSticky">
@@ -67,7 +67,6 @@
 									   <% end %>
 									   <% if(@event.stage == "Voting") %>
 										   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
-										   <script> voteSort(); </script>
 										<% end %>
 									</div>
 								</li>

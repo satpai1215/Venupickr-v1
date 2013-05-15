@@ -25,10 +25,9 @@ $(function() {
        // }
     });
 
-/*
- $('.delete-event').bind('ajax:success', function() {  
-    $(this).closest('li').slideUp();  
-	}); */
+ $('.voteButton').bind('ajax:success', function() {  
+    votesort();  
+	});
 
 $('#eventSubmitButton').bind('ajax:loading', function(){
   $('#event-loading-gif').show();
