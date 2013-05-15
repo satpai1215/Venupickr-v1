@@ -1,10 +1,10 @@
 -Validate upon change of event date
+- redirect on sign in to previous page
+- highlight winning venue on Event Finished page
 - add graphic for loading (esp when events are created to prevent double submission)
--What to do if event has no venues suggested and countdown ends (done)
--Limit Update Model
--Yelp Ajax hide tokens (done)
--have a checkbox to determine if people other than event_owner can suggest venues
--add access code (done)
+- What to do if event has no venues suggested and countdown ends
+- have a checkbox to determine if people other than event_owner can suggest venues
+
 
 
 No Venue Suggested Exception:
