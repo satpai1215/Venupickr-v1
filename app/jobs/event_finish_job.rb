@@ -5,7 +5,6 @@ class EventFinishJob < Struct.new(:event_id)
 			@event = Event.find(event_id)
 			@event.update_attributes(:stage => "Finished")
 
-			
 			if (@event.venues.count != 0)
 	    		#ties are broken by first venue created
 	   	 		@event.update_attributes(:winner => @event.venues.order("votecount DESC, created_at ASC").first.id)

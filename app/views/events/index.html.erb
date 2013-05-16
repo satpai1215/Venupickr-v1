@@ -51,8 +51,12 @@
             <h2>Recent Activity:</h2>
             <ul>
                 <% Update.order("created_at DESC").each do |update| %>
-                    <li><span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
-                        <%= update.content %></li>
+                    <li>
+                        <div class = "update-item-container">
+                            <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
+                            <%= update.content %>
+                        </div>
+                    </li>
                 <% end %>
 
             </ul>

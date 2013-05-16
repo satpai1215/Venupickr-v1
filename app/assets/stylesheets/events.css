@@ -1,21 +1,23 @@
+#eventList {
+	margin-left: 0px;
+}
+
 #eventList h2 {
 	padding-left: 20px;
 }
 
 #newEventCreate {
 	float: right;
-	margin-top: 20px;
-	margin-right: 15px;
+	margin-top: 18px;
 }
 
 #eventList ul {
 	max-height: 640px;
-	margin-left: 0px;
 	overflow-y: auto;
 }
 
 #eventList ul li {
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-bottom: 5px;
 	border: inset 2px gray;
 	border-radius: 5px;
@@ -39,7 +41,8 @@
 	}
 
 #eventList ul li .span2 {
-	margin-left: 50px;
+	float: right;
+	margin-right: 5px;
 }
 	.eventClock p {
 		text-align: center;
@@ -65,23 +68,37 @@
 
 #newsFeed {
 	min-height: 700px;
-	border-left: solid 2px gray;
+	background: white;
+	font-size: 0.9em;
+	border-left: solid 2px rgb(90,90,90);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #newsFeed h2 {
-	text-align: center;
+	text-align: left;
+	font-size: 2em;
+	margin: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
 }
 
 #newsFeed ul {
-	padding: 0px 20px;
-	margin-left: 0px;
-	overflow-y: auto; 
-	max-height: 640px;
+	margin: 0px;
+
+	overflow-y: hidden; 
+	max-height: 700px;
 }
 #newsFeed li {
-	border-bottom: groove 2px black;
-	padding: 5px 0px;
+	/*border-bottom: groove 2px black;
+	border-top: groove 2px black;*/
+	padding: 0px 0px;
 	font-style: normal;
+}
+
+.update-item-container {
+	padding: 5px;
+	padding-left: 20px;
 }
 .newsFeed_timestamp {
 	font-weight: bold;
