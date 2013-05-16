@@ -1,14 +1,16 @@
+#about-container {
+	padding: 10px 30px;
+}
+
 #appInfo {
 	font-size: 1.3em;
-	padding-top: 10px;
 }
 
 #appInfo h2 {
-	margin-left: 50px;
 }
 #appInfo p {
-	margin: 0 50px;
-	text-align: justify;
+	margin: 0px;
+	text-align: left;
 	font-size: 0.8em;
 }
 
@@ -24,17 +26,22 @@
 
 .appActions {
 	display: block;
-	border: solid 2px black;
+	border: ridge 4px black;
 	border-radius: 15px;
 	margin: 10px auto;
 	background: white;
+			background: #F9F9C9;
+		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
+		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
 
-	width: 600px;
+	width: 700px;
 }
 
 .appActions h3 {
-	margin: 2px 10px;
-	text-align: center;
+	margin: 2px 20px;
+	text-align: left;
 }
 
 .appActionsInfo {

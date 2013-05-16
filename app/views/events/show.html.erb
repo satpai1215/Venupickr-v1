@@ -28,7 +28,7 @@
 							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "voteButton btn btn-success", :id => "rsvpButton", :remote => true } %>
 							
 							<ul>
-								<h4>Who's Going?</h4>
+								<h4>Attendees</h4>
 								<% Rsvp.where(:event_id => @event.id).each do |rsvp| %>
 									<li class = "rsvpItem"><%= rsvp.user.username %></li>
 								<% end %>
