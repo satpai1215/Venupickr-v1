@@ -22,7 +22,6 @@
 	border: inset 2px gray;
 	border-radius: 5px;
 	padding: 5px;
-	color: rgb(90, 90, 90);
 	background: white;
 	/*background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
    	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);*/
@@ -63,7 +62,12 @@
 
 	.eventActionLink {
 		margin-top: 10px;
+		text-align: center;
 	}
+
+.event-show-btn {
+	font-size: 0.85em;
+}
 
 
 #newsFeed {
