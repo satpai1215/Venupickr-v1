@@ -1,10 +1,27 @@
 <div class = "row">
-        <div class = "span8">
+
+    <div class = "span3">
+        <div id = "newsFeed">
+            <h2>Recent Activity:</h2>
+            <ul>
+                <% Update.order("created_at DESC").each do |update| %>
+                    <li>
+                        <div class = "update-item-container">
+                            <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
+                            <%= update.content %>
+                        </div>
+                    </li>
+                <% end %>
+
+            </ul>
+        </div><!--newsFeed-->
+    </div><!--span4-->
+        <div class = "span9">
 
             <div  id = "eventList" >
 
             <div class = "row">
-                <div class = "span5"><h2>Events on the Clock:</h2></div>
+                <div class = "span6"><h2>Events on the Clock:</h2></div>
                 <div class = "span3">
                     <% if Event.where("stage != ? ", "Finished").count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :class => "btn btn-success", :remote => true} %> <% end %>
                 </div>
@@ -45,23 +62,6 @@
 
             </div> <!--eventList -->
         </div> <!--span8-->
-
-    <div class = "span4">
-        <div id = "newsFeed">
-            <h2>Recent Activity:</h2>
-            <ul>
-                <% Update.order("created_at DESC").each do |update| %>
-                    <li>
-                        <div class = "update-item-container">
-                            <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
-                            <%= update.content %>
-                        </div>
-                    </li>
-                <% end %>
-
-            </ul>
-        </div><!--newsFeed-->
-    </div><!--span4-->
 
 </div> <!--row-->
 

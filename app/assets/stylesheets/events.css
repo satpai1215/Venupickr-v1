@@ -9,10 +9,12 @@
 #newEventCreate {
 	float: right;
 	margin-top: 18px;
+	margin-right: 25px;
 }
 
 #eventList ul {
 	max-height: 640px;
+	width: 650px;
 	overflow-y: auto;
 }
 
@@ -75,8 +77,9 @@
 	background: white;
 	font-size: 0.9em;
 	border-left: solid 2px rgb(90,90,90);
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+
 }
 
 #newsFeed h2 {
@@ -89,7 +92,6 @@
 
 #newsFeed ul {
 	margin: 0px;
-
 	overflow-y: hidden; 
 	max-height: 700px;
 }
@@ -141,6 +143,8 @@
 	margin-top: 30px;
 	padding-left: 35px;
 	text-align: center;
+	font-size: 0.8em;
+	position: fixed;
 }
 
 .eventInfoText {
@@ -197,6 +201,7 @@
 	.venueSticky {
 		float:left;
 		font-family: Courier;
+		font-size: 1.25em;
 		line-height: 1em;
 
 		background: white;
