@@ -45,6 +45,9 @@ group :production do
 	gem 'pg'
 end
 
+gem 'heroku'
+gem 'heroku-api'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

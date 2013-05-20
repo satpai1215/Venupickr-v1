@@ -8,10 +8,9 @@
 <%= csrf_meta_tag %>
 </head>
 <body>
-	<header><div id = "page_title"><h1>Mo' Mondays Mo' Problems (BETA)</h1></div></header>
-	
-	<div id = "container" class = "container">
+	<header>
 		<div id = "page_header">
+				<div id = "page_title"><h1>Mo' Mondays Mo' Problems (BETA)</h1></div>
 			<div class = "row">
 				<div class = "span5">
 					<nav>	
@@ -32,9 +31,14 @@
 							<%= link_to "Sign Up", new_user_registration_path %> |
 							<%= link_to "Sign In", new_user_session_path %>
 						<% end %>
-					</div>
 				</div>
+			</div>
 		</div>  <!--page_header-->
+
+	</header>
+
+	<div id = "container" class = "container">
+
 
 
 				<div id = "main">
