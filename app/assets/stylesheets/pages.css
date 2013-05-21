@@ -7,6 +7,7 @@
 }
 
 #appInfo h2 {
+	font-style: italic;
 }
 #appInfo p {
 	margin: 0px;
@@ -66,13 +67,12 @@
 	padding-top: 20px;
 }
 #eventHistoryTable {
-	margin-top: 20px;
+	margin-top: 5px;
 	background: white;
 	border: ridge 5px gray;
 	border-radius: 20px;
 	padding: 10px 10px;
-	height: 500px;
-	overflow-y: auto;
+	height: 480px;
 }
 
 #eventHistoryTable table {
@@ -87,6 +87,36 @@
 #eventHistoryTable table th {
 	text-align: center;
 }
+
+#pagination-container {
+}
+
+.pagination a, .pagination span, .pagination em {
+	padding: 0.2em 0.5em;
+	margin-right: 1px;
+}
+
+.pagination a {
+	text-decoration: none;
+	color: black;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.pagination .current {
+	font-style: normal;
+	font-weight: bold;
+	background: #2e6ab1;
+	color: white;
+	border: 1px solid #2e6ab1;
+}
+
+.pagination {
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+
 
 
 

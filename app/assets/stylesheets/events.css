@@ -93,7 +93,6 @@
 #newsFeed ul {
 	margin: 0px;
 	overflow-y: hidden; 
-	max-height: 700px;
 }
 #newsFeed li {
 	/*border-bottom: groove 2px black;
@@ -143,7 +142,7 @@
 	margin-top: 30px;
 	padding-left: 35px;
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
 .eventInfoText {
