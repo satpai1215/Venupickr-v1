@@ -24,6 +24,7 @@
 	border: inset 2px gray;
 	border-radius: 5px;
 	padding: 5px;
+	padding-right: 0px;
 	background: white;
 	/*background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
    	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);*/
@@ -98,11 +99,11 @@
 	/*border-bottom: groove 2px black;
 	border-top: groove 2px black;*/
 	padding: 0px 0px;
-	font-style: normal;
+	font-style: italic;
 }
 
 .update-item-container {
-	padding: 5px;
+	padding: 5px 10px;
 	padding-left: 20px;
 }
 .newsFeed_timestamp {

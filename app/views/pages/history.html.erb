@@ -1,8 +1,8 @@
 
 <div id = "eventHistory" class ="eventList">
-	<h2>Finished Events</h2>
-        <div class = "row">
-            <div id= "pagination-container" class = "span10 offset1"><%= will_paginate @events %></div>
+	<div id = "history-header-container" class = "row">
+            <div id="history-header" class = "span9"><h2>Finished Events</h2>
+            <%= will_paginate @events %></div>
     </div>
     <div class = "row">
     	<div id = "eventHistoryTable"  class = "span10 offset1">
