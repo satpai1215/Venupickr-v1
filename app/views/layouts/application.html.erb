@@ -38,22 +38,20 @@
 	</header>
 
 	<div id = "container" class = "container">
+		<%= yield :hero %>
+		<div id = "main">
+			<div id = "notice">
+				<%= notice %>
+				<%= alert %>
+			</div>
+			
+
+			<%= yield %>
+
+		</div> <!--main-->
 
 
-
-				<div id = "main">
-					<div id = "notice">
-						<%= notice %>
-						<%= alert %>
-					</div>
-					
-
-					<%= yield %>
-
-				</div> <!--main-->
-
-
-	<footer>created by Satyan Pai</footer>
+		<footer>created by Satyan Pai</footer>
 	</div> <!--container -->
 
 </body>

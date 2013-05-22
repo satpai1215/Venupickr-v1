@@ -140,7 +140,7 @@ class EventsController < ApplicationController
 
       else
         Rsvp.create!(:user_id => current_user.id, :event_id => @event.id)
-        Update.create!(:content => "#{current_user} just RSVP'd for #{@event.name}")
+        Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"")
 
         respond_to do |format|
           format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
