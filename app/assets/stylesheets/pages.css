@@ -31,11 +31,6 @@
 	border-radius: 15px;
 	margin: 10px auto;
 	background: white;
-			background: #F9F9C9;
-		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
-		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
-		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
-		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
 
 	width: 700px;
 }
@@ -43,6 +38,7 @@
 .appActions h3 {
 	margin: 2px 20px;
 	text-align: left;
+	color: #2e6ab1;
 }
 
 .appActionsInfo {

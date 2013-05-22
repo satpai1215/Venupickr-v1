@@ -74,12 +74,12 @@
 
 
 #newsFeed {
-	min-height: 700px;
 	background: white;
 	font-size: 0.9em;
 	border-right: solid 1px rgb(90,90,90);
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+	overflow: hidden;
 
 }
 
@@ -92,8 +92,10 @@
 }
 
 #newsFeed ul {
+	height: 630px;
 	margin: 0px;
-	overflow-y: hidden; 
+	margin-bottom: 20px;
+	overflow: hidden;
 }
 #newsFeed li {
 	/*border-bottom: groove 2px black;

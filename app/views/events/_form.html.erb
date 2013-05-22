@@ -32,7 +32,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit (@event.new_record? ? "Create Venue": "Update Event"), {id: "eventSubmitButton"} %>
+    <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {id: "eventSubmitButton"} %>
     <%= image_tag("ajax-loader.gif", :id => "event-loading-gif",  :style => "display:none") %>
   </div>
 <% end %>
