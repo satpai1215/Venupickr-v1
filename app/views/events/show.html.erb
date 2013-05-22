@@ -86,5 +86,9 @@
 	<%= javascript_tag do %>
   		createCountdown("<%= @event.event_start.to_s %>", "#voteCountdown");
   		createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
+  		<% if @event.stage == "Finished" %>
+  			$('#venueList ul li .venueSticky').first().css('border', 'solid 4px red');
+  			$('#venueList ul li .voteCount').first().css('color', 'red');
+  		<% end %>
 	<% end %>
 
