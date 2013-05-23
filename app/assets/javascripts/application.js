@@ -29,6 +29,7 @@ $(function() {
     votesort();  
 	});
 
+
 $('#eventSubmitButton').bind('ajax:beforeSend', function(){
   $('#event-loading-gif').show();
 });
