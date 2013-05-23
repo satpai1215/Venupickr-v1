@@ -4,17 +4,19 @@ MoMondays::Application.routes.draw do
   get "pages/history"
   get "venues/autocomplete_venue_name"
 
+
   devise_for :users
 
   resources :users, :only => [:edit, :update, :destroy]
 
-  resources :events 
+  resources :events
   resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
 
   #match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
-  match '/venue/rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
+  match 'rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
+  match 'rsvp_no', :controller => 'events', :action => 'rsvp_no'
  # match '/events/new', :controller => 'events', :action => 'new'
 
   root :to => 'events#index'

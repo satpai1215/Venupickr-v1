@@ -97,7 +97,17 @@ function yelpRequest(request, response) {
     var parameterMap = OAuth.getParameterMap(message.parameters);
     parameterMap.oauth_signature = OAuth.percentEncode(parameterMap.oauth_signature)
 
+    $.ajaxSetup({
+        beforeSend: function(){
+            $('#venue-loading-gif').show();
+        },
+        complete: function(){
+            $('#venue-loading-gif').hide();
+        }
+    });
+
     $.ajax({
+
         'url': message.action,
         'data': parameterMap,
         'cache': true,

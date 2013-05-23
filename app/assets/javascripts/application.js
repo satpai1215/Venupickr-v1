@@ -29,12 +29,12 @@ $(function() {
     votesort();  
 	});
 
-$('#eventSubmitButton').bind('ajax:loading', function(){
-  $('#event-loading-gif').css('visibility', 'visible');
+$('#eventSubmitButton').bind('ajax:beforeSend', function(){
+  $('#event-loading-gif').show();
 });
 
-$('#venue_name').bind('ajax:loading', function(){
-  $('#venue-loading-gif').css('visibility', 'hidden');
+$('#venue_name').bind('ajax:beforeSend', function(){
+  $('#venue-loading-gif').show();
 });
 
  $('#user_notification_emails').change(function() {  
