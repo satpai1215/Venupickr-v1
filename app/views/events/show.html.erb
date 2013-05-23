@@ -30,7 +30,7 @@
 							<ul>
 								<h4>Attendees</h4>
 								<% Rsvp.where(:event_id => @event.id).each_with_index do |rsvp, index| %>
-									<%= tag(:li, {id: "rsvpItem" + index.to_s, class: "rsvpItem", remote: true}) %><%= rsvp.user.username %>
+									<%= tag(:li, {id: "rsvpItem" + index.to_s, class: "rsvpItem"}) %><%= rsvp.user.username %>
 
 									<% if rsvp.user == current_user %>
 										<%= link_to 'x', {:controller => "events", :action => "rsvp_no", :rsvp_id => rsvp.id, :index => index}, {:id => "rsvp-delete", :remote => true} %></li>
