@@ -30,7 +30,11 @@ $(function() {
 	});
 
 $('#eventSubmitButton').bind('ajax:loading', function(){
-  $('#event-loading-gif').show();
+  $('#event-loading-gif').css('visibility', 'visible');
+});
+
+$('#venue_name').bind('ajax:loading', function(){
+  $('#venue-loading-gif').css('visibility', 'hidden');
 });
 
  $('#user_notification_emails').change(function() {  
