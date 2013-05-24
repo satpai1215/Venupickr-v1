@@ -20,6 +20,7 @@ class AutoMailer < ActionMailer::Base
   def vote_email(event_id)
   	@event = Event.find(event_id)
     @url = event_url(@event)
+    @vote_ends = @event.event_start - 8.hours
     mail(:to => email_list, :subject => "Voting for '#{@event.name}' Has Started")
   end
 

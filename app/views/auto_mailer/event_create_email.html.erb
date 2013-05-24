@@ -8,14 +8,13 @@
     <p>Mo' Mondays Mo' Problems!</p>
     ===============================================
     <h2>AN EVENT HAS BEEN CREATED!</h2>
-    <p><%= @event.user %> has just created a new event on MoMondays </p>
+    <p><%= @event.user %> has just created a new event on the MoMondaysApp </p>
 
     <p>
       Below is the event information: <br/>
       Event Name: "<%= @event.name %>" <br/>
-      Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
-      Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
-      Voting Start Time: <%= @vote_start.strftime("%I:%M%p") %><br/>
+      Event Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
+      Voting Starts: <%= @vote_start.strftime("%B %d, %Y %I:%M%p") %><br/>
     </p>
     <p>
       Click Here to Suggest Venues! <%= link_to("Event Page", @url) %>
@@ -24,5 +23,6 @@
     <p>Remember, you have up until the "Voting Start Time" to suggest a venue. Your opinion matters!</p>
 
     <p> -Mo' Mondays App </p>
+     ===============================================
   </body>
 </html>

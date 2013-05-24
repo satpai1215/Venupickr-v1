@@ -16,13 +16,15 @@
     <p>
       Below is the event information: <br/>
       Event Name: "<%= @event.name %>" <br/>
-      Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
-      Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
+      Event Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
+      Voting Ends: <%= @vote_end.strftime("%B %d, %Y at %I:%M%p") %><br/>
     </p>
 
     <p>Remember, you have up until the Event "Start Time" to cast you vote, so make sure you vote!
 
     <p>Hope to see you there!</p>
     <p>-Mo' Mondays App</p>
+     ===============================================
+     
   </body>
 </html>
