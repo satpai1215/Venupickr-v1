@@ -61,3 +61,57 @@ Connecting to database specified by database.yml
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:23:47.179372' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:20:47.179406') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
   [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:23:52.181148' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:20:52.181185') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:23:57.182794' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:20:57.182829') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:02.184460' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:02.184494') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 629]]
+  [1m[36m (0.3ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2013-05-24 06:24:02.185170', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:40389', "updated_at" = '2013-05-24 06:24:02.200452' WHERE "delayed_jobs"."id" = 629[0m
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."id" = 297 LIMIT 1[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 297]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "stage" = 'Voting', "updated_at" = '2013-05-24 06:24:02.257547' WHERE "events"."id" = 297
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 297
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 297]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/no_venue_email.html.erb (2.1ms)
+
+Sent mail to pai.satyan@gmail.com (2465ms)
+Date: Thu, 23 May 2013 23:24:02 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <519f0782752a4_9dc53fd284c349d4914b7@Satyans-MacBook-Pro.local.mail>
+Subject: No Venues Suggested for '8hours'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+  	<p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, '8hours'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br/></p>
+      
+    <p>Suggest venues by going to the <a href="http://localhost:3000/events/297">Event Page</a></p>
+    ===============================================
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 629]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:04.932900' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:04.932952') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:04.934592' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:04.934602') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:09.935535' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:09.935570') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:14.937622' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:14.937657') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:19.939702' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:19.939763') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-24 06:24:24.941780' AND (locked_at IS NULL OR locked_at < '2013-05-24 06:21:24.941821') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:40389') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
