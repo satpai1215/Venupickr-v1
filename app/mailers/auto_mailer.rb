@@ -1,17 +1,19 @@
 class AutoMailer < ActionMailer::Base
   default from: "MoMondaysMailer@gmail.com"
 
+
   def event_create_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on MoMondays")
+    @vote_start = @event.event_start - @event.vote_start.days
+    mail(:to => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
-  def event_email(event_id)
+  def event_finish_email(event_id)
   	@event = Event.find(event_id)
     @winner = Venue.find(@event.winner)
   	@url = event_url(@event)
-    mail(:to => email_list, :subject => "Your Event Has Finished")
+    mail(:to => email_list, :subject => "Voting for '#{@event.name}'' Has Finished")
 
   end
 
@@ -24,13 +26,13 @@ class AutoMailer < ActionMailer::Base
   def no_venue_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => email_list, :subject => "No Venues Suggested for '#{@event.name}'")
+    mail(:to => @event.user.email, :subject => "No Venues Suggested for '#{@event.name}'")
   end
 
   def no_venue_email_final(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => email_list, :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
+    mail(:to => @event.user.email, :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
   end
 
   private

@@ -71,7 +71,7 @@ class EventsController < ApplicationController
       respond_to do |format|
         if @event.save
           #flash[:alert] = "#{@event.event_start}"
-          #AutoMailer.event_create_email(@event.id).deliver
+          AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           
@@ -159,7 +159,7 @@ class EventsController < ApplicationController
         #Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"")
 
         respond_to do |format|
-          format.html {redirect_to @event, notice: "You have removed your RSVP for this event."}
+          format.html {redirect_to @event, notice: "You are no longer RSVP'd for this event."}
           format.js
         end
     end
