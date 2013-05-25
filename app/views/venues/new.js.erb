@@ -49,7 +49,6 @@ $( "#venue_name" ).autocomplete({
 
 
 function yelpRequest(request, response) {
-     $('#venue-loading-gif').css('visibility', 'visible');
     console.log(request.term);
     var auth = {
         //
@@ -99,10 +98,10 @@ function yelpRequest(request, response) {
 
     $.ajaxSetup({
         beforeSend: function(){
-            $('#venue-loading-gif').show();
+            $('#venue-loading-gif').css('visibility', 'visible');
         },
         complete: function(){
-            $('#venue-loading-gif').hide();
+             $('#venue-loading-gif').css('visibility', 'hidden');
         }
     });
 
@@ -133,7 +132,6 @@ function yelpRequest(request, response) {
             response( $.grep( data.businesses, function( item ){
                     return (matcher.test(item.name))
             }*/
- $('#venue-loading-gif').css('visibility', 'hidden');
 }
 /********************
 END YELP API AJAX REQUEST FUNCTIONS

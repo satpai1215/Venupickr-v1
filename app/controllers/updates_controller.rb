@@ -1,4 +1,0 @@
-class UpdatesController < ApplicationController
-
-
-end

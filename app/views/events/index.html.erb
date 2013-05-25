@@ -52,8 +52,8 @@
                                             </div></div>
                                             <div class = "span2">
                                                 <div class = "eventClock">
-                                                <p>Event Starts In:</p>
-                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: event.event_start.to_s})%></span>
+                                                <p><%= event.stage == 'Voting' ? 'Voting Ends In:' : 'Voting Starts In:' %></p>
+                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start-8.hours).to_s})%></span>
 
                                                  <div class = "eventActionLink"><%=action_links(event)%></div>
                                             </div></div>
@@ -72,4 +72,4 @@
 <div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
     </div> <!--createVenueForm-->
 
- <script type = "text/javascript"> createTimersinView(); </script>
+ <script type = "text/javascript"> createTimersinIndex(); </script>

@@ -47,7 +47,7 @@ function createCountdown(end_date, selector) {
 
 
 //creates countdown timers in events#index view for each event
-function createTimersinView()
+function createTimersinIndex()
 {
 	var eventDate = [];
 	for (var i = 0; i < gon.numEvents; i++) { 

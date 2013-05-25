@@ -73,7 +73,7 @@
 		text-align: center;
 	}
 	.eventActionLink a {
-		width: 95px;
+		width: 100px;
 	}
 
 .event-show-btn {
@@ -341,3 +341,8 @@
 	width: 55px;
 }
 
+#venue-loading-gif-container {
+	position: absolute;
+	right: 60px;
+	top: 37px;
+}
