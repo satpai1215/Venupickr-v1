@@ -53,7 +53,7 @@
                                             <div class = "span2">
                                                 <div class = "eventClock">
                                                 <p><%= event.stage == 'Voting' ? 'Voting Ends In:' : 'Voting Starts In:' %></p>
-                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start-8.hours).to_s})%></span>
+                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.stage == 'Voting' ? (event.event_start-8.hours).to_s : (event.event_start - event.vote_start.days).to_s)}) %></span>
 
                                                  <div class = "eventActionLink"><%=action_links(event)%></div>
                                             </div></div>
