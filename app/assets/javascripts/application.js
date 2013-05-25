@@ -25,18 +25,16 @@ $(function() {
        // }
     });
 
- $('.voteButton').bind('ajax:success', function() {  
+ $('.voteButton').ajaxSuccess(function() {  
     votesort();  
 	});
 
 
-$('#eventSubmitButton').click(function(){
-  $('#eventSubmitButton').css('visibility', 'hidden');
+$(document).on('click', '#eventSubmitButton', function(event) {
+  $('#event-loading-gif').css('visibility', 'visible');
+  $('#eventSubmitButton').hide();
 });
 
-/*$('#venue_name').bind('ajax:beforeSend', function(){
-  $('#venue-loading-gif').show();
-});*/
 
  $('#user_notification_emails').change(function() {  
     if (!$(this).prop('checked')) {
