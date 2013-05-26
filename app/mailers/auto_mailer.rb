@@ -1,19 +1,19 @@
 class AutoMailer < ActionMailer::Base
-  default from: "MoMondaysMailer@gmail.com"
+  default from: "MoMondaysMailer@gmail.com", to: "MoMondaysMailer@gmail.com"
 
 
   def event_create_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
     @vote_start = @event.event_start - @event.vote_start.days
-    mail(:to => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
+    mail(:bcc => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
   def event_finish_email(event_id)
   	@event = Event.find(event_id)
     @winner = Venue.find(@event.winner)
   	@url = event_url(@event)
-    mail(:to => email_list, :subject => "Voting for '#{@event.name}' Has Finished")
+    mail(:bcc => email_list, :subject => "Voting for '#{@event.name}' Has Finished")
 
   end
 
@@ -21,7 +21,7 @@ class AutoMailer < ActionMailer::Base
   	@event = Event.find(event_id)
     @url = event_url(@event)
     @vote_ends = @event.event_start - 8.hours
-    mail(:to => email_list, :subject => "Voting for '#{@event.name}' Has Started")
+    mail(:bcc => email_list, :subject => "Voting for '#{@event.name}' Has Started")
   end
 
   def no_venue_email(event_id)
