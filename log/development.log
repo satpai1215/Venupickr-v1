@@ -1,0 +1,2575 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (3.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to AddVenueIdToVoters (20130317234010)
+Migrating to CreateVoters (20130317235337)
+Migrating to AddWinnerToEvents (20130325062730)
+Migrating to CreateDelayedJobs (20130326040418)
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+Migrating to CreateRsvps (20130501045136)
+Migrating to AddAccessCodeToUser (20130502051259)
+Migrating to AddNotificationEmailsToUsers (20130513053240)
+Migrating to AddNotesToEvents (20130526173227)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "events" ADD "notes" text
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130526173227')[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to AddNotesToEvents (20130526173227)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer, "notes" text) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (215, 'Only Event Left', '2013-04-30 05:13:35.456274', '2013-05-02 00:44:19.745827', 8, 'Finished', '2013-05-01 05:16:00.000000', 1, 119, 417, 418, NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (217, 'No Venue Event', '2013-04-30 06:26:38.352565', '2013-05-02 00:44:23.573663', 8, 'Finished', '2013-05-01 06:27:00.000000', 1, NULL, 421, 422, NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (222, 'dfs', '2013-05-02 06:06:16.485661', '2013-05-08 01:52:53.021597', 8, 'Finished', '2013-05-07 03:00:00.000000', 1, 128, 429, 430, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (223, 'No Venue Event', '2013-05-03 02:24:23.144720', '2013-05-13 20:29:58.708329', 10, 'Finished', '2013-05-07 00:25:00.000000', 1, NULL, 466, 467, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (225, 'new', '2013-05-08 06:32:26.791335', '2013-05-09 06:33:04.891447', 8, 'Finished', '2013-05-09 06:33:00.000000', 1, NULL, 435, 436, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (226, 'crap', '2013-05-08 06:36:36.845646', '2013-05-13 20:33:38.943318', 8, 'Finished', '2013-05-09 03:37:00.000000', 1, NULL, 468, 469, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (227, 'Test Event', '2013-05-10 02:04:38.848825', '2013-05-22 01:44:54.502437', 8, 'Finished', '2013-03-03 05:00:00.000000', 1, NULL, 578, 579, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (229, 'Test Event', '2013-05-12 20:58:46.413293', '2013-05-21 03:33:49.274245', 8, 'Finished', '2013-02-15 04:00:00.000000', 1, 137, 548, 549, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (231, 'Test Event', '2013-05-13 20:05:38.661410', '2013-05-15 04:36:11.313852', 10, 'Finished', '2013-05-14 20:07:00.000000', 1, NULL, 452, 453, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (232, 'Filler Event', '2013-05-13 20:17:24.676183', '2013-05-15 04:36:11.604111', 10, 'Finished', '2013-05-14 20:18:00.000000', 1, 139, 454, 455, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (242, 'Last Event', '2013-05-13 21:53:38.555162', '2013-05-15 04:36:11.681522', 8, 'Finished', '2013-05-14 22:00:00.000000', 1, 142, 488, 489, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (248, 'seg', '2013-05-14 06:42:08.121410', '2013-05-21 03:33:06.381845', 8, 'Finished', '2013-12-12 07:44:00.000000', 1, 154, 544, 545, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (250, 'es', '2013-05-14 06:46:09.423242', '2013-05-21 03:34:11.465058', 8, 'Finished', '2013-05-10 06:47:00.000000', 1, 156, 550, 551, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (253, 'vdv', '2013-05-14 07:10:24.065595', '2013-05-16 01:34:50.779224', 8, 'Finished', '2013-05-15 07:11:00.000000', 1, NULL, 510, 511, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (254, 'vsdb', '2013-05-14 07:12:10.537363', '2013-05-16 01:34:51.487871', 8, 'Finished', '2013-05-15 07:13:00.000000', 1, 159, 512, 513, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (255, 'tete event', '2013-05-16 04:58:36.068310', '2013-05-20 03:40:11.931834', 11, 'Finished', '2013-05-20 03:00:00.000000', 1, 161, 514, 515, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (256, 'Update event', '2013-05-16 05:30:57.944617', '2013-05-19 05:25:19.802756', 11, 'Finished', '2013-05-17 06:00:00.000000', 1, 166, 516, 517, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (258, 'event 4', '2013-05-16 06:29:14.701298', '2013-05-19 05:25:24.485354', 11, 'Finished', '2013-05-17 06:32:00.000000', 1, NULL, 520, 521, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (259, 'segs', '2013-05-16 06:29:20.741172', '2013-05-19 05:25:26.211733', 11, 'Finished', '2013-05-18 03:00:00.000000', 1, 167, 522, 523, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (260, 'event6', '2013-05-16 06:29:26.340396', '2013-05-20 03:40:12.685491', 11, 'Finished', '2013-05-20 03:00:00.000000', 1, NULL, 524, 525, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (261, 'dsfs', '2013-05-16 06:29:32.876464', '2013-05-21 03:04:59.291519', 11, 'Finished', '2013-05-21 03:00:00.000000', 1, NULL, 526, 527, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (262, 'New Event', '2013-05-21 03:07:33.413216', '2013-05-22 03:10:03.008464', 8, 'Finished', '2013-05-22 03:10:00.000000', 1, 170, 528, 529, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (263, 'Event 2', '2013-05-21 03:37:20.780522', '2013-05-22 05:00:01.000954', 8, 'Finished', '2013-05-22 05:00:00.000000', 1, NULL, 552, 553, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (272, 'Test Event', '2013-05-22 06:23:42.168644', '2013-05-24 05:25:41.935198', 8, 'Finished', '2013-05-24 03:00:00.000000', 1, NULL, 580, 581, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (291, 'df', '2013-05-23 05:35:47.303239', '2013-05-23 05:35:47.352383', 12, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 618, 619, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (299, 'sega', '2013-05-25 00:22:05.936406', '2013-05-25 00:23:04.354450', 8, 'Voting', '2013-05-26 00:23:00.000000', 1, NULL, 632, 633, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (315, 'dfaf', '2013-05-25 02:01:15.555057', '2013-05-25 02:01:19.687552', 8, 'Pre-Voting', '2013-05-28 03:00:00.000000', 1, NULL, 664, 665, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (316, 'dfa', '2013-05-25 02:10:10.291044', '2013-05-25 02:10:12.680426', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 666, 667, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (317, 'dfafsdf', '2013-05-25 02:11:11.228101', '2013-05-25 02:11:13.334380', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 668, 669, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id","notes") VALUES (318, 'new event', '2013-05-25 02:14:32.656831', '2013-05-25 02:14:34.963598', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 670, 671, NULL)
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (215, 'Only Event Left', '2013-04-30 05:13:35.456274', '2013-05-02 00:44:19.745827', 8, 'Finished', '2013-05-01 05:16:00.000000', 1, 119, 417, 418)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (217, 'No Venue Event', '2013-04-30 06:26:38.352565', '2013-05-02 00:44:23.573663', 8, 'Finished', '2013-05-01 06:27:00.000000', 1, NULL, 421, 422)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (222, 'dfs', '2013-05-02 06:06:16.485661', '2013-05-08 01:52:53.021597', 8, 'Finished', '2013-05-07 03:00:00.000000', 1, 128, 429, 430)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (223, 'No Venue Event', '2013-05-03 02:24:23.144720', '2013-05-13 20:29:58.708329', 10, 'Finished', '2013-05-07 00:25:00.000000', 1, NULL, 466, 467)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (225, 'new', '2013-05-08 06:32:26.791335', '2013-05-09 06:33:04.891447', 8, 'Finished', '2013-05-09 06:33:00.000000', 1, NULL, 435, 436)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (226, 'crap', '2013-05-08 06:36:36.845646', '2013-05-13 20:33:38.943318', 8, 'Finished', '2013-05-09 03:37:00.000000', 1, NULL, 468, 469)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (227, 'Test Event', '2013-05-10 02:04:38.848825', '2013-05-22 01:44:54.502437', 8, 'Finished', '2013-03-03 05:00:00.000000', 1, NULL, 578, 579)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (229, 'Test Event', '2013-05-12 20:58:46.413293', '2013-05-21 03:33:49.274245', 8, 'Finished', '2013-02-15 04:00:00.000000', 1, 137, 548, 549)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (231, 'Test Event', '2013-05-13 20:05:38.661410', '2013-05-15 04:36:11.313852', 10, 'Finished', '2013-05-14 20:07:00.000000', 1, NULL, 452, 453)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (232, 'Filler Event', '2013-05-13 20:17:24.676183', '2013-05-15 04:36:11.604111', 10, 'Finished', '2013-05-14 20:18:00.000000', 1, 139, 454, 455)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (242, 'Last Event', '2013-05-13 21:53:38.555162', '2013-05-15 04:36:11.681522', 8, 'Finished', '2013-05-14 22:00:00.000000', 1, 142, 488, 489)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (248, 'seg', '2013-05-14 06:42:08.121410', '2013-05-21 03:33:06.381845', 8, 'Finished', '2013-12-12 07:44:00.000000', 1, 154, 544, 545)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (250, 'es', '2013-05-14 06:46:09.423242', '2013-05-21 03:34:11.465058', 8, 'Finished', '2013-05-10 06:47:00.000000', 1, 156, 550, 551)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (253, 'vdv', '2013-05-14 07:10:24.065595', '2013-05-16 01:34:50.779224', 8, 'Finished', '2013-05-15 07:11:00.000000', 1, NULL, 510, 511)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (254, 'vsdb', '2013-05-14 07:12:10.537363', '2013-05-16 01:34:51.487871', 8, 'Finished', '2013-05-15 07:13:00.000000', 1, 159, 512, 513)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (255, 'tete event', '2013-05-16 04:58:36.068310', '2013-05-20 03:40:11.931834', 11, 'Finished', '2013-05-20 03:00:00.000000', 1, 161, 514, 515)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (256, 'Update event', '2013-05-16 05:30:57.944617', '2013-05-19 05:25:19.802756', 11, 'Finished', '2013-05-17 06:00:00.000000', 1, 166, 516, 517)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (258, 'event 4', '2013-05-16 06:29:14.701298', '2013-05-19 05:25:24.485354', 11, 'Finished', '2013-05-17 06:32:00.000000', 1, NULL, 520, 521)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (259, 'segs', '2013-05-16 06:29:20.741172', '2013-05-19 05:25:26.211733', 11, 'Finished', '2013-05-18 03:00:00.000000', 1, 167, 522, 523)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (260, 'event6', '2013-05-16 06:29:26.340396', '2013-05-20 03:40:12.685491', 11, 'Finished', '2013-05-20 03:00:00.000000', 1, NULL, 524, 525)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (261, 'dsfs', '2013-05-16 06:29:32.876464', '2013-05-21 03:04:59.291519', 11, 'Finished', '2013-05-21 03:00:00.000000', 1, NULL, 526, 527)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (262, 'New Event', '2013-05-21 03:07:33.413216', '2013-05-22 03:10:03.008464', 8, 'Finished', '2013-05-22 03:10:00.000000', 1, 170, 528, 529)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (263, 'Event 2', '2013-05-21 03:37:20.780522', '2013-05-22 05:00:01.000954', 8, 'Finished', '2013-05-22 05:00:00.000000', 1, NULL, 552, 553)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (272, 'Test Event', '2013-05-22 06:23:42.168644', '2013-05-24 05:25:41.935198', 8, 'Finished', '2013-05-24 03:00:00.000000', 1, NULL, 580, 581)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (291, 'df', '2013-05-23 05:35:47.303239', '2013-05-23 05:35:47.352383', 12, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 618, 619)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (299, 'sega', '2013-05-25 00:22:05.936406', '2013-05-25 00:23:04.354450', 8, 'Voting', '2013-05-26 00:23:00.000000', 1, NULL, 632, 633)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (315, 'dfaf', '2013-05-25 02:01:15.555057', '2013-05-25 02:01:19.687552', 8, 'Pre-Voting', '2013-05-28 03:00:00.000000', 1, NULL, 664, 665)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (316, 'dfa', '2013-05-25 02:10:10.291044', '2013-05-25 02:10:12.680426', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 666, 667)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (317, 'dfafsdf', '2013-05-25 02:11:11.228101', '2013-05-25 02:11:13.334380', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 668, 669)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "events" ("id","name","created_at","updated_at","user_id","stage","event_start","vote_start","winner","event_email_job_id","voting_email_job_id") VALUES (318, 'new event', '2013-05-25 02:14:32.656831', '2013-05-25 02:14:34.963598', 8, 'Pre-Voting', '2013-05-27 03:00:00.000000', 1, NULL, 670, 671)[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20130526173227'[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to AddVenueIdToVoters (20130317234010)
+Migrating to CreateVoters (20130317235337)
+Migrating to AddWinnerToEvents (20130325062730)
+Migrating to CreateDelayedJobs (20130326040418)
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+Migrating to CreateRsvps (20130501045136)
+Migrating to AddAccessCodeToUser (20130502051259)
+Migrating to AddNotificationEmailsToUsers (20130513053240)
+Migrating to AddNotesToEvents (20130526173227)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "events" ADD "notes" text(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130526173227')[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished')[0m
+  [1m[35mUpdate Load (0.2ms)[0m  SELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/index.html.erb within layouts/application (129.1ms)
+Completed 200 OK in 295ms (Views: 277.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /reset.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /pages.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /events.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /devise.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (36ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /runner.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /updates.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /events.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /pages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:12 -0700
+Served asset /venues.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2013-05-26 10:35:13 -0700
+Served asset /jquery-ui/ui-bg_flat_75_ffffff_40x100.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-ui/ui-icons_222222_256x240.png" for 127.0.0.1 at 2013-05-26 10:35:13 -0700
+Served asset /jquery-ui/ui-icons_222222_256x240.png - 304 Not Modified (2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-05-26 10:35:16 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:17 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o0Fw60gUVmjKwVZI+fxyDFwHhx2yFGGnQ4aDMFeUzus=", "user"=>{"email"=>"paisatyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'paisatyan@gmail.com' LIMIT 1
+Completed 401 Unauthorized in 7ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o0Fw60gUVmjKwVZI+fxyDFwHhx2yFGGnQ4aDMFeUzus=", "user"=>{"email"=>"paisatyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 83ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:23 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o0Fw60gUVmjKwVZI+fxyDFwHhx2yFGGnQ4aDMFeUzus=", "user"=>{"email"=>"paisatyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'paisatyan@gmail.com' LIMIT 1[0m
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o0Fw60gUVmjKwVZI+fxyDFwHhx2yFGGnQ4aDMFeUzus=", "user"=>{"email"=>"paisatyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 110ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:26 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:27 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o0Fw60gUVmjKwVZI+fxyDFwHhx2yFGGnQ4aDMFeUzus=", "user"=>{"email"=>"paisa.tyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'paisa.tyan@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-05-23 03:53:42.967737', "current_sign_in_at" = '2013-05-26 17:35:35.447873', "sign_in_count" = 6, "updated_at" = '2013-05-26 17:35:35.449301' WHERE "users"."id" = 12
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 110ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished')
+  [1m[36mUpdate Load (0.2ms)[0m  [1mSELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:35:35 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (1.6ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:35:57.280741' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:32:57.280756') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 620]]
+  [1m[35m (0.3ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:35:57.286697', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:35:57.305936' WHERE "delayed_jobs"."id" = 620
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 292 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 620]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:35:57.394502' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:32:57.394555') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 632]]
+  [1m[35m (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:35:57.395367', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:35:57.397823' WHERE "delayed_jobs"."id" = 632
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 299 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 299]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "stage" = 'Finished', "updated_at" = '2013-05-26 17:35:57.413059' WHERE "events"."id" = 299[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 299[0m
+  [1m[35mVenue Load (0.2ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."event_id" = 299 ORDER BY votecount DESC, created_at ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "winner" = 179, "updated_at" = '2013-05-26 17:35:57.478928' WHERE "events"."id" = 299
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 299]]
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 179]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."notification_emails" = 't'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/event_finish_email.html.erb (9.3ms)
+
+Sent mail to pa.isatyan@gmail.com (2911ms)
+Date: Sun, 26 May 2013 10:35:57 -0700
+From: MoMondaysMailer@gmail.com
+To: pa.isatyan@gmail.com
+Message-ID: <51a247fda76f2_a54d3fc1c04349d42653a@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sega' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <h2>THE EVENT IS SET!</h2>
+
+    <p>
+      Voting has just finished for &#x27;sega&#x27; created by Spaiderman<br/>
+    </p>
+    <p>
+      Below is the event information: <br/>
+      Event Name: "sega" <br/>
+      Event Date: May 25, 2013 <br/>
+      Start Time: 05:23PM<br/>
+    </p>
+     
+     <h2>WINNING VENUE INFORMATION</h2>
+    <p>
+      WINNING VENUE: Smuggler&#x27;s Cove <br/>
+      ADDRESS: 650 Gough St
+(b/t Mcallister St &amp; Ash St)
+Fillmore
+San Francisco, CA 94102
+ <br/>
+      URL: http://www.yelp.com/biz/smugglers-cove-san-francisco <br/>
+      SUGGESTED BY: Spaiderman <br/>
+    </p>
+
+    <p>Are you going? RSVP on the <a href="http://localhost:3000/events/299">Event Page</a></p>
+
+    <p>Hope to see you there!</p>
+    <p>-Mo' Mondays App</p>
+     ===============================================
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 632]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:00.606126' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:00.606180') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 619]]
+  [1m[35m (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:36:00.606966', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:36:00.609525' WHERE "delayed_jobs"."id" = 619
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 291 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 291]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "stage" = 'Voting', "updated_at" = '2013-05-26 17:36:00.617109' WHERE "events"."id" = 291[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 291[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 291]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  Rendered auto_mailer/no_venue_email.html.erb (0.7ms)
+
+Sent mail to paisa.tyan@gmail.com (1748ms)
+Date: Sun, 26 May 2013 10:36:00 -0700
+From: MoMondaysMailer@gmail.com
+To: paisa.tyan@gmail.com
+Message-ID: <51a248009a622_a54d3fc1c04349d42665e@Satyans-MacBook-Pro.local.mail>
+Subject: No Venues Suggested for 'df'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+  	<p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'df'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br/></p>
+      
+    <p>Suggest venues by going to the <a href="http://localhost:3000/events/291">Event Page</a></p>
+    ===============================================
+  </body>
+</html>
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?[0m  [["id", 619]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:02.433406' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:02.433462') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 667]]
+  [1m[36m (0.2ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:36:02.434261', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:36:02.436970' WHERE "delayed_jobs"."id" = 667[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."id" = 316 LIMIT 1[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 316]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "stage" = 'Voting', "updated_at" = '2013-05-26 17:36:02.441173' WHERE "events"."id" = 316
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 316
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 316]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/no_venue_email.html.erb (0.1ms)
+
+Sent mail to pai.satyan@gmail.com (1821ms)
+Date: Sun, 26 May 2013 10:36:02 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <51a248026ec1d_a54d3fc1c04349d4267ab@Satyans-MacBook-Pro.local.mail>
+Subject: No Venues Suggested for 'dfa'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+  	<p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'dfa'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br/></p>
+      
+    <p>Suggest venues by going to the <a href="http://localhost:3000/events/316">Event Page</a></p>
+    ===============================================
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 667]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:04.295099' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:04.295153') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 669]]
+  [1m[35m (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:36:04.295946', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:36:04.298352' WHERE "delayed_jobs"."id" = 669
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 317 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 317]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "stage" = 'Voting', "updated_at" = '2013-05-26 17:36:04.303091' WHERE "events"."id" = 317[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 317[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 317]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered auto_mailer/no_venue_email.html.erb (0.1ms)
+
+Sent mail to pai.satyan@gmail.com (1783ms)
+Date: Sun, 26 May 2013 10:36:04 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <51a248044d7e0_a54d3fc1c04349d4268a5@Satyans-MacBook-Pro.local.mail>
+Subject: No Venues Suggested for 'dfafsdf'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+  	<p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'dfafsdf'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br/></p>
+      
+    <p>Suggest venues by going to the <a href="http://localhost:3000/events/317">Event Page</a></p>
+    ===============================================
+  </body>
+</html>
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?[0m  [["id", 669]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:06.120948' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:06.120994') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 671]]
+  [1m[36m (0.2ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2013-05-26 17:36:06.121751', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:42317', "updated_at" = '2013-05-26 17:36:06.124157' WHERE "delayed_jobs"."id" = 671[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."id" = 318 LIMIT 1[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 318]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "stage" = 'Voting', "updated_at" = '2013-05-26 17:36:06.128601' WHERE "events"."id" = 318
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 318
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 318]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/no_venue_email.html.erb (0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished')
+  [1m[36mUpdate Load (0.3ms)[0m  [1mSELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered events/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 31ms (Views: 27.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /pages.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:06 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+Sent mail to pai.satyan@gmail.com (1801ms)
+Date: Sun, 26 May 2013 10:36:06 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <51a2480622fad_a54d3fc1c04349d426992@Satyans-MacBook-Pro.local.mail>
+Subject: No Venues Suggested for 'new event'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+  	<p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'new event'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br/></p>
+      
+    <p>Suggest venues by going to the <a href="http://localhost:3000/events/318">Event Page</a></p>
+    ===============================================
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 671]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:07.963516' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:07.963560') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:07.965220' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:07.965227') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:12.966146' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:12.966205') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:17.967863' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:17.967880') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+
+
+Started GET "/pages/history" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Processing by PagesController#history as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."stage" = 'Finished'[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."stage" = 'Finished' ORDER BY event_start DESC LIMIT 12 OFFSET 0
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mVenue Load (0.2ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", 154]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mVenue Load (0.1ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", 179]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mVenue Load (0.1ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", 170]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 161]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1[0m
+  [1m[35mVenue Load (0.1ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", 167]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 11 LIMIT 1
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 166]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 159]]
+  Rendered pages/history.html.erb within layouts/application (60.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:19 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished')[0m
+  [1m[35mUpdate Load (0.3ms)[0m  SELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/index.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 60ms (Views: 57.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:36:20 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:22.969051' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:22.969088') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+
+
+Started GET "/events/new" for 127.0.0.1 at 2013-05-26 10:36:24 -0700
+Processing by EventsController#new as JS
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  Rendered events/_form.html.erb (5.8ms)
+  Rendered events/new.js.erb (7.4ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png" for 127.0.0.1 at 2013-05-26 10:36:24 -0700
+Served asset /jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png" for 127.0.0.1 at 2013-05-26 10:36:24 -0700
+Served asset /jquery-ui/ui-bg_flat_0_aaaaaa_40x100.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-05-26 10:36:24 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (2ms)
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:27.970748' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:27.970771') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:32.972192' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:32.972209') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:37.973363' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:37.973379') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:42.974478' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:42.974511') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:47.976141' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:47.976167') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:52.977914' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:52.977952') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:36:57.979635' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:33:57.979659') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:02.981432' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:02.981471') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:07.983225' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:07.983249') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:12.985011' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:12.985034') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:17.986465' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:17.986482') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:22.987716' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:22.987742') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:27.989405' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:27.989440') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:32.991027' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:32.991051') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:37.992639' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:37.992677') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+
+
+Started GET "/events" for 127.0.0.1 at 2013-05-26 10:37:42 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished')[0m
+  [1m[35mUpdate Load (0.2ms)[0m  SELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:42.994270' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:42.994284') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/index.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 65ms (Views: 62.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Processing by EventsController#new as JS
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  Rendered events/_form.html.erb (5.7ms)
+  Rendered events/new.js.erb (6.9ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-05-26 10:37:43 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (0ms)
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:47.995401' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:47.995438') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+
+
+Started GET "/events/new" for 127.0.0.1 at 2013-05-26 10:37:52 -0700
+Processing by EventsController#new as JS
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  Rendered events/_form.html.erb (4.5ms)
+  Rendered events/new.js.erb (5.8ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-05-26 10:37:52 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (0ms)
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:52.997045' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:52.997061') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:37:57.998217' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:34:57.998253') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:02.999953' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:02.999990') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+
+
+Started GET "/events/291" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"291"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "291"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 291[0m
+  Rendered events/show.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:06 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:07 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:08.001666' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:08.001702') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:13.003344' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:13.003368') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:18.004992' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:18.005029') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:23.006706' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:23.006728') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:28.008327' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:28.008365') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:33.010051' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:33.010086') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:38.011795' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:38.011852') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:43.013448' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:43.013485') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:48.015162' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:48.015198') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+
+
+Started GET "/events/291" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"291"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "291"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 291[0m
+  Rendered events/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:50 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished')
+  [1m[36mUpdate Load (0.2ms)[0m  [1mSELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered events/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 62ms (Views: 58.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished')[0m
+  [1m[35mUpdate Load (0.3ms)[0m  SELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.menu.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.core.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.autocomplete.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.button.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.resizable.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.dialog.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.core.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.widget.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.position.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.menu.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.menu.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.autocomplete.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.autocomplete.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.mouse.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:52 -0700
+Served asset /jquery.ui.draggable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /jquery.ui.resizable.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /jquery.ui.dialog.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:53.016752' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:53.016766') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2013-05-26 10:38:53 -0700
+Processing by EventsController#new as JS
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1
+  Rendered events/_form.html.erb (5.5ms)
+  Rendered events/new.js.erb (6.7ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-05-26 10:38:54 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (0ms)
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:38:58.018001' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:35:58.018038') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:03.019716' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:03.019753') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:08.021448' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:08.021485') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:13.023148' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:13.023185') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:18.024832' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:18.024856') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:23.026483' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:23.026519') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:28.028207' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:28.028244') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:33.029910' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:33.029947') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:38.031623' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:38.031659') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:43.033348' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:43.033385') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:48.035076' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:48.035113') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:53.036853' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:53.036890') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:39:58.038591' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:36:58.038629') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:03.040292' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:03.040326') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:08.041981' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:08.042018') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:13.043726' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:13.043784') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:18.045408' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:18.045444') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:23.047131' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:23.047168') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:28.048950' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:28.048986') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:33.050674' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:33.050712') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:38.052383' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:38.052419') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:43.054199' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:43.054235') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:48.055899' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:48.055935') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:53.057578' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:53.057603') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:40:58.059235' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:37:58.059272') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:03.060960' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:03.060996') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:08.062657' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:08.062694') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:13.064379' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:13.064415') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:18.066083' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:18.066119') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:23.067801' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:23.067838') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:28.069504' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:28.069540') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:33.071218' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:33.071256') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:38.072925' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:38.072962') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:43.074642' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:43.074678') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:48.076399' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:48.076457') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:53.078074' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:53.078111') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:41:58.079813' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:38:58.079847') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:03.081610' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:03.081646') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:08.083367' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:08.083404') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (37.5ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:13.085023' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:13.085047') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:18.124131' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:18.124168') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:23.126347' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:23.126384') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:28.128030' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:28.128067') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:33.129705' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:33.129742') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:38.131401' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:38.131438') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:43.133064' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:43.133101') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:48.134800' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:48.134836') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:53.136504' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:53.136528') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:42:58.138115' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:39:58.138153') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:03.139773' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:03.139811') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:08.141445' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:08.141482') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:13.143113' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:13.143150') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:18.144844' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:18.144879') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:23.146535' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:23.146571') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:28.148175' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:28.148211') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:33.149828' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:33.149865') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:38.151494' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:38.151517') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:43.153011' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:43.153036') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:48.154614' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:48.154635') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:53.155996' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:53.156033') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:43:58.157585' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:40:58.157608') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:03.159142' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:03.159179') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:08.160779' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:08.160803') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:13.162357' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:13.162393') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:18.164033' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:18.164069') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:23.165690' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:23.165728') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:28.167346' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:28.167383') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:33.169666' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:33.169692') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:38.171174' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:38.171192') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:43.172360' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:43.172396') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:48.174142' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:48.174180') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:53.175824' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:53.175860') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-05-26 17:44:58.177484' AND (locked_at IS NULL OR locked_at < '2013-05-26 17:41:58.177521') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:42317') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1

@@ -31,6 +31,12 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :notes, "Notes to Users:" %>
+    <%= f.text_area :notes, :size => "30x5" %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {id: "eventSubmitButton"} %>
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
