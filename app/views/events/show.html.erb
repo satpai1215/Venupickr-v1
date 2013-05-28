@@ -7,13 +7,16 @@
 						<div id="eventNameDate"><h1><%= @event.name %></h1></div>
 						<h4>Created by: <%= @event.user.username%></h4>
 						<%= display_delete_event(@event) %>
-
 					</div>
 
 					<div id = "eventInfo-container">
 						<div class = 'eventInfoText'><h4>Event Date:</h4>
-
 							<div class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %>  <%= display_edit_event(@event) %></div>
+						</div>
+						<div id = "eventNotes">
+							<% if !@event.notes.blank?%>
+
+							<% end %>
 						</div>
 						<div class = 'eventInfoText'>
 							<%= display_date_or_countdown(@event) %></div>

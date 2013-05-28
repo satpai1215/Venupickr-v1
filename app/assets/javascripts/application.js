@@ -42,8 +42,8 @@ $(document).on('click', '#eventSubmitButton', function(event) {
     }
   }); 
 
- $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500});
- $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500});
+ $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+ $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //  	$('#createVenueForm').dialog("open");
  //	});

@@ -340,7 +340,13 @@
 #event_vote_start {
 	width: 55px;
 }
-
+#event_name {
+	width: 350px;
+}
+#event_notes {
+	width: 350px;
+	resize: none;
+}
 #venue-loading-gif-container {
 	position: absolute;
 	right: 60px;
