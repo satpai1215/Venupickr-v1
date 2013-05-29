@@ -4,7 +4,7 @@
 			<div class = "span5">
 				<div id = "eventSideBar">
 					<div id = "eventHeader-container">
-						<div id="eventNameDate"><h1><%= @event.name %></h1></div>
+						<h1><%= @event.name %></h1>
 						<h4>Created by: <%= @event.user.username%></h4>
 						<%= display_delete_event(@event) %>
 					</div>
@@ -13,11 +13,13 @@
 						<div class = 'eventInfoText'><h4>Event Date:</h4>
 							<div class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %>  <%= display_edit_event(@event) %></div>
 						</div>
+						
+					<% if !@event.notes.blank?%>
 						<div id = "eventNotes">
-							<% if !@event.notes.blank?%>
-
-							<% end %>
+							
 						</div>
+					<% end %>
+					
 						<div class = 'eventInfoText'>
 							<%= display_date_or_countdown(@event) %></div>
 						<div class = 'eventInfoText'>
