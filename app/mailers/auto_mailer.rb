@@ -5,7 +5,7 @@ class AutoMailer < ActionMailer::Base
   def event_create_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    @vote_start = @event.event_start - @event.vote_start.days
+    @vote_end = @event.event_start - @event.vote_end.hours
     mail(:bcc => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 

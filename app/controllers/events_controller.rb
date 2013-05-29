@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
-    @vote_date = @event.event_start - @event.vote_start.days
+    #@vote_date = @event.event_start - @event.vote_start.days
 
     if @event.stage == "Voting"
        @no_venues_text = "No venues have been suggested yet.  Suggest one!"
@@ -172,7 +172,7 @@ private
     destroy_jobs(event_id)
 
     #rewrite delayed_jobs for updated event
-    event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start - 8.hours)
+    event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start - @event.vote_end.hours)
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
     # save id of delayed job on Event record

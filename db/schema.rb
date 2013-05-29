@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526173227) do
+ActiveRecord::Schema.define(:version => 20130529061451) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130526173227) do
     t.integer  "user_id"
     t.string   "stage"
     t.datetime "event_start"
-    t.integer  "vote_start"
+    t.integer  "vote_end"
     t.integer  "winner"
     t.integer  "event_email_job_id"
     t.integer  "voting_email_job_id"

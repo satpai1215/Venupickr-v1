@@ -27,7 +27,7 @@ module EventsHelper
 
 	def display_countdowns(event)
 		html = ""
-		html << '<h4>' + display_date_or_countdown(event) + '</h4>'
+		html << '<h4>' + display_vote_countdown(event) + '</h4>'
 		html << display_prevoting_countdown(event)
 
 		return html.html_safe
@@ -35,22 +35,19 @@ module EventsHelper
 
 	def action_links(event)
 		html = ""
-		link_text = (event.stage == "Pre-Voting" ? "Suggest a Venue!" : "Vote for a Venue!")
-		btn_class = (event.stage == "Pre-Voting" ? "btn-info" : "btn-primary")
-		html << link_to(link_text, event_path(event), {:class => "btn #{btn_class} event-show-btn"})
+		link_text = "Go to Event Page!"
+		html << link_to(link_text, event_path(event), {:class => "btn btn-primary event-show-btn"})
 		return html.html_safe
 	end
 	
 
 	#event#show helper methods
 
-	def display_date_or_countdown(event)
+	def display_vote_countdown(event)
 
 		html = ""
 		
-		if event.stage === "Pre-Voting"
-			html << "<h4>Voting Begins On:</h4>  \<span class = 'infoSubHead'>#{@vote_date.strftime("%B %d, %Y at %I:%M%p")}</span>\ "
-		elsif event.stage === "Voting"
+		if event.stage === "Voting"
 			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'></span>\ "
 		else
 			event_end_text = (event.venues.count == 0 ? "EVENT CANCELLED <br/> (No Venues Suggested)" : "EVENT SET" )
@@ -63,7 +60,7 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if((current_user === event.user or event.stage === "Pre-Voting") and event.stage != "Finished")
+		if(event.stage != "Finished")
 			html << "#{link_to "Suggest a Venue", 
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
 		end

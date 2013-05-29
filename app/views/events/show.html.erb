@@ -21,9 +21,8 @@
 					<% end %>
 					
 						<div class = 'eventInfoText'>
-							<%= display_date_or_countdown(@event) %></div>
-						<div class = 'eventInfoText'>
-							<%= display_prevoting_countdown(@event) %></div>
+							<%= display_countdowns(@event) %></div>
+						<div class = 'eventInfoText'><%#= display_prevoting_countdown(@event) %></div>
 					</div>
 						<!--<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>-->
 
@@ -73,12 +72,8 @@
 								   </div>
 
 								  	<div id = "voteControls">
-									   <% if(@event.stage == "Voting" || @event.stage == "Finished") %>
-									   		<div class = "voteCount"><%= venue.votecount %></div>
-									   <% end %>
-									   <% if(@event.stage == "Voting") %>
-										   <%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
-										<% end %>
+										<div class = "voteCount"><%= venue.votecount %></div>
+										<%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
 									</div>
 								</li>
 							<% end %>
@@ -95,8 +90,8 @@
 </div> <!--row-->
 
 	<%= javascript_tag do %>
-  		createCountdown("<%= (@event.event_start - 8.hours).to_s %>", "#voteCountdown");
-  		createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
+  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
+  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
   		<% if @event.stage == "Finished" %>
   			$('#venueList ul li .venueSticky').first().css('border', 'solid 4px red');
   			$('#venueList ul li .voteCount').first().css('color', 'red');
