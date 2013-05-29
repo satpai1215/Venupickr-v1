@@ -28,4 +28,5 @@ Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote wh
 	3. Action buttons on index
 	4. Showing of Suggest venue button
 - Change all countdowns to just "Time Left to Vote"
-- Test
+- Change delayed jobs
+- change mailers

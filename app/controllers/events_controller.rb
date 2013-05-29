@@ -22,11 +22,8 @@ class EventsController < ApplicationController
     @venue = Venue.new({:event_id => @event.id})
     @vote_date = @event.event_start - @event.vote_start.days
 
-    if @event.stage == "Pre-Voting"
+    if @event.stage == "Voting"
        @no_venues_text = "No venues have been suggested yet.  Suggest one!"
-    elsif @event.stage == "Voting"
-           @no_venues_text = "No venues were suggested for this event during the venue suggestion phase.  
-           Now only the event owner can suggest venues. When he/she does, you can vote on them"
     else
       @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
     end
@@ -66,7 +63,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
    
     @event.user = current_user
-    @event.stage = "Pre-Voting"
+    @event.stage = "Voting"
 
       respond_to do |format|
         if @event.save
@@ -176,11 +173,11 @@ private
 
     #rewrite delayed_jobs for updated event
     event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start - 8.hours)
-    vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
+    #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
     # save id of delayed job on Event record
     @event.update_attributes(:event_email_job_id => event_job.id)
-    @event.update_attributes(:voting_email_job_id => vote_job.id)
+    #@event.update_attributes(:voting_email_job_id => vote_job.id)
 
   end
 
@@ -190,9 +187,13 @@ private
       Delayed::Job.find(@event.event_email_job_id).destroy
     end
 
+
+=begin
     if @event.voting_email_job_id and Delayed::Job.exists?(@event.voting_email_job_id)
       Delayed::Job.find(@event.voting_email_job_id).destroy
     end
+=end
+
 
   end
 
