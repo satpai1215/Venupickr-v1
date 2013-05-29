@@ -1,12 +1,8 @@
-<% if @already_voted %>
-	$("#notice").text("You have already voted for this event");
 
-<% else %> {
-	$("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @venue.votecount %>);
-	voteSort();
-	$("#notice").text("Your vote has been recorded");
-}
+$("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @venue.voters.count %>);
+$("#venue_" + <%= @previous_venue.id %> + " .voteCount").text(<%= @previous_venue.voters.count %>);
+voteSort();
+$("#notice").text("Your vote has been recorded");
 
-<% end %>
 
 

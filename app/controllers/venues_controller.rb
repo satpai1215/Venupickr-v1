@@ -120,25 +120,34 @@ class VenuesController < ApplicationController
     else
 
        @venue = Venue.find(params[:venue_id])
-       @already_voted = Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
+       @already_voted = Voter.exists?(:user_id => current_user.id, :venue_id => params[:venue_id ])
 
-
+      #user has already voted for this venue
       if (@already_voted)
          respond_to do |format|
-           format.html {redirect_to @venue.event, notice: "You have already voted for this event"}
-           format.js
+           format.html {redirect_to @venue.event, notice: "You have already voted for this venue"}
+           format.js {render :js => %($("#notice").text("You have already voted for this venue");)}
          end
-
       else
-        num = @venue.votecount
-        @venue.update_attributes(:votecount => num + 1 )
+        @notice_text = "Your vote has been recorded."
+        #if user already voted for this event, remove previouv vote associate
+        @voter = Voter.where(:user_id => current_user.id, :event_id => params[:event_id]).first
+        @previous_venue = @voter.venue
+        if !@voter.nil?
+          @voter.destroy
+          @notice_text = "You have successfully changed your vote."
+        end
+
+        #create new vote association
+        #num = @venue.votecount + 1
+        #@venue.update_attributes(:votecount => num )
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
 
         respond_to do |format|
-          format.html {redirect_to @venue.event, notice: "Your vote has been recorded."}
-          format.js
+            format.html {redirect_to @venue.event, notice: "#{@notice_text}"}
+           format.js #increment_vote.js.erb
         end
       end
     end

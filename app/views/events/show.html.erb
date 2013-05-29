@@ -64,19 +64,20 @@
                             </div>
 
                         <% else %>
-							<% @event.venues.order("votecount DESC, created_at ASC").each do |venue| %>
+							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 									
-									<div class = "venueSticky">
+									<div class = "venueSticky"%>
 										<%= generate_venue_sticky(venue) %>
 								   </div>
 
 								  	<div id = "voteControls">
-										<div class = "voteCount"><%= venue.votecount %></div>
+										<div class = "voteCount"><%= venue.voters.count %></div>
 										<%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
 									</div>
 								</li>
 							<% end %>
+							<%= javascript_tag do %> voteSort() <% end %>
 						<% end %>
 					</ul>
 				</div><!-- venueList -->
