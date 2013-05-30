@@ -73,7 +73,9 @@
 
 								  	<div id = "voteControls">
 										<div class = "voteCount"><%= venue.voters.count %></div>
+										<% if @event.stage != "Finished" %>
 										<%= button_to "UPVOTE!", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-block btn-success", :remote => true } %>
+										<% end %>
 									</div>
 								</li>
 							<% end %>
