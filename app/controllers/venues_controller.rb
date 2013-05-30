@@ -132,8 +132,8 @@ class VenuesController < ApplicationController
         @notice_text = "Your vote has been recorded."
         #if user already voted for this event, remove previouv vote associate
         @voter = Voter.where(:user_id => current_user.id, :event_id => params[:event_id]).first
-        @previous_venue = Venue.find(@voter.venue_id)
         if !@voter.nil?
+          @previous_venue = Venue.find(@voter.venue_id)
           @voter.destroy
           @notice_text = "You have successfully changed your vote."
         end

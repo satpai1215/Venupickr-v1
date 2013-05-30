@@ -1,8 +1,12 @@
 
 $("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @venue.voters.count %>);
-$("#venue_" + <%= @previous_venue.id %> + " .voteCount").text(<%= @previous_venue.voters.count %>);
+
+<% if !@voter.nil? %>
+	$("#venue_" + <%= @previous_venue.id %> + " .voteCount").text(<%= @previous_venue.voters.count %>);
+<% end %>
+
 voteSort();
-$("#notice").text("Your vote has been recorded");
+$("#notice").text("<%= escape_javascript(@notice_text) %>");
 
 
 
