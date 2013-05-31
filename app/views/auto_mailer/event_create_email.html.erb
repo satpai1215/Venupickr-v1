@@ -17,7 +17,7 @@
       Voting Closes: <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %><br/>
       <% if !@event.notes.blank? %> 
         Notes to Guests: <br/>
-        "<%= escape_javascript(@event.notes) %> "
+        " <%= escape_javascript(@event.notes) %> "
       <% end %>
     </p>
     <p>
