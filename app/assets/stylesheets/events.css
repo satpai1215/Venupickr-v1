@@ -160,10 +160,14 @@
 	margin: 0px 0px;
 }
 
+#eventShow .span4 {
+	margin-left: 5px;
+}
+
 #eventSideBar {
 	margin-top: 30px;
-	padding-left: 35px;
-	text-align: right; 
+	padding-left: 0px;
+	text-align: left; 
 	font-size: 0.9em;
 }
 
@@ -171,7 +175,6 @@
 	line-height: 1.0em;
 	font-size: 1.3em;
 	margin-bottom: 50px;
-	text-align: right;
 }
 
 .eventInfoText h4 {
@@ -181,7 +184,6 @@
 
 #eventNotes-container {
 	margin-bottom: 5px;
-	float: right;
 	width: 85%;
 }
 
@@ -196,7 +198,7 @@
 }
 
 .infoSubHead {
-	margin-left: 20px;
+	margin-left: 0px;
 }
 .red {
 	color: red;

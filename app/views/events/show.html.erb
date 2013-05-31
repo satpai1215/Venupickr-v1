@@ -1,6 +1,41 @@
 <div class = "row">
 	<div id = "eventShow">
-		
+		<div class = "span8">
+				<div id = "venueList">
+					<div id = "suggestVenueControl">
+						<%= display_venue_suggest_button(@event) %>
+					</div>
+					<div id = "venueList-header">
+						<h3>Recommended Venue List</h3>
+					</div>
+					
+					<ul>
+						<%if @event.venues.count === 0 %>
+                            <div id = "noEventsLabel">  
+                                <li> <%= @no_venues_text %></li>
+                            </div>
+
+                        <% else %>
+							<% @event.venues.each do |venue| %>
+								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
+									
+									<div class = "venueSticky"%>
+										<%= generate_venue_sticky(venue) %>
+								   </div>
+
+								  	<div id = "voteControls">
+										<div class = "voteCount"><%= venue.voters.count %></div>
+										<% if @event.stage != "Finished" %>
+										<%= button_to "up", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-success", :remote => true } %>
+										<% end %>
+									</div>
+								</li>
+							<% end %>
+							<%= javascript_tag do %> voteSort() <% end %>
+						<% end %>
+					</ul>
+				</div><!-- venueList -->
+		</div> <!--span8-->
 			<div class = "span4">
 				<div id = "eventSideBar">
 					<div id = "eventHeader-container">
@@ -47,42 +82,7 @@
 
 				</div> <!--eventSidebar -->
 			</div> <!--span5-->
-		<div class = "span8">
-				<div id = "venueList">
-					<div id = "suggestVenueControl">
-						<%= display_venue_suggest_button(@event) %>
-					</div>
-					<div id = "venueList-header">
-						<h3>Recommended Venue List</h3>
-					</div>
-					
-					<ul>
-						<%if @event.venues.count === 0 %>
-                            <div id = "noEventsLabel">  
-                                <li> <%= @no_venues_text %></li>
-                            </div>
-
-                        <% else %>
-							<% @event.venues.each do |venue| %>
-								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
-									
-									<div class = "venueSticky"%>
-										<%= generate_venue_sticky(venue) %>
-								   </div>
-
-								  	<div id = "voteControls">
-										<div class = "voteCount"><%= venue.voters.count %></div>
-										<% if @event.stage != "Finished" %>
-										<%= button_to "up", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-success", :remote => true } %>
-										<% end %>
-									</div>
-								</li>
-							<% end %>
-							<%= javascript_tag do %> voteSort() <% end %>
-						<% end %>
-					</ul>
-				</div><!-- venueList -->
-		</div> <!--span8-->
+	
 
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
 				</div> <!--createVenueForm-->
