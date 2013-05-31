@@ -48,7 +48,7 @@ module EventsHelper
 		html = ""
 		
 		if event.stage === "Voting"
-			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'></span>\ "
+			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'>00:00:00</span>\ "
 		else
 			event_end_text = (event.venues.count == 0 ? "EVENT CANCELLED <br/> (No Venues Suggested)" : "EVENT SET" )
 			html << "<span id = 'eventOverHeading'>#{event_end_text}</span>"

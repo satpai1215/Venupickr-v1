@@ -15,6 +15,8 @@
       Event Name: "<%= @event.name %>" <br/>
       Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
       Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
+      Notes to Guests: <br/>
+      "<%= escape_javascript(@event.notes) %> "
     </p>
      
      <h2>WINNING VENUE INFORMATION</h2>

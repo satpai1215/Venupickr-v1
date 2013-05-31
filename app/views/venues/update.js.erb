@@ -1,2 +1,5 @@
+<% if @venue_changed %> 
+'<%= flash[:notice] = "Venue Updated." %>';
+<% end %>
+
 window.location = '<%= event_path(@venue.event.id) %>';
-console.log('<%= @venue.changed? %>');

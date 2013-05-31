@@ -71,9 +71,10 @@ class VenuesController < ApplicationController
   # PUT /venues/1.json
   def update
     @venue = Venue.find(params[:id])
-
     @venue.assign_attributes(params[:venue])
-    if(@venue.changed?)
+    @venue_changed = @venue.changed? #checks is the venue was actually modified or not
+
+    if(@venue_changed)
         #reset votecount for venue if it is modified
         @venue.assign_attributes(:votecount => 0)
 
@@ -85,10 +86,9 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.save
-        
         format.html { redirect_to @venue.event, notice: 'Venue was successfully updated.' }
         format.json { head :no_content }
-        format.js { render :js => %(window.location = '#{event_path(@venue.event.id)}')}
+        format.js #{ render :js => %(window.location = '#{event_path(@venue.event.id)}')}
       else
         @event_id = @venue.event.id
         format.html { render action: "edit" }

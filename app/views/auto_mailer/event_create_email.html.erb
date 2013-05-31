@@ -15,6 +15,10 @@
       Event Name: "<%= @event.name %>" <br/>
       Event Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
       Voting Closes: <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %><br/>
+      <% if !@event.notes.blank? %> 
+        Notes to Guests: <br/>
+        "<%= escape_javascript(@event.notes) %> "
+      <% end %>
     </p>
     <p>
       Click Here to Suggest/Vote for Venues! <%= link_to("Event Page", @url) %>
