@@ -1,2 +1,201 @@
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (1.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:12:51.123750' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:09:51.123777') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 689]]
+  [1m[35m (0.3ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-06-09 06:12:51.129152', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:7930', "updated_at" = '2013-06-09 06:12:51.146406' WHERE "delayed_jobs"."id" = 689
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 332 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 332]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "stage" = 'Finished', "updated_at" = '2013-06-09 06:12:51.205372' WHERE "events"."id" = 332[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 332[0m
+  [1m[35mVenue Load (0.2ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."event_id" = 332 ORDER BY votecount DESC, created_at ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  UPDATE "events" SET "winner" = 190, "updated_at" = '2013-06-09 06:12:51.258327' WHERE "events"."id" = 332
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 332]]
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 190]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."notification_emails" = 't'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/event_finish_email.html.erb (8.6ms)
+
+Sent mail to MoMondaysMailer@gmail.com (2466ms)
+Date: Sat, 08 Jun 2013 23:12:51 -0700
+From: MoMondaysMailer@gmail.com
+To: MoMondaysMailer@gmail.com
+Message-ID: <51b41ce36f8dd_1efa3fe4fcc349e0373e8@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'Vote Test' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <h2>THE EVENT IS SET!</h2>
+
+    <p>
+      Voting has just finished for &#x27;Vote Test&#x27; created by Spaiderman<br/>
+    </p>
+    <p>
+      Below is the event information: <br/>
+      Event Name: "Vote Test" <br/>
+      Event Date: May 31, 2013 <br/>
+      Start Time: 08:00PM<br/>
+      Notes to Guests: <br/>
+      " "
+    </p>
+     
+     <h2>WINNING VENUE INFORMATION</h2>
+    <p>
+      WINNING VENUE: Giordano Bros <br/>
+      ADDRESS: 303 Columbus Ave
+(b/t Broadway St &amp; Vallejo St)
+Russian Hill
+San Francisco, CA 94133
+ <br/>
+      URL: http://www.yelp.com/biz/giordano-bros-san-francisco <br/>
+      SUGGESTED BY: Spaiderman <br/>
+    </p>
+
+    <p>Are you going? RSVP on the <a href="http://localhost:3000/events/332">Event Page</a></p>
+
+    <p>Hope to see you there!</p>
+    <p>-Mo' Mondays App</p>
+     ===============================================
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 689]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:12:53.932817' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:09:53.932866') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1[0m  [["id", 694]]
+  [1m[35m (0.2ms)[0m  UPDATE "delayed_jobs" SET "locked_at" = '2013-06-09 06:12:53.933644', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:7930', "updated_at" = '2013-06-09 06:12:53.936498' WHERE "delayed_jobs"."id" = 694
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."id" = 337 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 337]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mUPDATE "events" SET "stage" = 'Finished', "updated_at" = '2013-06-09 06:12:53.941387' WHERE "events"."id" = 337[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 337[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 337]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered auto_mailer/no_venue_email_final.html.erb (0.8ms)
+
+Sent mail to pai.satyan@gmail.com (1727ms)
+Date: Sat, 08 Jun 2013 23:12:53 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <51b41ce5e9f26_1efa3fe4fcc349e037487@Satyans-MacBook-Pro.local.mail>
+Subject: Your Event 'Really Long Event Name That Happens Now' Has Been Removed
+ (No Venues Suggested)
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'Really Long Event Name That Happens Now'. Your event has been archived.  Be sure to email your guests to manually tell them the venue you have chosen, or to warn them that the event has been cancelled.<br/>
+      <a href="http://localhost:3000/events/337">Event Page</a>
+    </p>
+     ===============================================
+     
+  </body>
+</html>
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?[0m  [["id", 694]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:12:55.704314' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:09:55.704446') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ? LIMIT 1  [["id", 695]]
+  [1m[36m (0.3ms)[0m  [1mUPDATE "delayed_jobs" SET "locked_at" = '2013-06-09 06:12:55.705909', "locked_by" = 'host:Satyans-MacBook-Pro.local pid:7930', "updated_at" = '2013-06-09 06:12:55.709162' WHERE "delayed_jobs"."id" = 695[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."id" = 338 LIMIT 1[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 338]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "events" SET "stage" = 'Finished', "updated_at" = '2013-06-09 06:12:55.713663' WHERE "events"."id" = 338
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 338
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 338]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered auto_mailer/no_venue_email_final.html.erb (0.2ms)
+
+Sent mail to pai.satyan@gmail.com (1928ms)
+Date: Sat, 08 Jun 2013 23:12:55 -0700
+From: MoMondaysMailer@gmail.com
+To: pai.satyan@gmail.com
+Message-ID: <51b41ce7bc02c_1efa3fe4fcc349e037592@Satyans-MacBook-Pro.local.mail>
+Subject: Your Event 'Mo Mondays Release Party' Has Been Removed (No Venues
+ Suggested)
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>NO VENUES WERE SUGGESTED FOR YOUR EVENT</h2>
+
+    <p>
+      No one has suggested any venues for your event, 'Mo Mondays Release Party'. Your event has been archived.  Be sure to email your guests to manually tell them the venue you have chosen, or to warn them that the event has been cancelled.<br/>
+      <a href="http://localhost:3000/events/338">Event Page</a>
+    </p>
+     ===============================================
+     
+  </body>
+</html>
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "delayed_jobs" WHERE "delayed_jobs"."id" = ?  [["id", 695]]
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE "delayed_jobs"."failed_at" IS NULL
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:12:57.720067' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:09:57.720113') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.1ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:12:57.722415' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:09:57.722433') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+Connecting to database specified by database.yml
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:02.723347' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:02.723367') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.7ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:07.725472' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:07.725495') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:12.728057' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:12.728092') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:17.729861' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:17.729897') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:22.731548' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:22.731571') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.2ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:27.733278' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:27.733305') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.8ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:32.735176' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:32.735301') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:37.738180' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:37.738215') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:42.739998' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:42.740019') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (1.0ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:47.741902' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:47.741927') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.4ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:52.744853' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:52.744889') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  SELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:13:57.747430' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:10:57.747452') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1
+  [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-09 06:14:02.749138' AND (locked_at IS NULL OR locked_at < '2013-06-09 06:11:02.749189') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:7930') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "delayed_jobs" SET locked_by = null, locked_at = null WHERE (locked_by = 'host:Satyans-MacBook-Pro.local pid:7930')
