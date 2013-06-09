@@ -42,6 +42,7 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(params[:venue])
+    @venue.address = @venue.address.gsub("\n", "<br>").html_safe
 
     if(@venue.event != nil)
       @venue.user = current_user

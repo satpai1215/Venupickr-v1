@@ -26,7 +26,8 @@
 								  	<div id = "voteControls">
 										<div class = "voteCount"><%= venue.voters.count %></div>
 										<% if @event.stage != "Finished" %>
-										<%= button_to "up", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton btn btn-success", :remote => true } %>
+										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
+										<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<% end %>
 									</div>
 								</li>
@@ -62,11 +63,11 @@
 
 					<% if @event.stage == "Finished" %>
 						<div id = "rsvpList">
-							<p>Are you going?</p>
-							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "voteButton btn btn-success", :id => "rsvpButton", :remote => true } %>
+							<div class = "eventInfoText"><h4>Are you going?</h4></div>
+							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "rsvpButton btn btn-success", :id => "rsvpButton", :remote => true } %>
 							
 							<ul>
-								<h4>Attendees</h4>
+								<p>Attendees:</p>
 								<% Rsvp.where(:event_id => @event.id).each_with_index do |rsvp, index| %>
 									<%= tag(:li, {id: "rsvpItem" + index.to_s, class: "rsvpItem"}) %><%= rsvp.user.username %>
 

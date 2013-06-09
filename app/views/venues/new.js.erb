@@ -30,11 +30,11 @@ $( "#venue_name" ).autocomplete({
     minLength: 3,
     delay: 500,
     select: function( event, ui ) {
-        var addy = ""
+        /*var addy = ""
         ui.item.address.forEach(function(line) {
             addy += line + "\n";
-        });
-        $("#venue_address").val(addy);
+        });*/
+        $("#venue_address").val(ui.item.address);
         $("#venue_url").val(ui.item.url)
 
     },
@@ -117,11 +117,22 @@ function yelpRequest(request, response) {
             var matcher = new RegExp("^" + request.term, "i");
             response($.map(data.businesses, function(item){
                 if (matcher.test(item.name)) {
-                  return {
-                        label: (item.location.neighborhoods == null ? 
-                            item.name : item.name + " (" + item.location.neighborhoods[0] + ")"),
-                        value: item.name,
-                        address: item.location.display_address,
+                    
+                    //format address string
+                    var location = item.location.display_address
+                    var addy = location[0] + " " + location[1] + "\n" + location[3];
+                    /*if(location.cross_streets != undefined) {
+                        addy += "(b/t " + location.cross_streets + ")";}
+                    addy += "\n" + location.city + ", " + location.state_code + " " + location.postal_code;*/
+                   
+                   //format item name
+                   var item_name = (item.location.neighborhoods == undefined ? 
+                            item.name : item.name + " (" + item.location.neighborhoods[0] + ")");
+
+                   return {
+                        label: item_name,
+                        value: item_name,
+                        address: addy,
                         //neighborhood: item.location.neighborhood[0],
                         url: item.url
                     }

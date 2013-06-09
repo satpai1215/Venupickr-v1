@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   	date = (self.event_start - self.vote_end.hours)
 
   	if date.past?
-  		errors.add(:vote_start, "happens in the past!" )
+  		errors.add(:vote_end, "happens in the past!" )
   	end
   end
 end
