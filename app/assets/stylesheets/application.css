@@ -75,6 +75,7 @@
 -----------------------------------------------------------------------------*/
 
  #main {
+ 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
  	background: #ededed;
  	min-height: 700px;
 	border-radius: 5px;

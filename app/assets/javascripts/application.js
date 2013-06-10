@@ -35,6 +35,14 @@ $(document).on('click', '#eventSubmitButton', function(event) {
   $('#eventSubmitButton').hide();
 });
 
+$(document).on('click', '.appActions', function(event) {
+  $('.appActions').css('height', '40px');
+  $('.appActions').css('background', 'white');
+  $('.appActionsInfo').css('overflow-y', 'hidden');
+  $(this).css('height', '300px');
+  $(this).css('background', '#F9F9C9');
+  $(this).children(".appActionsInfo").css('overflow-y', 'auto');
+});
 
  $('#user_notification_emails').change(function() {  
     if (!$(this).prop('checked')) {

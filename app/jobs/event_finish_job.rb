@@ -6,6 +6,10 @@ class EventFinishJob < Struct.new(:event_id)
 			@event.update_attributes(:stage => "Finished")
 
 			if (@event.venues.count != 0)
+
+				@event.venues.each do |venue|
+					venue.update_attributes(:votecount => venue.voters.count)
+				end
 	    		#ties are broken by first venue created
 	   	 		@event.update_attributes(:winner => @event.venues.order("votecount DESC, created_at ASC").first.id)
 	    		AutoMailer.event_finish_email(event_id).deliver

@@ -7,7 +7,7 @@
 }
 
 #appInfo h2 {
-	font-style: italic;
+	font-weight: normal;
 }
 #appInfo p {
 	margin: 0px;
@@ -22,38 +22,50 @@
 
 #appActions-container {
 	font-size: 0.9em;
-	margin-left: 0px;
+	margin-left: 10px;
 }
 
 .appActions {
-	display: block;
-	border: ridge 4px black;
+	display: inline-block;
+	border: ridge 2px black;
 	border-radius: 15px;
 	margin: 10px auto;
 	background: white;
+	cursor: pointer;
 
-	width: 700px;
+	width: 275px;
+	vertical-align: top;
+	height: 40px;
+
+	overflow: hidden;
 }
 
 .appActions h3 {
 	margin: 2px 20px;
-	text-align: left;
+	text-align: center;
 	color: #2e6ab1;
-	font-size: 1.5em;
+	font-size: 1.3em;
+	font-weight: normal;
 }
 
 .appActionsInfo {
+	display: block;
+	height: 250px;
 	margin: 0px 5px;
-	padding: 5px 20px;
+	padding: 10px 20px;
 	padding-bottom: 10px;
-	font-size: 0.85em;
+	font-size: 1em;
 
 	list-style: circle;
 	list-style-position: inside;
 }
 
-#eventCompletionInfo-container {
+.eventCompletionInfo-container {
 	clear: both;
+}
+
+.eventCompletionInfo-container h3 {
+	font-weight: normal;
 }
 
 
@@ -82,11 +94,14 @@
 #eventHistoryTable table {
 	padding: 10px 10px;
 	overflow-y: scroll;
+	table-layout: fixed;
 }
-
 
 #eventHistoryTable table td {
 	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 #eventHistoryTable table th {
 	text-align: center;
