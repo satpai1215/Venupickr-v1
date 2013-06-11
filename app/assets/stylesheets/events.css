@@ -106,7 +106,7 @@
 	height: 630px;
 	margin: 0px;
 	margin-bottom: 20px;
-	overflow: hidden;
+	overflow: auto;
 }
 #newsFeed li {
 	/*border-bottom: groove 2px black;
