@@ -30,3 +30,25 @@ Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote wh
 - Change all countdowns to just "Time Left to Vote"
 - Change delayed jobs
 - change mailers
+
+-RSVP list code for show.html.erb
+
+					<% if @event.stage == "Finished" %>
+						<div id = "rsvpList">
+							<div id = "rsvpButton-container">
+								<%= button_to "RSVP", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "rsvpButton btn btn-success", :id => "rsvpButton", :remote => true } %>
+							</div>
+							<ul>
+								<p>Attendees:</p>
+								<% Rsvp.where(:event_id => @event.id).each_with_index do |rsvp, index| %>
+									<%= tag(:li, {id: "rsvpItem" + index.to_s, class: "rsvpItem"}) %><%= rsvp.user.username %>
+
+									<% if rsvp.user == current_user %>
+										<%= link_to 'x', {:controller => "events", :action => "rsvp_no", :rsvp_id => rsvp.id, :index => index}, {:id => "rsvp-delete", :remote => true} %></li>
+									<% end %>
+
+								</li>
+								<% end %>
+							</ul>
+						</div> <!--rsvpList -->
+					<% end %>

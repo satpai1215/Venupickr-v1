@@ -163,6 +163,16 @@ class EventsController < ApplicationController
 
   end
 
+  def send_reminder
+    @event = Event.find(params[:event_id])
+    AutoMailer.reminder_email(params[:event_id]).deliver
+
+    respond_to do |format|
+      format.html {redirect_to @event, notice: "A reminder email has been sent"}
+      format.js {render :js => '$("#notice").text("A reminder email has been sent");'}
+    end
+  end
+
 private
 
   def write_jobs(event_id)
@@ -193,6 +203,7 @@ private
       Delayed::Job.find(@event.voting_email_job_id).destroy
     end
 =end
+
 
 
   end

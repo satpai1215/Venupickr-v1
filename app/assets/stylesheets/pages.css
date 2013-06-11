@@ -76,12 +76,12 @@
 	font-weight: normal;
 }
 
-h3 {
+.appInfo h3 {
 	font-weight: normal;
 }
 
 #futureFeatures {
-	margin-top: 15px;
+	margin: 20px;
 	margin-left: 160px;
 	list-style: circle;
 	list-style-position: inside;

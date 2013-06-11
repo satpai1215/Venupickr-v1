@@ -49,7 +49,7 @@
 					<div id = "eventHeader-container">
 						<h1><%= @event.name %></h1>
 						<h4>Created by: <%= @event.user.username%></h4>
-						<%= display_delete_event(@event) %>
+						<%= display_reminder_link(@event) %> <%= display_delete_event(@event) %> 
 					</div>
 
 					<div id = "eventInfo-container">
@@ -68,25 +68,7 @@
 					<% end %>
 				</div> <!-- eventInfo-container -->
 
-					<% if @event.stage == "Finished" %>
-						<div id = "rsvpList">
-							<div id = "rsvpButton-container">
-								<%= button_to "RSVP", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "rsvpButton btn btn-success", :id => "rsvpButton", :remote => true } %>
-							</div>
-							<ul>
-								<p>Attendees:</p>
-								<% Rsvp.where(:event_id => @event.id).each_with_index do |rsvp, index| %>
-									<%= tag(:li, {id: "rsvpItem" + index.to_s, class: "rsvpItem"}) %><%= rsvp.user.username %>
-
-									<% if rsvp.user == current_user %>
-										<%= link_to 'x', {:controller => "events", :action => "rsvp_no", :rsvp_id => rsvp.id, :index => index}, {:id => "rsvp-delete", :remote => true} %></li>
-									<% end %>
-
-								</li>
-								<% end %>
-							</ul>
-						</div> <!--rsvpList -->
-					<% end %>
+				<!--insert rsvpList code here -->
 
 				</div> <!--eventSidebar -->
 			</div> <!--span5-->
