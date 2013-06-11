@@ -19,7 +19,7 @@ module EventsHelper
 		if(current_user == event.user)
 			if(event.stage != "Finished")
 	        	html << "(" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
-	        	html << ")"
+	        	html << ")" + '<br/>'
 			end
     	end
     	return html.html_safe
