@@ -12,6 +12,7 @@ class AutoMailer < ActionMailer::Base
   def event_finish_email(event_id)
   	@event = Event.find(event_id)
     @winner = Venue.find(@event.winner)
+    @winner.address = @winner.address.gsub("<br>", "\n")
   	@url = event_url(@event)
     mail(:bcc => email_list, :subject => "Voting for '#{@event.name}' Has Finished")
 

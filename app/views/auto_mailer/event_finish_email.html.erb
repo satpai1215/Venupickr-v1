@@ -5,6 +5,8 @@
   </head>
 
   <body>
+    <p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
     <h2>THE EVENT IS SET!</h2>
 
     <p>
@@ -25,7 +27,7 @@
      <h2>WINNING VENUE INFORMATION</h2>
     <p>
       WINNING VENUE: <%= @winner.name %> <br/>
-      ADDRESS: <%= @winner.address %> <br/>
+      ADDRESS: <br/> <%= @winner.address.html_safe %> <br/>
       URL: <%= @winner.url %> <br/>
       SUGGESTED BY: <%= @winner.user.username %> <br/>
     </p>

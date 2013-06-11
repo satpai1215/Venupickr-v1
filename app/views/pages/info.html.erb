@@ -2,7 +2,7 @@
 <div class = "span12">
 	<div id = "about-container">
 
-	<div id="appInfo">
+	<div class="appInfo">
 		<h2>Mo' Mondays Mo' What?</h2>
 		<p>MoMondays is a web application that democratizes event planning. The application takes
 			stress out of choosing an event location by allowing your guests to decide for you.
@@ -15,49 +15,61 @@
 		<br/>
 		<p>Click on the steps below for more info:</p>
 
-		<div id="rulesPageContent">
-			<ul id = 'appActions-container'>
-				<li class = "appActions">
-					<h3>Create an Event!</h3>
-					<ul class = "appActionsInfo">
-						<li>Click the 'Create an Event' Button</li>
-						<li>Fill in the Event Info (NOTE: Vote ending time cannot happen in the past)</li>
-						<li>Events cannot be edited until voting is complete (for example, if you need to change the start time). If you need to change the event details, you must delete the event and create a new one</li>
+	</div> <!--appInfo-->
+
+		<div class = "row" >
+			<div class = "span4">
+				<ul id = 'appActions-container'>
+					<li class = "appActions selected">Create an Event!</li>
+					<li class = "appActions">Suggest a Venue!</li>
+					<li class = "appActions">Vote for a Venue!</li>
+					<li class = "appActions" id = "eventCompletionInfo-container">Event Completion</li>
+				</ul> <!--appActions-container-->
+			</div><!--span4-->
+			<div id = "rulesDetails-container" class = "span7">
+					<ul class = "appActionsInfo block">
+						<li>On the home page, click the <span id = "demo-btn" class = "btn btn btn-success">Create New Event!</span> button</li>
+						<li>Fill in the Event Information (NOTE: vote ending time cannot happen in the past)</li>
+						<li>Events cannot be edited until voting is complete (for example, if you need to change the start time). To change the event details, you must delete the event and create a new one</li>
 						<li>Once an event is created, an email will notify the users to ask them to suggest venues</li>
 					</ul>
-				</li>
-				<li class = "appActions">
-					<h3>Suggest a Venue!</h3>
 					<ul class = "appActionsInfo">
-						<li>On the event page, click the 'Suggest a Venue' Button</li>
-						<li>Enter the venue info. Venues can be entered manually OR type in the venue name and allow Yelp! to locate the venue and it's information</li>
-						<li>Venues can be suggested and/or edited up until the end of voting </li>
-						<li>Each user can only suggest one venue per event, unless you are the event owner</li>
-						<li>Users can suggest venues until the voting period ends (NOTE: check the countdown clock for when this is going to happen!)</li>
+						<li>On the event page, click the <span id = "demo-btn" class = "btn btn btn-info">Suggest a Venue!</span> button</li>
+						<li>Enter the venue information. Manually enter the venue info OR type in the venue name and allow Yelp! to locate the venue and it's information (HINT: to use the yelp search, make sure the venue name is as it would appear on the venue's yelp page.  For example "The Blue Light" will work but "Blue Light" will not)</li>
+						<li>Each user can only suggest one venue per event, unless you are the event owner (can suggest multiple venues)</li>
+						<li>Users can suggest/edit venues until voting closes (NOTE: check the countdown clock for when this is going to happen!)</li>
 					</ul>
-				</li>
-				<li class = "appActions">
-					<h3>Vote for a Venue!</h3>
 					<ul class = "appActionsInfo">
 						<li>Go to the event page</li>
-						<li>Click on the 'Upvote' button on your preferred venue</li>
-						<li>Users can only vote once per event</li>
-						<li>Upvoting another venue will change your vote</li>
+						<li>Click the 'Upvote' <img id = "demo-upvote" src = "/assets/upvote.png"/> button on your preferred venue to cast your vote</li>
+						<li>Users can only vote once per event. Upvoting another venue will change your vote</li>
+						<li>If you are the event owner, click on the 'Send Reminder' button to remind your guests to suggest venues/vote before voting closes</li>
 					</ul>
-				</li>
-				<li class = "eventCompletionInfo-container">
-					<h3>Event Completion</h3>
 					<ul class = "appActionsInfo">
-						<li>When the voting period ends, votes are locked and the venue with the most votes will be chosen</li>
+						<li>When the voting closes, votes are locked and the venue with the most votes will be chosen</li>
 						<li>In the event of a tie, the venue that was suggested first will be chosen</li>
 						<li>If no events are chosen, the event will be cancelled and removed from the list</li>
 						<li>Once the venue has been set, go to the event page and RSVP if you plan on going</li>
+						<li>Once events are complete, they will be archived to the "Finished Events" page for future reference</li>
 					</ul>
-				</li>
-			</ul> <!--appActions-container-->
-		</div>
-	</div>
 
+			</div>
+		</div><!--row -->
+
+		<div class="appInfo">
+			<h3>Beta Info</h3>
+			<p>Currently, the MoMondays app is in beta.  The app is currently only available for use by a select group of individuals.  If you wish you grant your friends access, please contact Satyan so he can give you the passcode. Future features will include:
+			</p>
+
+					<ul id = "futureFeatures">
+						<li>Ability to send a reminder email to remind your guests to suggest venues and vote</li>
+						<li>Create private events and select which users can suggest venues and vote</li>
+						<li>Setting up a recurring event (for example, a weekly "Mo' Mondays Happy Hour")</li>
+						<li>Allow editing of events once they are created</li>
+						<li>Improved mobile device compatibility</li>
+					</ul>
+
+		</div> <!--appInfo-->
 	</div> <!--about-container -->
-</div>
-</div>
+</div><!--span12-->
+</div><!--row-->

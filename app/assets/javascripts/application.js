@@ -36,12 +36,11 @@ $(document).on('click', '#eventSubmitButton', function(event) {
 });
 
 $(document).on('click', '.appActions', function(event) {
-  $('.appActions').css('height', '40px');
-  $('.appActions').css('background', 'white');
-  $('.appActionsInfo').css('overflow-y', 'hidden');
-  $(this).css('height', '300px');
-  $(this).css('background', '#F9F9C9');
-  $(this).children(".appActionsInfo").css('overflow-y', 'auto');
+  $('.appActions').removeClass('selected');
+  $(this).toggleClass('selected');
+  var index = $('.appActions').index(this);
+  $('.appActionsInfo').removeClass('block');
+  $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
 });
 
  $('#user_notification_emails').change(function() {  

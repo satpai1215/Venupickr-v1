@@ -131,7 +131,6 @@
 	font-weight: bold;
 	color: red;
 	text-align: center;
-	direction: ltr;
 }
 
 
@@ -228,7 +227,6 @@
 
 	#venueList ul {
 		overflow-y: hidden;
-		direction: rtl;
 		text-align: left;
 		padding-left: 5px;
 		margin: 5px 0px;
@@ -243,7 +241,7 @@
 		position: relative;
 		list-style: none;
 		float: left;
-		width: 535px;
+		width: 520px;
 	    margin-bottom: 25px;
 	    margin-top: 10px;
 
@@ -260,7 +258,6 @@
 
 	.venueSticky {
 		float: left;
-		direction: ltr;
 		font-family: Courier;
 		line-height: 1em;
 		min-height: 90px;

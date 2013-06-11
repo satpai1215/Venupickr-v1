@@ -2,62 +2,70 @@
 	padding: 10px 30px;
 }
 
-#appInfo {
-	font-size: 1.3em;
-}
 
-#appInfo h2 {
+.appInfo h2 {
 	font-weight: normal;
 }
-#appInfo p {
+.appInfo p {
 	margin: 0px;
 	text-align: left;
-	font-size: 0.8em;
-}
-
-#rulesPageContent {
-	font-size: 0.9em;
+	font-size: 1.2em;
 }
 
 
-#appActions-container {
-	font-size: 0.9em;
+
+.appActions-container {
 	margin-left: 10px;
 }
 
 .appActions {
-	display: inline-block;
+	display: block;
 	border: ridge 2px black;
 	border-radius: 15px;
-	margin: 10px auto;
+	margin: 25px;
+	margin-left: 30px;
 	background: white;
 	cursor: pointer;
 
-	width: 275px;
-	vertical-align: top;
-	height: 40px;
-
-	overflow: hidden;
-}
-
-.appActions h3 {
-	margin: 2px 20px;
+	padding: 10px 0px;
 	text-align: center;
 	color: #2e6ab1;
-	font-size: 1.3em;
 	font-weight: normal;
+	font-size: 1.2em;
+}
+
+#rulesDetails-container {
+	background: white;
+	margin-top: 10px;
+	margin-bottom: 15px;
+
+	border: 2px solid black;
+	border-radius: 15px;
+
+	height: 300px;
+	overflow-y: auto;
+}
+
+#demo-btn {
+	font-size: 0.85em;
+}
+
+#demo-upvote {
+	width: 35px;
+	height: auto;
 }
 
 .appActionsInfo {
-	display: block;
+	display: none;
+	font-size: 1.1em;
 	height: 250px;
-	margin: 0px 5px;
-	padding: 10px 20px;
-	padding-bottom: 10px;
-	font-size: 1em;
-
+	margin: 20px 20px;
 	list-style: circle;
 	list-style-position: inside;
+}
+
+.appActionsInfo li {
+	margin: 10px;
 }
 
 .eventCompletionInfo-container {
@@ -68,6 +76,25 @@
 	font-weight: normal;
 }
 
+h3 {
+	font-weight: normal;
+}
+
+#futureFeatures {
+	margin-top: 15px;
+	margin-left: 160px;
+	list-style: circle;
+	list-style-position: inside;
+}
+
+.block {
+	display: block;
+}
+
+.selected {
+	background :#F9F9C9;
+  	font-weight: bold;
+}
 
 /*----------------------------------------------------------------------------- 
 = EVENT HISTORY TABLE (/pages/history)
