@@ -131,6 +131,7 @@
 	font-weight: bold;
 	color: red;
 	text-align: center;
+	direction: ltr;
 }
 
 
@@ -191,7 +192,7 @@
 	font-size: 1em;
 	font-style: italic;
 	font-weight	: normal;
-	height: 150px;
+	height: 120px;
 	overflow-y: auto; 
 	text-align: justify;
 
@@ -242,7 +243,7 @@
 		position: relative;
 		list-style: none;
 		float: left;
-		width: 540px;
+		width: 535px;
 	    margin-bottom: 25px;
 	    margin-top: 10px;
 
@@ -286,7 +287,8 @@
 	}
 
 	.venueSuggestor {
-		margin: 5px 0px;
+		margin-top: 10px;
+		font-style: italic;	
 	}
 
 	.venue_modifiers {
@@ -326,13 +328,35 @@
 = FINISHED EVENT#SHOW
 -----------------------------------------------------------------------------*/
 #eventOverHeading {
-	font-size: 1.5em;
+	font-size: 2.0em;
 	color: red;
 	font-weight: bold;
 	line-height: 1.2em;
+
+	float: right;
+	margin-right: 20px;
+	margin-top: 5px;
+
 }
 
-#rsvpList h4 {
+#eventCancelledHeading {
+	font-size: 2.2em;
+	color: red;
+	font-weight: bold;
+	line-height: 1.2em;
+
+	height: 0px;
+	position: relative;
+	top: 250px;
+	text-align: center;
+
+
+}
+
+#rsvpList {
+}
+
+#rsvpButton-container {
 	float: left;
 }
 #rsvpButton {

@@ -5,6 +5,13 @@
 					<div id = "suggestVenueControl">
 						<%= display_venue_suggest_button(@event) %>
 					</div>
+					<% if @event.stage == "Finished" %>
+						<% if @event.venues.count == 0 %>
+							<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
+						<% else %>
+							<span id ='eventOverHeading'>VENUE SET</span>
+						<% end %>
+					<% end %>
 					<div id = "venueList-header">
 						<h3>Recommended Venue List</h3>
 					</div>
@@ -63,9 +70,9 @@
 
 					<% if @event.stage == "Finished" %>
 						<div id = "rsvpList">
-							<div class = "eventInfoText"><h4>Are you going?</h4></div>
-							<%= button_to "YES!", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "rsvpButton btn btn-success", :id => "rsvpButton", :remote => true } %>
-							
+							<div id = "rsvpButton-container">
+								<%= button_to "RSVP", {:controller => "events", :action => "rsvp_yes", :event_id => @event.id}, {:class => "rsvpButton btn btn-success", :id => "rsvpButton", :remote => true } %>
+							</div>
 							<ul>
 								<p>Attendees:</p>
 								<% Rsvp.where(:event_id => @event.id).each_with_index do |rsvp, index| %>
@@ -98,6 +105,8 @@
   		<% if @event.stage == "Finished" %>
   			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
   			$('#venueList ul li .voteCount').first().css('color', 'red');
+  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
+  			$('.listItem:first .venueStickyHeader').css('color', 'red');
   		<% end %>
 	<% end %>
 

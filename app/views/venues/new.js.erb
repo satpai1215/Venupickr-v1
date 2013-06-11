@@ -120,7 +120,13 @@ function yelpRequest(request, response) {
                     
                     //format address string
                     var location = item.location.display_address
-                    var addy = location[0] + " " + location[1] + "\n" + location[3];
+                    if (location.length > 3) {
+                        var addy = location[0] + " " + location[1] + "\n" + location[3];
+                    }
+
+                    else {
+                        var addy = location[0] + "\n" + location[2];
+                    }
                     /*if(location.cross_streets != undefined) {
                         addy += "(b/t " + location.cross_streets + ")";}
                     addy += "\n" + location.city + ", " + location.state_code + " " + location.postal_code;*/

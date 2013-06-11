@@ -18,7 +18,7 @@
       
       <% if !@event.notes.blank? %>
         Notes to Guests: <br/>
-        "<%= escape_javascript(@event.notes) %> "
+        "<%= @event.notes %> "
       <% end %>
     </p>
      
