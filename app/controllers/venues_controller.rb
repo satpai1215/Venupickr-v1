@@ -29,6 +29,7 @@ class VenuesController < ApplicationController
   def edit
     @venue = Venue.find(params[:id])
     @event_id = @venue.event.id
+    @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
     respond_to do |format|
       format.html # edit.html.erb
