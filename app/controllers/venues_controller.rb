@@ -46,11 +46,13 @@ class VenuesController < ApplicationController
 
     if(@venue.event != nil)
       @venue.user = current_user
-      @venue.votecount = 0
+      #@venue.votecount = 1
       @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
 
       respond_to do |format|
         if @venue.save
+          #automatically votes for suggested venue
+          Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
           format.js

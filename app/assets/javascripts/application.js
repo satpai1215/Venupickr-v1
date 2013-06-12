@@ -43,13 +43,14 @@ $(document).on('click', '.appActions', function(event) {
   $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
 });
 
+
  $('#user_notification_emails').change(function() {  
     if (!$(this).prop('checked')) {
       window.alert("Are you sure?  You will no longer get reminders about events and voting.");
     }
   }); 
 
- $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+ $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //  	$('#createVenueForm').dialog("open");
