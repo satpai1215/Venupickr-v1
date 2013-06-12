@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :address, :event_id, :name, :user_id, :votecount, :user, :event, :url
+  attr_accessible :address, :event_id, :name, :user_id, :votecount, :user, :event, :url, :comments
   belongs_to :user
   belongs_to :event
 

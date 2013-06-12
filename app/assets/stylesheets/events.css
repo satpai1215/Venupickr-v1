@@ -270,26 +270,30 @@
 	}
 
 	.venueStickyHeader {
-		margin-bottom: 10px;
+		margin-bottom: 0px;
 		font-weight: bolder;
 		font-size: 1.25em;
 	}
 
+	.venueSuggestor {
+		margin-bottom: 10px;
+		font-style: italic;
+	}
+
 	.venueStickyInfo {
 		margin-left: 10px;
+		margin-bottom: 10px;
 		font-size: 1.2em;
 	}
 	.venueStickyInfo p {
 		margin-bottom: 0px;
 	}
 
-	.venueSuggestor {
-		margin-top: 10px;
-		font-style: italic;	
-	}
-
 	.venue_modifiers {
-		font-size: 0.8em;
+		float:left;
+		margin-left: 3px;
+		margin-bottom: 3px;
+		font-family: Courier;
 	}
 
 	#venueList #voteControls {

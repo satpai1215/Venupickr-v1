@@ -26,9 +26,8 @@
 							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 									
-									<div class = "venueSticky"%>
-										<%= generate_venue_sticky(venue) %>
-								   </div>
+									<div class = "venueSticky"%><%= generate_venue_sticky(venue) %></div>
+								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 
 								  	<div id = "voteControls">
 										<div class = "voteCount"><%= venue.voters.count %></div>
