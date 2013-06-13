@@ -148,6 +148,7 @@ class VenuesController < ApplicationController
         if !@voter.nil?
           @previous_venue = Venue.find(@voter.venue_id)
           @voter.destroy
+          @previous_votecount = @previous_venue.voters.count
           @notice_text = "You have successfully changed your vote."
         end
 
@@ -157,6 +158,8 @@ class VenuesController < ApplicationController
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
+
+        @votecount = @venue.voters.count
 
         respond_to do |format|
             format.html {redirect_to @venue.event, notice: "#{@notice_text}"}
