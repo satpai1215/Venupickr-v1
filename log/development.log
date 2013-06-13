@@ -80408,3 +80408,53 @@ Processing by VenuesController#increment_vote as JS
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 254
   Rendered venues/increment_vote.js.erb (0.1ms)
 Completed 200 OK in 17ms (Views: 1.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/venue/increment_vote?event_id=361&venue_id=258" for 127.0.0.1 at 2013-06-12 23:03:21 -0700
+Processing by VenuesController#increment_vote as JS
+  Parameters: {"event_id"=>"361", "venue_id"=>"258"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mVenue Load (0.1ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", "258"]]
+  [1m[36mVoter Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "voters" WHERE "voters"."user_id" = 8 AND "voters"."venue_id" = 258 LIMIT 1[0m
+  [1m[35mVoter Load (0.1ms)[0m  SELECT "voters".* FROM "voters" WHERE "voters"."user_id" = 8 AND "voters"."event_id" = 361 LIMIT 1
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 254]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "voters" WHERE "voters"."id" = ?[0m  [["id", 670]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 254[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 361 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "voters" ("created_at", "event_id", "updated_at", "user_id", "venue_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 12 Jun 2013 23:03:21 PDT -07:00], ["event_id", 361], ["updated_at", Wed, 12 Jun 2013 23:03:21 PDT -07:00], ["user_id", 8], ["venue_id", 258]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "updates" ("content", "created_at", "event_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Spaiderman just voted for Safeway (Financial District) for the event: \"Event with Really long Name is here\""], ["created_at", Wed, 12 Jun 2013 23:03:21 PDT -07:00], ["event_id", nil], ["updated_at", Wed, 12 Jun 2013 23:03:21 PDT -07:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "updates" 
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 258
+  Rendered venues/increment_vote.js.erb (0.6ms)
+Completed 200 OK in 14ms (Views: 2.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/venue/increment_vote?event_id=361&venue_id=260" for 127.0.0.1 at 2013-06-12 23:03:24 -0700
+Processing by VenuesController#increment_vote as JS
+  Parameters: {"event_id"=>"361", "venue_id"=>"260"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mVenue Load (0.1ms)[0m  SELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1  [["id", "260"]]
+  [1m[36mVoter Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "voters" WHERE "voters"."user_id" = 8 AND "voters"."venue_id" = 260 LIMIT 1[0m
+  [1m[35mVoter Load (0.1ms)[0m  SELECT "voters".* FROM "voters" WHERE "voters"."user_id" = 8 AND "voters"."event_id" = 361 LIMIT 1
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", 258]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "voters" WHERE "voters"."id" = ?[0m  [["id", 671]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 258[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 361 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "voters" ("created_at", "event_id", "updated_at", "user_id", "venue_id") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 12 Jun 2013 23:03:24 PDT -07:00], ["event_id", 361], ["updated_at", Wed, 12 Jun 2013 23:03:24 PDT -07:00], ["user_id", 8], ["venue_id", 260]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "updates" ("content", "created_at", "event_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Spaiderman just voted for Smuggler's Cove (Fillmore) for the event: \"Event with Really long Name is here\""], ["created_at", Wed, 12 Jun 2013 23:03:24 PDT -07:00], ["event_id", nil], ["updated_at", Wed, 12 Jun 2013 23:03:24 PDT -07:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "updates" 
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 260
+  Rendered venues/increment_vote.js.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 1.8ms | ActiveRecord: 4.4ms)
