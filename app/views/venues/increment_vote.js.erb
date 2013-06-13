@@ -2,7 +2,6 @@
 venueItemVoteCount = <%= @votecount %>;
 $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
 $olList = $currentListItem.children("ol.voteList");
-$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteControls");
 
 if ($olList.length > 0) {
 	$olList.append("<li><%= escape_javascript(current_user.username) %></li>");
@@ -14,6 +13,7 @@ else {
 $currentListItem.children(".voteCount").text(<%= @votecount %>);
 
 <% if !@voter.nil? %>
+	$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteControls");
 	$previousListItem.children(".voteCount").text(<%= @previous_votecount %>);
 	$previousListItem.children("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
 <% end %>
