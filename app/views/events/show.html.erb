@@ -1,7 +1,7 @@
 <div class = "row">
 	<div id = "eventShow">
 		<div class = "span8">
-				<div id = "venueList">
+				<div id = "venueList-container">
 					<div id = "suggestVenueControl">
 						<%= display_venue_suggest_button(@event) %>
 					</div>
@@ -16,7 +16,7 @@
 						<h3>Recommended Venue List</h3>
 					</div>
 					
-					<ul>
+					<ul id = "venueList">
 						<%if @event.venues.count === 0 %>
                             <div id = "noEventsLabel">  
                                 <li> <%= @no_venues_text %></li>
@@ -29,18 +29,30 @@
 									<div class = "venueSticky"%><%= generate_venue_sticky(venue) %></div>
 								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 
-								  	<div id = "voteControls">
+								  	<div class = "voteControls">
 										<div class = "voteCount"><%= venue.voters.count %></div>
+
+										<ol class = "voteList">
+											<h5>Voters:</h5>
+												<% venue.voters.each do |voter| %>
+													<li><%= voter.user.username %></li>
+												<% end %>
+										</ol>
 										<% if @event.stage != "Finished" %>
 										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<% end %>
+
+
 									</div>
-								</li>
+
+
+								</li><!--listItem -->
 							<% end %>
 							<%= javascript_tag do %> voteSort() <% end %>
 						<% end %>
 					</ul>
+
 				</div><!-- venueList -->
 		</div> <!--span8-->
 			<div class = "span4">

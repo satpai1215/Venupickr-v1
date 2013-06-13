@@ -52,6 +52,17 @@ $(document).on('click', '.appActions', function(event) {
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
  $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+ //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+
+ $(".voteCount").hover( 
+    function () {
+      $(this).parent().children("ol.voteList").fadeIn();
+    },
+    function () {
+      $(this).parent().children("ol.voteList").fadeOut();
+    }
+  );
+
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //  	$('#createVenueForm').dialog("open");
  //	});

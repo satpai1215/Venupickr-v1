@@ -212,7 +212,7 @@
 	margin-top: 5px;
 }
 
-#venueList {
+#venueList-container {
 	margin: 20px;
 	background: white;
 	border: ridge 5px gray;
@@ -226,7 +226,7 @@
 		margin: 0px;
 	}
 
-	#venueList ul {
+	#venueList {
 		overflow-y: hidden;
 		text-align: left;
 		padding-left: 5px;
@@ -234,7 +234,7 @@
 		height: 575px;
 	}
 
-	#venueList ul:hover {
+	#venueList:hover {
 		overflow-y: auto;
 	}
 
@@ -297,7 +297,7 @@
 		font-family: Courier;
 	}
 
-	#venueList #voteControls {
+	#venueList .voteControls {
 		float: right;
 		margin-top: 0px;
 		margin-right: 0px;
@@ -326,6 +326,27 @@
 		}
 		.voteButton img:hover {
 		}
+
+	.voteList {
+		background: white;
+		text-align: center;
+		position: absolute;
+		display: none;
+
+		border: 2px solid gray;
+		border-radius: 5px;
+		right: 40px;
+		top: -10px;
+		padding: 5px;
+	}
+		.voteList h5 {
+			margin-bottom: 2px;
+			margin-top: 0px;
+		}
+		.voteList li {
+			display: block;
+		}
+
 /*----------------------------------------------------------------------------- 
 = FINISHED EVENT#SHOW
 -----------------------------------------------------------------------------*/

@@ -1,3 +1,5 @@
 1) Remove url editing in venue suggestion
 2) Change Password page styling
 3) don't delete finished events upon account canceling
+4) comments on venue
+5) cache previous venues for easy access
