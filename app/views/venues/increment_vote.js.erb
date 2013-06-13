@@ -1,8 +1,10 @@
 
 $("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @venue.voters.count %>);
+$("#venue_" + <%= @venue.id %> + " ol.voteList").append("<li><%= escape_javascript(current_user.username) %></li>");
 
 <% if !@voter.nil? %>
 	$("#venue_" + <%= @previous_venue.id %> + " .voteCount").text(<%= @previous_venue.voters.count %>);
+	$("#venue_" + <%= @previous_venue.id %> + " ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
 <% end %>
 
 voteSort();

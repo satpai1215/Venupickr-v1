@@ -9,12 +9,14 @@ function voteSort() {
 
     $list.sort(function(a, b) {
         var aVotes = $(a).find(".voteCount").text();
+       // console.log("A:" + $(a).find(".voteCount").text());
         var bVotes = $(b).find(".voteCount").text();
+       // console.log("B:" + $(b).find(".voteCount").text());
 
         return parseInt(bVotes) - parseInt(aVotes);
     });
     $.each($list, function(index, li){
-        $("#venueList ul").append(li);
+        $("#venueList").append(li);
     });
 }
 

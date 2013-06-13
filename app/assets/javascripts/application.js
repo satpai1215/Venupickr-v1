@@ -56,10 +56,10 @@ $(document).on('click', '.appActions', function(event) {
 
  $(".voteCount").hover( 
     function () {
-      $(this).parent().children("ol.voteList").fadeIn();
+      $(this).siblings("ol.voteList").fadeIn();
     },
     function () {
-      $(this).parent().children("ol.voteList").fadeOut();
+      $(this).siblings("ol.voteList").fadeOut();
     }
   );
 

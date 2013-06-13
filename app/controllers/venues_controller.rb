@@ -51,9 +51,13 @@ class VenuesController < ApplicationController
 
       respond_to do |format|
         if @venue.save
-          #automatically votes for suggested venue
-          Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+          #automatically votes for suggested venue if not already voted for this event
+          if !Voter.exists?(:user_id => current_user.id, :event_id => @venue.event.id)
+            Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+          end
+
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
+
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
           format.js
@@ -84,7 +88,12 @@ class VenuesController < ApplicationController
 
         #remove voting records for venue if it is modified
         Voter.destroy_all(:venue_id => @venue.id)
-        Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+
+        #checks if user voted for another venue, if not vote for this one
+        if !Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
+            Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+        end
+
         @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
     end
 

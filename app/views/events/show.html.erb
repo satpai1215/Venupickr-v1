@@ -34,17 +34,23 @@
 
 										<ol class = "voteList">
 											<h5>Voters:</h5>
+											<% if venue.voters.count > 0 %>
 												<% venue.voters.each do |voter| %>
 													<li><%= voter.user.username %></li>
 												<% end %>
+											<% else %>
+												<li>none</li>
+											<% end %>
 										</ol>
+										
+
 										<% if @event.stage != "Finished" %>
 										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<% end %>
 
 
-									</div>
+									</div> <!-- voteControls -->
 
 
 								</li><!--listItem -->
