@@ -1,5 +1,5 @@
 
-/*venueItemVoteCount = <%= @votecount %>;
+venueItemVoteCount = <%= @votecount %>;
 $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
 $olList = $currentListItem.children("ol.voteList");
 $previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteControls");
@@ -16,7 +16,7 @@ $currentListItem.children(".voteCount").text(<%= @votecount %>);
 <% if !@voter.nil? %>
 	$previousListItem.children(".voteCount").text(<%= @previous_votecount %>);
 	$previousListItem.children("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
-<% end %>*/
+<% end %>
 
 voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>");
