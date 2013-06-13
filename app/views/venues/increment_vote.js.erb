@@ -1,20 +1,21 @@
 
 venueItemVoteCount = <%= @votecount %>;
-$olList = $("#venue_" + <%= @venue.id %> + " ol.voteList");
+$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
+$olList = $currentListItem.children("ol.voteList");
+$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteControls");
 
-console.log(venueItemVoteCount);
-if ($olList) {
+if ($olList.length > 0) {
 	$olList.append("<li><%= escape_javascript(current_user.username) %></li>");
 }
 else {
-	$("#venue_" + <%= @venue.id %> + " .voteControls").append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
+	$currentListItem.append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
 }
 
-$("#venue_" + <%= @venue.id %> + " .voteCount").text(<%= @votecount %>);
+$currentListItem.children(".voteCount").text(<%= @votecount %>);
 
 <% if !@voter.nil? %>
-	$("#venue_" + <%= @previous_venue.id %> + " .voteCount").text(<%= @previous_votecount %>);
-	$("#venue_" + <%= @previous_venue.id %> + " ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
+	$previousListItem.children(".voteCount").text(<%= @previous_votecount %>);
+	$previousListItem.children("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
 <% end %>
 
 voteSort();
