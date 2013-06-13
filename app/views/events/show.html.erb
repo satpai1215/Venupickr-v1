@@ -32,16 +32,15 @@
 								  	<div class = "voteControls">
 										<div class = "voteCount"><%= venue.voters.count %></div>
 
+										<% if venue.voters.count > 0 %>
 										<ol class = "voteList">
 											<h5>Voters:</h5>
-											<% if venue.voters.count > 0 %>
+											
 												<% venue.voters.each do |voter| %>
 													<li><%= voter.user.username %></li>
 												<% end %>
-											<% else %>
-												<li>none</li>
-											<% end %>
 										</ol>
+										<% end %>
 										
 
 										<% if @event.stage != "Finished" %>
