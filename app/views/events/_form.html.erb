@@ -18,6 +18,11 @@
   </div>
 
   <div class="field">
+    <%= select_date Date.today, prefix: :date %>
+    <%= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true}, prefix: :time) %>
+  </div>
+
+  <div class="field">
     <%= f.label :event_start, "When is the Event?" %>
     <div id = "datetime_select">
        <%= f.datetime_select :event_start, {:ampm => true, :use_short_month => true, :default => {:day => Time.now.day, :hour => '20', :minute => '0'}, :start_year => Time.now.year, :minute_step => 1} %>
