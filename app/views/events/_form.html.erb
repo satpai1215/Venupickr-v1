@@ -18,10 +18,11 @@
   </div>
 
   <div class="field">
-    <%= label_tag :datepicker, "Date:" %>
+    <%= label_tag :datepicker, "Date:", :style => "display:inline" %>
     <%= text_field_tag(:datepicker, nil, :placeholder => "click here to enter your date") %> <br/>
     <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
-    <%= text_field_tag(:timepicker, nil, :placeholder => "click here for time") %> <br/>
+    <%= label_tag :datepicker, "Time:", :style => "display:inline" %>
+    <%= text_field_tag(:timepicker, nil, :placeholder => "click here for time") %>
   </div>
 
 

@@ -485,6 +485,10 @@
 	width: 350px;
 	resize: none;
 }
+
+#timepicker {
+	width: 80px;
+}
 #venue-loading-gif-container {
 	position: absolute;
 	right: 60px;
