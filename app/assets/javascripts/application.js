@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.autocomplete
-//= require autocomplete-rails
-//= require jquery.ui.dialog
+//= require jquery-ui-1.10.3.custom.min.js
+//= require jquery.timepicker.min.js
 //= require_tree
 
 
@@ -44,6 +43,7 @@ $(document).on('click', '.appActions', function(event) {
 });
 
 
+
  $('#user_notification_emails').change(function() {  
     if (!$(this).prop('checked')) {
       window.alert("Are you sure?  You will no longer get reminders about events and voting.");
@@ -51,8 +51,15 @@ $(document).on('click', '.appActions', function(event) {
   }); 
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
- $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+ $("#createEventForm").dialog({
+      modal: true, 
+      autoOpen: false, 
+      minWidth: 500, 
+      show: 500, 
+      position: { my: "center top", at: "center top", of: "#main" },
+     });
  //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+
 
  $(".voteCount").hover( 
     function () {

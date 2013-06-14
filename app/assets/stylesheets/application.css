@@ -9,10 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require "reset"
-
  *= require bootstrap.min.css
- *= require jquery.ui.autocomplete
- *= require jquery.ui.dialog
+ *= require jquery-ui-1.10.3.custom.min.css
+ *= require jquery.timepicker.css
  *= require_self
  *= require "events"
  *= require "pages"

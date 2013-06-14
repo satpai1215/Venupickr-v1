@@ -52,3 +52,11 @@ Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote wh
 							</ul>
 						</div> <!--rsvpList -->
 					<% end %>
+
+
+					<!--   <div class="field">
+    <%#= f.label :event_start, "When is the Event?" %>
+    <div id = "datetime_select">
+       <%#= f.datetime_select :event_start, {:ampm => true, :use_short_month => true, :default => {:day => Time.now.day, :hour => '20', :minute => '0'}, :start_year => Time.now.year, :minute_step => 1} %>
+    </div>
+  </div> -->

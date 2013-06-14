@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   has_many :rsvps, dependent: :destroy
 
   validates :name, presence: true
-  validate :event_start_valid?, :on => :create
+  #validate :event_start_valid?, :on => :create
 
   def to_s
     self.name

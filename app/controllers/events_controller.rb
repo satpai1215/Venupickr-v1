@@ -1,3 +1,4 @@
+
 class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
@@ -61,6 +62,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @date = Date.strptime(params[:datepicker], '%m/%d/%Y')
+    @time = Time.parse(params[:timepicker])
+    
+    #converts to datetime in PDT for easier date subtraction
+    @event.event_start = DateTime.new(@date.year, @date.month, @date.day, @time.hour, @time.min, 0, '-7' )
    
     @event.user = current_user
     @event.stage = "Voting"

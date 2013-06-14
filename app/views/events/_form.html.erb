@@ -18,16 +18,13 @@
   </div>
 
   <div class="field">
-    <%= select_date Date.today, prefix: :date %>
-    <%= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true}, prefix: :time) %>
+    <%= label_tag :datepicker, "Date:" %>
+    <%= text_field_tag(:datepicker, nil, :placeholder => "click here to enter your date") %> <br/>
+    <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
+    <%= text_field_tag(:timepicker, nil, :placeholder => "click here for time") %> <br/>
   </div>
 
-  <div class="field">
-    <%= f.label :event_start, "When is the Event?" %>
-    <div id = "datetime_select">
-       <%= f.datetime_select :event_start, {:ampm => true, :use_short_month => true, :default => {:day => Time.now.day, :hour => '20', :minute => '0'}, :start_year => Time.now.year, :minute_step => 1} %>
-    </div>
-  </div>
+
 
 
   <% if @event.stage != 'Finished' %>
