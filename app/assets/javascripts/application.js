@@ -18,7 +18,7 @@
 
 
 $(function() {
-	$(document).ajaxError(function (e, xhr, settings) {
+  $(document).ajaxError(function (e, xhr, settings) {
        // if (xhr.status == 401) {
           $('#notice').html(xhr.responseText);
        // }
@@ -26,7 +26,7 @@ $(function() {
 
  $('.voteButton').ajaxSuccess(function() {  
     votesort();  
-	});
+  });
 
 
 $(document).on('click', '#eventSubmitButton', function(event) {
@@ -43,7 +43,6 @@ $(document).on('click', '.appActions', function(event) {
 });
 
 
-
  $('#user_notification_emails').change(function() {  
     if (!$(this).prop('checked')) {
       window.alert("Are you sure?  You will no longer get reminders about events and voting.");
@@ -51,15 +50,8 @@ $(document).on('click', '.appActions', function(event) {
   }); 
 
  $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
- $("#createEventForm").dialog({
-      modal: true, 
-      autoOpen: false, 
-      minWidth: 500, 
-      show: 500, 
-      position: { my: "center top", at: "center top", of: "#main" }
-     });
+ $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
  //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
-
 
  $(".voteCount").hover( 
     function () {
@@ -71,8 +63,8 @@ $(document).on('click', '.appActions', function(event) {
   );
 
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
-  //  	$('#createVenueForm').dialog("open");
- //	});
+  //    $('#createVenueForm').dialog("open");
+ // });
 
 
 });
