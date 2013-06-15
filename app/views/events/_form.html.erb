@@ -21,7 +21,7 @@
     <%= label_tag :datepicker, "Date:", :style => "display:inline" %>
     <%= text_field_tag(:datepicker, nil, :placeholder => "mm/dd/yyyy") %>
     <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
-    <%= label_tag :datepicker, "Time:", :style => "display:inline" %>
+    <%= label_tag(:datepicker, "Time:", :style => "display:inline") %>
     <%= text_field_tag(:timepicker, nil, :placeholder => "hh:mm") %>
   </div>
 

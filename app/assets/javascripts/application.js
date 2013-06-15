@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui.dialog
 //= require jquery-ui-1.10.3.custom.min.js
 //= require jquery.timepicker.min.js
 //= require_tree

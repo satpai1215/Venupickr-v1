@@ -7,8 +7,8 @@ class Event < ActiveRecord::Base
   has_many :rsvps, dependent: :destroy
 
   validates :name, presence: true
-  validates :datepicker, presence: true, :on => :create
-  validates :timepicker, presence: true, :on => :create
+  #validates :datepicker, presence: true, :on => :create
+  #validates :timepicker, presence: true, :on => :create
   #validate :event_start_valid?, :on => :create
 
   def to_s
