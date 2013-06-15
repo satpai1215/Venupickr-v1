@@ -1,12 +1,12 @@
 
 <% if @already_suggested_venue and current_user != @event_user %>
-	$("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.");
+    $("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.");
 
 <% else %> {
-	$('#createVenueForm').dialog("open");
-	$('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
+    $('#createVenueForm').dialog("open");
+    $('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
 
-	AC();
+    AC();
 }
 <% end %>
 
@@ -15,13 +15,13 @@ YELP API AJAX REQUEST FUNCTIONS
  *********************/
 
 function AC(){
-/*	$("#venue_name").keyup(function(event) {
-		query = $("#venue_name").val().toString();
-		if (query.length > 4) {
-			yelpRequest(query, response);
-		}
+/*  $("#venue_name").keyup(function(event) {
+        query = $("#venue_name").val().toString();
+        if (query.length > 4) {
+            yelpRequest(query, response);
+        }
 
-	});*/
+    });*/
 $( "#venue_name" ).autocomplete({
     source: function(request, response) {
           yelpRequest(request, response);
