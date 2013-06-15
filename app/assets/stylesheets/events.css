@@ -458,6 +458,12 @@
 	width: 300px;
 }
 
+#venue-loading-gif-container {
+	position: absolute;
+	right: 60px;
+	top: 37px;
+}
+
 #datetime_select select:nth-child(1) {
 	width: 75px;
 }
@@ -486,12 +492,16 @@
 	resize: none;
 }
 
+#eventDateSelect-container {
+	font-size: 0.85em;
+}
+
 #timepicker {
 	width: 80px;
 }
 
-#venue-loading-gif-container {
-	position: absolute;
-	right: 60px;
-	top: 37px;
+#datepicker {
+	width: 100px;
 }
+
+

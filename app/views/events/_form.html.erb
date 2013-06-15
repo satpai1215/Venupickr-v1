@@ -17,12 +17,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field" id = "eventDateSelect-container">
     <%= label_tag :datepicker, "Date:", :style => "display:inline" %>
-    <%= text_field_tag(:datepicker, nil, :placeholder => "click here to enter your date") %> <br/>
+    <%= text_field_tag(:datepicker, nil, :placeholder => "mm/dd/yyyy") %>
     <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
     <%= label_tag :datepicker, "Time:", :style => "display:inline" %>
-    <%= text_field_tag(:timepicker, nil, :placeholder => "click here for time") %>
+    <%= text_field_tag(:timepicker, nil, :placeholder => "hh:mm") %>
   </div>
 
 
