@@ -4,47 +4,49 @@ class Event < ActiveRecord::Base
 
   attr_accessor :datepicker, :timepicker
 
-
   belongs_to :user
   has_many :venues, dependent: :destroy
   has_many :voters, dependent: :destroy
   has_many :rsvps, dependent: :destroy
 
-  validates :name, presence: true
-  validates :datepicker, presence: true
-  validates :timepicker, presence: true
-  validate :event_start_valid?, :on => :create
+  validates :name, :datepicker, :timepicker, :presence => true
+  #validate :event_start_valid?, :on => :save
 
+  before_save :build_event_start_and_validate
 
-  before_create :set_defaults
-  before_save :build_event_start
 
   def to_s
     self.name
   end
 
-  def set_defaults
-    self.user = current_user
-    self.stage = "Voting"
+
+private
+  def build_event_start_and_validate
+    begin
+      @date = Date.strptime(@datepicker, '%m/%d/%Y')
+      @time = Time.parse(@timepicker)
+    rescue ArgumentError
+      errors.add(:event_start, "has invalid format (must be mm/dd/yyyy hh:mm ampm" )
+      return false
+    else
+      #converts to datetime in PDT for easier date subtraction
+      self.event_start = DateTime.parse("#{@date} #{@time}")
+      event_start_valid? #validates event_start
+    end
   end
-
-  #create 
-  before_validation(:on => :create) do |variable|
-    
-  end
-
-
-  end
-
 
   def event_start_valid?
-    date = (self.event_start - self.vote_end.hours)
+    @date = (self.event_start - self.vote_end.hours)
 
-    if date.past?
+    if @date.past?
       errors.add(:vote_end, "happens in the past!" )
+      return false
     end
   end
 
 
+  before_create do 
+    self.stage = "Voting"
+  end
 
 end
