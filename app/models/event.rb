@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
   has_many :rsvps, dependent: :destroy
 
   validates :name, :datepicker, :timepicker, :presence => true
+  validates_format_of :datepicker, with: /^\d{2}[\/-]\d{2}[\/-]\d{4}/
+  validates_format_of :timepicker, with: /^\d{1,2}:\d{2}[ap]m/i
   #validate :event_start_valid?, :on => :save
 
   before_save :build_event_start_and_validate
@@ -26,7 +28,7 @@ private
       @date = Date.strptime(@datepicker, '%m/%d/%Y')
       @time = Time.parse(@timepicker)
     rescue ArgumentError
-      errors.add(:event_start, "has invalid format (must be mm/dd/yyyy hh:mm ampm" )
+      errors.add(:event_start, "date is not a valid date or format (must be a valid date with mm/dd/yyyy hh:mm ampm)" )
       return false
     else
       #converts to datetime in PDT for easier date subtraction
