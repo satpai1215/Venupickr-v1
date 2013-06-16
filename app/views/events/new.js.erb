@@ -1,7 +1,7 @@
 
 $('#createEventForm').dialog("open");
 $('#createEventForm').html("<%= escape_javascript(render 'form') %>");
-$('#datepicker').datepicker();
+$('#event_datepicker').datepicker();
 $('#timepicker').timepicker({
 	'minTime' : '9:00am',
 	'step' : 15,
