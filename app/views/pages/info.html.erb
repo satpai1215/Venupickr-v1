@@ -7,7 +7,7 @@
 		<p>MoMondays is a web application that democratizes event planning. The application takes
 			stress out of choosing an event location by allowing your guests to decide for you.
 		 All you need to do is create an event, specify the date, and choose a time for the voting 
-		 to stop.  After the event is created, your guests have up until the close of the voting period to suggest venues for your event or vote for venues. You can even suggest your own venues to add the list. When voting ends, the venue with the most votes will be chosen and an email will be sent out with event details
+		 to close.  After the event is created, your guests have up until the close of the voting period to suggest venues for your event or vote for venues. You can even suggest your own venues to add the list. When voting ends, the venue with the most votes will be chosen and an email will be sent out with event details
 		</p>
 		<br/>
 		<p>Click on the steps below for more info:</p>
@@ -26,8 +26,9 @@
 			<div id = "rulesDetails-container" class = "span7">
 					<ul class = "appActionsInfo block">
 						<li>On the home page, click the <span id = "demo-btn" class = "btn btn btn-success">Create New Event!</span> button</li>
-						<li>Fill in the Event Information (NOTE: vote ending time cannot happen in the past)</li>
-						<li>Events cannot be edited until voting is complete (for example, if you need to change the start time). To change the event details, you must delete the event and create a new one</li>
+						<li>Fill in the Event Information</li>
+						<li>Choose when you want the winning venue to be chosen, relative to the event start time (NOTE: vote ending time cannot happen in the past)</li>
+						<li>Add an event description or notes to your guests in the "Notes" box</li>
 						<li>Once an event is created, an email will notify the users to ask them to suggest venues</li>
 						<li>Currently, the app only allows 10 events to be on the clock at once</li>
 					</ul>
@@ -41,12 +42,13 @@
 						<li>Go to the event page</li>
 						<li>Click the 'Upvote' <img id = "demo-upvote" src = "/assets/upvote.png"/> button on your preferred venue to cast your vote</li>
 						<li>Users can only vote once per event. Upvoting another venue will change your vote</li>
+						<li>Suggesting a venue automatically casts your vote for that venue (unless you have already voted for another existing venue)</li>
 						<li>If you are the event owner, click on the 'Send Reminder Email' link to remind your guests to suggest venues/vote before voting closes</li>
 					</ul>
 					<ul class = "appActionsInfo">
 						<li>When the voting closes, votes are locked and the venue with the most votes will be chosen</li>
 						<li>In the event of a tie, the venue that was suggested first will be chosen</li>
-						<li>If no events are chosen, the event will be cancelled and removed from the list</li>
+						<li>If no events are chosen, the event will be cancelled</li>
 						<li>Once events are complete, they will be archived to the "Finished Events" page for future reference</li>
 					</ul>
 
@@ -59,10 +61,9 @@
 			</p>
 
 					<ul id = "futureFeatures">
-						<li>Create private events and select which users can suggest venues and vote</li>
+						<li>Create private events and select which users can have access</li>
 						<li>Ability to RSVP for events so you know who's going</li>
 						<li>Setting up a recurring event (for example, a weekly "Mo' Mondays Happy Hour")</li>
-						<li>Allow editing of events once they are created</li>
 						<li>Improved mobile device compatibility</li>
 					</ul>
 

@@ -150,7 +150,7 @@
 }
 
 #eventHeader-container {
-	margin-bottom: 50px;
+	margin-bottom: 35px;
 
 
 }
@@ -176,7 +176,7 @@
 .eventInfoText {
 	line-height: 1.0em;
 	font-size: 1.3em;
-	margin-bottom: 50px;
+	margin-bottom: 45px;
 }
 
 .eventInfoText h4 {
@@ -192,18 +192,33 @@
 }
 
 #eventNotes-container {
-	margin-bottom: 5px;
 	width: 85%;
+	margin-bottom: 25px;
 }
 
 #eventNotes {
-	font-size: 1em;
+	font-size: 0.9em;
 	font-style: italic;
 	font-weight	: normal;
+	padding-right: 10px;
 	height: 120px;
-	overflow-y: auto; 
-	text-align: justify;
+	overflow-y: hidden; 
+	text-align: left;
 
+}
+	#eventNotes:hover {
+		overflow-y: auto;
+	}
+
+#discussionBoard-container{
+	margin-bottom: 10px;
+	border-top: 2px solid black;
+}
+
+#discussionBoard {
+	height: 180px;
+	margin-bottom: 5px;
+	margin-right: 10px;
 }
 
 .infoSubHead {
@@ -226,7 +241,7 @@
 	border: ridge 5px gray;
 	border-radius: 15px;
 	padding: 10px 10px;
-	height: 620px;
+	height: 650px;
 	}
 
 	#venueList-header h3{
@@ -235,11 +250,11 @@
 	}
 
 	#venueList {
-		overflow-y: hidden;
+		overflow-y: auto;
 		text-align: left;
 		padding-left: 5px;
 		margin: 5px 0px;
-		height: 575px;
+		height: 375px;
 	}
 
 	#venueList:hover {

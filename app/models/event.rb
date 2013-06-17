@@ -33,7 +33,7 @@ private
     else
       #converts to datetime in PDT for easier date subtraction
       self.event_start = DateTime.parse("#{@date} #{@time}")
-      event_start_valid? unless self.stage === "Finished" #validates event_start if event is not finished
+      event_start_valid? unless self.stage === "Finished" #validates event_start
     end
   end
 
