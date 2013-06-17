@@ -46,6 +46,7 @@
 	#eventName {
 		font-weight: bold;
 		font-size: 1.5em;
+		height: 22px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -181,6 +182,13 @@
 .eventInfoText h4 {
 	font-size: 1.2em;
 	text-shadow: 0.07em 0.07em #D1CBCD;
+	margin-bottom: 2px;
+}
+
+#eventShowModifiers {
+	font-size: 0.7em;
+	text-shadow: none;
+	font-weight: normal;
 }
 
 #eventNotes-container {
@@ -496,11 +504,11 @@
 	font-size: 0.85em;
 }
 
-#timepicker {
+#event_timepicker {
 	width: 80px;
 }
 
-#datepicker {
+#event_datepicker {
 	width: 100px;
 }
 

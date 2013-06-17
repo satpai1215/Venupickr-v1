@@ -50,6 +50,11 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
 
+    #convert event_start back into date and time components
+    @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
+    @event.timepicker = @event.event_start.strftime("%I:%M%p")
+
+
     respond_to do |format|
       format.html # edit.html.erb
       format.json { render json: @event }
@@ -72,7 +77,7 @@ class EventsController < ApplicationController
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
           
-          format.html { redirect_to events_path, notice: 'Event was successfully created.' }
+          format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
           format.js
         else

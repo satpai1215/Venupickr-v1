@@ -6,9 +6,9 @@ module EventsHelper
 	def display_edit_event(event)
 		html = ""
 		if(current_user == event.user)
-			if(event.stage == "Finished")
+			if(event.stage != nil)
 				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
-				html << ")" + "<br/>"	
+				html << ")"	
 			end
     	end
     	return html.html_safe
@@ -18,7 +18,7 @@ module EventsHelper
 		html = ""
 		if(current_user == event.user)
 			if(event.stage != "Finished")
-	        	html << "(" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
+	        	html << " | (" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
 	        	html << ")" + '<br/>'
 			end
     	end
