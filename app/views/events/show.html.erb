@@ -60,8 +60,23 @@
 
 
 				<div id = "discussionBoard-container">
-					<h4>Discuss!</h4>
+					<div id = "discussionBoard-header">
+						<h4>Discuss!</h4>
+						<%= text_field_tag 'enterCommentsField', nil, :placeholder => 'enter comments here...'%>
+						<%= button_to "POST", {:controller => "events", :action => "post_comment", :event_id => @event.id}, {:class => "btn", :id => "postCommentButton", :remote => true } %>
+					</div>
 					<div id = "discussionBoard">
+						<ul>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+							<li>Filler Comment here woo woo</li>
+						</ul>
 					</div>
 				</div>
 

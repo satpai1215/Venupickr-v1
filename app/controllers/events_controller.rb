@@ -178,6 +178,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def post_comment
+
+  end
+
 private
 
   def write_jobs(event_id)
