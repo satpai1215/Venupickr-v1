@@ -179,7 +179,13 @@ class EventsController < ApplicationController
   end
 
   def post_comment
-
+    @content = params[:comment]
+    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
+      
+      respond_to do |format|
+        format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}
+        format.js
+      end
   end
 
 private

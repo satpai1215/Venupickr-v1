@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612052247) do
+ActiveRecord::Schema.define(:version => 20130617060121) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "username"
+  end
+
+  add_index "comments", ["event_id"], :name => "index_comments_on_event_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0

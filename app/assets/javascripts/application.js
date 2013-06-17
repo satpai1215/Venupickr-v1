@@ -62,6 +62,13 @@ $(document).on('click', '.appActions', function(event) {
     }
   );
 
+ $('#enterCommentsField').keyup(function(){
+    if($('#enterCommentsField').val() !=  "") 
+         $('#postCommentButton').attr('disabled', false);    
+    else
+         $('#postCommentButton').attr('disabled', true);   
+});
+
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //    $('#createVenueForm').dialog("open");
  // });
