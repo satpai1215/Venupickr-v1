@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   validates_format_of :timepicker, with: /^\d{1,2}:\d{2}[ap]m/i
   #validate :event_start_valid?, :on => :save
 
-  before_save :build_event_start_and_validate
+  before_save :build_event_start_and_validate, :on => [:create, :update]
 
 
   def to_s

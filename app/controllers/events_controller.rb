@@ -186,7 +186,7 @@ private
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
     # save id of delayed job on Event record
-    @event.update_attributes(:event_email_job_id => event_job.id)
+    @event.update_column(:event_email_job_id, event_job.id)
     #@event.update_attributes(:voting_email_job_id => vote_job.id)
 
   end
