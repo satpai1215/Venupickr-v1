@@ -46,7 +46,7 @@
 	#eventName {
 		font-weight: bold;
 		font-size: 1.5em;
-		height: 22px;
+		height: 23px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -64,9 +64,8 @@
 	.eventIndexTimer {
 		color: green;
 		text-align: center;
-		font-weight: bold;
 		font-size: 1.2em;
-		font-style: normal;
+		font-weight: bold;
 		line-height: 1.3em;
 		display: block;
 		height: 15px;
@@ -99,7 +98,9 @@
 #newsFeed h2 {
 	text-align: left;
 	font-size: 2em;
+	font-weight: normal;
 	margin: 0px;
+	margin-left: 10px; 
 	padding-top: 10px;
 	padding-left: 10px;
 }
