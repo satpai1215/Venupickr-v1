@@ -50,7 +50,7 @@ module EventsHelper
 		timeLeft = (((event.event_start - event.vote_end.hours) - DateTime.now)/1.day).to_int
 
 		if timeLeft > 1
-			html << timeLeft.to_s + " days"
+			html << timeLeft.to_s + " Days"
 		end
 
 		return html.html_safe
