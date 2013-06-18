@@ -92,7 +92,6 @@
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	overflow: hidden;
-
 }
 
 #newsFeed h2 {
@@ -126,7 +125,7 @@
 	text-overflow: ellipsis;
 }
 .newsFeed_timestamp {
-	font-weight: bold;
+	font-weight: normal;
 	color: green;
 }
 

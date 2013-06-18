@@ -32,7 +32,7 @@
   <% if @event.stage != 'Finished' %>
     <div class="field">
     <%= f.label :vote_end, "How many hours BEFORE your event will the winning venue be chosen?" %>
-    <%= f.select :vote_end,  {:options => (1..24).to_a}, :selected => "4" %>
+    <%= f.select :vote_end,  {:options => (1..48).to_a}, :selected => "3" %>
     </div>
   <% end %>
 
