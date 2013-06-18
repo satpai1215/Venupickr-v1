@@ -9,15 +9,14 @@
     <p>Mo' Mondays Mo' Problems!</p>
     ===============================================
     <h2>AN EVENT HAS BEEN CREATED!</h2>
-    <p><%= @event.user %> has just created a new event on the MoMondaysApp </p>
+    <p><%= @event.user %> has just created a new event on the MoMondaysApp! Below is the event information:</p>
 
     <p>
-      Below is the event information: <br/>
-      Event Name: "<%= @event.name %>" <br/>
-      Event Date: <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
-      Voting Closes: <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %><br/>
+      <b>Event Name:</b> "<%= @event.name %>" <br/>
+      <b>Event Date:</b> <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
+      <b>Voting Closes:</b> <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %><br/>
       <% if !@event.notes.blank? %> 
-        Notes to Guests: <br/>
+        <b>Notes to Guests:</b> <br/>
         "<%= @event.notes %> "
       <% end %>
     </p>
