@@ -45,6 +45,18 @@ module EventsHelper
 		return html.html_safe
 	end
 
+	def timeLeft_days(event)
+		html = ""
+		timeLeft = (((event.event_start - event.vote_end.hours) - DateTime.now)/1.day).to_int
+
+		if timeLeft > 1
+			html << timeLeft.to_s + " days"
+		end
+
+		return html.html_safe
+	end
+
+
 	def action_links(event)
 		html = ""
 		link_text = "Go to Event Page!"

@@ -51,22 +51,26 @@ function createCountdown(end_date, selector) {
 //creates countdown timers in events#index view for each event
 function createTimersinIndex()
 {
-	var eventDate = [];
-	for (var i = 0; i < gon.numEvents; i++) { 
-		var dateFromView = $("#eventIndexTimer" + i).data("date");
-		var dateString = parseDate(dateFromView)
-        //make dateString firefox/IE compatible
-        dateString = dateString.replace(/-/g, "/");
-		eventDate.push(new Date(dateString));
-	}
-	for(var i=0; i < eventDate.length; i++) {
-		var x= eventDate[i];
-		var now = new Date();
-		if (eventDate[i] - now > 0) {
-	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
-	  	}
+     //if timeLeft is less than 1 day, show countdown clock
+    	var eventDate = [];
+    	for (var i = 0; i < gon.numEvents; i++) { 
+    		var dateFromView = $("#eventIndexTimer" + i).data("date");
+    		var dateString = parseDate(dateFromView)
+            //make dateString firefox/IE compatible
+            dateString = dateString.replace(/-/g, "/");
+    		eventDate.push(new Date(dateString));
+    	}
+    	for(var i=0; i < eventDate.length; i++) {
+    		var x= eventDate[i];
+    		var now = new Date();
+            var msInDay = 1000*24*60*60;
+            //console.log();
+    		if ((eventDate[i]-now)/(msInDay) > 0 && (eventDate[i]-now)/(msInDay) < 1 ) {
+    	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
+                $("#eventIndexTimer" + i.toString()).addClass('red');
+    	  	}
 
-	}
+    	}
 }
 
 //parses date string object returned from rails events#index view
@@ -81,7 +85,7 @@ function parseDate(date) {
 //updates countdown timer for upcoming events
 function updateCountdown(d, selector) {
     var currentDate = new Date();
-    if (d - currentDate <=0) {
+    if (d - currentDate <= 0) {
         $(selector).html("Time's Up!");
     }
     else {
