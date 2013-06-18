@@ -1,5 +1,5 @@
 #about-container {
-	padding: 10px 30px;
+	padding: 20px 30px;
 }
 
 
@@ -58,14 +58,14 @@
 .appActionsInfo {
 	display: none;
 	font-size: 1.1em;
-	height: 250px;
-	margin: 20px 20px;
+	padding: 5px 0px;
+	margin: 0px 20px;
 	list-style: circle;
 	list-style-position: inside;
 }
 
 .appActionsInfo li {
-	margin: 10px;
+	margin: 10px 0px;
 }
 
 .eventCompletionInfo-container {
@@ -106,7 +106,8 @@
 
 #eventHistory h2 {
 	float: left;
-	padding-left: 20px;
+	padding-left: 30px;
+	font-weight: normal;
 
 }
 #eventHistoryTable {

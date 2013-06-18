@@ -145,10 +145,6 @@
 
 }
 
-#eventShow h1 {
-	text-shadow: 0.07em 0.07em #D1CBCD;
-}
-
 #eventHeader-container {
 	margin-bottom: 35px;
 
@@ -156,6 +152,7 @@
 }
 #eventHeader-container h1 {
 	text-wrap: normal;
+	text-shadow: 0.07em 0.07em #D1CBCD;
 }
 
 #eventHeader-container h4 {
@@ -448,7 +445,6 @@
 	color: red;
 	font-weight: bold;
 	line-height: 1.2em;
-
 	height: 0px;
 	position: relative;
 	top: 250px;
@@ -507,6 +503,9 @@
 .new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions {
 	text-align: center;
 	margin-top: 20px;
+}
+
+button.ui-dialog-titlebar-close {
 }
 
 #error_explanation {
