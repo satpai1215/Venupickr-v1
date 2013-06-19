@@ -60733,3 +60733,148 @@ Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.2ms)
 
 Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-06-19 00:03:44 -0700
 Served asset /ajax-loader.gif - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (6.2ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished')
+  [1m[36mUpdate Load (3.7ms)[0m  [1mSELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 12[0m
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (stage != 'Finished' )[0m
+  [1m[35mEvent Load (1.7ms)[0m  SELECT "events".* FROM "events" WHERE (stage != 'Finished') ORDER BY event_start ASC
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  Rendered events/index.html.erb within layouts/application (459.8ms)
+Completed 200 OK in 587ms (Views: 494.1ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.timepicker.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery.timepicker.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery-ui-1.10.3.custom.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timepicker.min.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery.timepicker.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /jquery-ui-1.10.3.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/banner.png" for 127.0.0.1 at 2013-06-19 07:51:58 -0700
+Served asset /banner.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" for 127.0.0.1 at 2013-06-19 07:51:59 -0700
+Served asset /images/ui-bg_inset-hard_100_fcfdfd_1x100.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-icons_0078ae_256x240.png" for 127.0.0.1 at 2013-06-19 07:51:59 -0700
+Served asset /images/ui-icons_0078ae_256x240.png - 304 Not Modified (0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2013-06-19 07:52:00 -0700
+Processing by EventsController#new as JS
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/_form.html.erb (7.0ms)
+  Rendered events/new.js.erb (11.3ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/images/ui-bg_gloss-wave_75_2191c0_500x100.png" for 127.0.0.1 at 2013-06-19 07:52:00 -0700
+Served asset /images/ui-bg_gloss-wave_75_2191c0_500x100.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-bg_flat_75_aaaaaa_40x100.png" for 127.0.0.1 at 2013-06-19 07:52:00 -0700
+Served asset /images/ui-bg_flat_75_aaaaaa_40x100.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-06-19 07:52:00 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-bg_glass_55_f8da4e_1x400.png" for 127.0.0.1 at 2013-06-19 07:52:03 -0700
+Served asset /images/ui-bg_glass_55_f8da4e_1x400.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-icons_d8e7f3_256x240.png" for 127.0.0.1 at 2013-06-19 07:52:03 -0700
+Served asset /images/ui-icons_d8e7f3_256x240.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/images/ui-bg_glass_45_0078ae_1x400.png" for 127.0.0.1 at 2013-06-19 07:52:03 -0700
+Served asset /images/ui-bg_glass_45_0078ae_1x400.png - 304 Not Modified (0ms)
