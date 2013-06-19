@@ -9,6 +9,8 @@
 
 #eventList h2 {
 	padding-left: 20px;
+	font-size: 1.8em;
+	font-weight: normal;
 }
 
 #newEventCreate {
@@ -45,7 +47,7 @@
 	}
 	#eventName {
 		font-weight: bold;
-		font-size: 1.5em;
+		font-size: 1.3em;
 		height: 23px;
 		white-space: nowrap;
 		overflow: hidden;
@@ -96,7 +98,7 @@
 
 #newsFeed h2 {
 	text-align: left;
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: normal;
 	margin: 0px;
 	margin-left: 10px; 
@@ -586,10 +588,14 @@ button.ui-dialog-titlebar-close {
 
 #event_timepicker {
 	width: 80px;
+	cursor: pointer;
+	background: white;
 }
 
 #event_datepicker {
 	width: 100px;
+	cursor: pointer;
+	background: white;
 }
 
 

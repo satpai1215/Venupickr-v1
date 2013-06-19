@@ -18,6 +18,9 @@
  *= require "devise"
  */
 
+ body {
+ }
+
  /*----------------------------------------------------------------------------- 
 = NOTICE 
 -----------------------------------------------------------------------------*/
@@ -47,10 +50,9 @@
 
  #page_title > h1 {
 	font-family: CF Midnight, Helvetica, Arial, sans-serif;
-	text-align: center;
+	text-align: left;
 	margin: 0px;
 	border-bottom: 2px solid black;
-	border-right: 2px solid black;
 
 }
 
@@ -94,7 +96,7 @@ FOOTER
 -----------------------------------------------------------------------------*/
 footer {
 	margin: 10px auto;
-	font-size: 2em;
+	font-size: 1.5em;
 	text-align: center;
 	font-weight: bold;
 
