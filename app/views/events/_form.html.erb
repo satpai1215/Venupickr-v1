@@ -35,6 +35,9 @@
     <%= f.select :vote_end,  {:options => (1..48).to_a}, :selected => "3" %>
     </div>
   <% end %>
+  <div class="field">
+    <%= label_tag '', nil, :id => "event_vote_end_label" %>
+  </div>
 
   <div class="field">
     <%= f.label :notes, "Notes to Guests:" %>

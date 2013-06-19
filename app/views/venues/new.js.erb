@@ -114,7 +114,7 @@ function yelpRequest(request, response) {
         'success' : function(data) {
             console.log(data.businesses);
             //var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-            var matcher = new RegExp("^" + request.term, "i");
+            var matcher = new RegExp("^(" + request.term + ")", "i");
             response($.map(data.businesses, function(item){
                 if (matcher.test(item.name)) {
                     

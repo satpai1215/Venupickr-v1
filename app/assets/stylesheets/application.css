@@ -35,6 +35,11 @@
  header {
  }
 
+ #banner {
+ 	width: 600px;
+ 	height: auto;
+ }
+
  #page_header {
  	width: 940px;
 	margin: 0px auto;
@@ -42,11 +47,11 @@
 
  #page_title > h1 {
 	font-family: CF Midnight, Helvetica, Arial, sans-serif;
-	text-align: left;
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 0px;
-	padding: 5px;
+	text-align: center;
+	margin: 0px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+
 }
 
 #container {

@@ -385,13 +385,12 @@
 	float: left;
 }
 
-
 #enterCommentsField {
 	float: left;
-	height: 10px;
+	height: 15px;
 	width: 72%;
-	margin-top: 6px;
-	margin-right: 10px;
+	margin-top: 3px;
+	margin-right: 8px;
 	margin-bottom: 0px;
 	font-size: 0.9em;
 }
@@ -563,6 +562,15 @@ button.ui-dialog-titlebar-close {
 
 #event_vote_start {
 	width: 55px;
+}
+
+#event_vote_end {
+	width: 80px;
+}
+
+#event_vote_end_label {
+	height: 30px;
+	font-style: italic;
 }
 #event_name {
 	width: 350px;

@@ -5,5 +5,59 @@ $('#event_datepicker').datepicker();
 $('#event_timepicker').timepicker({
 	'minTime' : '9:00am',
 	'step' : 15,
-	'scrollDefaultTime' : '8:00pm'
+	'scrollDefaultTime' : '8:00pm',
+	'timeFormat': 'h:ia'
 });
+
+//shows user Voting Close date upon change of date/time/vote_end selection
+ $("#event_vote_end").change(function(event) {showVoteEndDate();});
+ $("#event_datepicker").change(function(event) {showVoteEndDate();});
+ $("#event_timepicker").change(function(event) {showVoteEndDate();});
+
+function showVoteEndDate() {
+ 	var dateText = $("#event_datepicker").val();
+ 	if( $("#event_timepicker").val() != "" && dateText != "" ) {
+		var timeText = $("#event_timepicker").timepicker('getTime');
+		var timeDate = new Date(Date.parse(timeText));
+
+		var date = new Date(Date.parse(dateText));
+		date.setHours(timeDate.getHours(), timeDate.getMinutes());
+		console.log($("#event_vote_end").val());
+
+		msToSubtract = parseInt($("#event_vote_end").val())*60*60*1000;
+		vote_end_date = new Date(Date.parse(date) - msToSubtract);
+
+		vote_end_text = convertDatetoString(vote_end_date);
+
+		$("#event_vote_end_label").text(vote_end_text); 
+ 	}
+ }
+
+ function convertDatetoString(date) {
+ 	var a_p = "";
+	var d = date;
+	var curr_hour = d.getHours();
+	if (curr_hour < 12) {
+	   a_p = "AM";
+	}
+	else {
+	   a_p = "PM";
+	}
+	if (curr_hour == 0) {
+	   curr_hour = 12;
+	}
+	if (curr_hour > 12) {
+	   curr_hour = curr_hour - 12;
+	}
+
+	var curr_min = d.getMinutes();
+
+	curr_min = curr_min + "";
+
+	if (curr_min.length == 1) {
+	   curr_min = "0" + curr_min;
+	}
+
+	vote_end_text = "Voting will close on " + (vote_end_date.getMonth() + 1).toString() + "/" + vote_end_date.getDate() + "/" +  vote_end_date.getFullYear() + " at " + curr_hour + ":" + curr_min + a_p;
+	return vote_end_text;
+ }
