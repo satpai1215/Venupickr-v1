@@ -23,7 +23,7 @@
     <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
 
     <%= f.label :datepicker, "Date:", :style => "display:inline" %>
-    <%= f.text_field :datepicker, {:placeholder => "mm/dd/yyyy", :readonly => 'true'} %>
+    <%= f.text_field :datepicker, {:placeholder => "mm/dd/yyyy", :readonly => 'true'} %> <br/>
 
     <%= f.label(:timepicker, "Time:", :style => "display:inline") %>
     <%= f.text_field(:timepicker, {:placeholder => "hh:mm"}) %>
@@ -32,12 +32,12 @@
 
   <% if @event.stage != 'Finished' %>
     <div class="field">
-    <%= f.label :vote_end, "How many hours BEFORE your event will the winning venue be chosen?" %>
+    <%= f.label :vote_end, "When will voting close (in hours before event start time)?", :id => "event_vote_end_label" %>
     <%= f.select :vote_end,  {:options => (1..48).to_a}, :selected => "3" %>
     </div>
   <% end %>
   <div class="field">
-    <%= label_tag '', nil, :id => "event_vote_end_label" %>
+    <%= label_tag '', nil, :id => "event_vote_end_calc" %>
   </div>
 
   <div class="field">

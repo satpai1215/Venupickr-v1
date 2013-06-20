@@ -36,14 +36,6 @@ module EventsHelper
 
 	end
 
-	def display_countdowns(event)
-		html = ""
-		html << '<h4>' + display_vote_countdown(event) + '</h4>'
-		html << display_prevoting_countdown(event)
-
-		return html.html_safe
-	end
-
 	def timeLeft_days(event)
 		html = ""
 		timeLeft = (((event.event_start - event.vote_end.hours) - DateTime.now)/1.day).to_int
@@ -65,6 +57,12 @@ module EventsHelper
 	
 
 	#event#show helper methods
+	def display_countdowns(event)
+		html = ""
+		html << display_vote_countdown(event)
+
+		return html.html_safe
+	end
 
 	def display_vote_countdown(event)
 
@@ -77,6 +75,16 @@ module EventsHelper
 		return html.html_safe
 	end
 
+	def display_prevoting_countdown(event)
+		html = ""
+		#only show Suggest Venue Form if Event is in 'pre-voting' stage
+		if event.stage == "Pre-Voting"
+			html << '<h4>Time Left for Venue Suggestion:</h4><span id = "venueSuggestCountdown" class = "infoSubHead red"></span>'
+		end
+		
+		return html.html_safe
+	end
+
 	def display_venue_suggest_button(event)
 		html = ""
 
@@ -85,17 +93,6 @@ module EventsHelper
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
 		end
 
-		return html.html_safe
-	end
-
-
-	def display_prevoting_countdown(event)
-		html = ""
-		#only show Suggest Venue Form if Event is in 'pre-voting' stage
-		if event.stage == "Pre-Voting"
-			html << '<h4>Time Left for Venue Suggestion:</h4><span id = "venueSuggestCountdown" class = "infoSubHead red"></span>'
-		end
-		
 		return html.html_safe
 	end
 

@@ -20,9 +20,8 @@
 }
 
 #eventList ul {
-	max-height: 640px;
+	
 	width: 650px;
-	overflow-y: auto;
 }
 
 #eventList ul li {
@@ -107,7 +106,7 @@
 }
 
 #newsFeed ul {
-	height: 630px;
+	min-height: 630px;
 	margin: 0px;
 	margin-bottom: 20px;
 	overflow: auto;
@@ -155,10 +154,12 @@
 #eventHeader-container h1 {
 	text-wrap: normal;
 	text-shadow: 0.07em 0.07em #D1CBCD;
+	font-weight: normal;
 }
 
 #eventHeader-container h4 {
 	margin: 0px 0px;
+	font-weight: normal;
 }
 
 #eventShow .span4 {
@@ -176,12 +177,15 @@
 	line-height: 1.0em;
 	font-size: 1.3em;
 	margin-bottom: 45px;
+	width: 85%;
 }
 
 .eventInfoText h4 {
 	font-size: 1.2em;
 	text-shadow: 0.07em 0.07em #D1CBCD;
 	margin-bottom: 5px;
+	font-weight: normal;
+	border-bottom: 1px solid black;
 }
 
 #eventShowModifiers {
@@ -239,6 +243,8 @@
 	#venueList-header h3{
 		border-bottom: solid 3px black;
 		margin: 0px;
+		font-size: 1.8em;
+		font-weight: normal;
 	}
 
 	#venueList {
@@ -268,8 +274,8 @@
 		background: #F9F9C9;
 		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
 		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
-		background-image: -webkit-linear-gradient(top, #F9F9C9, #EBEB00 );
-		background-image: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);
+		background-image: -webkit-linear-gradient(top, #F9F9C9, #F5F5CB );
+		background-image: -moz-linear-gradient(100% 100% 90deg, #F5F5CB, #F9F9C9);
 	}
 
 	.venueSticky {
@@ -385,6 +391,7 @@
 	margin-bottom: 0px;
 	font-size: 1.2em;
 	float: left;
+	font-weight: normal;
 }
 
 #enterCommentsField {
@@ -506,6 +513,10 @@
 	margin-top: 20px;
 }
 
+.field {
+	margin-bottom: 10px;
+}
+
 button.ui-dialog-titlebar-close {
 }
 
@@ -569,8 +580,11 @@ button.ui-dialog-titlebar-close {
 #event_vote_end {
 	width: 80px;
 }
-
 #event_vote_end_label {
+	font-size: 0.83em;
+}
+
+#event_vote_end_calc {
 	height: 30px;
 	font-style: italic;
 }
