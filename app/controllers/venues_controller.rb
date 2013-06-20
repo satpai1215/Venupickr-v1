@@ -58,6 +58,10 @@ class VenuesController < ApplicationController
 
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
 
+          if(@venue.event.user != current_user)
+            AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
+          end
+
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
           format.js
@@ -95,6 +99,9 @@ class VenuesController < ApplicationController
         end
 
         @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
+        if(@venue.event.user != current_user)
+          AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
+        end
     end
 
     respond_to do |format|

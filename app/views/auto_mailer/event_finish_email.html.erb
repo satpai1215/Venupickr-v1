@@ -14,22 +14,22 @@
     </p>
     <p>
       Below is the event information: <br/>
-      Event Name: "<%= @event.name %>" <br/>
-      Event Date: <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
-      Start Time: <%= @event.event_start.strftime("%I:%M%p") %><br/>
+      <b>Event Name:</b> "<%= @event.name %>" <br/>
+      <b>Event Date:</b> <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
+      <b>Start Time:</b> <%= @event.event_start.strftime("%I:%M%p") %><br/>
       
       <% if !@event.notes.blank? %>
-        Notes to Guests: <br/>
+        <b>Notes to Guests:</b> <br/>
         "<%= @event.notes %> "
       <% end %>
     </p>
      
      <h2>WINNING VENUE INFORMATION</h2>
     <p>
-      WINNING VENUE: <%= @winner.name %> <br/>
-      ADDRESS: <br/> <%= @winner.address.html_safe %> <br/>
-      URL: <%= @winner.url %> <br/>
-      SUGGESTED BY: <%= @winner.user.username %> <br/>
+      <b>WINNING VENUE:</b> <%= @winner.name %> <br/>
+      <b>ADDRESS:</b> <br/> <%= @winner.address.html_safe %> <br/>
+      <b>URL:</b> <%= @winner.url unless @winner.url.blank? %> <br/>
+      <b>SUGGESTED BY:</b> <%= @winner.user.username %> <br/>
     </p>
 
     <p>Are you going? RSVP using the discussion box on the <%= link_to("Event Page", @url) %></p>

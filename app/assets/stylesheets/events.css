@@ -441,7 +441,6 @@
 	color: red;
 	font-weight: bold;
 	line-height: 1.2em;
-
 	float: right;
 	margin-right: 20px;
 	margin-top: 5px;
@@ -457,8 +456,6 @@
 	position: relative;
 	top: 250px;
 	text-align: center;
-
-
 }
 
 #rsvpList {

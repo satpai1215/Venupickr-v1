@@ -55,7 +55,10 @@ function createTimersinIndex()
     	var eventDate = [];
     	for (var i = 0; i < gon.numEvents; i++) { 
     		var dateFromView = $("#eventIndexTimer" + i).data("date");
+            //console.log(dateFromView);
     		var dateString = parseDate(dateFromView)
+            //console.log(dateString);
+
             //make dateString firefox/IE compatible
             dateString = dateString.replace(/-/g, "/");
     		eventDate.push(new Date(dateString));

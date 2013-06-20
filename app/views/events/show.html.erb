@@ -5,7 +5,7 @@
 					<div id = "suggestVenueControl">
 						<%= display_venue_suggest_button(@event) %>
 					</div>
-					<% if @event.stage == "Finished" %>
+					<% if @event.stage != "Voting" %>
 						<% if @event.venues.count == 0 %>
 							<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
 						<% else %>
@@ -43,7 +43,7 @@
 										<% end %>
 										
 
-										<% if @event.stage != "Finished" %>
+										<% if @event.stage == "Voting" %>
 										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
 										<% end %>
@@ -120,7 +120,7 @@
 	<%= javascript_tag do %>
   		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
   		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
-  		<% if @event.stage == "Finished" %>
+  		<% if @event.stage != "Voting" %>
   			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
   			$('#venueList ul li .voteCount').first().css('color', 'red');
   			$('.listItem:first .venueStickyHeader').append('- WINNER!');

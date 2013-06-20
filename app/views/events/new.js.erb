@@ -23,7 +23,7 @@ function showVoteEndDate() {
 
 		var date = new Date(Date.parse(dateText));
 		date.setHours(timeDate.getHours(), timeDate.getMinutes());
-		console.log($("#event_vote_end").val());
+		//console.log($("#event_vote_end").val());
 
 		msToSubtract = parseInt($("#event_vote_end").val())*60*60*1000;
 		vote_end_date = new Date(Date.parse(date) - msToSubtract);

@@ -9,6 +9,13 @@ class AutoMailer < ActionMailer::Base
     mail(:bcc => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
+  def venue_suggested_email(event_id, venue_id)
+    @event = Event.find(event_id)
+    @venue_owner = Venue.find(venue_id).user.username
+    @url = event_url(@event)
+    mail(:bcc => @event.user.email, :subject => "ALERT: A venue has been suggested for your event, '#{@event.name}'")
+  end
+
   def event_finish_email(event_id)
   	@event = Event.find(event_id)
     @winner = Venue.find(@event.winner)
@@ -30,13 +37,13 @@ class AutoMailer < ActionMailer::Base
   	@event = Event.find(event_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - 8.hours
-    mail(:bcc => email_list, :subject => "Voting for '#{@event.name}' Has Started")
+    mail(:bcc => email_list, :subject => "ALERT: Voting for '#{@event.name}' Has Started")
   end
 
   def no_venue_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
-    mail(:to => @event.user.email, :subject => "No Venues Suggested for '#{@event.name}'")
+    mail(:to => @event.user.email, :subject => "WARNING: No Venues Suggested for '#{@event.name}'")
   end
 
   def no_venue_email_final(event_id)

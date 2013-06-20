@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #only display events that are not finished
-    @events = Event.find(:all, :conditions => ["stage != ?", "Finished"])
+    @events = Event.where("stage == ?", "Voting")
     gon.numEvents = @events.count
 
     respond_to do |format|
@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @vote_end = 3
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,12 +54,13 @@ class EventsController < ApplicationController
     #convert event_start back into date and time components
     @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
     @event.timepicker = @event.event_start.strftime("%I:%M%p")
+    @vote_end = @event.vote_end
 
 
     respond_to do |format|
       format.html # edit.html.erb
       format.json { render json: @event }
-      format.js {render action: 'new'}
+      format.js
     end
 
   end

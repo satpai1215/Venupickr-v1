@@ -17,7 +17,7 @@ module EventsHelper
 	def display_delete_event(event)
 		html = ""
 		if(current_user == event.user)
-			if(event.stage != "Finished")
+			if(event.stage == "Voting")
 	        	html << " | (" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
 	        	html << ")" + '<br/>'
 			end
@@ -28,7 +28,7 @@ module EventsHelper
 	def display_reminder_link(event)
 		html = ""
 		if(current_user == event.user)
-			if(event.stage != "Finished")
+			if(event.stage == "Voting")
 	        	html << link_to("Send Reminder Email", {:controller => 'events', :action => "send_reminder", :event_id => event.id}, data:{confirm: 'Are you sure you want to send a reminder email to all guests?'}, remote: true)
 			end
     	end
@@ -88,7 +88,7 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.stage != "Finished")
+		if(event.stage == "Voting")
 			html << "#{link_to "Suggest a Venue", 
 			new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
 		end
