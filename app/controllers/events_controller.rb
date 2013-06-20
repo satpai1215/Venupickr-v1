@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #only display events that are not finished
-    @events = Event.where("stage == ?", "Voting")
+    @events = Event.where("stage = ?", "Voting")
     gon.numEvents = @events.count
 
     respond_to do |format|
