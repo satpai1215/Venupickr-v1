@@ -60,3 +60,5 @@ Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote wh
        <%#= f.datetime_select :event_start, {:ampm => true, :use_short_month => true, :default => {:day => Time.now.day, :hour => '20', :minute => '0'}, :start_year => Time.now.year, :minute_step => 1} %>
     </div>
   </div> -->
+
+  ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
