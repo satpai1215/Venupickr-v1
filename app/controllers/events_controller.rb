@@ -196,12 +196,13 @@ private
 
   def write_jobs(event_id)
     @event = Event.find(event_id)
+    @vote_end = @event.event_start - @event.vote_end.hours
 
     #delete delayed_jobs if it exists
     destroy_jobs(event_id)
 
     #rewrite delayed_jobs for updated event
-    event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start - @event.vote_end.hours)
+    event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @vote_end)
     archive_job = Delayed::Job.enqueue(ArchiveJob.new(@event.id), 0, @event.event_start)
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 

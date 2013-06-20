@@ -5,7 +5,7 @@ module EventsHelper
 
 	def display_edit_event(event)
 		html = ""
-		if(current_user == event.user)
+		if(current_user == event.user and event.stage != "Archived")
 			if(event.stage != nil)
 				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
 				html << ")"	
