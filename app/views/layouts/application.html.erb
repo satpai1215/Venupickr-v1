@@ -12,17 +12,18 @@
 		<div id = "page_header">
 				<div id = "page_title"><h1><img src = "/assets/banner.png" id = "banner"/></h1></div>
 			<div class = "row">
-				<div class = "span5">
+				<div class = "span6">
 					<nav>	
 						<ul class = "nav nav-pills">
 							<li><%= link_to "Home", events_path %></li>
-							<li><%= link_to "Finished Events", pages_history_path %></li>
+							<li><%= link_to "Upcoming Events", pages_upcoming_path %></li>
+							<li><%= link_to "Archived Events", pages_archived_path %></li>
 							<li><%= link_to "About", pages_info_path %></li>
 						</ul>
 					</nav>
 				</div>
 
-				<div id="login-nav" class = "span7">
+				<div id="login-nav" class = "span6">
 						<% if user_signed_in? %>
 							Logged in as <%= current_user %> 
 							<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 

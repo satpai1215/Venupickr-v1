@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617060121) do
+ActiveRecord::Schema.define(:version => 20130620015411) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130617060121) do
     t.integer  "event_email_job_id"
     t.integer  "voting_email_job_id"
     t.text     "notes",               :limit => 255
+    t.integer  "archive_job_id"
   end
 
   create_table "rsvps", :force => true do |t|

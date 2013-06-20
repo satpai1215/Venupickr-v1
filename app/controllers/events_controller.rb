@@ -200,10 +200,12 @@ private
 
     #rewrite delayed_jobs for updated event
     event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @event.event_start - @event.vote_end.hours)
+    archive_job = Delayed::Job.enqueue(ArchiveJob.new(@event.id), 0, @event.event_start)
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
     # save id of delayed job on Event record
     @event.update_column(:event_email_job_id, event_job.id)
+    @event.update_column(:archive_job_id, archive_job.id)
     #@event.update_attributes(:voting_email_job_id => vote_job.id)
 
   end
@@ -212,6 +214,9 @@ private
     @event = Event.find(event_id)
     if @event.event_email_job_id and Delayed::Job.exists?(@event.event_email_job_id)
       Delayed::Job.find(@event.event_email_job_id).destroy
+    end
+    if @event.archive_job_id and Delayed::Job.exists?(@event.archive_job_id)
+      Delayed::Job.find(@event.archive_job_id).destroy
     end
 
 
