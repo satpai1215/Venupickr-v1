@@ -20,7 +20,7 @@
 }
 
 #eventList ul {
-	
+	overflow: auto;
 	width: 650px;
 }
 
@@ -106,7 +106,7 @@
 }
 
 #newsFeed ul {
-	min-height: 630px;
+	height: 630px;
 	margin: 0px;
 	margin-bottom: 20px;
 	overflow: auto;

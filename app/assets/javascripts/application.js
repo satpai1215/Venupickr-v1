@@ -33,6 +33,10 @@ $(document).on('click', '#eventSubmitButton', function(event) {
   $('#event-loading-gif').css('visibility', 'visible');
   $('#eventSubmitButton').hide();
 });
+$(document).on('click', '#venueSubmitButton', function(event) {
+  $('#event-loading-gif').css('visibility', 'visible');
+  $('#venueSubmitButton').hide();
+});
 
 $(document).on('click', '.appActions', function(event) {
   $('.appActions').removeClass('selected');

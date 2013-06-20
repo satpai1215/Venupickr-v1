@@ -43,7 +43,9 @@
 
   <div class="actions">
     <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {id: "venueSubmitButton"} %>
+     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
+
 <% end %>
 
 <%#= link_to 'Back to Event Page', event_path(@venue.event) %>
