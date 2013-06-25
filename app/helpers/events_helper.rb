@@ -118,4 +118,8 @@ module EventsHelper
 
 	end
 
+  	def endlines_to_breaks(string)
+  		string.gsub(/\n/, '<br/>').html_safe
+  	end
+
 end

@@ -47,9 +47,12 @@ private
     end
   end
 
-
   before_create do 
     self.stage = "Voting"
+  end
+
+  def convert_spaces_to_breaks_in_notes
+
   end
 
 end

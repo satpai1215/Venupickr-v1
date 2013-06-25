@@ -99,7 +99,7 @@
 					<% if !@event.notes.blank? %>
 						<div class = "eventInfoText" id = "eventNotes-container" >
 							<h4> Notes to Guests: </h4>
-							<div class = "infoSubHead" id = "eventNotes">"<%= @event.notes %>"</div>
+							<div class = "infoSubHead" id = "eventNotes">"<%= endlines_to_breaks(@event.notes) %>"</div>
 						</div>
 					<% end %>
 				</div> <!-- eventInfo-container -->
