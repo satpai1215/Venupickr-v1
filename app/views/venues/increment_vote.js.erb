@@ -33,7 +33,7 @@ $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
 
 $currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :id => 'checked_venue')) %>");
 
-voteSort();
+//voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
 
 
