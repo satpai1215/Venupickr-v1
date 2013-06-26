@@ -164,7 +164,7 @@ class VenuesController < ApplicationController
         #@venue.update_attributes(:votecount => num )
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
-        Update.create!(:content => "#{current_user} just voted for #{@venue} for the event: \"#{@venue.event}\"")
+        Update.create!(:content => "#{current_user} just cast a vote the event: \"#{@venue.event}\"")
 
         @votecount = @venue.voters.count
 
