@@ -18,13 +18,13 @@
 					
 					<ul id = "venueList">
 						<%if @event.venues.count === 0 %>
-                            <div id = "noEventsLabel">  
+                            <div class = "noEventsLabel">  
                                 <li> <%= @no_venues_text %></li>
                             </div>
 
                         <% else %>
-                        	<div id = "noEventsLabel">  
-                                <li>Vote counts will be revealed when the voting period closes.</li>
+                        	<div class = "noEventsLabel">  
+                                <li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
                             </div>
 							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
@@ -63,7 +63,7 @@
 
 								</li><!--listItem -->
 							<% end %>
-							<!--<%#= javascript_tag do %> voteSort() <%# end %> -->
+							<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
 						<% end %>
 					</ul>
 

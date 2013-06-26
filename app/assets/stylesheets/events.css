@@ -3,11 +3,11 @@
 	height: 200px;
 }
 
-#eventList {
+.eventList {
 	margin-left: 0px;
 }
 
-#eventList h2 {
+.eventList h2 {
 	padding-left: 20px;
 	font-size: 1.8em;
 	font-weight: normal;
@@ -19,12 +19,12 @@
 	margin-right: 25px;
 }
 
-#eventList ul {
+.eventList ul {
 	overflow: auto;
 	width: 650px;
 }
 
-#eventList ul li {
+.eventList ul li {
 	margin-left: 0px;
 	margin-bottom: 5px;
 	border: inset 2px gray;
@@ -36,7 +36,7 @@
    	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);*/
 }
 
-#eventList ul li:hover {
+.eventList ul li:hover {
 	background: #F9F9C9;
 }
 	
@@ -53,7 +53,7 @@
 		text-overflow: ellipsis;
 	}
 
-#eventList ul li .span2 {
+.eventList ul li .span2 {
 	float: right;
 	margin-right: 5px;
 }
@@ -81,8 +81,13 @@
 		width: 100px;
 	}
 
-.event-show-btn {
+.event-voting-btn {
 	font-size: 0.85em;
+}
+
+.event-upcoming-btn {
+	font-size: 0.85em;
+	margin-top: 8px;
 }
 
 
@@ -130,7 +135,7 @@
 	color: green;
 }
 
-#noEventsLabel {
+.noEventsLabel {
 	font-weight: bold;
 	color: red;
 	text-align: center;

@@ -50,8 +50,9 @@ module EventsHelper
 
 	def action_links(event)
 		html = ""
-		link_text = "Go to Event Page!"
-		html << link_to(link_text, event_path(event), {:class => "btn btn-primary event-show-btn"})
+		link_text = (event.stage == "Voting" ? "Go to Event Page!": "See Event Info")
+		btn_type = (event.stage == "Voting" ? "btn-primary event-voting-btn": "btn-primary event-upcoming-btn")
+		html << link_to(link_text, event_path(event), {:class => "btn #{btn_type}"})
 		return html.html_safe
 	end
 	

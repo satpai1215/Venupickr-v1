@@ -21,8 +21,44 @@
         </div><!--newsFeed-->
     </div><!--span4-->
         <div class = "span9">
+            <div  class = "eventList" id = "upcomingEvents" >
 
-            <div  id = "eventList" >
+            <div class = "row">
+                <div class = "span6"><h2>Upcoming Events:</h2></div>
+            </div>
+                    <ul>
+                        <%if @upcoming_events.count === 0 %>
+                            <div class = "noEventsLabel">  
+                                <li> No upcoming events </li>
+                            </div>
+                        <% else %>
+                            <% @upcoming_events.each_with_index do |event| %>
+                                
+                                    <li>
+                                      <div class = "row">
+                                        <div class = "span6">
+                                            <div class = "eventLabel" >
+                                                <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
+                                                <div class = "eventName"><%= event.name %></div>
+                                                <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                                    <%= event.event_start.strftime("%I:%M%p") %>
+                                                <br/> Created By: <%= event.user.username %>
+                                            </div>
+                                        </div>
+                                            <div class = "span2">
+                                                <div class = "eventClock">
+                                                 <div class = "eventActionLink"><%=action_links(event)%></div>
+                                            </div></div>
+                                        </div>
+                                    </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                   <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
+
+            </div> <!--eventList Upcoming Events -->
+
+            <div  class = "eventList" id = "votingEvents" >
 
             <div class = "row">
                 <div class = "span6"><h2>Events on the Clock:</h2></div>
@@ -65,8 +101,8 @@
                     </ul>
                    <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
 
-            </div> <!--eventList -->
-        </div> <!--span8-->
+            </div> <!--eventList Events on the Clock -->
+        </div> <!--span9-->
 
 </div> <!--row-->
 
