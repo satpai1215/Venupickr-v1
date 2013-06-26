@@ -335,9 +335,9 @@
 			color: blue;
 
 		}
-		.voteButton {
+		.voteIcon {
 			position: absolute;
-			bottom: 5px;
+			bottom: 2px;
 			right: 0px;
 			margin: 0px;
 		}
@@ -351,8 +351,11 @@
 		#checked_venue {
 			width: 32px;
 			height: auto;
-			margin-right: 2px;
-			margin-bottom: 2px;
+
+			position: absolute;
+			bottom: 2px;
+			right: 2px;
+			margin: 0px;
 		}
 
 	.voteList {

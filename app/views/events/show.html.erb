@@ -23,6 +23,9 @@
                             </div>
 
                         <% else %>
+                        	<div id = "noEventsLabel">  
+                                <li>Vote counts will be revealed when the voting period closes.</li>
+                            </div>
 							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 									
@@ -31,7 +34,7 @@
 
 								  	<div class = "voteControls">
 
-										<% if @event.stage != "Voting" %>
+										<% if @event.stage != "Voting" or current_user.username == "Spaiderman"%>
 											<div class = "voteCount"><%= venue.voters.count %></div>
 											
 											<% if venue.voters.count > 0 %>
@@ -43,14 +46,17 @@
 												<% end %>
 											</ol>
 											<% end %>
+										<% end %>
 
-										<% else %>
+										<% if @event.stage == "Voting" %>
 										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
-											<% if venue.voters.where(:user_id => current_user.id).exists? %>
-												<%= image_tag("checkmark.png", :id => "checked_venue") %>
-											<% else %>
-												<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
-											<% end %>
+											<div class = "voteIcon">
+												<% if venue.voters.where(:user_id => current_user.id).exists? %>
+													<%= image_tag("checkmark.png", :id => "checked_venue") %>
+												<% else %>
+													<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
+												<% end %>
+											</div><!--voteIcon-->
 										<% end %>
 
 									</div> <!-- voteControls -->
