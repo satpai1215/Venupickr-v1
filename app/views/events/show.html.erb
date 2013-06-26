@@ -30,27 +30,30 @@
 								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 
 								  	<div class = "voteControls">
-										<div class = "voteCount"><%= venue.voters.count %></div>
 
-										<% if venue.voters.count > 0 %>
-										<ol class = "voteList">
-											<h5>Voters:</h5>
+										<% if @event.stage != "Voting" %>
+											<div class = "voteCount"><%= venue.voters.count %></div>
+											
+											<% if venue.voters.count > 0 %>
+											<ol class = "voteList">
+												<h5>Voters:</h5>
 											
 												<% venue.voters.each do |voter| %>
 													<li><%= voter.user.username %></li>
 												<% end %>
-										</ol>
-										<% end %>
-										
+											</ol>
+											<% end %>
 
-										<% if @event.stage == "Voting" %>
+										<% else %>
 										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
-										<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
+											<% if venue.voters.where(:user_id => current_user.id).exists? %>
+												<%= image_tag("checkmark.png", :id => "checked_venue") %>
+											<% else %>
+												<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
+											<% end %>
 										<% end %>
-
 
 									</div> <!-- voteControls -->
-
 
 								</li><!--listItem -->
 							<% end %>
