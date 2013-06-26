@@ -7,7 +7,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #only display events that are not finished
-    @events = Event.where("stage = ?", "Voting")
+    @events = Event.where("stage = ?", "Voting").order("event_start ASC")
+    @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC").paginate(:page => params[:page], :per_page => 12)
     gon.numEvents = @events.count
 
     respond_to do |format|

@@ -27,25 +27,25 @@
             <div class = "row">
                 <div class = "span6"><h2>Events on the Clock:</h2></div>
                 <div class = "span3">
-                    <% if Event.where("stage = ? ", "Voting").count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :class => "btn btn-success", :remote => true} %> <% end %>
+                    <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :class => "btn btn-success", :remote => true} %> <% end %>
                 </div>
              <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
             </div>
                     <ul>
-                        <%if Event.where("stage = ? ", "Voting").count === 0 %>
+                        <%if @events.count === 0 %>
                             <div id = "noEventsLabel">  
                                 <li> No Events on the Clock.  Click "Create New Event" button to make one! </li>
                             </div>
                         <% else %>
-                            <% Event.where("stage = ?", "Voting").order('event_start ASC').each_with_index do |event, index| %>
+                            <% @events.each_with_index do |event, index| %>
                                 
                                     <li id = <%= "event_" + (event.id).to_s %>>
                                       <div class = "row">
                                         <div class = "span6">
                                             <div class = "eventLabel" >
                                                 <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
-                                                <div id = "eventName"><%= event.name %></div>
-                                                <div id = "eventIndexModifiers"><%= display_edit_event(event) %><%= display_delete_event(event) %></div>
+                                                <div class = "eventName"><%= event.name %></div>
+                                                <div class = "eventIndexModifiers"><%= display_edit_event(event) %><%= display_delete_event(event) %></div>
                                                 <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                     <%= event.event_start.strftime("%I:%M%p") %>
                                                 <br/> Created By: <%= event.user.username %>
