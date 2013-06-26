@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, :on => :create
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :username, with: /^[a-zA-Z0-9_]*[a-zA-Z][a-zA-Z0-9_]*$/
-  validates_length_of :username, :maximum => 20
+  validates_length_of :username, :minimum => 4, :maximum => 20
 
   validate :access_code_match, :on => :create
 
