@@ -1,3 +1,4 @@
+/* used to update votecounts on event#show during Voting--not needed for hidden votecounts
 
 venueItemVoteCount = <%= @votecount %>;
 $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
@@ -19,7 +20,22 @@ $currentListItem.children(".voteCount").text(<%= @votecount %>);
 <% end %>
 
 voteSort();
-$("#notice").text("<%= escape_javascript(@notice_text) %>");
+$("#notice").text("<%= escape_javascript(@notice_text) %>"); 
+
+*/
+
+
+$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
+<% if !@voter.nil? %>
+	$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteIcon");
+	$previousListItem.html("<%= escape_javascript(link_to image_tag('upvote.png'), {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id,:event_id => @previous_venue.event.id }, {:class => 'voteButton', :remote => true }) %>");
+<% end %>
+
+$currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :id => 'checked_venue')) %>");
+
+voteSort();
+$("#notice").text("<%= escape_javascript(@notice_text) %>"); 
+
 
 
 
