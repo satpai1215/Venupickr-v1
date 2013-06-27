@@ -26,7 +26,7 @@
      
      <h2>WINNING VENUE INFORMATION</h2>
     <p>
-      <b>WINNING VENUE:</b> <%= @winner.name %> <br/>
+      <b>VENUE:</b> <%= @winner.name %> <br/>
       <b>ADDRESS:</b> <br/> <%= @winner.address.html_safe %> <br/>
       <b>URL:</b> <%= @winner.url unless @winner.url.blank? %> <br/>
       <b>SUGGESTED BY:</b> <%= @winner.user.username %> <br/>

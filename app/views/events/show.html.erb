@@ -25,6 +25,7 @@
                         <% else %>
                         	<div class = "noEventsLabel">  
                                 <li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
+                                 <li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
                             </div>
 							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
@@ -33,8 +34,7 @@
 								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 
 								  	<div class = "voteControls">
-
-										<% if @event.stage != "Voting" or current_user.username == "Spaiderman"%>
+										<% if @show_votecounts %>
 											<div class = "voteCount"><%= venue.voters.count %></div>
 											
 											<% if venue.voters.count > 0 %>
