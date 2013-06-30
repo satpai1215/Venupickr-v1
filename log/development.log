@@ -314,3 +314,4 @@ Content-Transfer-Encoding: 7bit
   [1m[36mDelayed::Backend::ActiveRecord::Job Load (0.3ms)[0m  [1mSELECT "delayed_jobs".* FROM "delayed_jobs" WHERE ((run_at <= '2013-06-26 06:02:10.002039' AND (locked_at IS NULL OR locked_at < '2013-06-26 05:59:10.002075') OR locked_by = 'host:Satyans-MacBook-Pro.local pid:22020') AND failed_at IS NULL) ORDER BY priority ASC, run_at ASC LIMIT 1[0m
   [1m[35mSQL (0.2ms)[0m  UPDATE "delayed_jobs" SET locked_by = null, locked_at = null WHERE (locked_by = 'host:Satyans-MacBook-Pro.local pid:22020')
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
