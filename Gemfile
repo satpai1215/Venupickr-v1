@@ -45,6 +45,8 @@ group :production do
 	gem 'pg'
 end
 
+gem 'newrelic_rpm'
+
 gem 'heroku'
 gem 'heroku-api'
 
