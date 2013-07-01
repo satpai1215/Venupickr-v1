@@ -9,7 +9,8 @@ class EventsController < ApplicationController
     #only display events that are not finished
     @events = Event.where(:stage => "Voting").order("event_start ASC")
     @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC")
-    gon.numEvents = @events.count
+    gon.numUpcoming = @upcoming_events.count
+    gon.numEvents_index = @upcoming_events.count + @events.count
 
     respond_to do |format|
       format.html # index.html.erb

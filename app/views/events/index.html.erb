@@ -32,7 +32,7 @@
                                 <li> No upcoming events </li>
                             </div>
                         <% else %>
-                            <% @upcoming_events.each_with_index do |event| %>
+                            <% @upcoming_events.each_with_index do |event, index| %>
                                 
                                     <li>
                                       <div class = "row">
@@ -47,6 +47,8 @@
                                         </div>
                                             <div class = "span2">
                                                 <div class = "eventClock">
+                                                    <p>Event Starts In:</p>
+                                                    <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
                                                  <div class = "eventActionLink"><%=action_links(event)%></div>
                                             </div></div>
                                         </div>
@@ -74,7 +76,6 @@
                             </div>
                         <% else %>
                             <% @events.each_with_index do |event, index| %>
-                                
                                     <li id = <%= "event_" + (event.id).to_s %>>
                                       <div class = "row">
                                         <div class = "span6">
@@ -90,7 +91,7 @@
                                             <div class = "span2">
                                                 <div class = "eventClock">
                                                 <p>Voting Ends In:</p>
-                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start-event.vote_end.hours).to_s })%><%= timeLeft_days(event) %>
+                                                <%= tag(:span, id: "eventIndexTimer" + (index + @upcoming_events.count).to_s, class: "eventIndexTimer", data: {date: (event.event_start-event.vote_end.hours).to_s})%><%= timeLeft_days(event) %>
                                                 </span>
                                                  <div class = "eventActionLink"><%=action_links(event)%></div>
                                             </div></div>
