@@ -29,7 +29,7 @@
       <b>VENUE:</b> <%= @winner.name %> <br/>
       <b>ADDRESS:</b> <br/> <%= @winner.address.html_safe %> <br/>
       <% if !@winner.url.blank? %>
-        <b>URL:</b><%= @winner.url %>
+        <b>URL: </b><%= @winner.url %> <br/>
       <% end %>
       <b>SUGGESTED BY:</b> <%= @winner.user.username %> <br/>
     </p>

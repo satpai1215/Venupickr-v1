@@ -176,7 +176,12 @@ class EventsController < ApplicationController
 
   def send_reminder
     @event = Event.find(params[:event_id])
-    AutoMailer.reminder_email(params[:event_id]).deliver
+    if @event.stage == "Voting"
+      AutoMailer.voting_reminder_email(params[:event_id]).deliver
+    elsif @event.stage == "Finished"
+      AutoMailer.finished_reminder_email(params[:event_id]).deliver
+    else
+    end
 
     respond_to do |format|
       format.html {redirect_to @event, notice: "A reminder email has been sent"}

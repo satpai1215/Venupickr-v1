@@ -25,11 +25,19 @@ class AutoMailer < ActionMailer::Base
 
   end
 
-  def reminder_email(event_id)
+  def voting_reminder_email(event_id)
     @event = Event.find(event_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
     mail(:bcc => email_list, :subject => "REMINDER: '#{@event.name}' is on the clock on the MoMondaysApp!")
+  end
+
+  def finished_reminder_email(event_id)
+    @event = Event.find(event_id)
+    @winner = Venue.find(@event.winner)
+    @winner.address = @winner.address.gsub("<br>", "\n")
+    @url = event_url(@event)
+    mail(:bcc => email_list, :subject => "REMINDER: '#{@event.name}' has been scheduled on the MoMondaysApp!")
 
   end
 
