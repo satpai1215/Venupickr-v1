@@ -10,30 +10,22 @@
     <h2>THE EVENT IS SET!</h2>
 
     <p>
-      Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %><br/>
+      Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %>. Below is the event information: <br/>
     </p>
     <p>
-      Below is the event information: <br/>
       <b>Event Name:</b> "<%= @event.name %>" <br/>
-      <b>Event Date:</b> <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
-      <b>Start Time:</b> <%= @event.event_start.strftime("%I:%M%p") %><br/>
-      
+      <b>Event Start Time:</b> <%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %><br/>
+      <b>Winning Venue:</b> "<%= @winner.name %>" suggested by <%= @winner.user.username %><br/>
+      <b>Address Info:</b> <br/> <%= @winner.address.html_safe %> <br/>
+      <% if !@winner.url.blank? %>
+        <b>Venue URL: </b><%= @winner.url %> <br/>
+      <% end %>
       <% if !@event.notes.blank? %>
         <b>Notes to Guests:</b> <br/>
         "<%= @event.notes %> "
       <% end %>
     </p>
      
-     <h2>WINNING VENUE INFORMATION</h2>
-    <p>
-      <b>VENUE:</b> <%= @winner.name %> <br/>
-      <b>ADDRESS:</b> <br/> <%= @winner.address.html_safe %> <br/>
-      <% if !@winner.url.blank? %>
-        <b>URL: </b><%= @winner.url %> <br/>
-      <% end %>
-      <b>SUGGESTED BY:</b> <%= @winner.user.username %> <br/>
-    </p>
-
     <p>Are you going? RSVP using the discussion box on the <%= link_to("Event Page", @url) %></p>
 
     <p>Hope to see you there!</p>
