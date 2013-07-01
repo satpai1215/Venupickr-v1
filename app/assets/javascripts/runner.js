@@ -53,17 +53,8 @@ function createTimersinIndex()
 {
      //if timeLeft is less than 1 day, show countdown clock
     	var eventDate = [];
-        for (var i = 0; i < gon.numUpcoming; i++) { 
-            var dateFromView = $("#eventIndexTimer" + i).data("date");
-            //console.log(dateFromView);
-            var dateString = parseDate(dateFromView)
-            //console.log(dateString);
 
-            //make dateString firefox/IE compatible
-            dateString = dateString.replace(/-/g, "/");
-            eventDate.push(new Date(dateString));
-        }
-    	for (var i = 0; i < gon.numEvents_index; i++) { 
+    	for (var i = 0; i <  gon.totalIndexEvents; i++) { 
     		var dateFromView = $("#eventIndexTimer" + i).data("date");
             //console.log(dateFromView);
     		var dateString = parseDate(dateFromView)

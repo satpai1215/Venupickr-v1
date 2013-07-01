@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     @events = Event.where(:stage => "Voting").order("event_start ASC")
     @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC")
     gon.numUpcoming = @upcoming_events.count
-    gon.numEvents_index = @upcoming_events.count + @events.count
+    gon.totalIndexEvents = @upcoming_events.count + @events.count
 
     respond_to do |format|
       format.html # index.html.erb
