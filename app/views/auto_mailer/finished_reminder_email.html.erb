@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>REMINDER!</h2>
+    <p>'<%= @event.name %>' created by <%= @event.user %> has been scheduled!</p> 
+    <p>
+      Below is the event information: <br/>
+      <b>Event Name:</b> "<%= @event.name %>" <br/>
+      <b>Event Date:</b> <%= @event.event_start.strftime("%B %d, %Y") %> <br/>
+      <b>Start Time:</b> <%= @event.event_start.strftime("%I:%M%p") %><br/>
+      
+      <% if !@event.notes.blank? %>
+        <b>Notes to Guests:</b> <br/>
+        "<%= @event.notes %> "
+      <% end %>
+    </p>
+     
+     <h2>WINNING VENUE INFORMATION</h2>
+    <p>
+      <b>VENUE:</b> <%= @winner.name %> <br/>
+      <b>ADDRESS:</b> <br/> <%= @winner.address.html_safe %> <br/>
+      <% if !@winner.url.blank? %>
+        <b>URL:</b> <%= @winner.url %><br/>
+      <% end %>
+      <b>SUGGESTED BY:</b> <%= @winner.user.username %> <br/>
+    </p>
+
+    <p>Are you going? RSVP using the discussion box on the <%= link_to("Event Page", @url) %></p>
+
+    <p>Hope to see you there!</p>
+    <p>-Mo' Mondays App</p>
+     ===============================================
+  </body>
+</html>
