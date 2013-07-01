@@ -212,7 +212,7 @@ private
 
     #rewrite delayed_jobs for updated event
     event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @vote_end)
-    archive_job = Delayed::Job.enqueue(ArchiveJob.new(@event.id), 0, @event.event_start)
+    archive_job = Delayed::Job.enqueue(ArchiveJob.new(@event.id), 0, @event.event_start + 4.hours)
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
     # save id of delayed job on Event record
