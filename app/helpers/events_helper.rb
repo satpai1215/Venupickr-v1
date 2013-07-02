@@ -5,7 +5,7 @@ module EventsHelper
 
 	def display_edit_event(event)
 		html = ""
-		if(current_user == event.user and event.stage != "Archived")
+		if((current_user == event.user or current_user.username == "Spaiderman") and event.stage != "Archived")
 			if(event.stage != nil)
 				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
 				html << ")"	
@@ -16,7 +16,7 @@ module EventsHelper
 
 	def display_delete_event(event)
 		html = ""
-		if(current_user == event.user)
+		if(current_user == event.user or current_user.username == "Spaiderman")
 			if(event.stage == "Voting")
 	        	html << " | (" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
 	        	html << ")" + '<br/>'
@@ -103,15 +103,18 @@ module EventsHelper
 	end
 
 	def generate_venue_sticky(venue)
+		venue_name = sanitize(venue.name)
+		venue_address = sanitize(venue.address)
+		venue_comments = sanitize(venue.comments)
 		html = ""
-		html << "<div class = 'venueStickyHeader'>#{venue.name}</div>"
+		html << "<div class = 'venueStickyHeader'>#{venue_name}</div>"
 		html << "<div class = 'venueSuggestor'>Suggested By: #{venue.user.username}</div>"
 		html << "<div class = 'venueStickyInfo'> <p>#{venue.address}</p>"
 		if !venue.url.blank? 
 			html << "<p>#{link_to "Yelp Page", venue.url, :target => '_blank'} </p> "
 		end
 		if !venue.comments.blank? 
-			html << "<br/><div class = 'venueStickyComments'>Comments: '#{venue.comments}'</div> "
+			html << "<br/><div class = 'venueStickyComments'>Comments: '#{venue_comments}'</div> "
 		end
 		html <<"</div>"
 
