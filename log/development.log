@@ -2916,3 +2916,131 @@ Served asset /beta_banner.png - 304 Not Modified (0ms)
 
 Started GET "/assets/checkmark.png" for 127.0.0.1 at 2013-07-01 17:30:45 -0700
 Served asset /checkmark.png - 304 Not Modified (0ms)
+
+
+Started GET "/events/435" for 127.0.0.1 at 2013-07-01 17:34:11 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"435"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", "435"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "venues" WHERE "venues"."event_id" = 435
+  [1m[36mVenue Load (0.1ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."event_id" = 435[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = 435 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 297[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "voters" WHERE "voters"."venue_id" = 297
+  [1m[36mVoter Load (0.1ms)[0m  [1mSELECT "voters".* FROM "voters" WHERE "voters"."venue_id" = 297[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mVoter Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "voters" WHERE "voters"."venue_id" = 297 AND "voters"."user_id" = 8 LIMIT 1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."event_id" = 435 ORDER BY created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+  Rendered events/show.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 142ms (Views: 42.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/reset.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /reset.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /bootstrap.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery-ui-1.10.3.custom.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timepicker.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery.timepicker.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/devise.css?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /devise.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.10.3.custom.min.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery-ui-1.10.3.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.timepicker.min.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /jquery.timepicker.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/autocomplete-rails.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /autocomplete-rails.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/runner.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /runner.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/updates.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /updates.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/venues.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /venues.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/beta_banner.png" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /beta_banner.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/checkmark.png" for 127.0.0.1 at 2013-07-01 17:34:12 -0700
+Served asset /checkmark.png - 304 Not Modified (0ms)
+
+
+Started GET "/event/297/venues/297/edit" for 127.0.0.1 at 2013-07-01 17:34:16 -0700
+Processing by VenuesController#edit as JS
+  Parameters: {"id"=>"297"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+  [1m[36mVenue Load (0.2ms)[0m  [1mSELECT "venues".* FROM "venues" WHERE "venues"."id" = ? LIMIT 1[0m  [["id", "297"]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = 435 LIMIT 1
+  Rendered venues/_form.html.erb (1.7ms)
+  Rendered venues/new.js.erb (4.7ms)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/ajax-loader.gif" for 127.0.0.1 at 2013-07-01 17:34:16 -0700
+Served asset /ajax-loader.gif - 304 Not Modified (0ms)
