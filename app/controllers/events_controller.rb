@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
-    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id)
+    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id or current_user.username == "Spaiderman")
     #@vote_date = @event.event_start - @event.vote_start.days
 
     if @event.stage == "Voting"
@@ -55,7 +55,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
-    if current_user.username == @event.user.username
+    if current_user.id == @event.user.id or current_user.username == "Spaiderman"
       #convert event_start back into date and time components
       @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
       @event.timepicker = @event.event_start.strftime("%I:%M%p")
