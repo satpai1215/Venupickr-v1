@@ -98,7 +98,7 @@ class VenuesController < ApplicationController
         Voter.destroy_all(:venue_id => @venue.id)
 
         #checks if user voted for another venue, if not vote for this one
-        if !Voter.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
+        if !Voter.exists?(:user_id => current_user.id, :event_id => @venue.event.id)
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         end
 
