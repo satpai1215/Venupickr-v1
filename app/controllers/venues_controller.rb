@@ -28,13 +28,17 @@ class VenuesController < ApplicationController
   # GET /venues/1/edit
   def edit
     @venue = Venue.find(params[:id])
-    @event_id = @venue.event.id
-    @venue.address = @venue.address.gsub("<br>", "\n").html_safe
+    if current_user.username == @venue.user.username
+      @event_id = @venue.event.id
+      @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.json { render json: @venue }
-      format.js {render action: 'new'}
+      respond_to do |format|
+        format.html # edit.html.erb
+        format.json { render json: @venue }
+        format.js {render action: 'new'}
+      end
+    else
+      redirect_to @venue.event, notice: 'You are not authorized to access that page.'
     end
 
   end

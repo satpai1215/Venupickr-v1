@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
-    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id or current_user.username == "Spaiderman")
+    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id)
     #@vote_date = @event.event_start - @event.vote_start.days
 
     if @event.stage == "Voting"
@@ -51,22 +51,25 @@ class EventsController < ApplicationController
     end
   end
 
+
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    if current_user.username == @event.user.username
+      #convert event_start back into date and time components
+      @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
+      @event.timepicker = @event.event_start.strftime("%I:%M%p")
+      @vote_end = @event.vote_end
 
-    #convert event_start back into date and time components
-    @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
-    @event.timepicker = @event.event_start.strftime("%I:%M%p")
-    @vote_end = @event.vote_end
 
-
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.json { render json: @event }
-      format.js
+      respond_to do |format|
+        format.html # edit.html.erb
+        format.json { render json: @event }
+        format.js
+      end
+    else
+      redirect_to @event, notice: 'You are not authorized to access that page.'
     end
-
   end
 
   # POST /events
