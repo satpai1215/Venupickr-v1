@@ -5,7 +5,7 @@ module EventsHelper
 
 	def display_edit_event(event)
 		html = ""
-		if((current_user == event.user or current_user.username == "Spaiderman") and event.stage != "Archived")
+		if((current_user == event.user) and event.stage != "Archived")
 			if(event.stage != nil)
 				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
 				html << ")"	
@@ -16,7 +16,7 @@ module EventsHelper
 
 	def display_delete_event(event)
 		html = ""
-		if(current_user == event.user or current_user.username == "Spaiderman")
+		if(current_user == event.user)
 			if(event.stage == "Voting")
 	        	html << " | (" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
 	        	html << ")" + '<br/>'
