@@ -104,7 +104,7 @@ module EventsHelper
 
 	def generate_venue_sticky(venue)
 		venue_name = h(venue.name)
-		venue_address = h(venue.address)
+		venue_address = venue.address.html_safe #to allow for <br> in the address
 		venue_comments = h(venue.comments)
 		html = ""
 		html << "<div class = 'venueStickyHeader'>#{venue_name}</div>"
