@@ -30,7 +30,7 @@
 							<% @event.venues.each do |venue| %>
 								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 									
-									<div class = "venueSticky"%><%= generate_venue_sticky(venue) %></div>
+									<div class = "venueSticky"%><%= h(generate_venue_sticky(venue)) %></div>
 								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 
 								  	<div class = "voteControls">
@@ -91,7 +91,7 @@
 			<div class = "span4">
 				<div id = "eventSideBar">
 					<div id = "eventHeader-container">
-						<h1><%= @event.name %></h1>
+						<h1><%= h(@event.name) %></h1>
 						<h4>Created by: <%= h(@event.user.username)%></h4>
 						<%= display_reminder_link(@event) %>
 					</div>

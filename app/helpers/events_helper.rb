@@ -103,18 +103,18 @@ module EventsHelper
 	end
 
 	def generate_venue_sticky(venue)
-		venue_name = sanitize(venue.name)
-		venue_address = sanitize(venue.address)
-		venue_comments = sanitize(venue.comments)
+		venue_name = h(venue.name)
+		venue_address = h(venue.address)
+		venue_comments = h(venue.comments)
 		html = ""
-		html << "<div class = 'venueStickyHeader'>#{h(venue_name)}</div>"
-		html << "<div class = 'venueSuggestor'>Suggested By: #{h(venue.user.username)}</div>"
-		html << "<div class = 'venueStickyInfo'> <p>#{h(venue.address)}</p>"
+		html << "<div class = 'venueStickyHeader'>#{venue_name}</div>"
+		html << "<div class = 'venueSuggestor'>Suggested By: #{venue.user.username}</div>"
+		html << "<div class = 'venueStickyInfo'> <p>#{venue_address}</p>"
 		if !venue.url.blank? 
 			html << "<p>#{link_to "Yelp Page", venue.url, :target => '_blank'} </p> "
 		end
 		if !venue.comments.blank? 
-			html << "<br/><div class = 'venueStickyComments'>Comments: '#{h(venue_comments)}'</div> "
+			html << "<br/><div class = 'venueStickyComments'>Comments: '#{venue_comments}'</div> "
 		end
 		html <<"</div>"
 
