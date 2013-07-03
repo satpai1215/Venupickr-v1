@@ -1,6 +1,11 @@
 MoMondays::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #for workless gem
+  config.after_initialize do 
+    Delayed::Job.scaler = :null
+  end
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
