@@ -67,7 +67,8 @@ $(document).on('click', '.appActions', function(event) {
   );
 
  $('#enterCommentsField').keyup(function(){
-    if($('#enterCommentsField').val() !=  "") 
+    var str = $('#enterCommentsField').val();
+    if(!(!str || /^\s*$/.test(str))) 
          $('#postCommentButton').attr('disabled', false);    
     else
          $('#postCommentButton').attr('disabled', true);   
