@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
   #validate :event_start_valid?, :on => :save
 
   before_save :build_event_start_and_validate, :on => [:create, :update]
+  before_validation :sanitize_user_input
 
 
   def to_s
@@ -49,6 +50,11 @@ private
 
   before_create do 
     self.stage = "Voting"
+  end
+
+  def sanitize_user_input
+    self.name = ActionController::Base.helpers.sanitize(self.name)
+    self.notes = ActionController::Base.helpers.sanitize(self.notes)
   end
 
 end

@@ -92,7 +92,7 @@
 				<div id = "eventSideBar">
 					<div id = "eventHeader-container">
 						<h1><%= @event.name %></h1>
-						<h4>Created by: <%= @event.user.username%></h4>
+						<h4>Created by: <%= h(@event.user.username)%></h4>
 						<%= display_reminder_link(@event) %>
 					</div>
 
@@ -105,10 +105,10 @@
 						<div class = 'eventInfoText'><%= display_countdowns(@event) %></div>
 						<div class = 'eventInfoText'><%#= display_prevoting_countdown(@event) %></div>
 						<!--<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>-->
-					<% if !@event.notes.blank? %>
+					<% if !h(@event.notes).blank? %>
 						<div class = "eventInfoText" id = "eventNotes-container" >
 							<h4> Notes to Guests: </h4>
-							<div class = "infoSubHead" id = "eventNotes">"<%= endlines_to_breaks(@event.notes) %>"</div>
+							<div class = "infoSubHead" id = "eventNotes">"<%= endlines_to_breaks(h(@event.notes)) %>"</div>
 						</div>
 					<% end %>
 				</div> <!-- eventInfo-container -->
