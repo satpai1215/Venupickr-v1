@@ -15,6 +15,9 @@ class EventFinishJob < Struct.new(:event_id)
 	    		AutoMailer.event_finish_email(event_id).deliver
 	    	else #no_venue code
 	    		@event.update_column(:stage, "Archived")
+	    		if @event.archive_job_id and Delayed::Job.exists?(@event.archive_job_id)
+     			 Delayed::Job.find(@event.archive_job_id).destroy
+    			end
 	    		@event.update_column(:winner, nil)
 	    		AutoMailer.no_venue_email_final(event_id).deliver
     		end

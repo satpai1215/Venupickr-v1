@@ -217,6 +217,8 @@ private
 
     #rewrite delayed_jobs for updated event
     event_job = Delayed::Job.enqueue(EventFinishJob.new(@event.id), 0, @vote_end)
+    
+    #archived event 4hours after event_start, so people can still see event info on homepage if they are late
     archive_job = Delayed::Job.enqueue(ArchiveJob.new(@event.id), 0, @event.event_start + 4.hours)
     #vote_job = Delayed::Job.enqueue(VoteStartJob.new(@event.id), 0, @event.event_start - @event.vote_start.days)
 
