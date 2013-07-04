@@ -3,7 +3,7 @@ MoMondays::Application.configure do
 
   #for workless gem
   config.after_initialize do 
-    Delayed::Job.scaler = :null
+    Delayed::Job.scaler = :heroku_cedar
   end
 
   # Code is not reloaded between requests
