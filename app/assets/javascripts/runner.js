@@ -68,11 +68,16 @@ function createTimersinIndex()
     		var x= eventDate[i];
     		var now = new Date();
             var msInDay = 1000*24*60*60;
+            var timeDiff = (eventDate[i]-now)/(msInDay)
             //console.log();
-    		if ((eventDate[i]-now)/(msInDay) > 0 && (eventDate[i]-now)/(msInDay) < 1 ) {
+    		if (timeDiff > 0 && timeDiff < 1 ) {
     	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
                 $("#eventIndexTimer" + i.toString()).addClass('red');
     	  	}
+            else if (timeDiff < 0) {
+                $("#eventIndexTimer" + i.toString()).html("In Progress");
+                $("#eventIndexTimer" + i.toString()).addClass('blue');
+            }
 
     	}
 }
