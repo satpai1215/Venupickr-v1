@@ -60,8 +60,8 @@ class VenuesController < ApplicationController
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
           end
 
-          @content = "#{current_user} just suggested a venue for \"#{@venue.event}\""
-          @update = Update.create!(:content => @content)
+          @content = "#{current_user} just suggested a venue"
+          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
           @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
           if(@venue.event.user != current_user)
@@ -104,8 +104,8 @@ class VenuesController < ApplicationController
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         end
 
-        @content = "#{current_user} just modified a venue for \"#{@venue.event}\""
-        @update = Update.create!(:content => @content)
+        @content = "#{current_user} modified a venue"
+        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         if(@venue.event.user != current_user)
@@ -132,8 +132,8 @@ class VenuesController < ApplicationController
   def destroy
     @venue = Venue.find(params[:id])
 
-    @content = "#{current_user} just deleted a venue for \"#{@venue.event}\""
-    @update = Update.create!(:content => @content)
+    @content = "#{current_user} deleted a venue"
+    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"")
     @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
 
@@ -178,8 +178,8 @@ class VenuesController < ApplicationController
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
 
-        @content = "#{current_user} just cast a vote the event: \"#{@venue.event}\""
-        @update = Update.create!(:content => @content)
+        @content = "#{current_user} cast a vote"
+        @update = Update.create!(:content => "#{current_user} just cast a vote for the event: \"#{@venue.event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count

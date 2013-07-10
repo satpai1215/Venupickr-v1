@@ -105,8 +105,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        @content = "#{current_user} just updated \"#{@event}\""
-        @update = Update.create!(:content => @content)
+        @content = "#{current_user} updated the event"
+        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
 

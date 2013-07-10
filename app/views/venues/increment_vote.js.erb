@@ -39,8 +39,5 @@ $currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :id => '
 //voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
 
-$("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content) %></li>");
-
-
-
+$("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content)%></li>");
 
