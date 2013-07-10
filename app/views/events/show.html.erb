@@ -79,8 +79,12 @@
 					<div id = "discussionBoard">
 						<ul>
 							<% @event.comments.order("created_at DESC").each do |comment| %>
-								<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
-                            <%= comment.content %></li>
+								<% if comment.username != nil %>
+									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
+                            		<%= comment.content %></li>
+                            	<% else %> <!--check if comment is an update -->
+                            		<li class = "italic"><%= comment.content %></li>
+                            	<% end %>
 							<% end %>
 						</ul>
 					</div><!--discussionBoard -->

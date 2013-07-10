@@ -229,6 +229,15 @@
 	font-weight: bold;
 }
 
+.blue {
+	color: blue;
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
 
 #suggestVenueLink {
 	float: right;

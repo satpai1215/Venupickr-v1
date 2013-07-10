@@ -5,7 +5,6 @@
 //only show vote counts and update if user is admin or event owner
 
 <% if @show_votecounts %>
-	console.log("this is running");
 	venueItemVoteCount = <%= @votecount %>;
 	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
 	$olList = $currentListItem.children("ol.voteList");
@@ -39,6 +38,8 @@ $currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :id => '
 
 //voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
+
+$("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content) %></li>");
 
 
 

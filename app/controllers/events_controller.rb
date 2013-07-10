@@ -105,7 +105,10 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
+        @content = "#{current_user} just updated \"#{@event}\""
+        @update = Update.create!(:content => @content)
+        @comment = Comment.create!(:content => @content, :event_id => @event.id)
+
 
         write_jobs(@event.id)
 

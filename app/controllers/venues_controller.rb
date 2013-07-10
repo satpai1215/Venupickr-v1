@@ -60,7 +60,9 @@ class VenuesController < ApplicationController
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
           end
 
-          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
+          @content = "#{current_user} just suggested a venue for \"#{@venue.event}\""
+          @update = Update.create!(:content => @content)
+          @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
           if(@venue.event.user != current_user)
             AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
@@ -102,7 +104,10 @@ class VenuesController < ApplicationController
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         end
 
-        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
+        @content = "#{current_user} just modified a venue for \"#{@venue.event}\""
+        @update = Update.create!(:content => @content)
+        @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
+
         if(@venue.event.user != current_user)
           AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
         end
@@ -126,7 +131,10 @@ class VenuesController < ApplicationController
   # DELETE /venues/1.json
   def destroy
     @venue = Venue.find(params[:id])
-    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"")
+
+    @content = "#{current_user} just deleted a venue for \"#{@venue.event}\""
+    @update = Update.create!(:content => @content)
+    @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
 
     respond_to do |format|
@@ -169,7 +177,10 @@ class VenuesController < ApplicationController
         #@venue.update_attributes(:votecount => num )
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
-        Update.create!(:content => "#{current_user} just cast a vote the event: \"#{@venue.event}\"")
+
+        @content = "#{current_user} just cast a vote the event: \"#{@venue.event}\""
+        @update = Update.create!(:content => @content)
+        @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
 
