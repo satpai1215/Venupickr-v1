@@ -170,6 +170,9 @@ class VenuesController < ApplicationController
           @voter.destroy
           @previous_votecount = @previous_venue.voters.count
           @notice_text = "You have successfully changed your vote."
+          @content = "#{current_user} changed their vote"
+        else
+          @content = "#{current_user} cast a vote"
         end
 
         #create new vote association
@@ -178,8 +181,7 @@ class VenuesController < ApplicationController
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
 
-        @content = "#{current_user} cast a vote"
-        @update = Update.create!(:content => "#{current_user} just cast a vote for the event: \"#{@venue.event}\"")
+        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
