@@ -21,7 +21,7 @@
 
 .eventList ul {
 	overflow: auto;
-	width: 650px;
+	margin: 0px 20px;
 }
 
 .eventList ul li {

@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   def access_code_match
 
-    if self.access_code != "smoothedout"
+    if self.access_code != "smoothitout"
       errors.add(:access_code, "does not match.  Ask Satyan for the correct code" )
     end
   end
