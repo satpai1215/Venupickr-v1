@@ -8,51 +8,56 @@
 <%= csrf_meta_tag %>
 </head>
 <body>
-	<header>
-		<div id = "page_header">
-				<div id = "page_title"><h1><img src = "/assets/beta_banner.png" id = "banner"/></h1></div>
-			<div class = "row">
-				<div class = "span6">
-					<nav>	
-						<ul class = "nav nav-pills">
-							<li><%= link_to "Home", events_path %></li>
-							<li><%= link_to "Past Events", pages_archived_path %></li>
-							<li><%= link_to "About", pages_info_path %></li>
-						</ul>
-					</nav>
+	<div id = "page_title">
+		<div id="login-nav">
+			<% if user_signed_in? %>
+				Logged in as <%= current_user %> 
+				<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
+				<%= link_to "Settings",  edit_user_registration_path %>
+			<% else %>
+				<%= link_to "Sign Up", new_user_registration_path %> |
+				<%= link_to "Sign In", new_user_session_path %>
+			<% end %>
+		</div>
+
+		<img src = "/assets/beta_banner.png" id = "banner"/>&copy
+	</div> <!--page_title -->
+
+	<div id = "nav_body">
+		<header>
+			<div id = "nav-container">
+				<div class = "row">
+					<div class = "span6" id = "navbar">
+						<nav>	
+							<ul class = "nav nav-pills">
+								<li><%= link_to "Home", events_path %></li>
+								<li><%= link_to "Past Events", pages_archived_path %></li>
+								<li><%= link_to "About", pages_info_path %></li>
+							</ul>
+						</nav>
+					</div>
 				</div>
+			</div>  <!--nav_body-->
 
-				<div id="login-nav" class = "span6">
-						<% if user_signed_in? %>
-							Logged in as <%= current_user %> 
-							<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
-							<%= link_to "Settings",  edit_user_registration_path %>
-						<% else %>
-							<%= link_to "Sign Up", new_user_registration_path %> |
-							<%= link_to "Sign In", new_user_session_path %>
-						<% end %>
+		</header>
+	</div> <!--title_body-->
+
+	<div id = "content_body">
+
+		<div id = "container" class = "container">
+			<%= yield :hero %>
+							<div id = "notice">
+					<%= notice %>
+					<%= alert %>
 				</div>
-			</div>
-		</div>  <!--page_header-->
+			<div id = "main">			
 
-	</header>
+				<%= yield %>
 
-	<div id = "container" class = "container">
-		<%= yield :hero %>
-		<div id = "main">
-			<div id = "notice">
-				<%= notice %>
-				<%= alert %>
-			</div>
-			
-
-			<%= yield %>
-
-		</div> <!--main-->
-
-
-		<footer>created by Satyan Pai</footer>
-	</div> <!--container -->
+			</div> <!--main-->
+			<footer>created by Satyan Pai</footer>
+		</div> <!--container -->
+	</div> <!--content_body-->
 
 </body>
         <script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>

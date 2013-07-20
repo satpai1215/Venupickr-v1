@@ -113,8 +113,11 @@
 #eventHistoryTable {
 	margin-top: 5px;
 	background: white;
-	border: ridge 5px gray;
-	border-radius: 20px;
+	border: inset 1px gray;
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px 0px #000;
+		-moz-box-shadow: 0px 0px 5px 0px #000;
+		-webkit-box-shadow: 0px 0px 5px 0px #000;
 	padding: 10px 10px;
 	height: 480px;
 }
