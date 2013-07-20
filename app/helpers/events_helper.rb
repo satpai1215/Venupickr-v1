@@ -5,10 +5,9 @@ module EventsHelper
 
 	def display_edit_event(event)
 		html = ""
-		if((current_user == event.user) and event.stage != "Archived")
+		if(event.stage != "Archived")
 			if(event.stage != nil)
-				html<< "(" + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
-				html << ")"	
+				html<< link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
 			end
     	end
     	return html.html_safe
@@ -16,22 +15,18 @@ module EventsHelper
 
 	def display_delete_event(event)
 		html = ""
-		if(current_user == event.user)
-			if(event.stage == "Voting")
-	        	html << " | (" + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
-	        	html << ")" + '<br/>'
-			end
-    	end
+		if(event.stage == "Voting")
+	        html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
+		end
     	return html.html_safe
 	end
 
 	def display_reminder_link(event)
 		html = ""
-		if(current_user == event.user)
-			if(event.stage != "Archived")
-	        	html << link_to("Send Reminder Email", {:controller => 'events', :action => "send_reminder", :event_id => event.id}, data:{confirm: 'Are you sure you want to send a reminder email to all guests?'}, remote: true)
-			end
-    	end
+		if(event.stage != "Archived")
+	        html << link_to("Send Reminder", {:controller => 'events', :action => "send_reminder", :event_id => event.id}, data:{confirm: 'Are you sure you want to send a reminder email to all guests?'}, remote: true)
+		end
+
     	return html.html_safe
 
 	end
@@ -70,7 +65,7 @@ module EventsHelper
 		html = ""
 		
 		if event.stage === "Voting"
-			html << "<h4>Time Left to Vote:</h4> \<span id = 'voteCountdown' class = 'infoSubHead red'>00:00:00</span>\ "
+			html << "<span id = 'voteCountdown' class = 'infoSubHead red'>00:00:00</span> "
 		end
 
 		return html.html_safe

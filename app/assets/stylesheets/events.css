@@ -5,12 +5,11 @@
 
 .eventList {
 	margin-left: 0px;
+	margin-right: 10px;
 }
 
 .eventList h2 {
-	font-size: 1.8em;
-	font-weight: normal;
-	margin-top: 0px;
+
 }
 
 #votingEvents h2{
@@ -124,7 +123,6 @@
 
 .update-item-container {
 	padding: 5px 10px;
-	padding-left: 20px;
 
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -154,114 +152,135 @@
 
 }
 
-#eventHeader-container {
-	margin-bottom: 35px;
-
-
-}
-#eventHeader-container h1 {
-	text-wrap: normal;
-	text-shadow: 0.07em 0.07em #D1CBCD;
-	font-weight: normal;
-}
-
-#eventHeader-container h4 {
-	margin: 0px 0px;
-	font-weight: normal;
-}
 
 #eventShow .span4 {
 	margin-left: 5px;
 }
 
 #eventSideBar {
-	margin-top: 30px;
+	margin-top: 20px;
 	padding-left: 0px;
 	text-align: left; 
 	font-size: 0.9em;
 }
 
-.eventInfoText {
-	line-height: 1.0em;
-	font-size: 1.3em;
-	margin-bottom: 45px;
-	width: 85%;
+.eventbox {
+	margin-bottom: 10px;
+	border: inset 1px gray;
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px 0px #000;
+		-moz-box-shadow: 0px 0px 5px 0px #000;
+		-webkit-box-shadow: 0px 0px 5px 0px #000;
 }
 
-.eventInfoText h4 {
-	font-size: 1.2em;
-	text-shadow: 0.07em 0.07em #D1CBCD;
-	margin-bottom: 5px;
-	font-weight: normal;
-	border-bottom: 1px solid black;
+.eventbox-header {
+	border-bottom: solid 1px #e9eaed;
+	padding: 5px 15px;
+	background: white;
 }
-
-#eventShowModifiers {
-	font-size: 0.7em;
-	text-shadow: none;
-	font-weight: normal;
-}
-
-#eventNotes-container {
-	width: 85%;
-	margin-bottom: 25px;
-}
-
-#eventNotes {
-	font-size: 0.9em;
-	font-style: italic;
-	font-weight	: normal;
-	padding-right: 10px;
-	overflow-y: hidden; 
-	text-align: left;
-
-}
-	#eventNotes:hover {
-		overflow-y: auto;
+	.eventbox-header-text {
+		font-size: 1.4em;
+		font-weight: bold;
 	}
 
-.infoSubHead {
-	margin-left: 0px;
+	.eventbox-header span{
+		margin-bottom: 2px;
+		margin-right: 10px;
+		font-weight: normal;
+		font-size: 0.95em;
+	}
+
+#eventInfo-content {
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	line-height: 1.1em;
+	background: white;
 }
-.red {
-	color: red;
-	font-weight: bold;
+	#eventInfo-notes{
+		padding-right: 0px;
+		max-height: 150px;
+		overflow: auto;
+		clear: both;
+	}
+	#eventInfo-content-ul {
+		margin-left: 0px;
+		margin-bottom: 0px;
+		border-bottom: solid 1px #e9eaed;
+		padding-right: 5px;
+	}
+	#eventInfo-content-heading {
+
+	}
+	.eventInfo-content-heading {
+		cursor: auto;
+	}
+	.eventInfo-row span {
+		float: right;
+	}
+
+#discussionBoard-container {
+	height:	350px;
+	box-shadow: none;
+
 }
 
-.blue {
+.post_comment_form {
+	margin-bottom: 0px;
+}
+#enterCommentsField {
+	height: 15px;
+	width: 72%;
+	margin-top: 3px;
+	margin-left: 8px;
+	margin-bottom: 0px;
+	font-size: 0.9em;
+}
+
+#postCommentButton {
+	margin-top: 4px;
+	margin-right: 5px;
+	height: 22px;
+	font-size: 0.85em;
+	padding: 2px 10px;
+	float: right;
+}
+
+#discussionBoard {
+	font-size: 0.85em;
+}
+
+#discussionBoard ul {
+	clear: both;
+	height: 128px;
+	padding-top: 5px;
+	margin-right: 5px;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	overflow: hidden;
+}
+#discussionBoard ul:hover {
+	overflow-y: auto;
+}
+
+.comment_timestamp {
 	color: blue;
 	font-weight: bold;
-}
-
-.italic {
-	font-style: italic;
 }
 
 
 #suggestVenueLink {
 	float: right;
-	margin-top: 15px;
-	margin-right: 10px;
+	margin-top: 20px;
+	margin-right: 30px;
+	margin-bottom: 0px;
 }
 
 #venueList-container {
-	margin: 20px;
-	background: white;
-	border: inset 2px gray;
-	border-radius: 2px;
-	min-height: 650px;
-	}
+	margin-right: 30px;	}
 
-	#venueList-header {
-		padding: 0px 10px;
-		padding-top: 10px;
-	}
-
-	#venueList-header h3{
-		border-bottom: solid 3px black;
-		margin: 0px;
-		font-size: 1.8em;
-		font-weight: normal;
+	#venueList-header h2 {
+		margin: 10px 0px;
 	}
 
 	#venueList {
@@ -269,7 +288,6 @@
 		text-align: left;
 		padding-left: 20px;
 		margin: 5px 0px;
-		height: 425px;
 	}
 
 	#venueList:hover {
@@ -280,7 +298,7 @@
 		position: relative;
 		list-style: none;
 		float: left;
-		width: 520px;
+		width: 98%;
 	    margin-bottom: 10px;
 	    margin-top: 10px;
 
@@ -396,70 +414,6 @@
 			display: block;
 		}
 
-#discussionBoard-container{
-	border-top: 2px solid black;
-	background: #ededed;
-	border-bottom: 2px solid #ededed;
-	border-bottom-left-radius: 10px; 
-	border-bottom-right-radius: 10px; 
-}
-
-#discussionBoard-header {
-	display: inline;
-}
-
-#discussionBoard-header form {
-	margin-bottom: 0px;
-}
-
-#discussionBoard-header h4 {
-	margin-top: 5px;
-	margin-right: 5px;
-	margin-left: 5px;
-	margin-bottom: 0px;
-	font-size: 1.2em;
-	float: left;
-	font-weight: normal;
-}
-
-#enterCommentsField {
-	float: left;
-	height: 15px;
-	width: 72%;
-	margin-top: 3px;
-	margin-right: 8px;
-	margin-bottom: 0px;
-	font-size: 0.9em;
-}
-
-#postCommentButton {
-	margin-top: 4px;
-	height: 22px;
-	font-size: 0.85em;
-	padding: 2px 10px;
-}
-
-#discussionBoard {
-	font-size: 0.85em;
-}
-
-#discussionBoard ul {
-	clear: both;
-	height: 128px;
-	padding-top: 5px;
-	margin-right: 5px;
-	margin-left: 20px;
-	margin-bottom: 0px;
-	overflow: hidden;
-}
-#discussionBoard ul:hover {
-	overflow-y: auto;
-}
-
-.comment_timestamp {
-	color: blue;
-	font-weight: bold;
-}
 
 /*----------------------------------------------------------------------------- 
 = FINISHED EVENT#SHOW

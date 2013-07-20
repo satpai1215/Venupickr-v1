@@ -1,107 +1,126 @@
 <div class = "row">
 	<div id = "eventShow">
 		<div class = "span8">
-				<div id = "venueList-container">
-					<div id = "suggestVenueControl">
-						<%= display_venue_suggest_button(@event) %>
-					</div>
-					<% if @event.stage != "Voting" %>
-						<% if @event.venues.count == 0 %>
-							<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
-						<% else %>
-							<span id ='eventOverHeading'>VENUE SET</span>
-						<% end %>
+
+			<div id = "venueList-header">
+				<div class = "row">
+            		<div class = "span5"><h2>Recommended Venues:</h2></div>
+            		<%= display_venue_suggest_button(@event) %>
+         		</div>
+			</div> <!--venueList-header-->
+
+			<div id = "venueList-container">
+				<% if @event.stage != "Voting" %>
+					<% if @event.venues.count == 0 %>
+						<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
+					<% else %>
+						<span id ='eventOveraeading'>VENUE SET</span>
 					<% end %>
-					<div id = "venueList-header">
-						<h3>Recommended Venue List</h3>
-					</div>
-					
-					<ul id = "venueList">
-						<%if @event.venues.count === 0 %>
-                            <div class = "noEventsLabel">  
-                                <li> <%= @no_venues_text %></li>
-                            </div>
+				<% end %>
 
-                        <% else %>
-                        	<div class = "noEventsLabel">  
-                                <li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
-                                 <li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
-                            </div>
-							<% @event.venues.each do |venue| %>
-								<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
-									
-									<div class = "venueSticky"%><%= h(generate_venue_sticky(venue)) %></div>
-								   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
+				<ul id = "venueList">
+					<%if @event.venues.count === 0 %>
+                        <div class = "noEventsLabel">  
+                            <li> <%= @no_venues_text %></li>
+                        </div>
 
-								  	<div class = "voteControls">
-										<% if @show_votecounts %>
-											<div class = "voteCount"><%= venue.voters.count %></div>
-											
-											<% if venue.voters.count > 0 %>
-											<ol class = "voteList">
-												<h5>Voters:</h5>
-											
-												<% venue.voters.each do |voter| %>
-													<li><%= voter.user.username %></li>
-												<% end %>
-											</ol>
+                    <% else %>
+                    	<div class = "noEventsLabel">  
+                            <li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
+                             <li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
+                        </div>
+						<% @event.venues.each do |venue| %>
+							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
+								
+								<div class = "venueSticky"%><%= h(generate_venue_sticky(venue)) %></div>
+							   	<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
+
+							  	<div class = "voteControls">
+									<% if @show_votecounts %>
+										<div class = "voteCount"><%= venue.voters.count %></div>
+										
+										<% if venue.voters.count > 0 %>
+										<ol class = "voteList">
+											<h5>Voters:</h5>
+										
+											<% venue.voters.each do |voter| %>
+												<li><%= voter.user.username %></li>
 											<% end %>
+										</ol>
 										<% end %>
+									<% end %>
 
-										<% if @event.stage == "Voting" %>
-										<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
-											<div class = "voteIcon">
-												<% if venue.voters.where(:user_id => current_user.id).exists? %>
-													<%= image_tag("checkmark.png", :id => "checked_venue") %>
-												<% else %>
-													<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
-												<% end %>
-											</div><!--voteIcon-->
-										<% end %>
+									<% if @event.stage == "Voting" %>
+									<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
+										<div class = "voteIcon">
+											<% if venue.voters.where(:user_id => current_user.id).exists? %>
+												<%= image_tag("checkmark.png", :id => "checked_venue") %>
+											<% else %>
+												<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
+											<% end %>
+										</div><!--voteIcon-->
+									<% end %>
 
-									</div> <!-- voteControls -->
+								</div> <!-- voteControls -->
 
-								</li><!--listItem -->
-							<% end %>
-							<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
+							</li><!--listItem -->
 						<% end %>
-					</ul>
-
-				</div><!-- venueList-container -->
+						<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
+					<% end %>
+				</ul>
+			</div><!-- venueList-container -->
 		</div> <!--span8-->
+
 			<div class = "span4">
 				<div id = "eventSideBar">
-					<div id = "eventHeader-container">
-						<h1><%= h(@event.name) %></h1>
-						<h4>Created by: <%= h(@event.user.username)%></h4>
-						<%= display_reminder_link(@event) %>
-					</div>
 
-					<div id = "eventInfo-container">
-						<div class = 'eventInfoText'><h4>Event Date:
-							<span id = "eventShowModifiers"><%= display_edit_event(@event) %><%= display_delete_event(@event) %></span></h4>
-							<div class = 'infoSubHead'><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></div>
-						</div>
+					<div class = "eventbox">
+						<div class = "eventbox-header">
+							<div class = "eventbox-header-text"><%= h(@event.name) %></div>
+							<% if current_user == @event.user %>
+								<span><%= display_edit_event(@event) %></span>
+								<span><%= display_delete_event(@event) %></span>
+								<span><%= display_reminder_link(@event) %></span>
+							<% end %>
+						</div> <!--eventInfo-header -->
+
+						<div id = 'eventInfo-content'>
+
+							<ul id = "eventInfo-content-ul">
+								<li class = "eventInfo-row">
+									<label class = "eventInfo-content-heading">Event Date:</label>
+									<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
+								</li>
+								<li class = "eventInfo-row">
+									<label class = "eventInfo-content-heading">Time Left to Vote:</label>
+									<span><%= display_countdowns(@event) %></span>
+								</li>
+								<li class = "eventInfo-row">
+									<label class = "eventInfo-content-heading">Created by:</label>
+									<span id = "eventOwner"><%= h(@event.user.username)%></span>
+								</li>
+							</ul>
+
+							<% if !h(@event.notes).blank? %>
+								<div id = "eventInfo-notes" >
+									<label class = "eventInfo-content-heading">Notes:</label>
+									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
+								</div>
+							<% end %>
+						</div><!--eventInfo-content -->
+					</div> <!-- eventInfo-container -->
+
+				<div class = "eventbox" id = "discussionBoard-container">
+					<div class = "eventbox-header">
+						<div class = "eventbox-header-text">Discussion Board</div>
+
+					</div><!--discussionBoard-header -->
 					
-						<div class = 'eventInfoText'><%= display_countdowns(@event) %></div>
-						<div class = 'eventInfoText'><%#= display_prevoting_countdown(@event) %></div>
-						<!--<div id ="stageHeader">Event Stage: <%= display_event_stage(@event.stage) %> </div>-->
-					<% if !h(@event.notes).blank? %>
-						<div class = "eventInfoText" id = "eventNotes-container" >
-							<h4> Notes to Guests: </h4>
-							<div class = "infoSubHead" id = "eventNotes">"<%= endlines_to_breaks(h(@event.notes)) %>"</div>
-						</div>
-					<% end %>
-				</div> <!-- eventInfo-container -->
-
-				<div id = "discussionBoard-container">
-					<div id = "discussionBoard-header">
-						<h4>Discuss!</h4>
-						<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
+					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
 							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
 							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
-						<% end %>
-					</div><!--discussionBoard-header -->
+					<% end %>
+
 					<div id = "discussionBoard">
 						<ul>
 							<% @event.comments.order("created_at DESC").each do |comment| %>
