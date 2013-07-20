@@ -165,7 +165,6 @@
 
 
 #eventShow .span4 {
-	margin-left: 5px;
 }
 
 #eventSideBar {
@@ -190,13 +189,13 @@
 	background: white;
 }
 	.eventbox-header-text {
-		font-size: 1.4em;
+		font-size: 1.6em;
 		font-weight: bold;
 	}
 
 	.eventbox-header span {
 		margin-bottom: 2px;
-		margin-right: 10px;
+		margin-right: 6px;
 		font-size: 0.95em;
 	}
 
@@ -234,10 +233,13 @@
 
 
 #discussionBoard-container {
-	height:	350px;
-	box-shadow: none;
+	height:	500px;
+	padding-right: 0px;
 	background: white;
-
+	overflow: auto;
+}
+#discussionBoard-header-text {
+	font-size: 1.3em;
 }
 
 .post_comment_form {
@@ -245,7 +247,7 @@
 }
 #enterCommentsField {
 	height: 15px;
-	width: 72%;
+	width: 70%;
 	margin-top: 3px;
 	margin-left: 8px;
 	margin-bottom: 0px;
@@ -267,15 +269,14 @@
 
 #discussionBoard ul {
 	clear: both;
-	height: 128px;
+	display: block;
 	padding-top: 5px;
 	margin-right: 5px;
 	margin-left: 10px;
 	margin-bottom: 0px;
-	overflow: hidden;
 }
 #discussionBoard ul:hover {
-	overflow-y: auto;
+
 }
 
 .comment_timestamp {
@@ -447,14 +448,14 @@
 }
 
 #eventCancelledHeading {
-	font-size: 2.2em;
+	font-size: 2em;
 	color: red;
 	font-weight: bold;
 	line-height: 1.2em;
-	height: 0px;
-	position: relative;
+	width: 500px;
+	position: absolute;
 	top: 250px;
-	text-align: center;
+	right: 100px;
 }
 
 #rsvpList {
