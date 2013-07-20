@@ -1,35 +1,113 @@
 <div class = "row">
 	<div id = "eventShow">
+		<div class = "span4">
+			<div id = "eventSideBar">
+
+				<div class = "eventbox">
+					<div class = "eventbox-header">
+						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
+						<% if current_user == @event.user %>
+							<span><%= display_edit_event(@event) %></span>
+							<span><%= display_delete_event(@event) %></span>
+							<span><%= display_reminder_link(@event) %></span>
+						<% end %>
+					</div> <!--eventInfo-header -->
+
+					<div id = 'eventInfo-content'>
+
+						<ul id = "eventInfo-content-ul">
+							<li class = "eventInfo-row">
+								<label class = "eventInfo-content-heading">Event Date:</label>
+								<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
+							</li>
+							<% if @event.stage == "Voting" %>
+								<li class = "eventInfo-row">
+									<label class = "eventInfo-content-heading">Time Left to Vote:</label>
+									<span id = "voteCountdown" class = "red">00:00:00</span>
+								</li>
+							<% end %>
+							<li class = "eventInfo-row">
+								<label class = "eventInfo-content-heading">Created by:</label>
+								<span id = "eventOwner"><%= h(@event.user.username)%></span>
+							</li>
+						</ul>
+
+						<% if !h(@event.notes).blank? %>
+							<div id = "eventInfo-notes-container">
+								<div id = "eventInfo-notes" >
+									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
+								</div>
+							</div>
+						<% end %>
+					</div><!--eventInfo-content -->
+				</div> <!-- eventInfo-container -->
+
+			<div class = "eventbox" id = "discussionBoard-container">
+				<div class = "eventbox-header">
+					<div class = "eventbox-header-text">Discussion Board</div>
+				</div><!--discussionBoard-header -->
+				
+				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
+						<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
+						<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
+				<% end %>
+
+				<div id = "discussionBoard">
+					<ul>
+						<% @event.comments.order("created_at DESC").each do |comment| %>
+							<% if comment.username != nil %>
+								<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
+                        		<%= comment.content %></li>
+                        	<% else %> <!--check if comment is an update -->
+                        		<li class = "italic"><%= comment.content %></li>
+                        	<% end %>
+						<% end %>
+					</ul>
+				</div><!--discussionBoard -->
+			</div> <!--discussionBoard-container -->
+			<!--insert rsvpList code here -->
+
+			</div> <!--eventSidebar -->
+		</div> <!--span4-->
+
+
+
 		<div class = "span8">
 
 			<div id = "venueList-header">
 				<div class = "row">
             		<div class = "span5"><h2>Recommended Venues:</h2></div>
             		<%= display_venue_suggest_button(@event) %>
-         		</div>
-			</div> <!--venueList-header-->
 
-			<div id = "venueList-container">
-				<% if @event.stage != "Voting" %>
-					<% if @event.venues.count == 0 %>
-						<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
-					<% else %>
-						<span id ='eventOveraeading'>VENUE SET</span>
+	         		<% if @event.stage != "Voting" %>
+						<% if @event.venues.count == 0 %>
+							<div id = 'eventCancelledHeading'>EVENT CANCELLED <br/> (No Venues Suggested)</div>
+						<% else %>
+							<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
+						<% end %>
 					<% end %>
-				<% end %>
+				</div>
+			</div> <!--venueList-header-->
+			<div id = "venueList-container">
 
 				<ul id = "venueList">
 					<%if @event.venues.count === 0 %>
-                        <div class = "noEventsLabel">  
-                            <li> <%= @no_venues_text %></li>
+                        <div class = "noEventsLabel noVenues">  
+                            <div class = "row"><li> <%= @no_venues_text %></li></div>
                         </div>
 
                     <% else %>
-                    	<div class = "noEventsLabel">  
-                            <li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
-                             <li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
-                        </div>
+                    	<% if @event.stage == "Voting" %>
+	                    	<div class = "noEventsLabel noVenues"> 
+	                    	 	<div class = "row"> 
+	                           	 	<li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
+	                             	<li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
+	                             </div>
+	                        </div>
+	                    <% end %>
+
 						<% @event.venues.each do |venue| %>
+						 <div class = "row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								
 								<div class = "venueSticky"%><%= h(generate_venue_sticky(venue)) %></div>
@@ -64,6 +142,7 @@
 								</div> <!-- voteControls -->
 
 							</li><!--listItem -->
+						</div>
 						<% end %>
 						<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
 					<% end %>
@@ -71,73 +150,6 @@
 			</div><!-- venueList-container -->
 		</div> <!--span8-->
 
-			<div class = "span4">
-				<div id = "eventSideBar">
-
-					<div class = "eventbox">
-						<div class = "eventbox-header">
-							<div class = "eventbox-header-text"><%= h(@event.name) %></div>
-							<% if current_user == @event.user %>
-								<span><%= display_edit_event(@event) %></span>
-								<span><%= display_delete_event(@event) %></span>
-								<span><%= display_reminder_link(@event) %></span>
-							<% end %>
-						</div> <!--eventInfo-header -->
-
-						<div id = 'eventInfo-content'>
-
-							<ul id = "eventInfo-content-ul">
-								<li class = "eventInfo-row">
-									<label class = "eventInfo-content-heading">Event Date:</label>
-									<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
-								</li>
-								<li class = "eventInfo-row">
-									<label class = "eventInfo-content-heading">Time Left to Vote:</label>
-									<span><%= display_countdowns(@event) %></span>
-								</li>
-								<li class = "eventInfo-row">
-									<label class = "eventInfo-content-heading">Created by:</label>
-									<span id = "eventOwner"><%= h(@event.user.username)%></span>
-								</li>
-							</ul>
-
-							<% if !h(@event.notes).blank? %>
-								<div id = "eventInfo-notes" >
-									<label class = "eventInfo-content-heading">Notes:</label>
-									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
-								</div>
-							<% end %>
-						</div><!--eventInfo-content -->
-					</div> <!-- eventInfo-container -->
-
-				<div class = "eventbox" id = "discussionBoard-container">
-					<div class = "eventbox-header">
-						<div class = "eventbox-header-text">Discussion Board</div>
-
-					</div><!--discussionBoard-header -->
-					
-					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
-							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
-							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
-					<% end %>
-
-					<div id = "discussionBoard">
-						<ul>
-							<% @event.comments.order("created_at DESC").each do |comment| %>
-								<% if comment.username != nil %>
-									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
-                            		<%= comment.content %></li>
-                            	<% else %> <!--check if comment is an update -->
-                            		<li class = "italic"><%= comment.content %></li>
-                            	<% end %>
-							<% end %>
-						</ul>
-					</div><!--discussionBoard -->
-				</div> <!--discussionBoard-container -->
-				<!--insert rsvpList code here -->
-
-				</div> <!--eventSidebar -->
-			</div> <!--span4-->
 	
 
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">

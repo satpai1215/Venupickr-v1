@@ -60,16 +60,6 @@ module EventsHelper
 		return html.html_safe
 	end
 
-	def display_vote_countdown(event)
-
-		html = ""
-		
-		if event.stage === "Voting"
-			html << "<span id = 'voteCountdown' class = 'infoSubHead red'>00:00:00</span> "
-		end
-
-		return html.html_safe
-	end
 
 	def display_prevoting_countdown(event)
 		html = ""
@@ -119,6 +109,14 @@ module EventsHelper
 
   	def endlines_to_breaks(string)
   		string.gsub(/\n/, '<br/>').html_safe
+  	end
+
+  	def event_over_text(stage)
+  		if stage == "Finished"
+  			return "VENUE SET"
+  		else #"Archived"
+  			return "EVENT OVER"
+  		end
   	end
 
 end

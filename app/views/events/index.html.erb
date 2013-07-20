@@ -4,6 +4,25 @@
     </div>
 <% end %>
 <div class = "row">
+     <div class = "span3">
+        <div class = "eventbox" id = "newsFeed">
+            <div class = "eventbox-header" id = "newsFeed-header">
+                <div class = "eventbox-header-text">Recent Activity</div>
+            </div><!--discussionBoard-header -->
+            <ul>
+                <% Update.limit(12).order("created_at DESC").each do |update| %>
+                    <li>
+                        <div class = "update-item-container">
+                            <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
+                            <%= update.content %>
+                        </div>
+                    </li>
+                <% end %>
+
+            </ul>
+        </div><!--newsFeed-->
+    </div><!--span3-->
+
     <div class = "span9">
         <div class = "eventList" >
             <div id = "upcomingEvents" >
@@ -14,7 +33,7 @@
                 <ul>
                     <%if @upcoming_events.count === 0 %>
                         <div class = "noEventsLabel">  
-                            <div class = "row"><li> No upcoming events </li></div>
+                            <div class = "row eventItem"><li> No upcoming events </li></div>
                         </div>
                     <% else %>
                         <% @upcoming_events.each_with_index do |event, index| %>
@@ -52,7 +71,7 @@
                 <ul>
                     <%if @events.count === 0 %>
                         <div class = "noEventsLabel">  
-                            <div class = "row"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>
+                            <div class = "row eventItem"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>
                         </div>
                     <% else %>
                         <% @events.each_with_index do |event, index| %>
@@ -62,7 +81,7 @@
                                         <div class = "span6 eventLabel" >
                                                 <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
                                                 <div class = "eventName"><%= h(event.name) %></div>
-                                                <div class = "eventIndexModifiers"><%= display_edit_event(event) %><%= display_delete_event(event) %></div>
+                                                <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event) %>)</div>
                                                 <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                     <%= event.event_start.strftime("%I:%M%p") %>
                                                 <br/> Created By: <%= h(event.user.username) %>
@@ -86,23 +105,6 @@
             </div> <!--votingEvent -->
         </div> <!--eventList -->
     </div> <!--span9-->
-
-    <div class = "span3">
-        <div id = "newsFeed-header"><h2>Recent Activity:</h2></div>
-        <div id = "newsFeed">
-            <ul>
-                <% Update.limit(12).order("created_at DESC").each do |update| %>
-                    <li>
-                        <div class = "update-item-container">
-                            <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>
-                            <%= update.content %>
-                        </div>
-                    </li>
-                <% end %>
-
-            </ul>
-        </div><!--newsFeed-->
-    </div><!--span3-->
 
 </div> <!--row-->
 
