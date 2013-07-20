@@ -21,74 +21,75 @@
  body {
  }
 
+ #content_body {
+ 	background: #ededed;
+ }
+
+ #title_body {
+ }
+
+ #container {
+ 	padding-top: 5px;
+ }
+
  /*----------------------------------------------------------------------------- 
 = NOTICE 
 -----------------------------------------------------------------------------*/
 #notice {
 	text-align: center;
-	font-weight: bold;
 	font-size: 1.5em;
 	color: #c09853;
 	background: #fcf8e3;
 }
 
  /*----------------------------------------------------------------------------- 
-= HEADER
+= PAGE TITLE AND LOGIN NAV
 -----------------------------------------------------------------------------*/
- header {
- }
+
+#page_title {
+	border-bottom: 1px solid gray;
+	min-width: 500px;
+	box-shadow: 0px 0px 5px 0px #000;
+		-moz-box-shadow: 0px 0px 5px 0px #000;
+		-webkit-box-shadow: 0px 0px 5px 0px #000;
+}
 
  #banner {
  	width: 650px;
  	height: auto;
  }
 
- #page_header {
- 	width: 940px;
-	margin: 0px auto;
- }
-
- #page_title > h1 {
-	font-family: CF Midnight, Helvetica, Arial, sans-serif;
-	text-align: left;
-	margin: 0px;
-	border-bottom: 2px solid black;
-
+#login-nav {
+	margin-right: 5px;
+	float: right;
+	margin-top: 50px;
 }
-
-#container {
-}	
-
-.nav {
- 	margin-bottom: 0px;
- }
-
- #login-nav {
- }
 
 
 
  /*----------------------------------------------------------------------------- 
-= LOGIN NAV
+= NAV
 -----------------------------------------------------------------------------*/
-#login-nav {
-	margin-top: 8px;
-	margin-left: 5px;
-	text-align: right;
-}
-
+ #nav-container {
+ 	width: 940px;
+	margin: 0px auto;
+ }
+.nav {
+ 	margin-bottom: 0px;
+ }
  /*----------------------------------------------------------------------------- 
 = MAIN
 -----------------------------------------------------------------------------*/
 
  #main {
  	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
- 	/*background: #ededed;*/
+ 	/*background: #ededed;
  	min-height: 700px;
-	border-radius: 5px;
+	border-radius: 5px; */
 	/*	-moz-box-shadow: 0px 5px 20px 0px #000;
 		-webkit-box-shadow: 0px 5px 20px 0px #000;
 		box-shadow: 0px 5px 20px 0px #000 */
+		z-index: -99999;
 		
  }
 
@@ -96,8 +97,8 @@
 FOOTER 
 -----------------------------------------------------------------------------*/
 footer {
-	margin: 10px auto;
-	font-size: 1.5em;
+	margin: 30px auto;
+	font-size: 1.3em;
 	text-align: center;
 	font-weight: bold;
 

@@ -67,29 +67,6 @@
 						<% end %>
 					</ul>
 
-
-				<div id = "discussionBoard-container">
-					<div id = "discussionBoard-header">
-						<h4>Discuss!</h4>
-						<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
-							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
-							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
-						<% end %>
-					</div><!--discussionBoard-header -->
-					<div id = "discussionBoard">
-						<ul>
-							<% @event.comments.order("created_at DESC").each do |comment| %>
-								<% if comment.username != nil %>
-									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
-                            		<%= comment.content %></li>
-                            	<% else %> <!--check if comment is an update -->
-                            		<li class = "italic"><%= comment.content %></li>
-                            	<% end %>
-							<% end %>
-						</ul>
-					</div><!--discussionBoard -->
-				</div> <!--discussionBoard-container -->
-
 				</div><!-- venueList-container -->
 		</div> <!--span8-->
 			<div class = "span4">
@@ -117,10 +94,31 @@
 					<% end %>
 				</div> <!-- eventInfo-container -->
 
+				<div id = "discussionBoard-container">
+					<div id = "discussionBoard-header">
+						<h4>Discuss!</h4>
+						<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
+							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
+							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
+						<% end %>
+					</div><!--discussionBoard-header -->
+					<div id = "discussionBoard">
+						<ul>
+							<% @event.comments.order("created_at DESC").each do |comment| %>
+								<% if comment.username != nil %>
+									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
+                            		<%= comment.content %></li>
+                            	<% else %> <!--check if comment is an update -->
+                            		<li class = "italic"><%= comment.content %></li>
+                            	<% end %>
+							<% end %>
+						</ul>
+					</div><!--discussionBoard -->
+				</div> <!--discussionBoard-container -->
 				<!--insert rsvpList code here -->
 
 				</div> <!--eventSidebar -->
-			</div> <!--span5-->
+			</div> <!--span4-->
 	
 
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
