@@ -497,6 +497,10 @@
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
+#addNamestoUserAlert {
+	display: none;
+}
+
 .new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
 	text-align: center;
 }

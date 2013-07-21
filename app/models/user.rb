@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   has_many :venues,  dependent: :destroy
   has_many :voters, dependent: :destroy
 
-  validates :username, :email, :firstname, :lastname, presence: true, uniqueness: true
+  validates :username, :email, :firstname, :lastname, presence: true
+  validates :username, :email, uniqueness: true
   validates :password, presence: true, :on => :create
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :username, with: /^[a-zA-Z0-9]+[a-zA-Z0-9_\-]*$/

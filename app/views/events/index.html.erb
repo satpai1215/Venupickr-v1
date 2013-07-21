@@ -105,10 +105,16 @@
             </div> <!--votingEvent -->
         </div> <!--eventList -->
     </div> <!--span9-->
-
+    <div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information"></div> <!--createEventForm-->
+    <div id = "addNamestoUserAlert" class = "modal-dialog" title = "Update User Info">
+        <p>Please go into your 'User Settings' and enter your first and last names. This will make it easier to keep track of your friends and the guests you invite to your events!</p>
+    </div>
 </div> <!--row-->
 
-<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
-    </div> <!--createVenueForm-->
+<%if @name_entered %>
+    <script type = "text/javascript">
+          $("#addNamestoUserAlert").dialog({modal: true, autoOpen: true, minWidth: 500, show: 500, position: { my: "center top", at: "center top+100px", of: "#content_body" }});
+    </script>
+<% end %>
 
 <script type = "text/javascript"> createTimersinIndex(); </script>

@@ -7,6 +7,10 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     #only display events that are not finished
+    @name_entered = false
+    if user_signed_in?
+      @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
+    end
     @events = Event.where(:stage => "Voting").order("event_start ASC")
     @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC")
     gon.numUpcoming = @upcoming_events.count
@@ -15,6 +19,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+      format.js
     end
   end
 

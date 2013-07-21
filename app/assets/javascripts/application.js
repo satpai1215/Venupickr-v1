@@ -24,55 +24,56 @@ $(function() {
        // }
     });
 
- $('.voteButton').ajaxSuccess(function() {  
-    votesort();  
+   $('.voteButton').ajaxSuccess(function() {  
+      votesort();  
+    });
+   
+
+
+  $(document).on('click', '#eventSubmitButton', function(event) {
+    $('#event-loading-gif').css('visibility', 'visible');
+    $('#eventSubmitButton').hide();
+  });
+  $(document).on('click', '#venueSubmitButton', function(event) {
+    $('#event-loading-gif').css('visibility', 'visible');
+    $('#venueSubmitButton').hide();
+  });
+
+  $(document).on('click', '.appActions', function(event) {
+    $('.appActions').removeClass('selected');
+    $(this).toggleClass('selected');
+    var index = $('.appActions').index(this);
+    $('.appActionsInfo').removeClass('block');
+    $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
   });
 
 
-$(document).on('click', '#eventSubmitButton', function(event) {
-  $('#event-loading-gif').css('visibility', 'visible');
-  $('#eventSubmitButton').hide();
-});
-$(document).on('click', '#venueSubmitButton', function(event) {
-  $('#event-loading-gif').css('visibility', 'visible');
-  $('#venueSubmitButton').hide();
-});
+   $('#user_notification_emails').change(function() {  
+      if (!$(this).prop('checked')) {
+        window.alert("Are you sure?  You will no longer get reminders about events and voting.");
+      }
+    }); 
 
-$(document).on('click', '.appActions', function(event) {
-  $('.appActions').removeClass('selected');
-  $(this).toggleClass('selected');
-  var index = $('.appActions').index(this);
-  $('.appActionsInfo').removeClass('block');
-  $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
-});
+   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
+   $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+   //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 
+   $(".voteCount").hover( 
+      function () {
+        $(this).siblings("ol.voteList").fadeIn();
+      },
+      function () {
+        $(this).siblings("ol.voteList").fadeOut();
+      }
+    );
 
- $('#user_notification_emails').change(function() {  
-    if (!$(this).prop('checked')) {
-      window.alert("Are you sure?  You will no longer get reminders about events and voting.");
-    }
-  }); 
-
- $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
- $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
- //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
-
- $(".voteCount").hover( 
-    function () {
-      $(this).siblings("ol.voteList").fadeIn();
-    },
-    function () {
-      $(this).siblings("ol.voteList").fadeOut();
-    }
-  );
-
- $('#enterCommentsField').keyup(function(){
-    var str = $('#enterCommentsField').val();
-    if(!(!str || /^\s*$/.test(str))) 
-         $('#postCommentButton').attr('disabled', false);    
-    else
-         $('#postCommentButton').attr('disabled', true);   
-});
+   $('#enterCommentsField').keyup(function(){
+      var str = $('#enterCommentsField').val();
+      if(!(!str || /^\s*$/.test(str))) 
+           $('#postCommentButton').attr('disabled', false);    
+      else
+           $('#postCommentButton').attr('disabled', true);   
+  });
 
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {
   //    $('#createVenueForm').dialog("open");
