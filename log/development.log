@@ -70048,3 +70048,35 @@ Started GET "/assets/beta_banner.png" for 127.0.0.1 at 2013-07-20 10:08:29 -0700
 Served asset /beta_banner.png - 304 Not Modified (0ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to CreateVoters (20130317234337)
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "voters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "user_id" integer, "venue_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+SQLite3::SQLException: table "voters" already exists: CREATE TABLE "voters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "event_id" integer, "user_id" integer, "venue_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (3.3ms)[0m  [1mALTER TABLE "users" ADD "firstname" varchar(255)[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "users" ADD "lastname" varchar(255)
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130721202513')[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
