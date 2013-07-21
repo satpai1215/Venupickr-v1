@@ -129,16 +129,16 @@
 										<% end %>
 									<% end %>
 
-									<% if @event.stage == "Voting" %>
-									<%#= button_to "", {:controller => "venues", :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id}, {:class => "voteButton", :remote => true, :src => "/assets/upvote.png" } %>
-										<div class = "voteIcon">
+									<div class = "voteIcon">
+										<% if @event.stage == "Voting" %>
+										
 											<% if venue.voters.where(:user_id => current_user.id).exists? %>
 												<%= image_tag("checkmark.png", :id => "checked_venue") %>
 											<% else %>
 												<%= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 											<% end %>
-										</div><!--voteIcon-->
-									<% end %>
+										<% end %>
+									</div><!--voteIcon-->
 
 								</div> <!-- voteControls -->
 							</li><!--listItem -->

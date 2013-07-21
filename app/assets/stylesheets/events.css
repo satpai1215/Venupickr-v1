@@ -213,7 +213,9 @@
 		max-height: 150px;
 		overflow: auto;
 		font-style: italic;
-
+	}
+	#eventInfo-notes p {
+		margin-bottom: 0px;
 	}
 	#eventInfo-content-ul {
 		margin-left: 0px;
