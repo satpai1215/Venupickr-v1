@@ -306,7 +306,6 @@
 	}
 
 	#venueList {
-		overflow-y: auto;
 		text-align: left;
 		padding-left: 20px;
 		padding-bottom: 30px;
