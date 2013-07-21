@@ -309,11 +309,11 @@
 		overflow-y: auto;
 		text-align: left;
 		padding-left: 20px;
+		padding-bottom: 30px;
 		margin: 0px 0px;
 	}
 
 	#venueList:hover {
-		overflow-y: auto;
 	}
 
 	#venueList li.listItem{
