@@ -29,6 +29,7 @@
 
  #content_body {
  	background: #ededed;
+ 	min-height: 700px;
  }
 
  #nav_body {
