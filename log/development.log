@@ -82599,3 +82599,4 @@ Served asset /application.js - 304 Not Modified (0ms)
 
 Started GET "/assets/beta_banner.png" for 127.0.0.1 at 2013-07-21 15:42:32 -0700
 Served asset /beta_banner.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
