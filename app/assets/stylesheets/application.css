@@ -108,10 +108,10 @@
 FOOTER 
 -----------------------------------------------------------------------------*/
 footer {
-	margin: 30px auto;
 	font-size: 1.3em;
 	text-align: center;
 	font-weight: bold;
+	background: white;
 }
 
 .red {
