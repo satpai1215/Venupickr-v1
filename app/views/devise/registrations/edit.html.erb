@@ -10,10 +10,10 @@
         <%= f.email_field :email, :autofocus => true %>
       </div>
 
-      <div class = "field"><%= f.label :firstname %> <br/>
+      <div class = "field"><%= f.label :firstname, "First Name" %> <br/>
       <%= f.text_field :firstname %></div>
 
-      <div class = "field"><%= f.label :lastname %> <br/>
+      <div class = "field"><%= f.label :lastname, "Last Name" %> <br/>
       <%= f.text_field :lastname %></div>
 
 
@@ -27,12 +27,12 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label :password, "New Password (leave blank if you don't want to change it)" %><br />
         <%= f.password_field :password, :autocomplete => "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation, "New Password Confirmation" %><br />
         <%= f.password_field :password_confirmation %>
       </div>
 
@@ -41,21 +41,23 @@
         <%= f.label  :notification_emails, "Send Notification Emails?" %>
       </div>
 
-      <div class="field">
-        <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
-        <%= f.password_field :current_password %>
+      <div id = "user-edit-confirmation-container">
+        <div class="field">
+          <%= f.label :current_password, "Confirm your changes:" %>
+          <%= f.password_field :current_password, {:placeholder => "Enter Current Password"} %>
+        </div>
+
+        <div class = "actions"><%= f.submit "Update", {:class => "sign_in_btn btn btn-primary"} %></div>
       </div>
 
-      <div class = "actions"><%= f.submit "Update", {:class => "sign_in_btn btn btn-primary"} %></div>
-    
     <% end %>
 
 
     <div class = "cancel_action">
-      <h4>Cancel Account?</h4>
+      <h5>Cancel Account?</h5>
       <%= button_to("Cancel my account", registration_path(resource_name), :data => { :confirm => "WARNING: THIS CANNOT BE UNDONE. If you cancel your account, all of the events you created will also be removed" }, :method => :delete, :id => "cancel_btn", :class => "btn btn-danger") %>
     </div>
 
-    <%= link_to "Back", :back %>
+    <%#= link_to "Back", :back %>
 
 </div>

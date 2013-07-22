@@ -26,6 +26,7 @@
 .user_session_page .actions {
 	width: 35%;
 	margin: 30px auto;
+	margin-bottom: 10px;
 	margin-top: 10px;
 	padding-right: 0px;
 }
@@ -65,6 +66,21 @@
 #user_notification_emails label {
 	margin-top: 0px;
 }
+
+#user-edit-confirmation-container {
+	border: 3px solid blue;
+	border-radius: 2px;
+	box-shadow: 0px 2px 5px 0px #000;
+		-moz-box-shadow: 0px 2px 5px 0px #000;
+		-webkit-box-shadow: 0px 2px 5px 0px #000;
+	padding: 10px;
+}
+	#user-edit-confirmation-container label {
+		font-weight: bold;
+		font-size: 1.2em;
+		text-align: center;
+		display: block;
+	}
 
 .cancel_action {
 	margin: 50px auto;
