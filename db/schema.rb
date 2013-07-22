@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721202513) do
+ActiveRecord::Schema.define(:version => 20130722004038) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(:version => 20130721202513) do
     t.text     "notes",               :limit => 255
     t.integer  "archive_job_id"
   end
+
+  create_table "guests", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
+  add_index "guests", ["user_id"], :name => "index_guests_on_user_id"
 
   create_table "rsvps", :force => true do |t|
     t.integer  "user_id"
