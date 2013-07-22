@@ -500,6 +500,13 @@
 #addNamestoUserAlert {
 	display: none;
 }
+#addNamestoUserAlert a {
+	text-decoration: underline;
+	text-align: center;
+	color: #08c;
+	margin-left: 180px;
+	
+}
 
 .new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
 	text-align: center;

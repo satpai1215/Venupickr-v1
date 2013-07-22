@@ -82609,3 +82609,4 @@ Connecting to database specified by database.yml
   [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_guests_on_event_id" ON "guests" ("event_id")[0m
   [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130722004038')
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
