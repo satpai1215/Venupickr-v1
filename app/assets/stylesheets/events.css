@@ -616,4 +616,21 @@ button.ui-dialog-titlebar-close {
 	background: white;
 }
 
+/*----------------------------------------------------------------------------- 
+= GLOBAL STYLINGS
+-----------------------------------------------------------------------------*/
+
+.red {
+	color: red;
+	font-weight: bold;
+}
+
+.blue {
+	color: blue;
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
 
