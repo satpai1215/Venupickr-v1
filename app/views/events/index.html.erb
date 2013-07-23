@@ -10,7 +10,7 @@
                 <div class = "eventbox-header-text">Recent Activity</div>
             </div><!--discussionBoard-header -->
             <ul>
-                <% Update.limit(12).order("created_at DESC").each do |update| %>
+                <% Update.limit(20).order("created_at DESC").each do |update| %>
                     <li>
                         <div class = "update-item-container">
                             <span class = "newsFeed_timestamp"><%= time_ago_in_words(update.created_at) %> ago:</span>

@@ -110,9 +110,9 @@
 }
 
 #newsFeed ul {
-	height: 630px;
+	height: 800px;
 	margin: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	overflow: auto;
 }
 #newsFeed li {
@@ -275,7 +275,7 @@
 	padding-top: 5px;
 	margin-right: 5px;
 	margin-left: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 }
 #discussionBoard ul:hover {
 
