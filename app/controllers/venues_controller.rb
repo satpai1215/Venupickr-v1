@@ -64,7 +64,7 @@ class VenuesController < ApplicationController
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
           @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-          if(@venue.event.user != current_user)
+          if(@venue.event.owner_id != current_user.id)
             AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
           end
 
@@ -108,7 +108,7 @@ class VenuesController < ApplicationController
         @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-        if(@venue.event.user != current_user)
+        if(@venue.event.owner_id != current_user.id)
           AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
         end
     end

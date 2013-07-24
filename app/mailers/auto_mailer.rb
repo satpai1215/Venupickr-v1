@@ -4,16 +4,18 @@ class AutoMailer < ActionMailer::Base
 
   def event_create_email(event_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
+    mail(:bcc => email_list, :subject => "#{@owner} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
   def venue_suggested_email(event_id, venue_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @venue_owner = Venue.find(venue_id).user.username
     @url = event_url(@event)
-    mail(:bcc => @event.user.email, :subject => "ALERT: A venue has been suggested for your event, '#{@event.name}'")
+    mail(:bcc => @owner.email, :subject => "ALERT: A venue has been suggested for your event, '#{@event.name}'")
   end
 
   def event_finish_email(event_id)
@@ -50,14 +52,16 @@ class AutoMailer < ActionMailer::Base
 
   def no_venue_email(event_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @url = event_url(@event)
-    mail(:to => @event.user.email, :subject => "WARNING: No Venues Suggested for '#{@event.name}'")
+    mail(:to => @owner.email, :subject => "WARNING: No Venues Suggested for '#{@event.name}'")
   end
 
   def no_venue_email_final(event_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @url = event_url(@event)
-    mail(:to => @event.user.email, :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
+    mail(:to => @owner.email, :subject => "Your Event '#{@event.name}' Has Been Removed (No Venues Suggested)")
   end
 
   private
