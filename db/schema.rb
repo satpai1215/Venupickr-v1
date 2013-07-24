@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724020521) do
+ActiveRecord::Schema.define(:version => 20130724051930) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130724020521) do
     t.text     "notes",               :limit => 255
     t.integer  "archive_job_id"
     t.integer  "user_id"
-    t.integer  "owner"
+    t.integer  "owner_id"
   end
 
   create_table "guests", :force => true do |t|
