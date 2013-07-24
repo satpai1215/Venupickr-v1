@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @owner = User.find(@event.owner_id)
     @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
     @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")

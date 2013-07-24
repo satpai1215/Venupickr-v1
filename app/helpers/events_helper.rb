@@ -50,6 +50,11 @@ module EventsHelper
 		html << link_to(link_text, event_path(event), {:class => "btn #{btn_type}"})
 		return html.html_safe
 	end
+
+	def get_event_owner(event)
+		return User.find(event.owner_id).username
+	end
+
 	
 
 	#event#show helper methods

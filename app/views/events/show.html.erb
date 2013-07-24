@@ -6,7 +6,7 @@
 				<div class = "eventbox">
 					<div class = "eventbox-header">
 						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
-						<% if current_user == @event.user %>
+						<% if current_user.id == @event.owner_id %>
 							<span class = "italic">You are the owner</span>
 							<span><%= display_edit_event(@event) %></span>
 							<span><%= display_delete_event(@event) %></span>
@@ -29,7 +29,7 @@
 							<% end %>
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
-								<span id = "eventOwner"><%= h(@event.user.username)%></span>
+								<span id = "eventOwner"><%= h(@owner.username)%></span>
 							</li>
 						</ul>
 
