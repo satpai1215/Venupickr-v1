@@ -83096,3 +83096,35 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-23 22:05:16 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."stage" = 'Finished'
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE "events"."stage" = 'Finished'[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."stage" = 'Voting'
+  [1m[36mUpdate Load (0.3ms)[0m  [1mSELECT "updates".* FROM "updates" ORDER BY created_at DESC LIMIT 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE "events"."stage" = 'Finished'
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."stage" = 'Finished' ORDER BY event_start ASC[0m
+  Rendered events/index.html.erb within layouts/application (40.3ms)
+Completed 500 Internal Server Error in 119ms
+
+ActionView::Template::Error (undefined method `user' for #<Event:0x007fdaba02cbe0>):
+    45:                                             <div class = "eventName"><%= h(event.name) %></div>
+    46:                                             <%= event.event_start.strftime("%B %d, %Y") %> at 
+    47:                                                 <%= event.event_start.strftime("%I:%M%p") %>
+    48:                                             <br/> Created By: <%= h(event.user.username) %>
+    49:                                         </div>
+    50:                                         <div class = "span2 eventActions">
+    51:                                             <div class = "eventClock">
+  app/views/events/index.html.erb:48:in `block in _app_views_events_index_html_erb__2738258137067608807_70288650598500'
+  app/views/events/index.html.erb:39:in `_app_views_events_index_html_erb__2738258137067608807_70288650598500'
+  app/controllers/events_controller.rb:19:in `index'
+
+
+  Rendered /Users/Satyan/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/Satyan/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/Satyan/.rvm/gems/ruby-1.9.3-p362/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+Connecting to database specified by database.yml

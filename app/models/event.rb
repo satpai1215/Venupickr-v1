@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_many :voters, dependent: :destroy
   has_many :rsvps, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :users, through: :guests, dependent: :destroy
+  has_many :users, through: :guests
   has_many :guests, dependent: :destroy
 
   validates :name, :datepicker, :timepicker, :presence => true
