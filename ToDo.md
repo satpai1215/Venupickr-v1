@@ -3,6 +3,8 @@ GROUPS TO DO
 -allow guest selection on event#show
 -show guests on event#show
 -allow event guests to invite other guests?
+-only show events that users are guests of
+-change mailers to only email guests
 
 OTHER TO DO
 - have a checkbox to determine if people other than event_owner can suggest venues (optional)
