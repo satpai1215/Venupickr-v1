@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
   has_many :voters, dependent: :destroy
   has_many :rsvps, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :guests, dependent: :destroy
 
   validates :name, :datepicker, :timepicker, :presence => true
   validates_format_of :datepicker, with: /^\d{2}[\/-]\d{2}[\/-]\d{4}/

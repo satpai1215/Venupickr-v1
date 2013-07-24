@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
   has_many :venues,  dependent: :destroy
   has_many :voters, dependent: :destroy
+  has_many :guests, dependent: :destroy
 
   validates :username, :email, :firstname, :lastname, presence: true
   validates :username, :email, uniqueness: true

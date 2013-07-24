@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722004038) do
+ActiveRecord::Schema.define(:version => 20130724014700) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20130722004038) do
     t.string   "name"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
-    t.integer  "user_id"
     t.string   "stage"
     t.datetime "event_start"
     t.integer  "vote_end"
@@ -52,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20130722004038) do
     t.integer  "voting_email_job_id"
     t.text     "notes",               :limit => 255
     t.integer  "archive_job_id"
+    t.integer  "user_id"
+    t.integer  "owner"
   end
 
   create_table "guests", :force => true do |t|
