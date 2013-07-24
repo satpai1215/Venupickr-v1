@@ -83091,3 +83091,5 @@ Migrating to UpdateEventsWithOwner (20130724020521)
   [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
