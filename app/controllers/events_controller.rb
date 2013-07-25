@@ -84,6 +84,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     @event.owner_id = current_user.id
+    @event.users << current_user
 
       respond_to do |format|
         if @event.save
