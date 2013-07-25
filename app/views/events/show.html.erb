@@ -7,9 +7,10 @@
 					<div class = "eventbox-header">
 						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
 						<% if current_user.id == @event.owner_id %>
-							<span class = "italic">You are the owner</span>
+							<span class = "italic">You are the owner</span><br/>
 							<span><%= display_edit_event(@event) %></span>
 							<span><%= display_delete_event(@event) %></span>
+							<span>Invite Guests</span>
 							<span><%= display_reminder_link(@event) %></span>
 						<% end %>
 					</div> <!--eventInfo-header -->
