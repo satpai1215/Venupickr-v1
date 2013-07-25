@@ -5,11 +5,11 @@ class VenuesController < ApplicationController
   # GET /venues/new.json
   def new
     @event_id = params[:event_id]
-    @event_user = Event.find(@event_id).user
+    @event = Event.find(@event_id)
     @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
 
     #only allow multiple venue suggestion if user is event owner
-    if @already_suggested_venue and (current_user != @event_user)
+    if @already_suggested_venue and (current_user.id != @event.owner_id)
       respond_to do |format|
         format.html { redirect_to event_path(@event_id),
                       notice: "You have already suggested a venue for this event. Try removing your existing venue."}
@@ -28,8 +28,8 @@ class VenuesController < ApplicationController
   # GET /venues/1/edit
   def edit
     @venue = Venue.find(params[:id])
-    if current_user.username == @venue.user.username
-      @event_id = @venue.event.id
+    if current_user.id == @venue.user.id
+      #@event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
       respond_to do |format|
