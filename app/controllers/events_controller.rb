@@ -1,28 +1,25 @@
 
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!
 
 
   # GET /events
   # GET /events.json
   def index
-    #only display events that are not finished
-    @name_entered = false
-    if user_signed_in?
+
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
-    end
 
-    #only show events that user is a guest of
-    @events = current_user.events.where(:stage => "Voting").order("event_start ASC")
-    @upcoming_events = current_user.events.where(:stage => "Finished").order("event_start ASC")
-    gon.numUpcoming = @upcoming_events.count
-    gon.totalIndexEvents = @upcoming_events.count + @events.count
+      #only show events that user is a guest of
+      @events = current_user.events.where(:stage => "Voting").order("event_start ASC")
+      @upcoming_events = current_user.events.where(:stage => "Finished").order("event_start ASC")
+      gon.numUpcoming = @upcoming_events.count
+      gon.totalIndexEvents = @upcoming_events.count + @events.count
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-      format.js
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @events }
+      end
+
   end
 
   # GET /events/1
@@ -31,7 +28,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
-       redirect_to events_url, notice: 'You are not authorized to access that page.'
+       redirect_to events_path, notice: 'You are not authorized to access that page.'
     else
       @owner = User.find(@event.owner_id)
       #only show vote counts if voting period is over, or if user is event owner or admin
