@@ -83,7 +83,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+    #save event owner as current_user
     @event.owner_id = current_user.id
+
+    #add current_user to guests of this event
     @event.users << current_user
 
       respond_to do |format|
