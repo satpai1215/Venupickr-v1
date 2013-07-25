@@ -27,21 +27,26 @@ class EventsController < ApplicationController
 
   # GET /events/1
   # GET /events/1.json
-  def show
+  def show  
     @event = Event.find(params[:id])
-    @owner = User.find(@event.owner_id)
-    #only show vote counts if voting period is over, or if user is event owner or admin
-    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
-    #@vote_date = @event.event_start - @event.vote_start.days
 
-    if @event.stage == "Voting"
-       @no_venues_text = "No venues have been suggested yet.  Suggest one!"
+    if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
+       redirect_to events_url, notice: 'You are not authorized to access that page.'
     else
-      @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
-    end
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
+      @owner = User.find(@event.owner_id)
+      #only show vote counts if voting period is over, or if user is event owner or admin
+      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
+      #@vote_date = @event.event_start - @event.vote_start.days
+
+      if @event.stage == "Voting"
+         @no_venues_text = "No venues have been suggested yet.  Suggest one!"
+      else
+        @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
+      end
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+      end
     end
   end
 
