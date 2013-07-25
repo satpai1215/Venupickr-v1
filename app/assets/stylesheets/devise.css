@@ -1,17 +1,19 @@
-.user_session_page h1 {
+#sign-in-header{
 	text-align: center;
-	margin-top: 40px;
-	font-weight: normal;
+	margin-top: 20px;
 }
+	#sign-in-header h1 {
+		font-weight: normal;
+	}
 
-#sign_in_container {
-	padding-top: 10px;
+.user_session_page {
+	padding-top: 25px;
 	padding-left: 0px;
 	width: 40%;
 	margin: 0 auto;
 }
 
-.user_session_page h3 {
+.user_session_page h2 {
 	text-align: center;
 	font-weight: normal;
 }
