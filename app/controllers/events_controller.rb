@@ -11,8 +11,10 @@ class EventsController < ApplicationController
     if user_signed_in?
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
     end
-    @events = Event.where(:stage => "Voting").order("event_start ASC")
-    @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC")
+
+    #only show events that user is a guest of
+    @events = current_user.events.where(:stage => "Voting").order("event_start ASC")
+    @upcoming_events = current_user.events.where(:stage => "Finished").order("event_start ASC")
     gon.numUpcoming = @upcoming_events.count
     gon.totalIndexEvents = @upcoming_events.count + @events.count
 
@@ -28,7 +30,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @owner = User.find(@event.owner_id)
-    @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
     @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
     #@vote_date = @event.event_start - @event.vote_start.days

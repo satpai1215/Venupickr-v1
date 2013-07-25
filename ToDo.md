@@ -3,6 +3,7 @@ GROUPS TO DO
 -allow guest selection on event#show
 -show guests on event#show
 -allow event guests to invite other guests?
+-allow guests to remove themselves from events
 -only show events that users are guests of
 -change mailers to only email guests
 
