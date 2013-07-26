@@ -397,15 +397,12 @@
 		.voteButton img:hover {
 		}
 
-		#checked_venue {
-			width: 32px;
-			height: auto;
-
-			position: relative;
-			bottom: 2px;
-			right: 2px;
-			margin: 0px;
+		.selected-venue {
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: green;
 		}
+		
 
 		.voteMeter{
 			float: right;
