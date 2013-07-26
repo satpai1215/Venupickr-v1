@@ -335,11 +335,11 @@
 	.venueSticky {
 		font-family: Courier;
 		line-height: 1em;
-		background: white;
-		padding: 5px;
-		padding-right: 60px;
+	}
+	.venueSticky-content {
 		padding-left: 20px;
-		background: transparent;
+		padding-right: 60px;
+		padding-top: 5px;
 	}
 
 	.venueStickyHeader {
@@ -362,10 +362,18 @@
 		margin-bottom: 0px;
 	}
 
+	.venueSticky-footer {
+		border-top: solid 1px black;
+		box-shadow: 0px 0px 5px 0px #000;
+			-moz-box-shadow: 0px 0px 5px 0px #000;
+			-webkit-box-shadow: 0px 0px 2px 0px;
+		padding: 5px;
+		min-height: 10px
+	}
 	.venue_modifiers {
-		margin-left: 3px;
-		margin-bottom: 3px;
 		font-family: Courier;
+		width: 200px;
+		display: inline;
 	}
 
 	#venueList .voteControls {
@@ -386,10 +394,7 @@
 
 		}
 		.voteIcon {
-			position: absolute;
-			bottom: 2px;
-			right: 0px;
-			margin: 0px;
+			float: right;
 		}
 		.voteButton img {
 			width: 35px;

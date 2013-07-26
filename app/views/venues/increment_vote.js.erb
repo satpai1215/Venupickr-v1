@@ -6,22 +6,22 @@
 
 <% if @show_votecounts %>
 	venueItemVoteCount = <%= @votecount %>;
-	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteControls");
+	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteCount");
 	$olList = $currentListItem.children("ol.voteList");
 
 	if ($olList.length > 0) {
 		$olList.append("<li><%= escape_javascript(current_user.username) %></li>");
 	}
 	else {
-		$currentListItem.append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
+		$currentListItem.parent(".voteCount-container").append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
 	}
 
-	$currentListItem.children(".voteCount").text(<%= @votecount %>);
+	$currentListItem.text(<%= @votecount %>);
 
 	<% if !@voter.nil? %>
-		$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteControls");
-		$previousListItem.children(".voteCount").text(<%= @previous_votecount %>);
-		$previousListItem.children("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
+		$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteCount");
+		$previousListItem.text(<%= @previous_votecount %>);
+		$previousListItem.siblings("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
 	<% end %>
 
 <% end %>
@@ -31,10 +31,10 @@
 $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
 <% if !@voter.nil? %>
 	$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteIcon");
-	$previousListItem.html("<%= escape_javascript(link_to image_tag('upvote.png'), {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id,:event_id => @previous_venue.event.id }, {:class => 'voteButton', :remote => true }) %>");
+	$previousListItem.html("<%= escape_javascript(link_to 'Vote!', {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id,:event_id => @previous_venue.event.id }, {:class => 'voteButton', :remote => true }) %>");
 <% end %>
 
-$currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :id => 'checked_venue')) %>");
+$currentListItem.html("<%= escape_javascript('Checked!')%>");
 
 //voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
