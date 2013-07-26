@@ -116,8 +116,11 @@
 									<% if @event.stage == "Voting" %>
 										<div class = "venueSticky-footer">
 											<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
+<!-- 											<div class = "voteMeter">
+												<div class = "voteMeter-value"></div>
+												<div class = "voteMeter-cover"></div>
+											</div> -->
 											<div class = "voteIcon">
-											
 												<% if venue.voters.where(:user_id => current_user.id).exists? %>
 													<%#= image_tag("checkmark.png", :id => "checked_venue") %>
 													Checked!
@@ -125,7 +128,6 @@
 													<%= link_to "Vote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 													<%#= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 												<% end %>
-										
 											</div><!--voteIcon-->
 										</div><!--venueSticky-footer -->
 									<% end %>
@@ -147,7 +149,7 @@
 										<% end %>
 									<% end %>
 
-								</div> <!-- voteControls -->
+								</div> <!-- voteCount-container -->
 							</li><!--listItem -->
 						</div>
 						<% end %>

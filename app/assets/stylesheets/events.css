@@ -335,6 +335,7 @@
 	.venueSticky {
 		font-family: Courier;
 		line-height: 1em;
+		clear: both;
 	}
 	.venueSticky-content {
 		padding-left: 20px;
@@ -368,15 +369,62 @@
 			-moz-box-shadow: 0px 0px 5px 0px #000;
 			-webkit-box-shadow: 0px 0px 2px 0px;
 		padding: 5px;
-		min-height: 10px
+		height: 15px;
 	}
-	.venue_modifiers {
-		font-family: Courier;
-		width: 200px;
-		display: inline;
-	}
+		.venue_modifiers {
+			font-family: Courier;
+			width: 200px;
+			float: left;
+		}
 
-	#venueList .voteControls {
+		.voteIcon {
+			float: right;
+		}
+
+		.voteButton img {
+			width: 35px;
+			height: auto;
+		}
+
+		.voteButton img:hover {
+		}
+
+		#checked_venue {
+			width: 32px;
+			height: auto;
+
+			position: relative;
+			bottom: 2px;
+			right: 2px;
+			margin: 0px;
+		}
+
+		.voteMeter{
+			float: right;
+			position: relative;
+			margin-left: 10px;
+			height: 90%;
+			width: 20%;
+			background: gray;
+		}
+			.voteMeter-value {
+				position: absolute;
+				right: 2%;
+				left: 1%;
+				bottom: 14%;
+				top: 14%;
+				background: orange;
+			}
+			.voteMeter-cover {
+				position: absolute;
+				right: 2%;
+				left: 5%;
+				bottom: 14%;
+				top: 14%;
+				background: gray;	
+			}
+
+	#venueList .voteCount-container {
 		float: right;
 		margin-top: 0px;
 		margin-right: 0px;
@@ -389,28 +437,8 @@
 			top: 10px;
 			right: 7px;
 			cursor: pointer;
-
 			color: blue;
 
-		}
-		.voteIcon {
-			float: right;
-		}
-		.voteButton img {
-			width: 35px;
-			height: auto;
-		}
-		.voteButton img:hover {
-		}
-
-		#checked_venue {
-			width: 32px;
-			height: auto;
-
-			position: relative;
-			bottom: 2px;
-			right: 2px;
-			margin: 0px;
 		}
 
 	.voteList {
