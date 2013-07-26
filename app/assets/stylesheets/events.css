@@ -335,7 +335,6 @@
 	.venueSticky {
 		font-family: Courier;
 		line-height: 1em;
-		clear: both;
 	}
 	.venueSticky-content {
 		padding-left: 20px;
@@ -364,6 +363,7 @@
 	}
 
 	.venueSticky-footer {
+		position: relative;
 		border-top: solid 1px black;
 		box-shadow: 0px 0px 5px 0px #000;
 			-moz-box-shadow: 0px 0px 5px 0px #000;
@@ -378,7 +378,15 @@
 		}
 
 		.voteIcon {
-			float: right;
+			position: absolute;
+			right: 5px;
+			bottom: 2px;
+		}
+
+		.voteButton {
+			font-size: 0.9em;
+			padding: 0px 3px;
+			display: inline;
 		}
 
 		.voteButton img {

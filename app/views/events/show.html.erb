@@ -125,7 +125,7 @@
 													<%#= image_tag("checkmark.png", :id => "checked_venue") %>
 													Checked!
 												<% else %>
-													<%= link_to "Vote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
+													<%= link_to "Cast Vote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "btn btn-success voteButton", :remote => true } %>
 													<%#= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 												<% end %>
 											</div><!--voteIcon-->
