@@ -7,10 +7,10 @@
 <% if @show_votecounts %>
 	venueItemVoteCount = <%= @votecount %>;
 	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteCount");
-	$olList = $currentListItem.children("ol.voteList");
+	$oList = $currentListItem.siblings("ol.voteList");
 
-	if ($olList.length > 0) {
-		$olList.append("<li><%= escape_javascript(current_user.username) %></li>");
+	if ($oList.length > 0) {
+		$oList.append("<li><%= escape_javascript(current_user.username) %></li>");
 	}
 	else {
 		$currentListItem.parent(".voteCount-container").append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
@@ -21,7 +21,12 @@
 	<% if !@voter.nil? %>
 		$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteCount");
 		$previousListItem.text(<%= @previous_votecount %>);
-		$previousListItem.siblings("ol.voteList").find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
+		$oList = $previousListItem.siblings("ol.voteList");
+		$oList.find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
+
+		if ($oList.children('li').length === 0) {
+			$oList.remove();
+		}
 	<% end %>
 
 <% end %>
