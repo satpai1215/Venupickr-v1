@@ -39,7 +39,8 @@ $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
 	$previousListItem.html("<%= escape_javascript(link_to 'Cast Vote!', {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id, :event_id => @previous_venue.event.id }, {:class => 'btn btn-success voteButton', :remote => true }) %>");
 <% end %>
 
-$currentListItem.html("<div class = 'selected-venue'>Selected!</div>");
+//$currentListItem.html("<div class = 'selected-venue'>Selected!</div>");
+$currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :class => 'checked_venue') ) %>");
 
 //voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
