@@ -33,7 +33,11 @@ module EventsHelper
 
 	def timeLeft_days(event)
 		html = ""
-		timeLeft = (((event.event_start - event.vote_end.hours) - DateTime.now)/1.day)
+		if event.stage == "Voting"
+			timeLeft = (((event.event_start - event.vote_end.hours) - DateTime.now)/1.day)
+		else
+			timeLeft = (event.event_start - DateTime.now)/1.day
+		end
 
 		if timeLeft > 1
 			html << pluralize(timeLeft.to_int.to_s, "Day")
