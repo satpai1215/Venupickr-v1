@@ -152,13 +152,14 @@ class VenuesController < ApplicationController
     else
 
        @venue = Venue.find(params[:venue_id])
+       @event = @venue.event
        @already_voted = Voter.exists?(:user_id => current_user.id, :venue_id => params[:venue_id ])
-       @show_votecounts = (current_user.id == @venue.event.id or current_user.username == "Spaiderman")
+       @show_votecounts = (current_user.id == @event.id or current_user.username == "Spaiderman")
 
       #user has already voted for this venue
       if (@already_voted)
          respond_to do |format|
-           format.html {redirect_to @venue.event, notice: "You have already voted for this venue"}
+           format.html {redirect_to @event, notice: "You have already voted for this venue"}
            format.js {render :js => %($("#notice").text("You have already voted for this venue");)}
          end
       else
@@ -173,6 +174,12 @@ class VenuesController < ApplicationController
           @content = "#{current_user} changed their vote"
         else
           @content = "#{current_user} cast a vote"
+        end
+
+        @votecountArray = Array.new
+        @totalvotes = @event.voters.count.to_f
+        @venue.event.venues.each do |v|
+          @votecountArray << v.voters.count
         end
 
         #create new vote association

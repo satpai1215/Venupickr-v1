@@ -116,10 +116,10 @@
 									<% if @event.stage == "Voting" %>
 										<div class = "venueSticky-footer">
 											<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
-<!-- 											<div class = "voteMeter">
+											<div class = "voteMeter">
 												<div class = "voteMeter-value"></div>
 												<div class = "voteMeter-cover"></div>
-											</div> -->
+											</div>
 											<div class = "voteIcon">
 												<% if venue.voters.where(:user_id => current_user.id).exists? %>
 													<%= image_tag("checkmark.png", :class => "checked_venue") %>

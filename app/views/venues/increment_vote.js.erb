@@ -41,6 +41,7 @@ $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
 
 //$currentListItem.html("<div class = 'selected-venue'>Selected!</div>");
 $currentListItem.html("<%= escape_javascript(image_tag('checkmark.png', :class => 'checked_venue') ) %>");
+//$currentListItem.html("<div class = 'selected-venue btn'>Selected!</div>");
 
 //voteSort();
 $("#notice").text("<%= escape_javascript(@notice_text) %>"); 
@@ -48,5 +49,13 @@ $("#notice").text("<%= escape_javascript(@notice_text) %>");
 $("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content)%></li>");
 
 
+//update voteMeters
+$voteMeters = $(".voteMeter-cover");
+
+$.each($voteMeters, function(index, vm){
+		var percentVotes = <%=1/@totalvotes.to_f%>;
+		console.log(percentVotes);
+        //voteMeter.children(".voteMeter-cover").css('bottom' , percentVotes + '%');
+    });
 
 
