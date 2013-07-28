@@ -1,5 +1,5 @@
 class AutoMailer < ActionMailer::Base
-  default from: "MoMondaysMailer", to: "info@mo-mondays.com"
+  default from: "info@mo-mondays.com"
 
 
   def event_create_email(event_id)
