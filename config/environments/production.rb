@@ -35,7 +35,7 @@ MoMondays::Application.configure do
   config.action_mailer.smtp_settings = {
   :address              => "smtpout.secureserver.net",
   :port                 => 80,
-  :domain               => 'www.mo-mondays.com',
+  :domain               => 'mo-mondays.com',
   :user_name            => 'info@mo-mondays.com',
   :password             => 'moproblems',
   :authentication       => 'plain',
