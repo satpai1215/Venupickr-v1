@@ -20,6 +20,7 @@ class AutoMailer < ActionMailer::Base
 
   def event_finish_email(event_id)
   	@event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @winner = Venue.find(@event.winner)
     @winner.address = @winner.address.gsub("<br>", "\n")
   	@url = event_url(@event)
@@ -29,6 +30,7 @@ class AutoMailer < ActionMailer::Base
 
   def voting_reminder_email(event_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
     mail(:bcc => email_list, :subject => "REMINDER: '#{@event.name}' is on the clock on the MoMondaysApp!")
@@ -36,6 +38,7 @@ class AutoMailer < ActionMailer::Base
 
   def finished_reminder_email(event_id)
     @event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @winner = Venue.find(@event.winner)
     @winner.address = @winner.address.gsub("<br>", "\n")
     @url = event_url(@event)
@@ -45,6 +48,7 @@ class AutoMailer < ActionMailer::Base
 
   def vote_email(event_id)
   	@event = Event.find(event_id)
+    @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - 8.hours
     mail(:bcc => email_list, :subject => "ALERT: Voting for '#{@event.name}' Has Started")

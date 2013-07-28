@@ -8,7 +8,7 @@
     <p>Mo' Mondays Mo' Problems!</p>
     ===============================================
     <h2>REMINDER!</h2>
-    <p>'<%= @event.name %>' created by <%= @event.user %> is still on the clock on the MoMondaysApp!</p> 
+    <p>'<%= @event.name %>' created by <%= @owner %> is still on the clock on the MoMondaysApp!</p> 
     <p>You have until <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %> to vote and/or suggest a venue.</p>
     <p>Go to the <%= link_to("Event Page", @url) %> to add your vote! </p>
 

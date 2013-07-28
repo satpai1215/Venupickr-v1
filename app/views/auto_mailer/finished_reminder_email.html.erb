@@ -8,7 +8,7 @@
     <p>Mo' Mondays Mo' Problems!</p>
     ===============================================
     <h2>REMINDER!</h2>
-    <p>'<%= @event.name %>' created by <%= @event.user %> has been scheduled!</p> 
+    <p>'<%= @event.name %>' created by <%= @owner %> has been scheduled!</p> 
     <p>
       <b>Event Name:</b> "<%= @event.name %>" <br/>
       <b>Event Start Time:</b> <%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %><br/>
