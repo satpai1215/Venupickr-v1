@@ -238,7 +238,6 @@
 	height:	500px;
 	padding-right: 0px;
 	background: white;
-	overflow: auto;
 }
 #discussionBoard-header-text {
 	font-size: 1.3em;
@@ -276,9 +275,10 @@
 	margin-right: 5px;
 	margin-left: 10px;
 	margin-bottom: 10px;
+	height: 430px;
+	overflow: auto;
 }
 #discussionBoard ul:hover {
-
 }
 
 .comment_timestamp {
