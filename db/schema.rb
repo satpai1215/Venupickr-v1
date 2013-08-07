@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724051930) do
+ActiveRecord::Schema.define(:version => 20130807012540) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20130724051930) do
   end
 
   add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
+  add_index "guests", ["user_id", "event_id"], :name => "index_guests_on_user_id_and_event_id", :unique => true
   add_index "guests", ["user_id"], :name => "index_guests_on_user_id"
 
   create_table "rsvps", :force => true do |t|
