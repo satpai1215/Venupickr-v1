@@ -31,10 +31,10 @@ class EventsController < ApplicationController
     if !current_user.invited?(@event)
        redirect_to events_path, notice: 'You are not authorized to access that page.'
     else
-      @owner = User.find(@event.owner_id)
+      @owner = @event.owner
       @guests = @event.users.map { |u| u.username }
       #only show vote counts if voting period is over, or if user is event owner or admin
-      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
+      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
       #@vote_date = @event.event_start - @event.vote_start.days
 
       if @event.stage == "Voting"
@@ -223,6 +223,8 @@ class EventsController < ApplicationController
       end
 
   end
+
+
 
 private
 

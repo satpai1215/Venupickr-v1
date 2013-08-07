@@ -10,7 +10,7 @@
 							<span class = "italic">You are the owner</span><br/>
 							<span><%= display_edit_event(@event) %></span>
 							<span><%= display_delete_event(@event) %></span>
-							<span>Invite Guests</span>
+							<span><%= display_invite_guests(@event) %></span>
 							<span><%= display_reminder_link(@event) %></span>
 						<% end %>
 					</div> <!--eventInfo-header -->
@@ -31,8 +31,15 @@
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
 								<span id = "eventOwner"><%= h(@owner.username)%></span>
-								<div><%= @guests %> </div>
 							</li>
+							<li class = "eventInfo-row">
+								<label class = "eventInfo-content-heading">Invited Guests:</label>
+								<ul id = "event-guestlist">
+									<% @guests.each do |guest| %>
+										<li class = "event-guestName"><%= guest %></li>
+									<% end %>
+								</ul>
+							</li>								
 						</ul>
 
 						<% if !h(@event.notes).blank? %>

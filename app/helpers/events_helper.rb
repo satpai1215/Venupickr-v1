@@ -21,6 +21,15 @@ module EventsHelper
     	return html.html_safe
 	end
 
+	def display_invite_guests(event)
+		html = ""
+		if(event.stage != "Archived")
+	        html << link_to("Invite Guests", {:controller => 'events', :action => "invite_guests", :event_id => event.id}, remote: true)
+		end
+
+    	return html.html_safe
+	end
+
 	def display_reminder_link(event)
 		html = ""
 		if(event.stage != "Archived")

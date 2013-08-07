@@ -16,6 +16,7 @@ MoMondays::Application.routes.draw do
   #match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+  match '/event/invite_guests', :controller => 'events', :action => 'invite_guests'
   match '/event/send_reminder', :controller => 'events', :action => 'send_reminder'
   match '/event/post_comment', :controller => 'events', :action => 'post_comment'
   match 'rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
