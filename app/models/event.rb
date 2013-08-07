@@ -24,6 +24,15 @@ class Event < ActiveRecord::Base
     self.name
   end
 
+  def invite!(user)
+    self.guests.create!(:user_id => user.id)
+  end
+
+  def uninvite!(user)
+    self.guests.where(:user_id => user.id).destroy!
+  end
+
+
 
 private
   def build_event_start_and_validate

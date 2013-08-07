@@ -27,10 +27,12 @@ class EventsController < ApplicationController
   def show  
     @event = Event.find(params[:id])
 
-    if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
+    #if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
+    if !current_user.invited?(@event)
        redirect_to events_path, notice: 'You are not authorized to access that page.'
     else
       @owner = User.find(@event.owner_id)
+      @guests = @event.users.map { |u| u.username }
       #only show vote counts if voting period is over, or if user is event owner or admin
       @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
       #@vote_date = @event.event_start - @event.vote_start.days
