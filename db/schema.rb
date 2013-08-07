@@ -124,6 +124,9 @@ ActiveRecord::Schema.define(:version => 20130807012540) do
     t.string   "comments"
   end
 
+  add_index "venues", ["event_id"], :name => "index_venues_on_event_id"
+  add_index "venues", ["user_id"], :name => "index_venues_on_user_id"
+
   create_table "voters", :force => true do |t|
     t.integer  "event_id"
     t.integer  "user_id"
