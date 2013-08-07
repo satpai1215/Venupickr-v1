@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722004038) do
+ActiveRecord::Schema.define(:version => 20130807012136) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -121,6 +121,9 @@ ActiveRecord::Schema.define(:version => 20130722004038) do
     t.string   "url"
     t.string   "comments"
   end
+
+  add_index "venues", ["event_id"], :name => "index_venues_on_event_id"
+  add_index "venues", ["user_id"], :name => "index_venues_on_user_id"
 
   create_table "voters", :force => true do |t|
     t.integer  "event_id"

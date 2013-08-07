@@ -82612,3 +82612,45 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (3.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130221035454)
+Migrating to CreateEvents (20130221041307)
+Migrating to AddUsersToEvent (20130221050601)
+Migrating to RemoveAddressFromEvents (20130223020031)
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+Migrating to CreateVenues (20130223021340)
+Migrating to AddDeviseToUsers (20130224075441)
+Migrating to AddTimeToEvents (20130225024529)
+Migrating to AddUrlToVenue (20130303085348)
+Migrating to CreateUpdates (20130303093157)
+Migrating to AddStageToEvent (20130305033712)
+Migrating to FixTimeColumn (20130305035352)
+Migrating to RemoveDateFromEvents (20130305040337)
+Migrating to FixDateTypesinEvents (20130305051820)
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+Migrating to ChangeVoteDateToInteger (20130307044830)
+Migrating to AddWinnerToEvents (20130325062730)
+Migrating to CreateDelayedJobs (20130326040418)
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+Migrating to CreateRsvps (20130501045136)
+Migrating to AddAccessCodeToUser (20130502051259)
+Migrating to AddNotificationEmailsToUsers (20130513053240)
+Migrating to AddNotesToEvents (20130526173227)
+Migrating to ChangeVoteStartToVoteEnd (20130529061451)
+Migrating to AddCommentsToVenues (20130612052247)
+Migrating to CreateComments (20130617055625)
+Migrating to ChangeUserIdtoUsernameinComments (20130617060121)
+Migrating to AddArchiveJobIDtoEvents (20130620015411)
+Migrating to AddFirstNameLastNametoUsers (20130721202513)
+Migrating to CreateGuests (20130722004038)
+Migrating to AddIndexestoVenue (20130807012136)
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.8ms)[0m  CREATE INDEX "index_venues_on_user_id" ON "venues" ("user_id")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_venues_on_event_id" ON "venues" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130807012136')
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
