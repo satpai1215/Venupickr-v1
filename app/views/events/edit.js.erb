@@ -1,6 +1,7 @@
 
 $('#createEventForm').dialog("open");
 $('#createEventForm').html("<%= escape_javascript(render 'form') %>");
+$('#createEventForm').attr("title").val("This is gay");
 $('#event_datepicker').datepicker();
 $('#event_timepicker').timepicker({
 	'minTime' : '9:00am',

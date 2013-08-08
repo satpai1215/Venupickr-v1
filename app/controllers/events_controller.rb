@@ -224,6 +224,15 @@ class EventsController < ApplicationController
 
   end
 
+  def invite_guests
+    @event = Event.find(params[:event_id])
+    respond_to do |format|
+        format.html { render :partial => "guest_form" }
+        format.js
+      end
+
+  end
+
 
 
 private
