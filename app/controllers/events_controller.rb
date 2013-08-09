@@ -214,14 +214,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @content = params[:comment]
  
-      @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
-      Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"")
+    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
+    Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"")
 
-      respond_to do |format|
-        format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}
-        format.js
-      end
-
+    respond_to do |format|
+      format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}
+      format.js
+    end
   end
 
 

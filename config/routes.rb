@@ -25,6 +25,7 @@ MoMondays::Application.routes.draw do
  # match '/events/new', :controller => 'events', :action => 'new'
 
   match '/event/invite_guests', :controller => 'guests', :action => 'new'
+  match '/guests/update_guestlist' => 'guests#update_guestlist'
 
   root :to => 'events#index'
 

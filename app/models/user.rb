@@ -36,11 +36,7 @@ class User < ActiveRecord::Base
 
 
   def invited?(event)
-      self.guests.where(:event_id => event.id)
-  end
-
-  def invite!(event)
-    self.guests.create!(:event_id => event.id)
+      !self.guests.where(:event_id => event.id).empty?
   end
 
 end

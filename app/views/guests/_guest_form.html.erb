@@ -1,53 +1,22 @@
-
-<%= form_for @event, :remote => true do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_tag("/guests/update_guestlist", :method => :post) do %>
   <div class="field">
-    <%= f.label :name, "Name of Event:" %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field" id = "eventDateSelect-container">
-    <%#= label_tag :datepicker, "Date:", :style => "display:inline" %>
-    <%#= text_field_tag(:datepicker, nil, :placeholder => "mm/dd/yyyy") %>
-    <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
-
-    <%= f.label :datepicker, "Date:", :style => "display:inline" %>
-    <%= f.text_field :datepicker, {:placeholder => "mm/dd/yyyy", :readonly => 'true'} %> <br/>
-
-    <%= f.label(:timepicker, "Time:", :style => "display:inline") %>
-    <%= f.text_field(:timepicker, {:placeholder => "hh:mm"}) %>
-  </div>
-
-
-  <% if @event.stage != 'Finished' and @event.stage != 'Archived' %>
-    <div class="field">
-    <%= f.label :vote_end, "When will voting close (in hours before event start time)?", :id => "event_vote_end_label" %>
-    <%= f.select :vote_end,  {:options => (1..48).to_a}, :selected => @vote_end %>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= label_tag '', nil, :id => "event_vote_end_calc" %>
+    <%= hidden_field_tag :event_id, @event.id %>
   </div>
 
   <div class="field">
-    <%= f.label :notes, "Notes to Guests:" %>
-    <%= f.text_area :notes, :rows => 6 %>
+    <%= label_tag(:guest_form_title, "Invite Guests for '#{@event.name}'") %>
+  </div>
+
+  <div class="field">
+    <% User.all.each do |user| %>
+      <%= check_box_tag "guest_ids[]", user.id %>
+      <%= label_tag :user, user.username %> </br>
+    <% end %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {id: "eventSubmitButton"} %>
+    <%= submit_tag "Add Guests" %>
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>

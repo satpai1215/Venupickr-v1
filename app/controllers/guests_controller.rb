@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :get_event
+	before_filter :get_event, :only => [:new, :edit, :destroy]
 	before_filter :auth_owner, :only => [:new, :edit, :destroy]
 
 #before_filter methods
@@ -23,8 +23,19 @@ class GuestsController < ApplicationController
 	    end
 	end
 
-	def create
+	def new
+		@guest = Guest.new
+	    respond_to do |format|
+        	format.html { render :partial => "guest_form" }
+        	#format.js
+	    end
+	end
 
+	def update_guestlist
+		respond_to do |format|
+			format.html {redirect_to Event.find(params[:event_id]), :notice => params.to_s}
+			#format.js
+		end
 	end
 
 
