@@ -24,7 +24,7 @@ module EventsHelper
 	def display_invite_guests(event)
 		html = ""
 		if(event.stage != "Archived")
-	        html << link_to("Invite Guests", {:controller => 'events', :action => "invite_guests", :event_id => event.id}, remote: true)
+	        html << link_to("Invite Guests", {:controller => 'guests', :action => "new", :event_id => event.id})
 		end
 
     	return html.html_safe
@@ -58,10 +58,6 @@ module EventsHelper
 		btn_type = (event.stage == "Voting" ? "btn-primary event-voting-btn": "btn-primary event-voting-btn")
 		html << link_to(link_text, event_path(event), {:class => "btn #{btn_type}"})
 		return html.html_safe
-	end
-
-	def get_event_owner(event)
-		return User.find(event.owner_id).username
 	end
 
 	

@@ -45,7 +45,7 @@
                                             <div class = "eventName"><%= h(event.name) %></div>
                                             <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                 <%= event.event_start.strftime("%I:%M%p") %>
-                                            <br/> Created By: <%= h(get_event_owner(event)) %>
+                                            <br/> Created By: <%= h(event.owner) %>
                                         </div>
                                         <div class = "span2 eventActions">
                                             <div class = "eventClock">
@@ -84,7 +84,7 @@
                                                 <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event) %>)</div>
                                                 <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                     <%= event.event_start.strftime("%I:%M%p") %>
-                                                <br/> Created By: <%= h(get_event_owner(event)) %>
+                                                <br/> Created By: <%= h(event.owner) %>
                                         </div>
                                             <div class = "span2 eventActions">
                                                 <div class = "eventClock">

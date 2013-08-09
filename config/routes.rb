@@ -12,16 +12,19 @@ MoMondays::Application.routes.draw do
 
   resources :events
   resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
+  resources :guests
+
 
   #match "/users/:id/edit" => 'devise/registrations#edit'
   
   match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
-  match '/event/invite_guests', :controller => 'events', :action => 'invite_guests'
   match '/event/send_reminder', :controller => 'events', :action => 'send_reminder'
   match '/event/post_comment', :controller => 'events', :action => 'post_comment'
   match 'rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
   match 'rsvp_no', :controller => 'events', :action => 'rsvp_no'
  # match '/events/new', :controller => 'events', :action => 'new'
+
+  match '/event/invite_guests', :controller => 'guests', :action => 'new'
 
   root :to => 'events#index'
 
