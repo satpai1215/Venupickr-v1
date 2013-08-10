@@ -24,12 +24,18 @@ class Event < ActiveRecord::Base
     self.name
   end
 
-  def invite!(user)
-    self.guests.create!(:user_id => user.id)
+  def invite!(user_id)
+    association = self.guests.where(:user_id => user_id).first
+    if !association
+      self.guests.create!(:user_id => user_id)
+    end
   end
 
-  def uninvite!(user)
-    self.guests.where(:user_id => user.id).destroy_all
+  def uninvite!(user_id)
+    association = self.guests.where(:user_id => user_id).first
+    if association
+      association.destroy
+    end
   end
 
   def owner

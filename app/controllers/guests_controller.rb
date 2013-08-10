@@ -32,8 +32,15 @@ class GuestsController < ApplicationController
 	end
 
 	def update_guestlist
+		@event = Event.find(params[:event_id])
+		invited_guests_ids = params[:guest_ids]
+
+		invited_guests_ids.each do |id|
+			@event.uninvite!(id.to_i)
+		end
+
 		respond_to do |format|
-			format.html {redirect_to Event.find(params[:event_id]), :notice => params.to_s}
+			format.html {redirect_to Event.find(params[:event_id]), :notice => params[:guest_ids]}
 			#format.js
 		end
 	end
