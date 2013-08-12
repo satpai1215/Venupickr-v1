@@ -17,17 +17,10 @@ class GuestsController < ApplicationController
 #end before_filter methods
 
 	def new
-	    respond_to do |format|
-        	format.html { render :partial => "guest_form" }
-        	#format.js
-	    end
-	end
-
-	def new
 		@guest = Guest.new
 	    respond_to do |format|
         	format.html { render :partial => "guest_form" }
-        	#format.js
+        	format.js
 	    end
 	end
 
@@ -35,8 +28,10 @@ class GuestsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		invited_guests_ids = params[:guest_ids]
 
-		invited_guests_ids.each do |id|
-			@event.uninvite!(id.to_i)
+		if !invited_guests_ids.nil?
+			invited_guests_ids.each do |id|
+				@event.invite!(id.to_i)
+			end
 		end
 
 		respond_to do |format|

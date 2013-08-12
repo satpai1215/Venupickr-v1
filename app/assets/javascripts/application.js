@@ -17,7 +17,8 @@
 //= require_tree
 
 
-$(function() {
+$(document).ready(function() {
+  console.log("hellll yea");
   $(document).ajaxError(function (e, xhr, settings) {
        // if (xhr.status == 401) {
           $('#notice').html(xhr.responseText);
@@ -27,7 +28,13 @@ $(function() {
    $('.voteButton').ajaxSuccess(function() {  
       votesort();  
     });
-   
+
+  $(document).on('click', '#guest_form_selectall_btn', function(event) {
+    $('.guest_checkbox').prop('checked', true);
+  });
+  $(document).on('click', '#guest_form_deselectall_btn', function(event) {
+    $('.guest_checkbox').prop('checked', false);
+  });
 
 
   $(document).on('click', '#eventSubmitButton', function(event) {

@@ -1,17 +1,18 @@
-<%= form_tag("/guests/update_guestlist", :method => :post) do %>
+<%= form_tag("/guests/update_guestlist", :method => :post, :id => "invite_guest_form", :remote => true) do %>
   <div class="field">
     <%= hidden_field_tag :event_id, @event.id %>
   </div>
 
-  <div class="field">
-    <%= label_tag(:guest_form_title, "Invite Guests for '#{@event.name}'") %>
-  </div>
+
+  <%= button_tag('Select All', :type => 'button', :id => "guest_form_selectall_btn") %>
+  <%= button_tag('Deselect All', :type => 'button', :id => "guest_form_deselectall_btn") %>
 
   <div class="field">
     <% User.all.each do |user| %>
       <% if current_user.id != user.id %>
-      <%= check_box_tag "guest_ids[]", user.id, (user.invited?(@event) ? true : false) %>
-      <%= label_tag :user, (user.username) %> </br>
+
+      <%= check_box_tag "guest_ids[]", user.id, (user.invited?(@event) ? true : false), {:class => "guest_checkbox"} %>
+      <%= label_tag :user, (user.username), {:class => "guest_checkbox_label"} %> </br>
       <% end %>
     <% end %>
   </div>
@@ -22,3 +23,5 @@
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>
+
+
