@@ -26,6 +26,8 @@ class GuestsController < ApplicationController
 
 	def update_guestlist
 		@event = Event.find(params[:event_id])
+		@event.guests.destroy_all
+		@event.invite!(current_user.id)
 		invited_guests_ids = params[:guest_ids]
 
 		if !invited_guests_ids.nil?
@@ -35,8 +37,8 @@ class GuestsController < ApplicationController
 		end
 
 		respond_to do |format|
-			format.html {redirect_to Event.find(params[:event_id]), :notice => params[:guest_ids]}
-			#format.js
+			format.html {redirect_to @event, :notice => params[:guest_ids]}
+			#format.js {render :js => %(window.location = '#{event_path(@event.id)}')}
 		end
 	end
 
