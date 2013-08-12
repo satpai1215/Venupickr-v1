@@ -36,7 +36,10 @@ $(document).ready(function() {
     $('.guest_checkbox').prop('checked', false);
   });
 
-
+  $(document).on('click', '#invite_guest_form_submit', function(event) {
+    $('#event-loading-gif').css('visibility', 'visible');
+    $('#invite_guest_form_submit').hide();
+  });
   $(document).on('click', '#eventSubmitButton', function(event) {
     $('#event-loading-gif').css('visibility', 'visible');
     $('#eventSubmitButton').hide();
@@ -45,6 +48,7 @@ $(document).ready(function() {
     $('#event-loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
   });
+  
 
   $(document).on('click', '.appActions', function(event) {
     $('.appActions').removeClass('selected');

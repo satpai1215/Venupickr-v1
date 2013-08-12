@@ -508,11 +508,11 @@
 	
 }
 
-.new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
+.new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field, #invite_guest_form .field {
 	text-align: center;
 }
 
-.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions {
+.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions, #invite_guest_form .actions {
 	text-align: center;
 	margin-top: 20px;
 }

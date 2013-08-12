@@ -16,6 +16,7 @@
  *= require "events"
  *= require "pages"
  *= require "devise"
+ *= require "guest"
  */
 
  body {

@@ -1,0 +1,28 @@
+#select_buttons {
+	font-size: 0.7em;
+}
+
+#invite_guest_form_userlist {
+	width: 90%;
+	margin: 10px auto;
+	padding: 10px 15px;
+	max-height: 700px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.invite_guest_form_user_field {
+	display: inline-block;
+	padding: 10px 0px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 30%;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.guest_checkbox_label {
+	display: inline;
+	margin-left: 10px;
+}

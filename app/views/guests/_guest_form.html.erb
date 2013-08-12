@@ -3,23 +3,27 @@
     <%= hidden_field_tag :event_id, @event.id %>
   </div>
 
-
-  <%= button_tag('Select All', :type => 'button', :id => "guest_form_selectall_btn") %>
-  <%= button_tag('Deselect All', :type => 'button', :id => "guest_form_deselectall_btn") %>
+  <div class = "field" id = "select_buttons">
+    <%= button_tag('Select All', :type => 'button', :id => "guest_form_selectall_btn", :class => "select_button") %>
+    <%= button_tag('Deselect All', :type => 'button', :id => "guest_form_deselectall_btn", :class => "select_button") %>
+  </div>
 
   <div class="field">
-    <% User.all.each do |user| %>
-      <% if current_user.id != user.id %>
-
-      <%= check_box_tag "guest_ids[]", user.id, (user.invited?(@event) ? true : false), {:class => "guest_checkbox"} %>
-      <%= label_tag :user, (user.username), {:class => "guest_checkbox_label"} %> </br>
+    <div ul id = "invite_guest_form_userlist">
+      <% User.all.each do |user| %>
+        <% if current_user.id != user.id %>
+             <li class = "invite_guest_form_user_field">
+              <%= check_box_tag "guest_ids[]", user.id, (user.invited?(@event) ? true : false), {:class => "guest_checkbox"} %>
+              <%= label_tag :user, (user.username), {:class => "guest_checkbox_label"} %>
+            </li>
+        <% end %>
       <% end %>
-    <% end %>
+    </ul>
   </div>
 
 
   <div class="actions">
-    <%= submit_tag "Add Guests" %>
+    <%= submit_tag "Add Guests", :id => "invite_guest_form_submit" %>
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>
