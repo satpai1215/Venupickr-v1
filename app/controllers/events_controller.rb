@@ -1,6 +1,18 @@
 
 class EventsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
+  before_filter :get_event, :only => [:show, :edit, :update, :destroy]
+  before_filter :auth_owner, :only => [:edit, :destroy, :update]
+
+  def get_event
+    @event = Event.find(params[:id])
+  end
+
+  def auth_owner
+    if !(current_user.id == @event.user.id or current_user.username == "Spaiderman")
+      redirect_to @event, notice: 'You are not authorized to carry out that action.'
+    end
+  end
 
 
   # GET /events
@@ -26,7 +38,6 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
     @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
     @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id or current_user.username == "Spaiderman")
@@ -59,8 +70,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
-    if current_user.id == @event.user.id or current_user.username == "Spaiderman"
+    #if current_user.id == @event.user.id or current_user.username == "Spaiderman"
       #convert event_start back into date and time components
       @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
       @event.timepicker = @event.event_start.strftime("%I:%M%p")
@@ -72,9 +82,9 @@ class EventsController < ApplicationController
         format.json { render json: @event }
         format.js
       end
-    else
-      redirect_to @event, notice: 'You are not authorized to access that page.'
-    end
+   # else
+   #   redirect_to @event, notice: 'You are not authorized to access that page.'
+   # end
   end
 
   # POST /events
@@ -106,7 +116,6 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -131,7 +140,6 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find(params[:id])
     destroy_jobs(@event.id)
     @event.destroy
     @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"")
