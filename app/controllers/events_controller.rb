@@ -99,7 +99,7 @@ class EventsController < ApplicationController
           #flash[:alert] = "#{@event.event_start}"
           AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
-          @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
+          @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"", :event_id => @event.id)
           
           format.html { redirect_to @event, notice: 'Event was successfully created.' }
           format.json { render json: @event, status: :created, location: @event }
@@ -121,7 +121,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         @content = "#{current_user} updated the event"
-        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
+        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"", :event_id => @event.id)
         @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
 
@@ -144,7 +144,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     destroy_jobs(@event.id)
     @event.destroy
-    @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"")
+    @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"", :event_id => @event.id)
 
     respond_to do |format|
       format.html { redirect_to events_url }
@@ -169,7 +169,7 @@ class EventsController < ApplicationController
 
       else
         Rsvp.create!(:user_id => current_user.id, :event_id => @event.id)
-        Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"")
+        Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"", :event_id => @event.id)
 
         respond_to do |format|
           format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
@@ -215,7 +215,7 @@ class EventsController < ApplicationController
     @content = params[:comment]
  
     @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
-    Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"")
+    Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"", :event_id => @event.id)
 
     respond_to do |format|
       format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}

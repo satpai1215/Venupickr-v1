@@ -7,7 +7,7 @@ class AutoMailer < ActionMailer::Base
     @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list, :subject => "#{@owner} Has Created '#{@event.name}' on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
   def venue_suggested_email(event_id, venue_id)
@@ -24,7 +24,7 @@ class AutoMailer < ActionMailer::Base
     @winner = Venue.find(@event.winner)
     @winner.address = @winner.address.gsub("<br>", "\n")
   	@url = event_url(@event)
-    mail(:bcc => email_list, :subject => "Voting for '#{@event.name}' Has Finished")
+    mail(:bcc => email_list(event_id), :subject => "Voting for '#{@event.name}' Has Finished")
 
   end
 
@@ -33,7 +33,7 @@ class AutoMailer < ActionMailer::Base
     @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list, :subject => "REMINDER: '#{@event.name}' is on the clock on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' is on the clock on the MoMondaysApp!")
   end
 
   def finished_reminder_email(event_id)
@@ -42,7 +42,7 @@ class AutoMailer < ActionMailer::Base
     @winner = Venue.find(@event.winner)
     @winner.address = @winner.address.gsub("<br>", "\n")
     @url = event_url(@event)
-    mail(:bcc => email_list, :subject => "REMINDER: '#{@event.name}' has been scheduled on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' has been scheduled on the MoMondaysApp!")
 
   end
 
@@ -51,7 +51,7 @@ class AutoMailer < ActionMailer::Base
     @owner = User.find(@event.owner_id)
     @url = event_url(@event)
     @vote_end = @event.event_start - 8.hours
-    mail(:bcc => email_list, :subject => "ALERT: Voting for '#{@event.name}' Has Started")
+    mail(:bcc => email_list(event_id), :subject => "ALERT: Voting for '#{@event.name}' Has Started")
   end
 
   def no_venue_email(event_id)
@@ -69,9 +69,13 @@ class AutoMailer < ActionMailer::Base
   end
 
   private
-  def email_list
+
+  #generates array of user emails for passed event
+  def email_list(event_id)
     list = Array.new
-    User.where(:notification_emails => true).each do |user|
+    @event = Event.find(event_id)
+
+    @event.users.where(:notification_emails => true).each do |user|
       list.push(user.email)
     end
 

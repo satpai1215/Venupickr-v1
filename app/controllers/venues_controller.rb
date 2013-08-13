@@ -61,7 +61,7 @@ class VenuesController < ApplicationController
           end
 
           @content = "#{current_user} just suggested a venue"
-          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
+          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
           @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
           if(@venue.event.owner_id != current_user.id)
@@ -105,7 +105,7 @@ class VenuesController < ApplicationController
         end
 
         @content = "#{current_user} modified a venue"
-        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
+        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         if(@venue.event.owner_id != current_user.id)
@@ -133,7 +133,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     @content = "#{current_user} deleted a venue"
-    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"")
+    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
     @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
 
@@ -181,7 +181,7 @@ class VenuesController < ApplicationController
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
 
-        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"")
+        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"", :event_id => @venue.event.id)
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
