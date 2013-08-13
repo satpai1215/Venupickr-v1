@@ -81,7 +81,10 @@
                                         <div class = "span6 eventLabel" >
                                                 <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
                                                 <div class = "eventName"><%= h(event.name) %></div>
-                                                <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event) %>)</div>
+                                                <% if user_signed_in? and current_user.id === event.user_id %>
+                                                    <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event) %>)</div>
+                                                <% end %>
+
                                                 <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                     <%= event.event_start.strftime("%I:%M%p") %>
                                                 <br/> Created By: <%= h(event.user.username) %>
