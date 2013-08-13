@@ -1,5 +1,17 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :get_venue, :only => [:edit, :update, :destroy]
+  before_filter :auth_owner, :only => [:edit, :update, :destroy]
+
+  def get_venue
+    @venue = Venue.find(params[:id])
+  end
+
+  def auth_owner
+    if !(current_user.id == @venue.user.id or current_user.username == "Spaiderman")
+      redirect_to @event, notice: 'You are not authorized to carry out that action.'
+    end
+  end
 
   # GET /venues/new
   # GET /venues/new.json
@@ -27,8 +39,7 @@ class VenuesController < ApplicationController
 
   # GET /venues/1/edit
   def edit
-    @venue = Venue.find(params[:id])
-    if current_user.username == @venue.user.username
+    #if current_user.username == @venue.user.username
       @event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
@@ -37,9 +48,9 @@ class VenuesController < ApplicationController
         format.json { render json: @venue }
         format.js {render action: 'new'}
       end
-    else
-      redirect_to @venue.event, notice: 'You are not authorized to access that page.'
-    end
+    #else
+    #  redirect_to @venue.event, notice: 'You are not authorized to access that page.'
+    #end
 
   end
 
@@ -89,7 +100,6 @@ class VenuesController < ApplicationController
   # PUT /venues/1
   # PUT /venues/1.json
   def update
-    @venue = Venue.find(params[:id])
     @venue.assign_attributes(params[:venue])
     @venue_changed = @venue.changed? #checks is the venue was actually modified or not
 
