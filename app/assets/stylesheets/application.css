@@ -15,6 +15,7 @@
  *= require_self
  *= require "events"
  *= require "pages"
+ *= require "mailers"
  *= require "devise"
  */
 

@@ -4,32 +4,77 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
 
+  <style>
+    #mailer-container {
+      background: #e9e9e9;
+      width: 800px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    #mailer-container header {
+      background: #555555;
+      color: white;
+      font-style: bold;
+      font-size: 1.2em;
+      padding: 10px 10px;
+    }
+
+    #mailer-container footer {
+      background: #555555;
+      color: white;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 10px 10px;
+    }
+
+    #mailer-body {
+      padding: 10px;
+    }
+
+    #mailer-body #info-header {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    #mailer-body #info-subheader {
+      margin: 5px 0px;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+  </style>
+
   <body>
-    <p>Mo' Mondays Mo' Problems!</p>
-    ===============================================
-    <h2>THE EVENT IS SET!</h2>
+    <div id = "mailer-container">
+      <header>Mo' Mondays Mo' Problems!</header>
 
-    <p>
-      Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %>. Below is the event information: <br/>
-    </p>
-    <p>
-      <b>Event Name:</b> "<%= @event.name %>" <br/>
-      <b>Event Start Time:</b> <%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %><br/>
-      <b>Winning Venue:</b> "<%= @winner.name %>" suggested by <%= @winner.user.username %><br/>
-      <b>Address Info:</b> <br/> <%= @winner.address.html_safe %> <br/>
-      <% if !@winner.url.blank? %>
-        <b>Venue URL: </b><%= @winner.url %> <br/>
-      <% end %>
-      <% if !@event.notes.blank? %>
-        <b>Notes to Guests:</b> <br/>
-        "<%= @event.notes %> "
-      <% end %>
-    </p>
-     
-    <p>Are you going? RSVP using the discussion box on the <%= link_to("Event Page", @url) %></p>
+      <div id = "mailer-body">
+        <div id = "info-header">The Event Is Set!</div>
 
-    <p>Hope to see you there!</p>
-    <p>-Mo' Mondays App</p>
-     ===============================================
+        <div id = "info-subheader">
+          Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %>. Below is the event information: <br/>
+        </div>
+        <p>
+          <b>Event Name:</b> "<%= @event.name %>" <br/>
+          <b>Event Start Time:</b> <%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %><br/>
+          <b>Winning Venue:</b> "<%= @winner.name %>" suggested by <%= @winner.user.username %><br/>
+          <b>Address Info:</b> <br/> <%= @winner.address.html_safe %> <br/>
+          <% if !@winner.url.blank? %>
+            <b>Venue URL: </b><%= @winner.url %> <br/>
+          <% end %>
+          <% if !@event.notes.blank? %>
+            <b>Notes to Guests:</b> <br/>
+            "<%= @event.notes %> "
+          <% end %>
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <%= link_to("Event Page", @url) %></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <footer>www.mo-mondays.com</footer>
+     </div> <!--mailer-container -->
   </body>
 </html>
