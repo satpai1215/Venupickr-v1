@@ -67,7 +67,7 @@ $(document).ready(function() {
 
    $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
-   $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 800, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+   $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 
    $(".voteCount").hover( 

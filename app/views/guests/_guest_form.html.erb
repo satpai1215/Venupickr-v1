@@ -1,4 +1,4 @@
-<%= form_tag("/guests/update_guestlist", :method => :post, :id => "invite_guest_form", ) do %>
+<%= form_tag("/guests/update_guestlist", :method => :post, :id => "invite_guest_form", :remote => true ) do %>
   <div class="field">
     <%= hidden_field_tag :event_id, @event.id %>
   </div>
@@ -10,11 +10,11 @@
 
   <div class="field">
     <div ul id = "invite_guest_form_userlist">
-
+        <div id = "invite_guest_form_userlist_header">CURRENT USER LIST</div>
       <% User.all.each do |user| %>
         <% if current_user.id != user.id %>
-
              <li class = "invite_guest_form_user_field">
+              <%#= check_box "guest_array", "guests_ids", {:multiple => true, :class => "guest_checkbox"}, user.id, -user.id %>
               <%= check_box_tag "guest_ids[]", user.id, user.invited?(@event), {:class => "guest_checkbox"} %>
               <%= label_tag :user, user.username, :class => "guest_checkbox_label" %>
               <%#= label_tag :user, (user.firstname.nil? ? '' : ' (' + user.firstname + ', ') + (user.lastname.nil? ? '' : user.lastname + ')'), :class => "guest_name_label" %>
@@ -26,7 +26,7 @@
 
 
   <div class="actions">
-    <%= submit_tag "Add Guests", :id => "invite_guest_form_submit" %>
+    <%= submit_tag "Edit Guestlist", :id => "invite_guest_form_submit" %>
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>

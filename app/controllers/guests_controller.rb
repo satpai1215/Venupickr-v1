@@ -37,9 +37,10 @@ class GuestsController < ApplicationController
 		end
 
 		respond_to do |format|
-			format.html {redirect_to @event, :notice => params[:guest_ids]}
-			#format.js {render :js => %(window.location = '#{event_path(@event.id)}')}
+			format.html {redirect_to @event, :notice => "The guestlist has been updated" }
+			format.js
 		end
+
 	end
 
 
