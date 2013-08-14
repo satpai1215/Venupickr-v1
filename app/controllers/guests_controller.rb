@@ -42,6 +42,12 @@ class GuestsController < ApplicationController
 
 	end
 
+	def leave_event
+		@event = Event.find(params[:event_id])
+		@event.uninvite!(current_user.id)
+		redirect_to events_path, notice: "You successfully left '#{@event.name}.'"
+	end
+
 
 	def destroy
 

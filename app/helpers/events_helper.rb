@@ -37,7 +37,15 @@ module EventsHelper
 		end
 
     	return html.html_safe
+	end
 
+	def display_leave_event(event)
+		html = ""
+		if(event.stage == "Voting")
+	        html << link_to("Leave Event", {:controller => 'guests', :action => "leave_event", :event_id => event.id}, data:{confirm: 'Are you sure you want to leave this event?'})
+		end
+
+    	return html.html_safe
 	end
 
 	def timeLeft_days(event)

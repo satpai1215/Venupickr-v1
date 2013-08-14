@@ -1,11 +1,13 @@
 GROUPS TO DO
--allow guest selection during event creation
--allow guest selection on event#show
--show guests on event#show
+-allow guest selection during event creation (DONE, after event#show)
+-allow guest selection on event#show (DONE)
+-show guests on event#show (DONE, needs styling)
 -allow event guests to invite other guests?
 -allow guests to remove themselves from events
--only show events that users are guests of
--change mailers to only email guests
+-only show events that users are guests of (DONE)
+-change mailers to only email guests (DONE)
+-update already existing events on heroku to include all guests (migration?)
+-
 
 OTHER TO DO
 - have a checkbox to determine if people other than event_owner can suggest venues (optional)

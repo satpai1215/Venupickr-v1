@@ -12,6 +12,9 @@
 							<span><%= display_delete_event(@event) %></span>
 							<span><%= display_invite_guests(@event) %></span>
 							<span><%= display_reminder_link(@event) %></span>
+						<% else %>
+							<span><%= display_invite_guests(@event) %></span>
+							<span><%= display_leave_event(@event) %></span>
 						<% end %>
 					</div> <!--eventInfo-header -->
 
