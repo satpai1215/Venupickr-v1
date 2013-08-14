@@ -100,10 +100,12 @@ class EventsController < ApplicationController
           AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"", :event_id => @event.id)
-          
-          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+
+          flash[:new_event?] = true; #sends message to event#show to open guestlist dialog
+
+          format.html { redirect_to @event, notice: 'Event was successfully created.'}
           format.json { render json: @event, status: :created, location: @event }
-          format.js
+          #format.js
         else
           format.html { render action: "new" }
           format.json { render json: @event.errors, status: :unprocessable_entity }

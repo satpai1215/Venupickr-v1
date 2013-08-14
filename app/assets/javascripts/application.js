@@ -18,7 +18,6 @@
 
 
 $(document).ready(function() {
-  console.log("hellll yea");
   $(document).ajaxError(function (e, xhr, settings) {
        // if (xhr.status == 401) {
           $('#notice').html(xhr.responseText);

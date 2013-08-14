@@ -171,14 +171,21 @@
 </div> <!--row-->
 
 	<%= javascript_tag do %>
-  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
-  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
-  		<% if @event.stage != "Voting" %>
-  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
-  			$('#venueList ul li .voteCount').first().css('color', 'red');
-  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
-  			$('.listItem:first .venueStickyHeader').css('color', 'red');
-  			$('.listItem:first .voteCount').css('color', 'red');
-  		<% end %>
+  		$(document).ready(function() {
+  		  	createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
+  			//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
+	  		<% if @event.stage != "Voting" %>
+	  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
+	  			$('#venueList ul li .voteCount').first().css('color', 'red');
+	  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
+	  			$('.listItem:first .venueStickyHeader').css('color', 'red');
+	  			$('.listItem:first .voteCount').css('color', 'red');
+	  		<% end %>
+  			<% if flash[:new_event?] %>
+				$('#inviteGuestsForm').dialog('open');
+				$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
+			<% end %>
+		});
+  	
 	<% end %>
 

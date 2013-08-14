@@ -17,7 +17,6 @@ class GuestsController < ApplicationController
 #end before_filter methods
 
 	def new
-		@guest = Guest.new
 	    respond_to do |format|
         	format.html { render :partial => "guest_form" }
         	format.js
