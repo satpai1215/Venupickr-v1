@@ -82654,3 +82654,385 @@ Migrating to AddIndexestoVenue (20130807012136)
   [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130807012136')
   [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
   [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  Rendered auto_mailer/event_finish_email.html.erb (68.8ms)
+
+Sent mail to  (2049ms)
+Date: Tue, 13 Aug 2013 20:59:49 -0700
+From: info@mo-mondays.com
+Message-ID: <520b00b5333e_4d9b3fe76cc349dc844b6@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <style>
+    #mailer-container {
+      background: #e9e9e9;
+      width: 800px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    #mailer-container header {
+      background: #555555;
+      color: white;
+      font-style: bold;
+      font-size: 1.2em;
+      padding: 10px 10px;
+    }
+
+    #mailer-container footer {
+      background: #555555;
+      color: white;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 10px 10px;
+    }
+
+    #mailer-body {
+      padding: 10px;
+    }
+
+    #mailer-body #info-header {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    #mailer-body #info-subheader {
+      margin: 5px 0px;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+  </style>
+
+  <body>
+    <div id = "mailer-container">
+      <header>Mo' Mondays Mo' Problems!</header>
+
+      <div id = "mailer-body">
+        <div id = "info-header">The Event Is Set!</div>
+
+        <div id = "info-subheader">
+          Voting has just finished for &#x27;sadeab&#x27; created by Spaiderman. Below is the event information: <br/>
+        </div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br/>
+          <b>Event Start Time:</b> September 11, 2013 at 08:45PM<br/>
+          <b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br/>
+          <b>Address Info:</b> <br/> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br/>
+            <b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br/>
+            <b>Notes to Guests:</b> <br/>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <footer>www.mo-mondays.com</footer>
+     </div> <!--mailer-container -->
+  </body>
+</html>
+Connecting to database specified by database.yml
+  Rendered auto_mailer/event_finish_email.html.erb (57.6ms)
+
+Sent mail to  (2242ms)
+Date: Tue, 13 Aug 2013 21:11:18 -0700
+From: info@mo-mondays.com
+Message-ID: <520b03666bb5d_8ae73fc3584349e071875@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <header style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</header><div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <footer style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">www.mo-mondays.com</footer>
+</div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.8ms)
+
+Sent mail to  (2038ms)
+Date: Tue, 13 Aug 2013 21:13:44 -0700
+From: info@mo-mondays.com
+Message-ID: <520b03f8ecb36_8ae73fc3584349e07196d@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <header style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</header><div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <footer style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">www.mo-mondays.com</footer>
+</div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.9ms)
+
+Sent mail to  (2112ms)
+Date: Tue, 13 Aug 2013 21:14:22 -0700
+From: info@mo-mondays.com
+Message-ID: <520b041e5aedb_8ae73fc3584349e07208@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <div id="header" style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</div>
+
+      <div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <footer style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">www.mo-mondays.com</footer>
+</div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.7ms)
+
+Sent mail to  (2438ms)
+Date: Tue, 13 Aug 2013 21:14:53 -0700
+From: info@mo-mondays.com
+Message-ID: <520b043dcf062_8ae73fc3584349e072162@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <div id="header" style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</div>
+
+      <div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <div id="footer" style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">www.mo-mondays.com</div>
+     </div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (3.0ms)
+
+Sent mail to  (2026ms)
+Date: Tue, 13 Aug 2013 21:16:38 -0700
+From: info@mo-mondays.com
+Message-ID: <520b04a68ea89_8ae73fc3584349e0722f1@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <div id="header" style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</div>
+
+      <div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <div id="footer" type="text" style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">www.mo-mondays.com</div>
+     </div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.9ms)
+
+Sent mail to  (1815ms)
+Date: Tue, 13 Aug 2013 21:17:12 -0700
+From: info@mo-mondays.com
+Message-ID: <520b04c8e5929_8ae73fc3584349e0723b@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <div id="header" style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</div>
+
+      <div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <div id="footer" style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px"> www.mo-mondays.com </div>
+     </div> <!--mailer-container -->
+  </body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (3.0ms)
+
+Sent mail to  (2149ms)
+Date: Tue, 13 Aug 2013 21:17:32 -0700
+From: info@mo-mondays.com
+Message-ID: <520b04dcc6b60_8ae73fc3584349e0724d3@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'sadeab' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <div id="mailer-container" style="background:#e9e9e9;width:800px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif">
+      <div id="header" style="background:#555555;color:white;font-style:bold;font-size:1.2em;padding:10px 10px">Mo' Mondays Mo' Problems!</div>
+
+      <div id="mailer-body" style="padding:10px">
+        <div id="info-header" style="font-weight:bold;font-size:1.1em">The Event Is Set!</div>
+
+        <div id="info-subheader" style="margin:5px 0px;font-size:0.9em;color:gray">
+          Voting has just finished for 'sadeab' created by Spaiderman. Below is the event information: <br>
+</div>
+        <p>
+          <b>Event Name:</b> "sadeab" <br><b>Event Start Time:</b> September 11, 2013 at 08:45PM<br><b>Winning Venue:</b> "The View (Union Square)" suggested by Spaiderman<br><b>Address Info:</b> <br> San Francisco Marriott Marquis Hotel 55 4th St
+San Francisco, CA 94103 <br><b>Venue URL: </b>http://www.yelp.com/biz/the-view-san-francisco-2 <br><b>Notes to Guests:</b> <br>
+            "This is a Note for the event "
+        </p>
+         
+        <p>Are you going? RSVP using the discussion box on the <a href="http://localhost:3000/events/458">Event Page</a></p>
+
+        <p>Hope to see you there!</p>
+        <p>-Mo' Mondays App</p>
+      </div>
+
+       <div id="footer" style="background:#555555;color:white;text-align:center;font-size:0.9em;padding:10px 10px">-www.mo-mondays.com-</div>
+     </div> <!--mailer-container -->
+  </body>
+</html>
+
