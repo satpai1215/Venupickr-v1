@@ -7,7 +7,7 @@ GROUPS TO DO
 -only show events that users are guests of (DONE)
 -change mailers to only email guests (DONE)
 -update already existing events on heroku to include all guests (migration?)
--
+- change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
 
 OTHER TO DO
 - have a checkbox to determine if people other than event_owner can suggest venues (optional)

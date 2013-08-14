@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :get_event, :only => [:new, :edit, :destroy]
-	before_filter :auth_owner, :only => [:edit, :destroy]
+	before_filter :get_event, :only => [:new, :edit, :destroy, :leave_event]
+	#before_filter :auth_owner, :only => [:edit, :destroy]
 
 #before_filter methods
 	def get_event
@@ -48,7 +48,6 @@ class GuestsController < ApplicationController
 	def leave_event
 		#don't allow event_owner to leave their own event (they should delete the event)
 		if(current_user.id != @event.owner_id)
-			@event = Event.find(params[:event_id])
 			@event.uninvite!(current_user.id)
 			redirect_to events_path, notice: "You successfully left '#{@event.name}.'"
 		else
