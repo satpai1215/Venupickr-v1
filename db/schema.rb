@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807012540) do
+ActiveRecord::Schema.define(:version => 20130815230951) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -41,18 +41,19 @@ ActiveRecord::Schema.define(:version => 20130807012540) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.string   "stage"
     t.datetime "event_start"
     t.integer  "vote_end"
     t.integer  "winner"
     t.integer  "event_email_job_id"
     t.integer  "voting_email_job_id"
-    t.text     "notes",               :limit => 255
+    t.text     "notes",                  :limit => 255
     t.integer  "archive_job_id"
     t.integer  "user_id"
     t.integer  "owner_id"
+    t.boolean  "allow_venue_suggestion",                :default => true
   end
 
   create_table "guests", :force => true do |t|

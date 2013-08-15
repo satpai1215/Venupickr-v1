@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
-                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id
+                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion?
 
   attr_accessor :datepicker, :timepicker
 
