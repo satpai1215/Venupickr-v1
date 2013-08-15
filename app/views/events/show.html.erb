@@ -8,6 +8,7 @@
 						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
 						<% if current_user.id == @event.owner_id %>
 							<span class = "italic">You are the owner</span><br/>
+							<span class = "italic">Venue suggestion is turned ON</span><br/>
 							<span><%= display_edit_event(@event) %></span>
 							<span><%= display_delete_event(@event) %></span>
 							<span><%= display_invite_guests(@event) %></span>
@@ -88,8 +89,8 @@
 
 			<div id = "venueList-header">
 				<div class = "row">
-            		<div class = "span5"><h2>Recommended Venues:</h2></div>
-            		<%= display_venue_suggest_button(@event) %>
+            		<div class = "span4"><h2>Recommended Venues:</h2></div>
+            		<div class - "span4"><%= display_venue_suggest_button(@event) %></div>
 
 	         		<% if @event.stage != "Voting" %>
 						<% if @event.venues.count == 0 %>

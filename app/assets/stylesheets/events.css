@@ -294,6 +294,15 @@
 	margin-bottom: 0px;
 }
 
+#event_show_venue_suggestion_off_tag {
+	float:right;
+	font-style: italic;
+	margin-top: 25px;
+	margin-right: 10px;
+	font-size: 0.9em;
+	color: gray;
+}
+
 #venueList-container {
 	margin-left: 10px;	
 }
@@ -614,6 +623,14 @@ button.ui-dialog-titlebar-close {
 	width: 100px;
 	cursor: pointer;
 	background: white;
+}
+
+#event_allow_venue_suggestion {
+	margin-bottom: 5px;
+}
+
+#allow_venue_suggestion_select label {
+	display: inline;
 }
 
 /*----------------------------------------------------------------------------- 
