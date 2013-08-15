@@ -6,22 +6,28 @@ class VenuesController < ApplicationController
   def new
     @event_id = params[:event_id]
     @event = Event.find(@event_id)
-    @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
 
-    #only allow multiple venue suggestion if user is event owner
-    if @already_suggested_venue and (current_user.id != @event.owner_id)
-      respond_to do |format|
-        format.html { redirect_to event_path(@event_id),
-                      notice: "You have already suggested a venue for this event. Try removing your existing venue."}
-        format.js
+    if (@event.allow_venue_suggestion)
+      @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
+
+      #only allow multiple venue suggestion if user is event owner
+      if @already_suggested_venue and (current_user.id != @event.owner_id)
+        respond_to do |format|
+          format.html { redirect_to event_path(@event_id),
+                        notice: "You have already suggested a venue for this event. Try removing your existing venue."}
+          format.js
+        end
+      else
+        @venue = Venue.new
+        respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @venue }
+          format.js
+        end
       end
-    else
-      @venue = Venue.new
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { render json: @venue }
-        format.js
-      end
+
+    else #venue_suggestion turned off
+      redirect_to event_path(@event_id), notice: "The owner has turned off venue suggestion for this event."
     end
   end
 
