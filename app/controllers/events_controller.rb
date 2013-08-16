@@ -26,7 +26,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show  
     @event = Event.find(params[:id])
-
     #if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
     if !current_user.invited?(@event)
        redirect_to events_path, notice: 'You are not authorized to access that page.'

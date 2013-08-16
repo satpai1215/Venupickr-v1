@@ -303,6 +303,20 @@
 	color: gray;
 }
 
+#venueSuggestionIndicator {
+	font-weight: bold;
+	color: #40ABCB;
+	text-align: center;
+
+	margin-left: 0px;
+	margin-bottom: 5px;
+	border: inset 2px #40ABCB;
+	border-radius: 2px;
+	padding: 5px;
+	padding-right: 0px;
+	background: white;
+}
+
 #venueList-container {
 	margin-left: 10px;	
 }

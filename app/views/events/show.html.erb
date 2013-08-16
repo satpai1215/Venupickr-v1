@@ -8,7 +8,6 @@
 						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
 						<% if current_user.id == @event.owner_id %>
 							<span class = "italic">You are the owner</span><br/>
-							<span class = "italic">Venue suggestion is turned ON</span><br/>
 							<span><%= display_edit_event(@event) %></span>
 							<span><%= display_delete_event(@event) %></span>
 							<span><%= display_invite_guests(@event) %></span>
@@ -104,6 +103,12 @@
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
+					<% if current_user.id === @event.owner_id %>
+						<div id = "venueSuggestionIndicator">  
+                            <div class = "row"><li>FOR OWNERS: Venue Suggestion Is <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+                        </div>
+                    <% end %>
+
 					<%if @event.venues.count === 0 %>
                         <div class = "noEventsLabel noVenues">  
                             <div class = "row"><li> <%= @no_venues_text %></li></div>
