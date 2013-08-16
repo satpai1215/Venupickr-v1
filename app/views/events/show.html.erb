@@ -153,7 +153,6 @@
 							</li><!--listItem -->
 						</div>
 						<% end %>
-						<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
 					<% end %>
 				</ul>
 			</div><!-- venueList-container -->
@@ -171,6 +170,10 @@
 	<%= javascript_tag do %>
 
 		$(function() {
+			//sort venues by votes
+			voteSort();
+
+			//createCountdowns for event#show
 	  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
 	  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
 	  		<% if @event.stage != "Voting" %>
@@ -182,7 +185,6 @@
 	  		<% end %>
 
 	  		//votemeter functionality
-	  		voteSort();
 	  		<% @event.venues.each do |venue| %>
 	  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
 	  		<% end %>
