@@ -185,10 +185,10 @@
 
 .eventbox-header {
 	border-bottom: solid 1px #e9eaed;
-	padding: 5px 15px;
+	padding: 5px 10px;
 	background: white;
 }
-	.eventbox-header-text {
+	.eventInfo-header-text {
 		font-size: 1.6em;
 		font-weight: bold;
 	}
@@ -198,8 +198,12 @@
 		margin-right: 6px;
 		font-size: 0.95em;
 	}
+	.eventbox-secondary-header-text {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
 
-#eventInfo-content {
+.eventbox-content {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	line-height: 1.1em;
@@ -217,7 +221,7 @@
 	#eventInfo-notes p {
 		margin-bottom: 0px;
 	}
-	#eventInfo-content-ul {
+	.eventbox-content-ul {
 		margin-left: 0px;
 		margin-bottom: 5px;
 		padding-left: 15px;
@@ -233,15 +237,17 @@
 		margin-right: 10px;
 	}
 
+#event-guestlist {
+	max-height: 100px;
+	overflow-y: auto;
+}
+
 
 #discussionBoard-container {
 	height:	500px;
 	padding-right: 0px;
 	background: white;
 	overflow: auto;
-}
-#discussionBoard-header-text {
-	font-size: 1.3em;
 }
 
 .post_comment_form {

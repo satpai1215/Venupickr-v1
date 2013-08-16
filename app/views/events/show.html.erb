@@ -5,7 +5,7 @@
 
 				<div class = "eventbox">
 					<div class = "eventbox-header">
-						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
+						<div class = "eventInfo-header-text"><%= h(@event.name) %></div>
 						<% if current_user.id == @event.owner_id %>
 							<span class = "italic">You are the owner</span><br/>
 							<span><%= display_edit_event(@event) %></span>
@@ -17,9 +17,9 @@
 						<% end %>
 					</div> <!--eventInfo-header -->
 
-					<div id = 'eventInfo-content'>
+					<div class = 'eventbox-content'>
 
-						<ul id = "eventInfo-content-ul">
+						<ul class = "eventbox-content-ul">
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Event Date:</label>
 								<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
@@ -33,15 +33,30 @@
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
 								<span id = "eventOwner"><%= h(@owner.username)%></span>
-							</li>
-							<li class = "eventInfo-row">
-								<label class = "eventInfo-content-heading">Invited Guests:</label>
-								<ul id = "event-guestlist">
-									<% @guests.each do |guest| %>
-										<li class = "event-guestName"><%= guest %></li>
-									<% end %>
-								</ul>
 							</li>								
+						</ul>
+
+						<% if !h(@event.notes).blank? %>
+							<div id = "eventInfo-notes-container">
+								<div id = "eventInfo-notes" >
+									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
+								</div>
+							</div>
+						<% end %>
+					</div><!--eventInfo-content -->
+				</div> <!-- eventInfo eventBox -->
+
+			<div class = "eventbox">
+					<div class = "eventbox-header">
+						<div class = "eventbox-secondary-header-text">Invited Guests</div>
+					</div> <!--eventInfo-header -->
+
+					<div class = 'eventbox-content'>
+
+						<ul class = "eventbox-content-ul" id = "event-guestlist">	
+							<% @guests.each do |guest| %>
+								<li class = "event-guestName"><%= guest %></li>
+							<% end %>						
 						</ul>
 
 						<% if !h(@event.notes).blank? %>
@@ -56,7 +71,7 @@
 
 			<div class = "eventbox" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-header-text" id= "discussionBoard-header-text">Discussion Board</div>
+					<div class = "eventbox-secondary-header-text">Discussion Board</div>
 				</div><!--discussionBoard-header -->
 				
 				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
@@ -105,7 +120,7 @@
 				<ul id = "venueList">
 					<% if current_user.id === @event.owner_id %>
 						<div id = "venueSuggestionIndicator">  
-                            <div class = "row"><li>FOR OWNERS: Venue Suggestion Is <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+                            <div class = "row"><li>FOR OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
                         </div>
                     <% end %>
 
