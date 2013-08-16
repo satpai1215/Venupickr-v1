@@ -6,16 +6,16 @@ GROUPS TO DO
 -**** DONE **** change mailers to only email guests (DONE)
 -**** DONE **** allow event guests to invite other guests?
 -**** DONE **** allow guests to remove themselves from events
-- reformat guest list box on show
+-**** DONE **** reformat guest list box on show
 - change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
 - update Updates to only updates for user's events show up
 -**** DONE **** change event form to include checkbox options to allow for venue suggestion
 - checkbox for guest invites (will not allow guests to invites others yet, because they can also uninvite others)
 - update already existing events on heroku to include all guests (migration?)
 
-OTHER TO DO
-- have a checkbox to determine if people other than event_owner can suggest venues (optional)
+OTHER TO DO\
 - allow for venue editing without vote reset?
+- checkbox for guest invites? (disable uninviting of guests by non-owners)
 
 
 

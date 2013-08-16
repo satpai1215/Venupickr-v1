@@ -54,18 +54,17 @@
 					<div class = 'eventbox-content'>
 
 						<ul class = "eventbox-content-ul" id = "event-guestlist">	
-							<% @guests.each do |guest| %>
-								<li class = "event-guestName"><%= guest %></li>
+							<% if @guests.empty? %>
+								<li class = "guestlist-row italic">no guests yet</li>
+							<% else %>
+								<% @guests.each do |guest| %>
+									<li class = "guestlist-row">
+										<div class = "guestlist-name"><%= guest %></div>
+										<%if @event.stage != "Archived" %><div class = "rsvp-toggle"></div><% end %>
+									</li>
+								<% end %>
 							<% end %>						
 						</ul>
-
-						<% if !h(@event.notes).blank? %>
-							<div id = "eventInfo-notes-container">
-								<div id = "eventInfo-notes" >
-									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
-								</div>
-							</div>
-						<% end %>
 					</div><!--eventInfo-content -->
 				</div> <!-- eventInfo-container -->
 
@@ -74,7 +73,7 @@
 					<div class = "eventbox-secondary-header-text">Discussion Board</div>
 				</div><!--discussionBoard-header -->
 				
-				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
+				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
 						<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
 						<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
 				<% end %>
