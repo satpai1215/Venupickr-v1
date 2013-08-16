@@ -125,4 +125,16 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
   add_index "venues", ["event_id"], :name => "index_venues_on_event_id"
   add_index "venues", ["user_id"], :name => "index_venues_on_user_id"
 
+  create_table "voters", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.integer  "venue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "voters", ["event_id"], :name => "index_voters_on_event_id"
+  add_index "voters", ["user_id"], :name => "index_voters_on_user_id"
+  add_index "voters", ["venue_id"], :name => "index_voters_on_venue_id"
+
 end
