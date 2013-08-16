@@ -320,7 +320,6 @@
 		list-style: none;
 	    margin-bottom: 10px;
 	    margin-top: 10px;
-	    margin-left: 20px;
 	    border: 1px solid black;
 	    box-shadow: 0px 2px 5px 0px #000;
 			-moz-box-shadow: 0px 2px 5px 0px #000;
@@ -379,7 +378,7 @@
 
 		.voteIcon {
 			position: absolute;
-			right: 2px;
+			right: 70px;
 			bottom: 2px;
 		}
 
@@ -418,7 +417,7 @@
 			position: relative;
 			margin-left: 10px;
 			height: 90%;
-			width: 20%;
+			width: 10%;
 			background: gray;
 		}
 			.voteMeter-value {

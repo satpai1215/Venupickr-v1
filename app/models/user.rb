@@ -22,7 +22,11 @@ class User < ActiveRecord::Base
   validate :access_code_match, :on => :create
 
   def to_s
-    self.username
+    if self.nil?
+      "Invalid User"
+    else
+      self.username
+    end
   end
 
   def access_code_match
