@@ -3,7 +3,6 @@
 
 //updates vote count and voteList when user changes vote
 //only show vote counts and update if user is admin or event owner
-
 <% if @show_votecounts %>
 	venueItemVoteCount = <%= @votecount %>;
 	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteCount");
@@ -50,12 +49,9 @@ $("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@co
 
 
 //update voteMeters
-$voteMeters = $(".voteMeter-cover");
+<% @event.venues.each do |venue| %>
+	calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
+<% end %>
 
-$.each($voteMeters, function(index, vm){
-		var percentVotes = <%=1/@totalvotes.to_f%>;
-		console.log(percentVotes);
-        //voteMeter.children(".voteMeter-cover").css('bottom' , percentVotes + '%');
-    });
 
 

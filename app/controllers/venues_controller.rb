@@ -192,7 +192,8 @@ class VenuesController < ApplicationController
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
-
+        @total_votecounts = @event.voters.count
+        
         respond_to do |format|
             format.html {redirect_to @venue.event, notice: "#{@notice_text}"}
            format.js #increment_vote.js.erb
