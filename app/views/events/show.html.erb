@@ -117,8 +117,8 @@
 										<div class = "venueSticky-footer">
 											<div class = "venue_modifiers"><%= display_modifiers_venue(venue)%></div>
 											<div class = "voteMeter">
-												<div class = "voteMeter-value"></div>
-												<div class = "voteMeter-cover"></div>
+												<div class = "voteMeter-value" id = <%= "voteMeter-value-" + (venue.id).to_s %>></div>
+												<div class = "voteMeter-cover" id = <%= "voteMeter-cover-" + (venue.id).to_s %>></div>
 											</div>
 											<div class = "voteIcon">
 												<% if venue.voters.where(:user_id => current_user.id).exists? %>
@@ -169,14 +169,26 @@
 </div> <!--row-->
 
 	<%= javascript_tag do %>
-  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
-  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
-  		<% if @event.stage != "Voting" %>
-  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
-  			$('#venueList ul li .voteCount').first().css('color', 'red');
-  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
-  			$('.listItem:first .venueStickyHeader').css('color', 'red');
-  			$('.listItem:first .voteCount').css('color', 'red');
-  		<% end %>
+
+  		$(function() {
+	  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
+	  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
+	  		<% if @event.stage != "Voting" %>
+	  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
+	  			$('#venueList ul li .voteCount').first().css('color', 'red');
+	  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
+	  			$('.listItem:first .venueStickyHeader').css('color', 'red');
+	  			$('.listItem:first .voteCount').css('color', 'red');
+	  		<% end %>
+
+	  		//votemeter functionality
+
+	  		<% @event.venues.each do |venue| %>
+
+
+	  		<% end %>
+
+
+		});
 	<% end %>
 
