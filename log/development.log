@@ -1,0 +1,263 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateUsers (20130221035454)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "password" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130221035454')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateEvents (20130221041307)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "address" varchar(255), "votecount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130221041307')[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+Migrating to AddUsersToEvent (20130221050601)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ADD "user_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130221050601')[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to RemoveAddressFromEvents (20130223020031)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "address" varchar(255), "votecount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "events"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "votecount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130223020031')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveVoteCountFromEvents (20130223020622)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "votecount" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130223020622')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateVenues (20130223021340)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" varchar(255), "votecount" integer, "event_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130223021340')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddDeviseToUsers (20130224075441)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "encrypted_password" varchar(255) DEFAULT '' NOT NULL
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "reset_password_token" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "reset_password_sent_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "sign_in_count" integer DEFAULT 0
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "last_sign_in_at" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "users" ADD "current_sign_in_ip" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "last_sign_in_ip" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130224075441')
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddTimeToEvents (20130225024529)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ADD "time" time[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130225024529')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddUrlToVenue (20130303085348)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "venues" ADD "url" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  CREATE TEMPORARY TABLE "altered_venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" varchar(255), "votecount" integer, "event_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "url" varchar(255)) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "venues"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "venues"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "venues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text(255), "votecount" integer, "event_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "url" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_venues"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_venues"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130303085348')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUpdates (20130303093157)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "updates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130303093157')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to AddStageToEvent (20130305033712)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ADD "stage" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130305033712')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to FixTimeColumn (20130305035352)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "events" ADD "vote_start_time" time[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "events" ADD "vote_start_date" date
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "event_start_date" date[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130305035352')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveDateFromEvents (20130305040337)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "date" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date, "event_start_date" date) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date, "event_start_date" date) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305040337')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to FixDateTypesinEvents (20130305051820)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ADD "event_start" datetime
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "events" ADD "vote_start" datetime[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130305051820')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to RemoveDateStuffFromEvents (20130305052315)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date, "event_start_date" date, "event_start" datetime, "vote_start" datetime) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date, "event_start" datetime, "vote_start" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "vote_start_date" date, "event_start" datetime, "vote_start" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "event_start" datetime, "vote_start" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "event_start_time" time, "stage" varchar(255), "vote_start_time" time, "event_start" datetime, "vote_start" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "vote_start_time" time, "event_start" datetime, "vote_start" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "vote_start_time" time, "event_start" datetime, "vote_start" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" datetime) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130305052315')[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to ChangeVoteDateToInteger (20130307044830)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_start" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "events"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "events" ADD "vote_start" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130307044830')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddWinnerToEvents (20130325062730)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "events" ADD "winner" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130325062730')[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+Migrating to CreateDelayedJobs (20130326040418)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130326040418')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddDelayedJobsIDtoEvent (20130327051312)
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "events" ADD "event_email_job_id" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "events" ADD "voting_email_job_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130327051312')[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to AddConfirmableToDevisev1 (20130424050804)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "confirmation_token" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "confirmed_at" datetime[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "users" ADD "confirmation_sent_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "users" ADD "unconfirmed_email" varchar(255)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "confirmed_at" = '2013-08-16 02:34:37.045342'[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130424050804')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRsvps (20130501045136)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "rsvps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_rsvps_on_user_id" ON "rsvps" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_rsvps_on_event_id" ON "rsvps" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130501045136')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddAccessCodeToUser (20130502051259)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "access_code" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130502051259')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddNotificationEmailsToUsers (20130513053240)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "users" ADD "notification_emails" boolean DEFAULT 't'[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130513053240')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddNotesToEvents (20130526173227)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ADD "notes" text[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130526173227')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to ChangeVoteStartToVoteEnd (20130529061451)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_end" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer, "notes" text) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "stage" varchar(255), "event_start" datetime, "vote_end" integer, "winner" integer, "event_email_job_id" integer, "voting_email_job_id" integer, "notes" text) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130529061451')[0m
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to AddCommentsToVenues (20130612052247)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "venues" ADD "comments" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130612052247')[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+Migrating to CreateComments (20130617055625)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "event_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_comments_on_event_id" ON "comments" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_comments_on_user_id" ON "comments" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130617055625')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to ChangeUserIdtoUsernameinComments (20130617060121)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "event_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "temp_index_altered_comments_on_user_id" ON "altered_comments" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "temp_index_altered_comments_on_event_id" ON "altered_comments" ("event_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "comments"[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "comments"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_comments_on_event_id" ON "comments" ("event_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_comments"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_comments"
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "comments" ADD "username" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130617060121')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddArchiveJobIDtoEvents (20130620015411)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "events" ADD "archive_job_id" integer[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130620015411')
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to AddFirstNameLastNametoUsers (20130721202513)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "firstname" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "lastname" varchar(255)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130721202513')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateGuests (20130722004038)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "guests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_guests_on_user_id" ON "guests" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_guests_on_event_id" ON "guests" ("event_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130722004038')[0m
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to AddIndexestoVenue (20130807012136)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_venues_on_user_id" ON "venues" ("user_id")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_venues_on_event_id" ON "venues" ("event_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130807012136')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 

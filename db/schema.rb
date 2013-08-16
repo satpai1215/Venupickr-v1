@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "user_id"
     t.string   "stage"
     t.datetime "event_start"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
     t.integer  "winner"
     t.integer  "event_email_job_id"
     t.integer  "voting_email_job_id"
-    t.text     "notes",               :limit => 255
+    t.text     "notes"
     t.integer  "archive_job_id"
   end
 
@@ -124,17 +124,5 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
 
   add_index "venues", ["event_id"], :name => "index_venues_on_event_id"
   add_index "venues", ["user_id"], :name => "index_venues_on_user_id"
-
-  create_table "voters", :force => true do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.integer  "venue_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "voters", ["event_id"], :name => "index_voters_on_event_id"
-  add_index "voters", ["user_id"], :name => "index_voters_on_user_id"
-  add_index "voters", ["venue_id"], :name => "index_voters_on_venue_id"
 
 end
