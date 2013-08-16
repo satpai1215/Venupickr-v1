@@ -33,7 +33,6 @@ function overlay() {
 
 function calculateVoteMeter(venue_id, venue_votes, total_votes ) {
     percent_votes = 100*venue_votes/total_votes;
-    console.log(percent_votes);
     $("#voteMeter-cover-" + (venue_id.toString())).css('left', percent_votes.toString() + '%');
 }
 
