@@ -143,7 +143,7 @@
 											<h5>Voters:</h5>
 										
 											<% venue.voters.each do |voter| %>
-												<li><%= voter.user.username %></li>
+												<li><%= voter.user.to_s %></li>
 											<% end %>
 										</ol>
 										<% end %>
@@ -169,6 +169,8 @@
 </div> <!--row-->
 
 	<%= javascript_tag do %>
+
+		$(function() {
 	  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
 	  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
 	  		<% if @event.stage != "Voting" %>
@@ -180,10 +182,11 @@
 	  		<% end %>
 
 	  		//votemeter functionality
-
+	  		voteSort();
 	  		<% @event.venues.each do |venue| %>
 	  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
 	  		<% end %>
+	  	});
 
 
 	<% end %>
