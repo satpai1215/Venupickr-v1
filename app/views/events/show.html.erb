@@ -119,7 +119,7 @@
 				<ul id = "venueList">
 					<% if current_user.id === @event.owner_id %>
 						<div id = "venueSuggestionIndicator">  
-                            <div class = "row"><li>FOR OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+                            <div class = "row"><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
                         </div>
                     <% end %>
 
