@@ -8,9 +8,9 @@ function voteSort() {
     var $list = $("#venueList .listItem");
 
     $list.sort(function(a, b) {
-        var aVotes = $(a).find(".voteCount").text();
+        var aVotes = $(a).find(".voteCount").data("votecount");
        // console.log("A:" + $(a).find(".voteCount").text());
-        var bVotes = $(b).find(".voteCount").text();
+        var bVotes = $(b).find(".voteCount").data("votecount");
        // console.log("B:" + $(b).find(".voteCount").text());
 
         return parseInt(bVotes) - parseInt(aVotes);
