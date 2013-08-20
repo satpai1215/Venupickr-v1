@@ -33,7 +33,20 @@ function overlay() {
 
 function calculateVoteMeter(venue_id, venue_votes, total_votes ) {
     percent_votes = 100*venue_votes/total_votes;
-    $("#voteMeter-cover-" + (venue_id.toString())).css('left', percent_votes.toString() + '%');
+    color = "#5ABE59" //votes are > 75%
+
+    if(percent_votes < 65 && percent_votes >= 30) {
+        color = "orange"
+    }
+
+    else if(percent_votes < 20) {
+        color = "#F9483D"
+    }
+
+    $("#voteMeter-cover-" + (venue_id.toString())).css('left', (percent_votes === 0 ? '5%' : percent_votes.toString() + '%'));
+    $("#voteMeter-value-" + (venue_id.toString())).css('background', color);
+
+
 }
 
 /********************

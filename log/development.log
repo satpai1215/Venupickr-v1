@@ -309,3 +309,4 @@ Connecting to database specified by database.yml
 SQLite3::SQLException: no such column: voters.count: SELECT "venues".* FROM "venues"  WHERE "venues"."event_id" = 1 ORDER BY voters.count ASC
 SQLite3::SQLException: no such column: ASC: SELECT "venues".* FROM "venues"  WHERE "venues"."event_id" = 1 ORDER BY ASC
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml

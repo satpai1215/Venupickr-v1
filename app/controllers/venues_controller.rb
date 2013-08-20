@@ -39,7 +39,7 @@ class VenuesController < ApplicationController
 
   # GET /venues/1/edit
   def edit
-    #if current_user.username == @venue.user.username
+    if current_user.id == @venue.user_id
       @event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
@@ -48,9 +48,9 @@ class VenuesController < ApplicationController
         format.json { render json: @venue }
         format.js {render action: 'new'}
       end
-    #else
-    #  redirect_to @venue.event, notice: 'You are not authorized to access that page.'
-    #end
+    else
+      redirect_to @venue.event, notice: 'You are not authorized to access that page.'
+    end
 
   end
 
@@ -69,6 +69,7 @@ class VenuesController < ApplicationController
           #automatically votes for suggested venue if not already voted for this event
           if !Voter.exists?(:user_id => current_user.id, :event_id => @venue.event.id)
             Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+            @venue.update_column(:votecount, 1)
           end
 
           @content = "#{current_user} just suggested a venue"
@@ -109,6 +110,7 @@ class VenuesController < ApplicationController
 
         #remove voting records for venue if it is modified
         Voter.destroy_all(:venue_id => @venue.id)
+        @venue.update_column(:votecount, 0)
 
         #checks if user voted for another venue, if not vote for this one
         if !Voter.exists?(:user_id => current_user.id, :event_id => @venue.event.id)
@@ -187,17 +189,13 @@ class VenuesController < ApplicationController
           @content = "#{current_user} cast a vote"
         end
 
-        @votecountArray = Array.new
-        @totalvotes = @event.voters.count.to_f
-        @venue.event.venues.each do |v|
-          @votecountArray << v.voters.count
-        end
 
         #create new vote association
         #num = @venue.votecount + 1
         #@venue.update_attributes(:votecount => num )
 
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+        @venue.update_column(:votecount, @venue.voters.count + 1)
 
         @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
