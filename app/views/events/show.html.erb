@@ -136,7 +136,7 @@
 
 							  	<div class = "voteCount-container">
 									<% if @show_votecounts %>
-										<div class = "voteCount" data-venueid = <%= "#{venue.voters.count}" %>><%=venue.voters.count %></div>
+										<div class = "voteCount" data-votecount = <%= "#{venue.voters.count}" %>><%=venue.voters.count %></div>
 										
 										<% if venue.voters.count > 0 %>
 										<ol class = "voteList">
