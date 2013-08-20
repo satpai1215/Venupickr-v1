@@ -9,9 +9,9 @@ function voteSort() {
 
     $list.sort(function(a, b) {
         var aVotes = $(a).find(".voteCount").data("votecount");
-        console.log("A:" + aVotes);
+        //console.log("A:" + aVotes);
         var bVotes = $(b).find(".voteCount").data("votecount");
-        console.log("B:" + bVotes);
+        //console.log("B:" + bVotes);
 
         return parseInt(bVotes) - parseInt(aVotes);
     });

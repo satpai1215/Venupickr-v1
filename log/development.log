@@ -305,3 +305,7 @@ Migrating to AddFirstNameLastNametoUsers (20130721202513)
 Migrating to CreateGuests (20130722004038)
 Migrating to AddIndexestoVenue (20130807012136)
   [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Connecting to database specified by database.yml
+SQLite3::SQLException: no such column: voters.count: SELECT "venues".* FROM "venues"  WHERE "venues"."event_id" = 1 ORDER BY voters.count ASC
+SQLite3::SQLException: no such column: ASC: SELECT "venues".* FROM "venues"  WHERE "venues"."event_id" = 1 ORDER BY ASC
+Connecting to database specified by database.yml

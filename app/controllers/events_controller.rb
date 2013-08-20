@@ -38,10 +38,16 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @venue = Venue.new({:event_id => @event.id})
     #only show vote counts if voting period is over, or if user is event owner or admin
     @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id or current_user.username == "Spaiderman")
     @total_votecounts = @event.voters.count
+    
+    #update :votecount attribute in venues
+    @event.venues.each do |venue|
+      venue.update_column(:votecount, venue.voters.count)
+    end
+
+    @venues = @event.venues.order("votecount DESC")
     #@vote_date = @event.event_start - @event.vote_start.days
 
     if @event.stage == "Voting"

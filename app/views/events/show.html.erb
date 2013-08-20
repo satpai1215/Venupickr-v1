@@ -92,7 +92,7 @@
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
-					<%if @event.venues.count === 0 %>
+					<%if @venues.empty? %>
                         <div class = "noEventsLabel noVenues">  
                             <div class = "row"><li> <%= @no_venues_text %></li></div>
                         </div>
@@ -107,7 +107,7 @@
 	                        </div>
 	                    <% end %>
 
-						<% @event.venues.each do |venue| %>
+						<% @venues.each do |venue| %>
 						 <div class = "row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								
