@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   def index
 
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
-
       #only show events that user is a guest of
       @events = current_user.events.where(:stage => "Voting").order("event_start ASC")
       @upcoming_events = current_user.events.where(:stage => "Finished").order("event_start ASC")
