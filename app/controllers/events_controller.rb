@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   def index
     #only display events that are not finished
     @name_entered = false
+    @show_new_features = true
     if user_signed_in?
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
     end
