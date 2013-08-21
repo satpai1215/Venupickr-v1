@@ -43,16 +43,15 @@
 								</div>
 							</div>
 						<% end %>
-					</div><!--eventInfo-content -->
-				</div> <!-- eventInfo eventBox -->
+					</div><!--eventbox-content -->
+				</div> <!-- eventbox -->
 
-			<div class = "eventbox">
+			<div class = "eventbox" id = "event-guestlist-container">
 					<div class = "eventbox-header">
 						<div class = "eventbox-secondary-header-text">Invited Guests</div>
 					</div> <!--eventInfo-header -->
 
 					<div class = 'eventbox-content'>
-
 						<ul class = "eventbox-content-ul" id = "event-guestlist">	
 							<% if @guests.empty? %>
 								<li class = "guestlist-row italic">no guests yet</li>
@@ -60,13 +59,15 @@
 								<% @guests.each do |guest| %>
 									<li class = "guestlist-row">
 										<div class = "guestlist-name"><%= guest %></div>
-										<%if @event.stage != "Archived" %><div class = "rsvp-toggle"></div><% end %>
+										<%if @event.stage != "Archived" %>
+											<div class = "rsvp-toggle">Going | Not Going</div>
+										<% end %>
 									</li>
 								<% end %>
 							<% end %>						
 						</ul>
-					</div><!--eventInfo-content -->
-				</div> <!-- eventInfo-container -->
+					</div><!--eventbox-content -->
+			</div> <!-- event-guestlist-container -->
 
 			<div class = "eventbox" id = "discussionBoard-container">
 				<div class = "eventbox-header">

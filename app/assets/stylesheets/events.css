@@ -242,13 +242,21 @@
 	overflow-y: auto;
 }
 
+.guestlist-row {
+	clear: both;
+}
+
 .guestlist-name {
-	display: inline;
+	clear: both;
+	float: left;
+	width: 50%;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 
 .rsvp-toggle {
 	float: right;
-	margin-right: 20px;
+	width: 40%;
 }
 
 
