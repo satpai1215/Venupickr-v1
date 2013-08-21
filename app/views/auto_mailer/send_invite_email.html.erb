@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+
+  <body>
+    <p>Mo' Mondays Mo' Problems!</p>
+    ===============================================
+    <h2>YOU HAVE BEEN INVITED TO AN EVENT!</h2>
+    <p><%= @owner %> has just invited you to an event on the MoMondaysApp! Below is the event information:</p>
+
+    <p>
+      <b>Event Name:</b> "<%= @event.name %>" <br/>
+      <b>Event Date:</b> <%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %> <br/>
+      <b>Voting Closes:</b> <%= @vote_end.strftime("%B %d, %Y %I:%M%p") %><br/>
+      <% if !@event.notes.blank? %> 
+        <b>Notes to Guests:</b> <br/>
+        "<%= @event.notes %> "
+      <% end %>
+    </p>
+    <p>
+      Click Here to Suggest/Vote for Venues! <%= link_to("Event Page", @url) %>
+    </p>
+
+    <p>Remember, you can suggest venues and vote up until voting closes. Your opinion matters!</p>
+
+    <p> -Mo' Mondays App </p>
+     ===============================================
+  </body>
+</html>

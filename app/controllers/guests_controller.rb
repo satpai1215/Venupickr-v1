@@ -58,7 +58,7 @@ class GuestsController < ApplicationController
 		@current_guest_ids = (@event.users.map { |u| u.id }).sort
 		respond_to do |format|
 			format.html {redirect_to @event, :notice => @current_guest_ids }
-			#format.js
+			format.js
 		end
 
 	end

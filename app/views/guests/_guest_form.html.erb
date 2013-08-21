@@ -1,4 +1,4 @@
-<%= form_tag("/guests/update_guestlist", :method => :post, :id => "invite_guest_form",  ) do %>
+<%= form_tag("/guests/update_guestlist", :method => :post, :id => "invite_guest_form", :remote => true ) do %>
   <div class="field">
     <%= hidden_field_tag :event_id, @event.id %>
   </div>

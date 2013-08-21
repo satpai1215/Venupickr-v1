@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     #if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
     if !current_user.invited?(@event)
-       redirect_to events_path, notice: 'You are not authorized to access that page.'
+       redirect_to events_path, notice: 'You do not have access that page.'
     else
       @owner = @event.owner
       @guests = @event.users.map { |u| u.username } - [current_user.username] #remove owner from guestlist
@@ -94,8 +94,7 @@ class EventsController < ApplicationController
 
       respond_to do |format|
         if @event.save
-          #flash[:alert] = "#{@event.event_start}"
-          AutoMailer.event_create_email(@event.id).deliver
+          #AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"", :event_id => @event.id)
 
@@ -103,7 +102,7 @@ class EventsController < ApplicationController
 
           format.html { redirect_to @event, notice: 'Event was successfully created.'}
           format.json { render json: @event, status: :created, location: @event }
-          #format.js
+          format.js
         else
           format.html { render action: "new" }
           format.json { render json: @event.errors, status: :unprocessable_entity }
