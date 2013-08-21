@@ -36,7 +36,7 @@ function calculateVoteMeter(venue_id, venue_votes, total_votes ) {
     color = "#5ABE59" //votes are > 75%
 
     if(percent_votes < 65 && percent_votes >= 30) {
-        color = "orange"
+        color = "yellow"
     }
 
     else if(percent_votes < 20) {
