@@ -29,6 +29,7 @@ class Event < ActiveRecord::Base
     association = self.guests.where(:user_id => user_id).first
     if !association
       self.guests.create!(:user_id => user_id)
+      AutoMailer.send_invite_mail(self.id).deliver
     end
   end
 

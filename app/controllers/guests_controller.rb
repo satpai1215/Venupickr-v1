@@ -29,19 +29,36 @@ class GuestsController < ApplicationController
 
 	def update_guestlist
 		@event = Event.find(params[:event_id])
-		@event.guests.destroy_all
-		@event.invite!(current_user.id)
-		invited_guests_ids = params[:guest_ids]
 
-		if !invited_guests_ids.nil?
-			invited_guests_ids.each do |id|
-				@event.invite!(id.to_i)
+		@current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
+		@new_guest_ids = params[:guest_ids]
+
+		if !@new_guest_ids.nil?
+
+			#uninvite users that are not checked
+			@current_guest_ids.each do |id|
+				if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
+					@event.uninvite!(id)
+				end
 			end
+
+			#invite users that are checked
+			@new_guest_ids.each do |id|
+				id = id.to_i
+				if !@current_guest_ids.find_index(id)
+					@event.invite!(id)
+				end
+			end
+
+		else #if no guests are checked, remove all guests except owner
+			@event.guests.destroy_all
+			@event.invite!(current_user.id)
 		end
 
+		@current_guest_ids = (@event.users.map { |u| u.id }).sort
 		respond_to do |format|
-			format.html {redirect_to @event, :notice => "The guestlist has been updated" }
-			format.js
+			format.html {redirect_to @event, :notice => @current_guest_ids }
+			#format.js
 		end
 
 	end
