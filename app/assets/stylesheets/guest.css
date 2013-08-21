@@ -35,10 +35,16 @@
 	float: left;
 }
 
+input[class = "guest_checkbox"] {
+	margin: 0px;
+}
+
 .guest_checkbox_label {
 	font-size: 0.8em;
-	display: inline;
-	margin-left: 10px;
-	overflow: hidden;
+	display: inline-block;
+	width: 80%;
+	margin: 0px;
+	overflow-x: hidden;
 	text-overflow: ellipsis;
+	vertical-align: middle;
 }

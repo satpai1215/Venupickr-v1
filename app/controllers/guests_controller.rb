@@ -16,6 +16,7 @@ class GuestsController < ApplicationController
 #end before_filter methods
 
 	def new
+		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
 		    respond_to do |format|
 	        	format.html { render :partial => "guest_form" }
