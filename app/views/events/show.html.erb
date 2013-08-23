@@ -99,12 +99,15 @@
 
                     <% else %>
                     	<% if @event.stage == "Voting" %>
-	                    	<div class = "noEventsLabel noVenues"> 
-	                    	 	<div class = "row"> 
-	                           	 	<li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
-	                             	<li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
-	                             </div>
+	                    	<div class = "noEventsLabel noVenues" id = "voteMeterDialog"> 
+	                    	 		<li id = "voteMeterHeader"><%= "*************** NEW FEATURE: THE VOTE METER ***************" %></li>
+	                           	 	<li id = "description" class = "italic"><%= 'All suggested venues now have a "Vote Meter" to give you an indication of which venues are currently in the lead or how popular the suggested venues are. Hopefully, this will better help you plan for the event.' %></li>
 	                        </div>
+<!-- 
+	                    	<div class = "noEventsLabel noVenues"> 
+	                           	 	<li><%#= "Vote counts will be revealed when the voting period closes."%></li>
+	                             	<li class = "italic"><%#= "(NOTE: Event owner can see the votes.)"%></li>
+	                        </div> -->
 	                    <% end %>
 
 						<% @venues.each do |venue| %>
@@ -163,10 +166,6 @@
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information"></div> <!--createVenueForm-->
 				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information"></div>
 
-   				<div id = "newFeaturesAlert" class = "modal-dialog" title = "Feature Update">
-			        <header>NEW FEATURE: The Vote Meter!</header>
-			        <p>All suggested venues now have a vote meter to give you an indication of which venues are currently in the lead or how popular the suggested venues are. Hopefully this will help you plan for the event better.</p>
-			    </div>
 		</div> <!--#eventShow -->
 </div> <!--row-->
 
@@ -192,11 +191,6 @@
 	  			$('.listItem:first .voteCount').css('color', 'red');
 	  		<% end %>
 
-	  		//votemeter feature popup
-	  		<% if @show_new_features %>
-          		$("#newFeaturesAlert").dialog({modal: true, autoOpen: true, minWidth: 500, show: 500, position: { my: "center top", at: "center top+100px", of: "#content_body" }});
-
-			<% end %>
 
 	  	});
 

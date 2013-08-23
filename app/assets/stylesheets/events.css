@@ -149,8 +149,17 @@
 	background: white;
 }
 
-.noEventsLabel li:nth-child(2) {
-	font-style: italic;
+#voteMeterDialog {
+	color: #2D46CF;
+	border: inset 2px #2D46CF;
+	font-size: 0.9em;
+}
+
+
+#voteMeterDialog #description {
+	text-align: left;
+	padding: 2px 8px;
+	font-weight: normal;
 }
 
 
