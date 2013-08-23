@@ -543,16 +543,6 @@
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
-#addNamestoUserAlert {
-	display: none;
-}
-#addNamestoUserAlert a {
-	text-decoration: underline;
-	text-align: center;
-	color: #08c;
-	margin-left: 180px;
-	
-}
 
 .new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
 	text-align: center;
@@ -665,11 +655,23 @@ button.ui-dialog-titlebar-close {
 /*----------------------------------------------------------------------------- 
 = TEMPORARY DIALOG POPUPS
 -----------------------------------------------------------------------------*/
-
-#newFeaturesAlert header {
-	font-style: italic;
-	font-weight: bold;
+#addNamestoUserAlert {
+	display: none;
+}
+#addNamestoUserAlert a {
+	text-decoration: underline;
 	text-align: center;
+	color: #08c;
+	margin-left: 180px;
+	
+}
+
+#newFeaturesAlert {
+	display: none;
+}
+#newFeaturesAlert header {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 /*----------------------------------------------------------------------------- 

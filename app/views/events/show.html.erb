@@ -160,10 +160,13 @@
 
 	
 
-				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
-				</div> <!--createVenueForm-->
-				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
-   				 </div>
+				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information"></div> <!--createVenueForm-->
+				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information"></div>
+
+   				<div id = "newFeaturesAlert" class = "modal-dialog" title = "Feature Update">
+			        <header>NEW FEATURE: The Vote Meter!</header>
+			        <p>All suggested venues now have a vote meter to give you an indication of which venues are currently in the lead or how popular the suggested venues are. Hopefully this will help you plan for the event better.</p>
+			    </div>
 		</div> <!--#eventShow -->
 </div> <!--row-->
 
@@ -172,6 +175,11 @@
 		$(function() {
 			//sort venues by votes
 			voteSort();
+
+			//votemeter functionality
+	  		<% @event.venues.each do |venue| %>
+	  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
+	  		<% end %>
 
 			//createCountdowns for event#show
 	  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
@@ -184,10 +192,12 @@
 	  			$('.listItem:first .voteCount').css('color', 'red');
 	  		<% end %>
 
-	  		//votemeter functionality
-	  		<% @event.venues.each do |venue| %>
-	  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
-	  		<% end %>
+	  		//votemeter feature popup
+	  		<% if @show_new_features %>
+          		$("#newFeaturesAlert").dialog({modal: true, autoOpen: true, minWidth: 500, show: 500, position: { my: "center top", at: "center top+100px", of: "#content_body" }});
+
+			<% end %>
+
 	  	});
 
 

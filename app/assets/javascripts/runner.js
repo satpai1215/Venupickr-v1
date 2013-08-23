@@ -35,12 +35,16 @@ function calculateVoteMeter(venue_id, venue_votes, total_votes ) {
     percent_votes = 100*venue_votes/total_votes;
     color = "#5ABE59" //votes are > 75%
 
-    if(percent_votes < 65 && percent_votes >= 30) {
-        color = "yellow"
+    if (percent_votes >= 40 && percent_votes < 65) {
+        color = "yellow";
     }
 
-    else if(percent_votes < 20) {
-        color = "#F9483D"
+    else if(percent_votes < 40 && percent_votes >= 20) {
+        color = "orange"
+    }
+
+    else if(percent_votes < 20 || venue_votes == 0) {
+        color = "red"
     }
 
     $("#voteMeter-cover-" + (venue_id.toString())).css('left', (percent_votes === 0 ? '5%' : percent_votes.toString() + '%'));

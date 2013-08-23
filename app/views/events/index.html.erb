@@ -118,7 +118,7 @@
     </div>
     <div id = "newFeaturesAlert" class = "modal-dialog" title = "Feature Update">
         <header>NEW FEATURE: The Vote Meter!</header>
-        <p>All suggested venues now have a vote meter to give you an indication of which venues are currently in the lead. Go to an event page to check it out!</p>
+        <p>All suggested venues now have a vote meter to give you an indication of which venues are currently in the lead. Go to the page of an event on the clock to check it out!</p>
     </div>
 
     <!--end dialog boxes -->
@@ -132,7 +132,7 @@
 <% end %>
 <% if @show_new_features %>
     <script type = "text/javascript">
-          $("#newFeaturesAlert").dialog({modal: true, autoOpen: true, minWidth: 500, show: 500, position: { my: "center top", at: "center top+300px", of: "#content_body" }});
+          $("#newFeaturesAlert").dialog({modal: true, autoOpen: true, minWidth: 500, show: 500, position: { my: "center top", at: "center top+100px", of: "#content_body" }});
     </script>
 <% end %>
 
