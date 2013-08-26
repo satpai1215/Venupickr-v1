@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html>
 <head>
 <title>Mo' Mondays Email Template</title>
 <style type="text/css">
 
 .mm_ttb {
-  font-family: Arial, Verdana, Geneva, sans-serif;
-  background-color: #F4F4F4;
-  font-size: 14px;
+	font-family: Arial, Verdana, Geneva, sans-serif;
+	background-color: #F4F4F4;
+	font-size: 14px;
 }
 
 </style>
@@ -27,43 +26,37 @@
     <td>
     
     <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">The event is set!</h1>
-    <p>Voting has just finished for <%="'#{@event.name}' created by #{@event.user}" %>. Below is the event information:</p>
+    <p>Voting has just finished for 'MO BDAYS!' created by cz. Below is the event information:</p>
     
     <table width="100%" border="0" cellspacing="2">
       <tr>
         <td width="20%"><p style="color: #888888;">Event:</p></td>
-        <td><a href= <%= "#{@url}"%> ><b><%= @event.name  %></b></a></td>
+        <td><a href="#"><b>Mo' Mondays No Mo' Siva</b></a></td>
       </tr>
       <tr>
         <td><p style="color: #888888;">Start Date:</p></td>
-        <td><p><%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %></p></td>
+        <td><p>August 12, 2013 at 8:00pm PST</p></td>
       </tr>
       <tr>
         <td valign="top"><p style="color: #888888;">Winning Venue:</p></td>
         <td valign="top">
-          <p> 
-            <% if !@winner.url.blank? %>
-              <a href = <%= "#{@winner.url}" %> ><%= @winner.name %></a><br />
-            <% else %>
-              <div><%= @winner.name %></div>
-            <% end %>  
-                <span style="font-size:12px;color:#888888;"><%= @winner.address.html_safe %><br />
-                <em>&raquo; suggested by <%= @winner.user.username %></em></span>
-          </p>
+        	<p> <a href="http://www.yelp.com/biz/redford-san-francisco-2">Wilson &amp; Wilson</a><br />
+                <span style="font-size:12px;color:#888888;">673 Geary St (b/t Jones St &amp; Leavenworth St)<br />
+                San Francisco, CA 94102<br />
+                <em>&raquo; suggested by czwang</em></span>
+        	</p>
         </td>
       </tr>
-
-      <% if !@event.notes.blank? %>
-        <tr>
-          <td valign="top"><p style="color: #888888;">Notes to Guests:</p></td>
-          <td valign="top">
-              <p> "<%= @event.notes %>"</p>
-          </td>
-        </tr>
-      <% end %>
+      <tr>
+        <td valign="top"><p style="color: #888888;">Notes to Guests:</p></td>
+        <td valign="top">
+            <p>I'm getting older... so old that my actual bday day has been commandeered by a family friends wedding, so lets drink to getting older on Monday instead! =)</p>
+        </td>
+      </tr>
     </table>
     
-    <p align="center"><small>Are you going? RSVP using the discussion box on the <a href = <%= "#{@url}"%> >Event Page</a></small></p>
+    <p align="center">&nbsp;</p>
+    <p align="center"><small>Are you going? RSVP using the discussion box on the <a href="#">Event Page</a></small></p>
     
     </td>
   </tr>
@@ -75,6 +68,7 @@
     <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
   </tr>
 </table>
+
 
 </body>
 </html>
