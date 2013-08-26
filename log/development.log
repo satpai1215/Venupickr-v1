@@ -4841,3 +4841,926 @@ l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
 </body>
 </html>
 
+Connecting to database specified by database.yml
+  Rendered auto_mailer/event_finish_email.html.erb (49.5ms)
+
+Sent mail to  (3600ms)
+Date: Mon, 26 Aug 2013 08:53:55 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7a138c07f_5393ff97a0349dc4406f@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+    <td class=3D"italic" align=3D"center" style=3D"background-color: #e3e=
+3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">sty=
+ling done by S.Shongrunden</td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.7ms)
+
+Sent mail to  (1902ms)
+Date: Mon, 26 Aug 2013 08:54:46 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7a46c18ef_5393ff97a0349dc44192@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+    <td align=3D"center" style=3D"background-color: #e3e3e3;font-family: =
+Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>email styling don=
+e by S.Shongrunden</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (4.1ms)
+
+Sent mail to  (2096ms)
+Date: Mon, 26 Aug 2013 08:55:13 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7a617bc85_5393ff97a0349dc44279@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+<br><td align=3D"center" style=3D"background-color: #e3e3e3;font-family: =
+Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>email styling don=
+e by S.Shongrunden</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.8ms)
+
+Sent mail to  (2455ms)
+Date: Mon, 26 Aug 2013 08:56:36 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7ab4ba85_5393ff97a0349dc443c6@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>email styling done by=
+ S.Shongrunden</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (32.0ms)
+
+Sent mail to  (2103ms)
+Date: Mon, 26 Aug 2013 08:57:15 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7adbec07c_5393ff97a0349dc44493@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling S.Shon=
+grunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.8ms)
+
+Sent mail to  (2141ms)
+Date: Mon, 26 Aug 2013 08:57:43 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7af76c8af_5393ff97a0349dc44587@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #d3d3d3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.S=
+hongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.8ms)
+
+Sent mail to  (3056ms)
+Date: Mon, 26 Aug 2013 08:58:35 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7b2b5ec8a_5393ff97a0349dc4462f@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #777777; color: white; fo=
+nt-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mo=
+ndays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #d3d3d3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.S=
+hongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.8ms)
+
+Sent mail to  (2502ms)
+Date: Mon, 26 Aug 2013 08:59:40 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7b6c66680_5393ff97a0349dc447d8@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #777777; color: white; te=
+xt-decoration: none; font-family: Arial, Verdana, Geneva, sans-serif;font=
+-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #d3d3d3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.S=
+hongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.7ms)
+
+Sent mail to  (2606ms)
+Date: Mon, 26 Aug 2013 09:00:57 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7bb99385_5393ff97a0349dc448e6@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.S=
+hongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/event_finish_email.html.erb (2.7ms)
+
+Sent mail to  (3556ms)
+Date: Mon, 26 Aug 2013 09:01:44 -0700
+From: info@mo-mondays.com
+Message-ID: <521b7be83a728_5393ff97a0349dc449db@Satyans-MacBook-Pro.local.mail>
+Subject: Voting for 'New Votemeter event' Has Finished
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">=
+
+</head>
+<body>
+
+<!-- Header -->
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td style=3D"background-color: #777777;font-family: Arial, Verdana, Genev=
+a, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td=
+>
+  </tr></table>
+<!-- Body --><table class=3D"mm_ttb" width=3D"600" align=3D"center" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"10" style=3D"font-family:Arial, =
+Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;backg=
+round-color:#f3f3f3;"><tr>
+<td>
+    =
+
+    <h1 style=3D"font-size: 18px;font-family: Arial, Verdana, Geneva, san=
+s-serif;">The event is set!</h1>
+    <p>Voting has just finished for 'New Votemeter event' created by BiaB=
+ia. Below is the event information:</p>
+    =
+
+    <table width=3D"100%" border=3D"0" cellspacing=3D"2">
+<tr>
+<td width=3D"20%"><p style=3D"color: #888888;">Event:</p></td>
+        <td><a href=3D"http://localhost:3000/events/1"><b>New Votemeter e=
+vent</b></a></td>
+      </tr>
+<tr>
+<td><p style=3D"color: #888888;">Start Date:</p></td>
+        <td><p>August 20, 2013 at 08:45PM</p></td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Winning Venue:</p></td>
+        <td valign=3D"top">
+          <p> =
+
+              <a href=3D"http://www.yelp.com/biz/tacolicious-san-francisc=
+o-8">Tacolicious (North Beach/Telegraph Hill)</a><br><span style=3D"font-=
+size:12px;color:#888888;">1548 Stockton St (b/t Columbus Ave &amp; Green =
+St)
+San Francisco, CA 94133<br><em>=C2=BB suggested by BiaBia</em></span>
+          </p>
+        </td>
+      </tr>
+<tr>
+<td valign=3D"top"><p style=3D"color: #888888;">Notes to Guests:</p></td>=
+
+          <td valign=3D"top">
+              <p> "This performance is amazing"</p>
+          </td>
+        </tr>
+</table>
+<p align=3D"center"><small>Are you going? RSVP using the discussion box o=
+n the <a href=3D"http://localhost:3000/events/1">Event Page</a></small></=
+p>
+    =
+
+    </td>
+  </tr></table>
+<!-- Footer --><table width=3D"600" align=3D"center" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"10"><tr>
+<td align=3D"center" style=3D"background-color: #e3e3e3;font-family: Aria=
+l, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width=3D"600" align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"10"><tr>
+<td align=3D"center" style=3D"font-family: Arial, Verdana, Geneva, sans-s=
+erif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
