@@ -50,7 +50,7 @@ class EventsController < ApplicationController
       venue.update_column(:votecount, venue.voters.count)
     end
 
-    @venues = @event.venues.order("votecount DESC")
+    @venues = @event.venues.order("votecount DESC, created_at ASC")
     #@vote_date = @event.event_start - @event.vote_start.days
 
     if @event.stage == "Voting"
