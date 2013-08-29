@@ -6516,3 +6516,130 @@ Content-Transfer-Encoding: 7bit
 </body>
 </html>
 
+Connecting to database specified by database.yml
+  Rendered auto_mailer/voting_reminder_email.html.erb (40.5ms)
+
+Sent mail to  (2628ms)
+Date: Wed, 28 Aug 2013 17:23:41 -0700
+From: info@mo-mondays.com
+Message-ID: <521e948d8eb01_7143fcf390349d43580@Satyans-MacBook-Pro.local.mail>
+Subject: REMINDER: 'New Votemeter event' is on the clock on the MoMondaysApp!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">REMINDER!</h1>
+    <p>'New Votemeter event' created by BiaBia is still on the clock on the MoMondaysApp! You have until August 20, 2013 05:45PM to vote and/or suggest a venue.</p>
+    
+     <p align="center">Go to the <a href="http://localhost:3000/events/1">Event Page</a> to Suggest/Vote for Venues</p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/voting_reminder_email.html.erb (2.1ms)
+
+Sent mail to  (2407ms)
+Date: Wed, 28 Aug 2013 17:25:31 -0700
+From: info@mo-mondays.com
+Message-ID: <521e94fb9c58_7143fcf390349d43596c@Satyans-MacBook-Pro.local.mail>
+Subject: REMINDER: 'New Votemeter event' is on the clock on the MoMondaysApp!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">REMINDER!</h1>
+    <p><b><a href="http://localhost:3000/events/1">New Votemeter event</a></b> created by BiaBia is still on the clock on the MoMondaysApp! You have until August 20, 2013 05:45PM to vote and/or suggest a venue.</p>
+    
+     <p align="center">Go to the <a href="http://localhost:3000/events/1">Event Page</a> to Suggest/Vote for Venues</p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/voting_reminder_email.html.erb (1.8ms)
+
+Sent mail to  (3530ms)
+Date: Wed, 28 Aug 2013 17:26:05 -0700
+From: info@mo-mondays.com
+Message-ID: <521e951d91a19_7143fcf390349d436083@Satyans-MacBook-Pro.local.mail>
+Subject: REMINDER: 'New Votemeter event' is on the clock on the MoMondaysApp!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">REMINDER!</h1>
+    <p><b><a href="http://localhost:3000/events/1">New Votemeter event</a></b> created by BiaBia is still on the clock on the MoMondaysApp! You have until August 20, 2013 05:45PM to vote and/or suggest a venue.</p>
+    
+     <p align="center"><small>Go to the <a href="http://localhost:3000/events/1">Event Page</a> to Suggest/Vote for Venues</small></p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
