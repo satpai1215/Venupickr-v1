@@ -9,16 +9,16 @@ class AutoMailer < ActionMailer::Base
     mail(:bcc => email_list, :subject => "#{@event.user} Has Created '#{@event.name}' on the MoMondaysApp!")
   end
 
-  def venue_suggested_email_owner(event_id, venue_id)
+  def venue_suggested_email_owner(event_id, user_id)
     @event = Event.find(event_id)
-    @venue_owner = Venue.find(venue_id).user.username
+    @venue_owner = User.find(user_id)
     @url = event_url(@event)
     mail(:bcc => @event.user.email, :subject => "ALERT: A venue has been suggested for your event, '#{@event.name}'")
   end
 
-  def venue_suggested_email_guest(event_id, venue_id)
+  def venue_suggested_email_guest(event_id, user_id)
     @event = Event.find(event_id)
-    @venue_owner = Venue.find(venue_id).user.username
+    @venue_owner = User.find(user_id)
     @url = event_url(@event)
     mail(:bcc => email_list - [@event.user.email], :subject => "ALERT: A venue has been suggested for the event '#{@event.name}' on the MoMondays App!")
   end

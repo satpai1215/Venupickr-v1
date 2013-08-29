@@ -6643,3 +6643,183 @@ Content-Transfer-Encoding: 7bit
 </body>
 </html>
 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  Rendered auto_mailer/venue_suggested_email_guest.html (2.5ms)
+
+Sent mail to  (2258ms)
+Date: Wed, 28 Aug 2013 17:33:45 -0700
+From: info@mo-mondays.com
+Message-ID: <521e96e9e3259_7383fd4194349dc67082@Satyans-MacBook-Pro.local.mail>
+Subject: ALERT: A venue has been suggested for the event 'New Votemeter event'
+ on the MoMondays App!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">MO' VENUES MO' PROBLEMS!</h1>
+     <p>Spaider has suggested a venue for the event, <a href="http://localhost:3000/events/1">New Votemeter event</a>.</p>
+    
+     <p align="center">Go to the <a href="http://localhost:3000/events/1">Event Page</a> and vote or change your vote if you like it!</p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/venue_suggested_email_guest.html (0.5ms)
+
+Sent mail to  (2358ms)
+Date: Wed, 28 Aug 2013 17:35:04 -0700
+From: info@mo-mondays.com
+Message-ID: <521e97388958c_7383fd4194349dc671a1@Satyans-MacBook-Pro.local.mail>
+Subject: ALERT: A venue has been suggested for the event 'New Votemeter event'
+ on the MoMondays App!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Venues Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">Spaider has suggested a venue for the event, <a href="http://localhost:3000/events/1">New Votemeter event</a>.</h1>
+    
+     <p align="center">Go to the <a href="http://localhost:3000/events/1">Event Page</a> and vote or change your vote if you like it!</p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/venue_suggested_email_guest.html (0.5ms)
+
+Sent mail to  (2020ms)
+Date: Wed, 28 Aug 2013 17:35:54 -0700
+From: info@mo-mondays.com
+Message-ID: <521e976ac3c09_7383fd4194349dc67272@Satyans-MacBook-Pro.local.mail>
+Subject: ALERT: A venue has been suggested for the event 'New Votemeter event'
+ on the MoMondays App!
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Venues Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 align="center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">Spaider has suggested a venue for the event, <a href="http://localhost:3000/events/1">New Votemeter event</a>.</h1>
+    
+     <p align="center">Go to the <a href="http://localhost:3000/events/1">Event Page</a> and vote or change your vote if you like it!</p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/venue_suggested_email_owner.html.erb (0.6ms)
+
+Sent mail to  (2023ms)
+Date: Wed, 28 Aug 2013 17:38:03 -0700
+From: info@mo-mondays.com
+Message-ID: <521e97eb1fa25_7383fd4194349dc6731c@Satyans-MacBook-Pro.local.mail>
+Subject: ALERT: A venue has been suggested for your event, 'New Votemeter
+ event'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"></head>
+<body>
+    <p>MO' VENUES MO' PROBLEMS!</p>
+    ===============================================
+    <h2>THERE'S A NEW VENUE SUGGESTED FOR YOUR EVENT!</h2>
+    <p>Spaider has suggested/edited a venue for your event, <a href="http://localhost:3000/events/1">New Votemeter event</a>!</p> 
+    <p>Go to the event page to see the venue and remove it if you don't approve. You have the power! </p>
+
+    <p> -Mo' Mondays App </p>
+     ===============================================
+  </body>
+</html><html>
+<head><title>Mo' Mondays Email Template</title></head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Venues Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 align="center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">THERE'S A NEW VENUE SUGGESTED FOR YOUR EVENT!</h1>
+    <p>Spaider has suggested/edited a venue for your event, <a href="http://localhost:3000/events/1">New Votemeter event</a>! Go to the <a href="http://localhost:3000/events/1">Event Page</a> event page to see the venue and remove it if you don't approve. You have the power! </p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+

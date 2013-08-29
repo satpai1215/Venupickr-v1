@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
+<head>
+<title>Mo' Mondays Email Template</title>
+<style type="text/css">
 
-  <body>
-    <p>MO' VENUES MO' PROBLEMS!</p>
-    ===============================================
-    <h2>THERE'S A NEW VENUE SUGGESTED FOR YOUR EVENT!</h2>
-    <p><%= @venue_owner %> has suggested/edited a venue for your event, <%= link_to("#{@event.name}", @url) %>!</p> 
-    <p>Go to the event page to see the venue and remove it if you don't approve. You have the power! </p>
+.mm_ttb {
+  font-family: Arial, Verdana, Geneva, sans-serif;
+  background-color: #F4F4F4;
+  font-size: 14px;
+}
 
-    <p> -Mo' Mondays App </p>
-     ===============================================
-  </body>
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Venues Mo' Problems</td>
+  </tr>
+</table>
+
+<!-- Body -->
+<table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="background-color:#f3f3f3;">
+  <tr>
+    <td>
+    <h1 align = "center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">THERE'S A NEW VENUE SUGGESTED FOR YOUR EVENT!</h1>
+    <p><%= @venue_owner %> has suggested/edited a venue for your event, <%= link_to("#{@event.name}", @url) %>! Go to the <%= link_to("Event Page", @url)%> to see the venue and remove it if you don't approve. You have the power! </p>
+    
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr>
+</table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr>
+</table>
+
+</body>
 </html>

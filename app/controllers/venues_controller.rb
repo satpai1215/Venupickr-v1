@@ -77,9 +77,9 @@ class VenuesController < ApplicationController
           @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
           if(@venue.event.user != current_user)
-            AutoMailer.venue_suggested_email_owner(@venue.event.id, @venue.id).deliver
+            AutoMailer.venue_suggested_email_owner(@venue.event.id, current_user.id).deliver
           end
-          AutoMailer.venue_suggested_email_guest(@venue.event.id, @venue.id).deliver
+          AutoMailer.venue_suggested_email_guest(@venue.event.id, current_user.id).deliver
           
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
