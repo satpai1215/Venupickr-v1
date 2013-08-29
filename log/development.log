@@ -6823,3 +6823,131 @@ Content-Transfer-Encoding: 7bit
 </body>
 </html>
 
+Connecting to database specified by database.yml
+  Rendered auto_mailer/no_venue_email.html.erb (23.7ms)
+
+Sent mail to pa.isatyan@gmail.com (2238ms)
+Date: Wed, 28 Aug 2013 17:40:44 -0700
+From: info@mo-mondays.com
+To: pa.isatyan@gmail.com
+Message-ID: <521e988ca5473_74a3ffb720349d8475e9@Satyans-MacBook-Pro.local.mail>
+Subject: WARNING: No Venues Suggested for 'New Votemeter event'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 align="center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">NO VENUES WERE SUGGESTED FOR YOUR EVENT</h1>
+   <p>
+      No one has suggested any venues for your event, 'New Votemeter event'. Go to the event page to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.<br></p>
+      
+    <p align="center">Suggest venues by going to the <a href="http://localhost:3000/events/1">Event Page</a></p>
+    
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/no_venue_email.html.erb (0.6ms)
+
+Sent mail to pa.isatyan@gmail.com (1952ms)
+Date: Wed, 28 Aug 2013 17:41:37 -0700
+From: info@mo-mondays.com
+To: pa.isatyan@gmail.com
+Message-ID: <521e98c199278_74a3ffb720349d84768@Satyans-MacBook-Pro.local.mail>
+Subject: WARNING: No Venues Suggested for 'New Votemeter event'
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 align="center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">NO VENUES WERE SUGGESTED FOR YOUR EVENT</h1>
+   <p>
+      No one has suggested any venues for your event, 'New Votemeter event'. Go to the <a href="http://localhost:3000/events/1">event page</a> to suggest venues that people can vote on. If no venues are suggested before end of the voting period, the event will be removed from the queue.</p>
+    </td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
+  Rendered auto_mailer/no_venue_email_final.html.erb (0.5ms)
+
+Sent mail to pa.isatyan@gmail.com (2205ms)
+Date: Wed, 28 Aug 2013 17:42:55 -0700
+From: info@mo-mondays.com
+To: pa.isatyan@gmail.com
+Message-ID: <521e990f2e5aa_74a3ffb720349d84776f@Satyans-MacBook-Pro.local.mail>
+Subject: Your Event 'New Votemeter event' Has Been Removed (No Venues
+ Suggested)
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Mo' Mondays Email Template</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr></table>
+<!-- Body --><table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="font-family:Arial, Verdana, Geneva, sans-serif;background-color:#F4F4F4;font-size:14px;background-color:#f3f3f3;"><tr>
+<td>
+    <h1 align="center" style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">NO VENUES WERE SUGGESTED FOR YOUR EVENT</h1>
+   <p>
+      No one has suggested any venues for your event, <a href="http://localhost:3000/events/1">New Votemeter event</a>. Your event has been archived.  Be sure to email your guests to manually tell them the venue you have chosen, or to warn them that the event has been cancelled.<br></p>
+</td>
+  </tr></table>
+<!-- Footer --><table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr></table>
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10"><tr>
+<td align="center" style="font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;"><i>(email styling by S.Shongrunden)</i></td>
+  </tr></table>
+</body>
+</html>
+
