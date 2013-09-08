@@ -133,8 +133,10 @@ class EventsController < ApplicationController
         @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
         @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
-
-        write_jobs(@event.id)
+        
+        if @event.stage == "Voting"
+          write_jobs(@event.id)
+        end
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
