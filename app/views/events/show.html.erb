@@ -130,15 +130,7 @@
                         </div>
 
                     <% else %>
-                    	<% if @event.stage == "Voting" %>
-	                    	<div class = "noEventsLabel noVenues"> 
-	                    	 	<div class = "row"> 
-	                           	 	<li><%= "Vote counts will be revealed when the voting period closes." unless @event.stage != "Voting" %></li>
-	                             	<li><i><%= "(NOTE: Event owner can see the votes.)" unless @event.stage != "Voting" %></i></li>
-	                             </div>
-	                        </div>
-	                    <% end %>
-
+                   
 						<% @event.venues.each do |venue| %>
 						 <div class = "row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
