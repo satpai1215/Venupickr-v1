@@ -30,7 +30,7 @@ class EventsController < ApplicationController
        redirect_to events_path, notice: 'You do not have access that page.'
     else
       @owner = @event.owner
-      @guests = @event.users.map { |u| u.username } - [current_user.username] #remove owner from guestlist
+      @guests = @event.users.map { |u| u.username } - [@owner.username] #remove owner from guestlist
       #only show vote counts if voting period is over, or if user is event owner or admin
       @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
       #@vote_date = @event.event_start - @event.vote_start.days
