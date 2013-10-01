@@ -4,7 +4,6 @@ var currentEventsArray = [];
 
 
 function voteSort() {
-    console.log("poop");
     var $list = $("#venueList .listItem");
 
     $list.sort(function(a, b) {
