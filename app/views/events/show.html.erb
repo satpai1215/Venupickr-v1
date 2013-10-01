@@ -59,8 +59,11 @@
 								<% @guests.each do |guest| %>
 									<li class = "guestlist-row">
 										<div class = "guestlist-name"><%= guest %></div>
-										<%if @event.stage != "Archived" %>
-											<div class = "rsvp-toggle">Going | Not Going</div>
+										<%if @event.stage != "Archived" and current_user.username === guest %>
+											<div class = "rsvp-toggle">
+												<button id = "rsvpButton-yes" class = "btn rsvpButton">Going</button>
+												<button id = "rsvpButton-no" class = "btn rsvpButton red">Not Going</button>
+											</div>
 										<% end %>
 									</li>
 								<% end %>

@@ -263,6 +263,12 @@
 	width: 40%;
 }
 
+.rsvpButton {
+	font-size: 0.85em;
+	padding: 0px 5px;
+}
+
+
 
 #discussionBoard-container {
 	height:	500px;
@@ -688,6 +694,11 @@ button.ui-dialog-titlebar-close {
 
 .blue {
 	color: blue;
+	font-weight: bold;
+}
+
+.green {
+	color: green;
 	font-weight: bold;
 }
 
