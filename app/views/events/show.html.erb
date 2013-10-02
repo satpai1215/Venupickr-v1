@@ -60,7 +60,7 @@
 									<li class = "guestlist-row">
 										<div class = "guestlist-name"><%= guest %></div>
 										<%if @event.stage != "Archived" and current_user.username === guest %>
-											<div class = "rsvp-toggle">
+											<div id = "rsvp-toggle">
 												<button id = "rsvpButton-yes" class = "btn rsvpButton">Going</button>
 												<button id = "rsvpButton-no" class = "btn rsvpButton red">Not Going</button>
 											</div>
