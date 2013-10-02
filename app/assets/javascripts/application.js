@@ -49,12 +49,12 @@ $(document).ready(function() {
   });
   
   $(document).on('click', '#rsvpButton-yes', function(event) {
-    $(this).addClass('green');
-    $("#rsvpButton-no").removeClass('red');
+    $(this).addClass('green').css('background', '#d6e6e6');
+    $("#rsvpButton-no").removeClass('red').css('background', '#f5f5f5');;
   });
   $(document).on('click', '#rsvpButton-no', function(event) {
-    $(this).addClass('red');
-    $("#rsvpButton-yes").removeClass('green');
+    $(this).addClass('red').css('background', '#eebfda');;
+    $("#rsvpButton-yes").removeClass('green').css('background', '#f5f5f5');;
   });
 
   $(document).on('click', '.appActions', function(event) {
