@@ -269,9 +269,14 @@
 	text-overflow: ellipsis;
 }
 
-#rsvp-toggle {
+.rsvp-response {
 	float: right;
 	width: 40%;
+}
+.rsvp-response-text {
+	display: block;
+	text-align: center;
+	font-style: italic;
 }
 
 .rsvpButton {
