@@ -32,6 +32,7 @@ class GuestsController < ApplicationController
 
 		@current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
 		@new_guest_ids = params[:guest_ids]
+		@invite_emails = []
 
 		if !@new_guest_ids.nil?
 
@@ -55,9 +56,8 @@ class GuestsController < ApplicationController
 			@event.invite!(current_user.id)
 		end
 
-		@current_guest_ids = (@event.users.map { |u| u.id }).sort
 		respond_to do |format|
-			format.html {redirect_to @event, :notice => @current_guest_ids }
+			format.html {redirect_to @event}
 			format.js
 		end
 
