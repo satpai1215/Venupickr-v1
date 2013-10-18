@@ -112,7 +112,7 @@
             		<div class - "span4"><%= display_venue_suggest_button(@event) %></div>
 
 	         		<% if @event.stage != "Voting" %>
-						<% if @event.venues.count == 0 %>
+						<% if @venues.count == 0 %>
 							<div id = 'eventCancelledHeading'>EVENT CANCELLED</div>
 						<% else %>
 							<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
@@ -129,14 +129,14 @@
                         </div>
                     <% end %>
 
-					<%if @event.venues.count === 0 %>
+					<%if @venues.count === 0 %>
                         <div class = "noEventsLabel noVenues">  
                             <div class = "row"><li> <%= @no_venues_text %></li></div>
                         </div>
 
                     <% else %>
                    
-						<% @event.venues.each do |venue| %>
+						<% @venues.each do |venue| %>
 						 <div class = "row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								

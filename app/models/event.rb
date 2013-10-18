@@ -20,6 +20,9 @@ class Event < ActiveRecord::Base
   before_save :build_event_start_and_validate, :on => [:create, :update]
   before_validation :sanitize_user_input
 
+  scope :stage_voting, where(stage: "Voting").order("event_start ASC")
+  scope :stage_finished, where(stage: "Finished").order("event_start ASC")
+  scope :stage_archived, where(stage: "Archived").order("event_start DESC")
 
   def to_s
     self.name

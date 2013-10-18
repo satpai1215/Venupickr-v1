@@ -9,8 +9,8 @@ class EventsController < ApplicationController
 
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
       #only show events that user is a guest of
-      @events = current_user.events.where(:stage => "Voting").order("event_start ASC")
-      @upcoming_events = current_user.events.where(:stage => "Finished").order("event_start ASC")
+      @events = current_user.events.stage_voting
+      @upcoming_events = current_user.events.stage_finished
       gon.numUpcoming = @upcoming_events.count
       gon.totalIndexEvents = @upcoming_events.count + @events.count
 
@@ -24,7 +24,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show  
-    @event = Event.find(params[:id])
+    @event = Event.includes(:comments, :venues).find(params[:id])
+    @venues = @event.venues.includes(:voters)
     #if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
     if !current_user.invited?(@event)
        redirect_to events_path, notice: 'You do not have access that page.'
