@@ -48,6 +48,7 @@ class GuestsController < ApplicationController
 				id = id.to_i
 				if !@current_guest_ids.find_index(id)
 					@event.invite!(id)
+					AutoMailer.send_invite_email(@event.id, id).deliver
 				end
 			end
 
