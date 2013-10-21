@@ -43,7 +43,7 @@ class GuestsController < ApplicationController
 				end
 			end
 
-			#invite users that are checked
+			#invite users that are checked if they aren't already invited
 			@new_guest_ids.each do |id|
 				id = id.to_i
 				if !@current_guest_ids.find_index(id)

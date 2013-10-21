@@ -1,4 +1,4 @@
-class AutoMailer < ActionMailer::Base
+ class AutoMailer < ActionMailer::Base
   default from: "MoMondaysMailer@gmail.com", to: "MoMondaysMailer@gmail.com"
 
 
@@ -8,6 +8,14 @@ class AutoMailer < ActionMailer::Base
     @url = event_url(@event)
     @vote_end = @event.event_start - @event.vote_end.hours
     mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Created '#{@event.name}' on the MoMondaysApp!")
+  end
+
+  def event_update_email(event_id)
+    @event = Event.find(event_id)
+    @owner = @event.owner
+    @url = event_url(@event)
+    @vote_end = @event.event_start - @event.vote_end.hours
+    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Updated '#{@event.name}' on the MoMondaysApp!")
   end
 
   def send_invite_email(event_id, user_id)
@@ -82,7 +90,7 @@ class AutoMailer < ActionMailer::Base
   #generates array of user emails for passed event
   def email_list(event_id)
     list = Array.new
-    @event = Event.find(event_id)
+    @event = Event.includes(:users).find(event_id)
 
     @event.users.where(:notification_emails => true).each do |user|
       list.push(user.email)

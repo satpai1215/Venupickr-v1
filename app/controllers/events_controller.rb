@@ -126,7 +126,7 @@ class EventsController < ApplicationController
         @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"", :event_id => @event.id)
         @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
-
+        AutoMailer.event_update_email(@event.id).deliver
         write_jobs(@event.id)
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
