@@ -8,8 +8,8 @@ GROUPS TO DO
 -**** DONE **** allow guests to remove themselves from events
 -**** DONE **** reformat guest list box on show
 -**** DONE **** change event form to include checkbox options to allow for venue suggestion
-- Include RSVP toggle on event guest list
-- change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
+-**** DONE **** Include RSVP toggle on event guest list
+-**** DONE **** change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
 - update Updates to only updates for user's events show up
 - checkbox for guest invites (will not allow guests to invites others yet, because they can also uninvite others)
 - update already existing events on heroku to include all guests (migration?)
