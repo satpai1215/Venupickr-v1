@@ -14,6 +14,16 @@ class EventsController < ApplicationController
       gon.numUpcoming = @upcoming_events.count
       gon.totalIndexEvents = @upcoming_events.count + @events.count
 
+      @updates = []
+
+      @events.each do |event|
+        @updates.concat(event.updates.order('created_at DESC'))
+      end
+
+      @upcoming_events.each do |event|
+        @updates.concat(event.updates.order('created_at DESC'))
+      end
+
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @events }
@@ -158,14 +168,16 @@ class EventsController < ApplicationController
   #rsvp_yes
   def rsvp_yes
     @guest = Guest.find(params[:guest_id])
+    @event = @guest.event
 
       if (!@guest)
          respond_to do |format|
-           format.html {redirect_to @venue.event, notice: "You are not a guest for this event."}
+           format.html {redirect_to @event, notice: "You are not a guest for this event."}
            format.js
          end
       else
         @guest.update_column(:isgoing, true)
+        @update = Update.create!(:content => "#{current_user} just RSVP'd to \"#{@event}\"", :event_id => @event.id)
         respond_to do |format|
           format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
           format.js
@@ -175,10 +187,11 @@ class EventsController < ApplicationController
 
   def rsvp_no
     @guest = Guest.find(params[:guest_id])
+    @event = @guest.event
 
       if (!@guest)
          respond_to do |format|
-           format.html {redirect_to @venue.event, notice: "You are not a guest for this event."}
+           format.html {redirect_to @event, notice: "You are not a guest for this event."}
            format.js
          end
       else
