@@ -7,7 +7,7 @@ module EventsHelper
 		html = ""
 		if(event.stage != "Archived")
 			if(event.stage != nil)
-				html<< link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)
+				html << '<span>' + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true) + '</span>'
 			end
     	end
     	return html.html_safe
@@ -16,7 +16,7 @@ module EventsHelper
 	def display_delete_event(event)
 		html = ""
 		if(event.stage == "Voting")
-	        html << link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true)
+	        html << '<span>' + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) +'</span>'
 		end
     	return html.html_safe
 	end
@@ -24,7 +24,7 @@ module EventsHelper
 	def display_invite_guests(event)
 		html = ""
 		if(event.stage != "Archived")
-	        html << link_to("Invite Guests", {:controller => 'guests', :action => 'new', :event_id => event.id}, :remote => true)
+	        html << '<span>' + link_to("Invite Guests", {:controller => 'guests', :action => 'new', :event_id => event.id}, :remote => true) + '</span>'
 		end
 
     	return html.html_safe
@@ -33,7 +33,7 @@ module EventsHelper
 	def display_reminder_link(event)
 		html = ""
 		if(event.stage != "Archived")
-	        html << link_to("Send Reminder", {:controller => 'events', :action => "send_reminder", :event_id => event.id}, data:{confirm: 'Are you sure you want to send a reminder email to all guests?'}, remote: true)
+	        html << '<span>' + link_to("Send Reminder", {:controller => 'events', :action => "send_reminder", :event_id => event.id}, data:{confirm: 'Are you sure you want to send a reminder email to all guests?'}, remote: true) + '</span>'
 		end
 
     	return html.html_safe
@@ -42,7 +42,7 @@ module EventsHelper
 	def display_leave_event(event)
 		html = ""
 		if(event.stage == "Voting")
-	        html << link_to("Leave Event", {:controller => 'guests', :action => "leave_event", :event_id => event.id}, data:{confirm: 'Are you sure you want to leave this event?'})
+	        html << '<span>' + link_to("Leave Event", {:controller => 'guests', :action => "leave_event", :event_id => event.id}, data:{confirm: 'Are you sure you want to leave this event?'}) + '</span>'
 		end
 
     	return html.html_safe
@@ -92,13 +92,13 @@ module EventsHelper
 	def display_venue_suggest_button(event)
 		html = ""
 
-		if(event.allow_venue_suggestion or current_user.id === @event.owner_id)
-			if(event.stage == "Voting")
-				html << "#{link_to "Suggest a Venue", 
-				new_venue_path(:event_id => event.id), {:id => "suggestVenueLink", :class => "btn btn-info", :remote => true}}"
+		if (event.stage == 'Voting')
+			if(event.allow_venue_suggestion or current_user.id === @event.owner_id)
+				html << "#{link_to 'Suggest a Venue', 
+				new_venue_path(:event_id => event.id), {:id => 'suggestVenueLink', :class => 'btn btn-info', :remote => true}}"
+			else
+				html <<"<span id = 'event_show_venue_suggestion_off_tag'>venue suggestion has been turned OFF</span>"
 			end
-		else
-			html <<"<span id = 'event_show_venue_suggestion_off_tag'>venue suggestion has been turned OFF</span>"
 		end
 
 		return html.html_safe

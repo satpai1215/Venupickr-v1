@@ -8,12 +8,12 @@
 						<div class = "eventInfo-header-text"><%= h(@event.name) %></div>
 						<% if current_user.id == @event.owner_id %>
 							<span class = "italic">You are the owner</span><br/>
-							<span><%= display_edit_event(@event) %></span>
-							<span><%= display_delete_event(@event) %></span>
-							<span><%= display_invite_guests(@event) %></span>
-							<span><%= display_reminder_link(@event) %></span>
+							<%= display_edit_event(@event) %>
+							<%= display_delete_event(@event) %>
+							<%= display_invite_guests(@event) %>
+							<%= display_reminder_link(@event) %>
 						<% else %>
-							<span><%= display_leave_event(@event) %></span>
+							<%= display_leave_event(@event) %>
 						<% end %>
 					</div> <!--eventInfo-header -->
 
@@ -76,7 +76,7 @@
 										<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
 									</li>
 								<% end %>
-								
+
 							<% end %>						
 						</ul>
 					</div><!--eventbox-content -->
@@ -117,7 +117,7 @@
 			<div id = "venueList-header">
 				<div class = "row">
             		<div class = "span4"><h2>Recommended Venues:</h2></div>
-            		<div class - "span4"><%= display_venue_suggest_button(@event) %></div>
+            		<%= display_venue_suggest_button(@event) %>
 
 	         		<% if @event.stage != "Voting" %>
 						<% if @venues.count == 0 %>
@@ -131,7 +131,7 @@
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
-					<% if current_user.id === @event.owner_id %>
+					<% if current_user.id === @event.owner_id and @event.stage == 'Voting' %>
 						<div id = "venueSuggestionIndicator">  
                             <div class = "row"><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
                         </div>
@@ -145,7 +145,7 @@
                     <% else %>
                    
 						<% @venues.each do |venue| %>
-						 <div class = "row">
+						 <div class = "row listItem-row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								
 								<div class = "venueSticky"%><%= h(generate_venue_sticky(venue)) %></div>
@@ -181,7 +181,6 @@
 							</li><!--listItem -->
 						</div>
 						<% end %>
-						<% if @event.stage != "Voting" %><%= javascript_tag do %> voteSort() <% end %><% end %>
 					<% end %>
 				</ul>
 			</div><!-- venueList-container -->
@@ -203,11 +202,13 @@
   		  	createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
   			//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
 	  		<% if @event.stage != "Voting" %>
+	  			voteSort();
 	  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
 	  			$('#venueList ul li .voteCount').first().css('color', 'red');
 	  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
 	  			$('.listItem:first .venueStickyHeader').css('color', 'red');
 	  			$('.listItem:first .voteCount').css('color', 'red');
+	  	
 	  		<% end %>
   			<% if flash[:new_event?] %>
 				$('#inviteGuestsForm').dialog('open');

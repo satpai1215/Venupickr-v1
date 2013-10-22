@@ -5,12 +5,12 @@ var currentEventsArray = [];
 
 function voteSort() {
     //console.log("poop");
-    var $list = $("#venueList .listItem");
+    var $list = $("#venueList .listItem-row");
 
     $list.sort(function(a, b) {
-        var aVotes = $(a).find(".voteCount").text();
+        var aVotes = $(a).children(".listItem").children(".voteControls").children(".voteCount").text();
        // console.log("A:" + $(a).find(".voteCount").text());
-        var bVotes = $(b).find(".voteCount").text();
+        var bVotes = $(b).children(".listItem").children(".voteControls").children(".voteCount").text();
        // console.log("B:" + $(b).find(".voteCount").text());
 
         return parseInt(bVotes) - parseInt(aVotes);

@@ -24,8 +24,8 @@ class EventsController < ApplicationController
         @updates.concat(event.updates)
       end
 
-      @updates = @updates.sort_by &:created_at
-
+      @updates = @updates.sort {|u1, u2| u2.created_at <=> u1.created_at}
+      
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @events }
