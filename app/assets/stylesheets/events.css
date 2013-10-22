@@ -266,8 +266,10 @@
 	clear: both;
 	float: left;
 	width: 50%;
+	padding-right: 5px;
 	overflow-x: hidden;
 	text-overflow: ellipsis;
+
 }
 
 .rsvp-response {

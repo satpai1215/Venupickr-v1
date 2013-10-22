@@ -17,12 +17,14 @@ class EventsController < ApplicationController
       @updates = []
 
       @events.each do |event|
-        @updates.concat(event.updates.order('created_at DESC'))
+        @updates.concat(event.updates)
       end
 
       @upcoming_events.each do |event|
-        @updates.concat(event.updates.order('created_at DESC'))
+        @updates.concat(event.updates)
       end
+
+      @updates = @updates.sort_by &:created_at
 
       respond_to do |format|
         format.html # index.html.erb
@@ -34,7 +36,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show  
-    @event = Event.includes(:comments, :venues).find(params[:id])
+    @event = Event.includes(:comments, :venues, :guests).find(params[:id])
     @venues = @event.venues.includes(:voters)
     #if Guest.where(:user_id => current_user.id, :event_id => @event.id).first.nil?
     if !current_user.invited?(@event)
@@ -43,13 +45,29 @@ class EventsController < ApplicationController
       @owner = @event.owner
       @owner_as_guest = Guest.where(:user_id => @event.owner_id, :event_id => @event.id).first
       @current_user_as_guest = Guest.where(:user_id => current_user.id, :event_id => @event.id).first
-      @guests = @event.guests - [@owner_as_guest] #remove owner from guestlist
+      @guests = []
+      @guests_not_going = []
+
+      #create array of guests with RSVP'd ones first, removing current user and event owner
+      @event.guests.each do |g|
+        if g.id == @owner_as_guest.id or g.id == @current_user_as_guest.id
+        elsif g.isgoing
+          @guests << g
+        else
+          @guests_not_going << g
+        end
+      end
+      @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
+
+      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? AND id != ? ", true, @owner_as_guest.id, @current_user_as_guest.id)) #remove owner from guestlist
+      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? ", false, @current_user_as_guest.id))
+
       #only show vote counts if voting period is over, or if user is event owner or admin
       @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
       #@vote_date = @event.event_start - @event.vote_start.days
 
       if @event.stage == "Voting"
-         @no_venues_text = "No venues have been suggested yet.  Suggest one!"
+         @no_venues_text = "No venues have been suggested yet."
       else
         @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
       end
