@@ -1,11 +1,23 @@
+//deleted on event#show
+<% if @from_index %> 
+	'<%= flash[:notice] = "Event Deleted Successfully." %>';
+	window.location = '<%= events_path %>';
 
-$('#notice').text('Event Deleted Successfully.');
-
-$('#<%= dom_id(@event) %>').slideUp();
-
-<% if current_user.events.where(:stage => "Voting").empty? %>
-	$("#votingEvents ul").append('<div class = "noEventsLabel"><div class = "row eventItem"><li> No Events on the Clock. Click "Create New Event" button to make one! </li></div></div>');
 <% end %>
+
+
+//deleted on events#index
+<% if !@from_index %>
+	$('#notice').text('Event Deleted Successfully.');
+
+	$('#<%= dom_id(@event) %>').slideUp();
+
+	<% if current_user.events.where(:stage => "Voting").empty? %>
+		$("#votingEvents ul").append('<div class = "noEventsLabel"><div class = "row eventItem"><li> No Events on the Clock. Click "Create New Event" button to make one! </li></div></div>');
+	<% end %>
+
+<% end %>
+
 
 
 

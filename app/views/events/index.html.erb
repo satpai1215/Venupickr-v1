@@ -82,7 +82,7 @@
                                             <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
                                             <div class = "eventName"><%= h(event.name) %></div>
                                             <% if user_signed_in? and current_user.id === event.owner_id %>
-                                                <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event) %>)</div>
+                                                <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event, true) %>)</div>
                                             <% end %>
                                             <%= event.event_start.strftime("%B %d, %Y") %> at 
                                                 <%= event.event_start.strftime("%I:%M%p") %>

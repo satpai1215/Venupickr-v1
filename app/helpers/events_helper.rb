@@ -13,10 +13,10 @@ module EventsHelper
     	return html.html_safe
 	end
 
-	def display_delete_event(event)
+	def display_delete_event(event, from_index = false)
 		html = ""
 		if(event.stage == "Voting")
-	        html << '<span>' + link_to('Delete', event, method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) +'</span>'
+	        html << '<span>' + link_to('Delete', event_path(event, from_index: from_index), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) +'</span>'
 		end
     	return html.html_safe
 	end
