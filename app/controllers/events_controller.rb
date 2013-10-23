@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def auth_owner
-    if !(current_user.id == @event.user.id or current_user.username == "Spaiderman")
+    if !(current_user.id == @event.owner_id or current_user.username == "Spaiderman")
       redirect_to @event, notice: 'You are not authorized to carry out that action.'
     end
   end
@@ -198,7 +198,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to events_url }
-      format.js {}
+      format.js
       format.json { head :no_content }
     end
   end

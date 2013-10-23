@@ -1,9 +1,11 @@
-'<%= flash[:notice] = "Event Deleted Successfully." %>';
 
-<% if !Event.exists? %>
-	$("#eventList ul").append('<div id = "noEventsLabel"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>');
+$('#notice').text('Event Deleted Successfully.');
+
+$('#<%= dom_id(@event) %>').slideUp();
+
+<% if current_user.events.where(:stage => "Voting").empty? %>
+	$("#votingEvents ul").append('<div class = "noEventsLabel"><div class = "row eventItem"><li> No Events on the Clock. Click "Create New Event" button to make one! </li></div></div>');
 <% end %>
 
-window.location = '<%= events_path %>';
 
 
