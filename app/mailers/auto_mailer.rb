@@ -1,6 +1,11 @@
 class AutoMailer < ActionMailer::Base
   default from: "info@mo-mondays.com", to: "info@mo-mondays.com"
 
+  
+  def mm_update_102213_email
+    mail(:bcc => pai.satyan@gmail.com, :subject => "The MoMondaysApp Has Been Updated!")
+  end
+
   def event_create_email(event_id)
     @event = Event.find(event_id)
     @owner = @event.owner
