@@ -192,6 +192,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    @prev_page = params[:from]
     destroy_jobs(@event.id)
     @event.destroy
     @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"", :event_id => @event.id)
