@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mo' Mondays Email Template</title>
+<style type="text/css">
+
+.mm_ttb {
+  font-family: Arial, Verdana, Geneva, sans-serif;
+  background-color: #F4F4F4;
+  font-size: 14px;
+}
+
+.update-title {
+  color: #000000;
+  font-style: italic;
+  margin: 5px 20px;
+
+}
+
+.update-info {
+  color: #707070;
+  margin: 0px 40px 20px 40px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr>
+</table>
+
+<!-- Body -->
+<table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="background-color:#f3f3f3;">
+  <tr>
+    <td>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif; text-align: center;">NEW FEATURES!</h1>
+    <p style = "margin: 5px 5px;">The MoMondays App has recently undergone some major changes to improve the user experience and personalization. Check out the details below!</p><br/>
+    
+    <table width="100%" border="0" cellspacing="2">
+      <tr><p class = "update-title">1.  Turn OFF Venue Suggestion:</p></tr>
+      <tr><p class = "update-info">Event owners now have the ability to turn off venue suggestion for other users. This will
+          allow you to create an event and set the venue if you already have one in mind. </p></tr>
+
+      <tr><p class = "update-title">2.  RSVP for Events:</p></tr>
+      <tr><p class = "update-info">Each event guest can now indicate whether or not they plan on going to events. </p></tr>
+
+      <tr><p class = "update-title">3.  Create Private Events:</p></tr>
+      <tr><p class = "update-info">Have you ever wanted have a dinner with a small group of friends and have them recommend venues without the whole world seeing where you're going? Now you can! Event owners can now specify which guests to invite to their events. Only invited guests can view and access the event page. In addition, your home page will only show events of which you are an invited guest, making the app your own personalized event page. </p></tr>
+
+      <p style = "margin: 5px 5px; text-align: center; font-size: 12px;">Go to the <%= link_to 'app page', events_path %>, create an event, and check out the new features!</p>
+
+    </table>
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr>
+</table>
+
+
+</body>
+</html>

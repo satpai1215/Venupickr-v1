@@ -210,8 +210,8 @@
 
 		//createCountdowns for event#show
   		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
-  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
 
+  		//highlight event winning venue after voting ends
   		<% if @event.stage != "Voting" %>
   			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
   			$('#venueList ul li .voteCount').first().css('color', 'red');
@@ -220,11 +220,13 @@
   			$('.listItem:first .voteCount').css('color', 'red');
   		<% end %>
 
-			<% if flash[:new_event?] %>
+  		//popup guest dialog if event was just created
+		<% if flash[:new_event?] %>
 			$('#inviteGuestsForm').dialog('open');
 			$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
 		<% end %>
 
+		//color code rsvp buttons on page refresh
 		<% if @current_user_as_guest.isgoing %>
 			$('#rsvpButton-yes').addClass('green').css('background', '#d6e6e6');;
 			$('#rsvpButton-no').removeClass('red').css('background', '#f5f5f5');; 
