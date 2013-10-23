@@ -68,7 +68,7 @@ class EventsController < ApplicationController
       #create array of guests with RSVP'd ones first, removing current user and event owner
       @event.guests.each do |g|
         if g.id == @owner_as_guest.id
-        elsif g.id = @current_user_as_guest.id
+        elsif g.id == @current_user_as_guest.id
           @guests << g
         elsif g.isgoing
           @guests << g
