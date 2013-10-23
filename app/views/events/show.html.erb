@@ -58,6 +58,7 @@
 							<% else %>
 								<% @guests.each do |guest| %>
 									<li class = "guestlist-row">
+										<% 10.times do %>
 										<div class = "guestlist-name"><%= guest.user.username %></div>
 										<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
 											<div class = "rsvp-response">
@@ -66,6 +67,7 @@
 											</div>
 										<% else %>	
 											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+										<% end %>
 										<% end %>
 									</li>
 								<% end %>
