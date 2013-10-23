@@ -76,9 +76,6 @@ class EventsController < ApplicationController
       end
       @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
 
-      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? AND id != ? ", true, @owner_as_guest.id, @current_user_as_guest.id)) #remove owner from guestlist
-      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? ", false, @current_user_as_guest.id))
-
       #only show vote counts if voting period is over, or if user is event owner or admin
       @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
       @total_votecounts = @event.voters.count
@@ -138,12 +135,13 @@ class EventsController < ApplicationController
     #save event owner as current_user
     @event.owner_id = current_user.id
 
-    #add current_user to guests of this event
-    @event.users << current_user
-
       respond_to do |format|
         if @event.save
           #AutoMailer.event_create_email(@event.id).deliver
+
+          #add current_user to guests of this event
+          @event.invite!(current_user.id)
+
           write_jobs(@event.id)
           @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"", :event_id => @event.id)
 

@@ -29,7 +29,7 @@ class AutoMailer < ActionMailer::Base
   def venue_suggested_email_owner(event_id, user_id)
     @event = Event.find(event_id)
     @owner = @event.owner
-    @venue_owner = Venue.find(venue_id).user.username
+    @venue_owner = User.find(user_id)
     @url = event_url(@event)
     mail(:bcc => @owner.email, :subject => "ALERT: A venue has been suggested for your event, '#{@event.name}'")
   end
@@ -38,7 +38,7 @@ class AutoMailer < ActionMailer::Base
     @event = Event.find(event_id)
     @venue_owner = User.find(user_id)
     @url = event_url(@event)
-    mail(:bcc => email_list - [@event.user.email], :subject => "ALERT: A venue has been suggested for the event '#{@event.name}' on the MoMondays App!")
+    mail(:bcc => email_list(event_id, true), :subject => "ALERT: A venue has been suggested for the event '#{@event.name}' on the MoMondays App!")
   end
 
   def event_finish_email(event_id)
@@ -94,12 +94,16 @@ class AutoMailer < ActionMailer::Base
   private
 
   #generates array of user emails for passed event
-  def email_list(event_id)
+  def email_list(event_id, exclude_owner = false)
     list = Array.new
     @event = Event.includes(:users).find(event_id)
 
     @event.users.where(:notification_emails => true).each do |user|
       list.push(user.email)
+    end
+
+    if(exclude_owner)
+      list -= [@event.owner.email]
     end
 
     return list
