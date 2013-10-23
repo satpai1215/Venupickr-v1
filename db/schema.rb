@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807012136) do
+ActiveRecord::Schema.define(:version => 20131022233837) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "user_id"
     t.string   "stage"
     t.datetime "event_start"
@@ -52,16 +52,20 @@ ActiveRecord::Schema.define(:version => 20130807012136) do
     t.integer  "voting_email_job_id"
     t.text     "notes"
     t.integer  "archive_job_id"
+    t.integer  "owner_id"
+    t.boolean  "allow_venue_suggestion", :default => true
   end
 
   create_table "guests", :force => true do |t|
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "isgoing",    :default => false
   end
 
   add_index "guests", ["event_id"], :name => "index_guests_on_event_id"
+  add_index "guests", ["user_id", "event_id"], :name => "index_guests_on_user_id_and_event_id", :unique => true
   add_index "guests", ["user_id"], :name => "index_guests_on_user_id"
 
   create_table "rsvps", :force => true do |t|

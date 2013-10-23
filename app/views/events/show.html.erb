@@ -5,18 +5,21 @@
 
 				<div class = "eventbox">
 					<div class = "eventbox-header">
-						<div class = "eventbox-header-text"><%= h(@event.name) %></div>
-						<% if current_user == @event.user %>
-							<span class = "italic">You are the owner</span>
-							<span><%= display_edit_event(@event) %></span>
-							<span><%= display_delete_event(@event) %></span>
-							<span><%= display_reminder_link(@event) %></span>
+						<div class = "eventInfo-header-text"><%= h(@event.name) %></div>
+						<% if current_user.id == @event.owner_id %>
+							<span class = "italic">You are the owner</span><br/>
+							<%= display_edit_event(@event) %>
+							<%= display_delete_event(@event) %>
+							<%= display_invite_guests(@event) %>
+							<%= display_reminder_link(@event) %>
+						<% else %>
+							<%= display_leave_event(@event) %>
 						<% end %>
 					</div> <!--eventInfo-header -->
 
-					<div id = 'eventInfo-content'>
+					<div class = 'eventbox-content'>
 
-						<ul id = "eventInfo-content-ul">
+						<ul class = "eventbox-content-ul">
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Event Date:</label>
 								<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
@@ -29,8 +32,8 @@
 							<% end %>
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
-								<span id = "eventOwner"><%= h(@event.user.username)%></span>
-							</li>
+								<span id = "eventOwner"><%= h(@owner.username)%></span>
+							</li>								
 						</ul>
 
 						<% if !h(@event.notes).blank? %>
@@ -40,15 +43,51 @@
 								</div>
 							</div>
 						<% end %>
-					</div><!--eventInfo-content -->
-				</div> <!-- eventInfo-container -->
+					</div><!--eventbox-content -->
+				</div> <!-- eventbox -->
+
+			<div class = "eventbox" id = "event-guestlist-container">
+					<div class = "eventbox-header">
+						<div class = "eventbox-secondary-header-text">Invited Guests</div>
+					</div> <!--eventInfo-header -->
+
+					<div class = 'eventbox-content'>
+						<ul class = "eventbox-content-ul" id = "event-guestlist">	
+							<% if @guests.empty? %>
+								<li class = "guestlist-row italic">no guests yet</li>
+							<% else %>
+								<% if current_user.id != @event.owner.id %>
+									<li class = "guestlist-row">
+										<div class = "guestlist-name"><%= current_user.username %></div>
+										<%if @event.stage != "Archived"%>
+												<div class = "rsvp-response">
+													<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => @current_user_as_guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
+													<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => @current_user_as_guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
+												</div>
+										<% else %>
+											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= @current_user_as_guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+										<% end %>
+									</li>
+								<% end %>
+
+								<% @guests.each do |guest| %>
+									<li class = "guestlist-row">
+										<div class = "guestlist-name"><%= guest.user.username %></div>
+										<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+									</li>
+								<% end %>
+
+							<% end %>						
+						</ul>
+					</div><!--eventbox-content -->
+			</div> <!-- event-guestlist-container -->
 
 			<div class = "eventbox" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-header-text" id= "discussionBoard-header-text">Discussion Board</div>
+					<div class = "eventbox-secondary-header-text">Discussion Board</div>
 				</div><!--discussionBoard-header -->
 				
-				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :class => "post_comment_form"}) do %>
+				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
 						<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
 						<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
 				<% end %>
@@ -77,11 +116,11 @@
 
 			<div id = "venueList-header">
 				<div class = "row">
-            		<div class = "span5"><h2>Recommended Venues:</h2></div>
+            		<div class = "span4"><h2>Recommended Venues:</h2></div>
             		<%= display_venue_suggest_button(@event) %>
 
 	         		<% if @event.stage != "Voting" %>
-						<% if @event.venues.count == 0 %>
+						<% if @venues.count == 0 %>
 							<div id = 'eventCancelledHeading'>EVENT CANCELLED</div>
 						<% else %>
 							<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
@@ -92,26 +131,21 @@
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
-					<%if @venues.empty? %>
+					<% if current_user.id === @event.owner_id and @event.stage == 'Voting' %>
+						<div id = "venueSuggestionIndicator">  
+                            <div class = "row"><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+                        </div>
+                    <% end %>
+
+					<%if @venues.count === 0 %>
                         <div class = "noEventsLabel noVenues">  
                             <div class = "row"><li> <%= @no_venues_text %></li></div>
                         </div>
 
                     <% else %>
-                    	<% if @event.stage == "Voting" %>
-	                    	<div class = "noEventsLabel noVenues" id = "voteMeterDialog"> 
-	                    	 		<li id = "voteMeterHeader"><%= "*************** NEW FEATURE: THE VOTE METER ***************" %></li>
-	                           	 	<li id = "description" class = "italic"><%= 'All suggested venues now have a "Vote Meter" to give you an indication of which venues are currently in the lead or how popular the suggested venues are. Hopefully, this will better help you plan for the event.' %></li>
-	                        </div>
-<!-- 
-	                    	<div class = "noEventsLabel noVenues"> 
-	                           	 	<li><%#= "Vote counts will be revealed when the voting period closes."%></li>
-	                             	<li class = "italic"><%#= "(NOTE: Event owner can see the votes.)"%></li>
-	                        </div> -->
-	                    <% end %>
-
+                   
 						<% @venues.each do |venue| %>
-						 <div class = "row">
+						 <div class = "row listItem-row">
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								
 								<div class = "venueSticky"%>
@@ -163,37 +197,50 @@
 
 	
 
-				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information"></div> <!--createVenueForm-->
-				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information"></div>
-
+				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
+				</div> <!--createVenueForm-->
+				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
+   				 </div>
+   				 <div id = "inviteGuestsForm" class = "createForm modal-dialog" title = "Select Guests to Invite">
+   				 </div>
 		</div> <!--#eventShow -->
 </div> <!--row-->
 
-	<%= javascript_tag do %>
+<%= javascript_tag do %>
+	$(function() {
+		//sort venues by votes
+		voteSort();
 
-		$(function() {
-			//sort venues by votes
-			voteSort();
+		//votemeter functionality
+  		<% @event.venues.each do |venue| %>
+  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
+  		<% end %>
 
-			//votemeter functionality
-	  		<% @event.venues.each do |venue| %>
-	  			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
-	  		<% end %>
+		//createCountdowns for event#show
+  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
+  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
 
-			//createCountdowns for event#show
-	  		createCountdown("<%= (@event.event_start - @event.vote_end.hours).to_s %>", "#voteCountdown");
-	  		//createCountdown("<%= @vote_date.to_s %>", "#venueSuggestCountdown");
-	  		<% if @event.stage != "Voting" %>
-	  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
-	  			$('#venueList ul li .voteCount').first().css('color', 'red');
-	  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
-	  			$('.listItem:first .venueStickyHeader').css('color', 'red');
-	  			$('.listItem:first .voteCount').css('color', 'red');
-	  		<% end %>
+  		<% if @event.stage != "Voting" %>
+  			$('#venueList ul li.listItem').first().css('border', 'solid 3px red');
+  			$('#venueList ul li .voteCount').first().css('color', 'red');
+  			$('.listItem:first .venueStickyHeader').append('- WINNER!');
+  			$('.listItem:first .venueStickyHeader').css('color', 'red');
+  			$('.listItem:first .voteCount').css('color', 'red');
+  		<% end %>
 
+			<% if flash[:new_event?] %>
+			$('#inviteGuestsForm').dialog('open');
+			$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
+		<% end %>
 
-	  	});
+		<% if @current_user_as_guest.isgoing %>
+			$('#rsvpButton-yes').addClass('green').css('background', '#d6e6e6');;
+			$('#rsvpButton-no').removeClass('red').css('background', '#f5f5f5');; 
+		<% else %>
+			$('#rsvpButton-no').addClass('red').css('background', '#eebfda');;
+			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');;
+		<% end %>
 
-
-	<% end %>
+	});
+<% end %>
 

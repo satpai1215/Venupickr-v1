@@ -3,6 +3,17 @@
 	height: 200px;
 }
 
+.nav li:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.nav li>a:hover { 
+	background: none;
+}
+
+
 .eventList {
 	margin-left: 10px;
 	margin-right: 0px;
@@ -25,6 +36,7 @@
 	margin: 0px;
 }
 
+
 .eventList .eventItem {
 	margin-left: 0px;
 	margin-bottom: 10px;
@@ -42,6 +54,10 @@
 
 .eventList .eventItem:hover {
 	background: #F9F9C9;
+
+	-moz-transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
 }
 	
 	.eventLabel {
@@ -194,10 +210,10 @@
 
 .eventbox-header {
 	border-bottom: solid 1px #e9eaed;
-	padding: 5px 15px;
+	padding: 5px 10px;
 	background: white;
 }
-	.eventbox-header-text {
+	.eventInfo-header-text {
 		font-size: 1.6em;
 		font-weight: bold;
 	}
@@ -207,8 +223,12 @@
 		margin-right: 3px;
 		font-size: 0.95em;
 	}
+	.eventbox-secondary-header-text {
+		font-size: 1.1em;
+		font-weight: bold;
+	}
 
-#eventInfo-content {
+.eventbox-content {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	line-height: 1.1em;
@@ -226,7 +246,7 @@
 	#eventInfo-notes p {
 		margin-bottom: 0px;
 	}
-	#eventInfo-content-ul {
+	.eventbox-content-ul {
 		margin-left: 0px;
 		margin-bottom: 5px;
 		padding-left: 15px;
@@ -242,30 +262,61 @@
 		margin-right: 10px;
 	}
 
+#event-guestlist {
+	max-height: 100px;
+	overflow-y: auto;
+}
+
+.guestlist-row {
+	clear: both;
+}
+
+.guestlist-name {
+	clear: both;
+	float: left;
+	width: 50%;
+	padding-right: 5px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+
+}
+
+.rsvp-response {
+	float: right;
+	width: 40%;
+}
+.rsvp-response-text {
+	display: block;
+	text-align: center;
+	font-style: italic;
+}
+
+.rsvpButton {
+	font-size: 0.85em;
+	padding: 0px 5px;
+}
+
 
 #discussionBoard-container {
 	height:	500px;
 	padding-right: 0px;
 	background: white;
 }
-#discussionBoard-header-text {
-	font-size: 1.3em;
-}
 
-.post_comment_form {
+#post_comment_form {
 	margin-bottom: 0px;
 }
 #enterCommentsField {
 	height: 15px;
 	width: 70%;
-	margin-top: 3px;
+	margin-top: 8px;
 	margin-left: 8px;
 	margin-bottom: 0px;
 	font-size: 0.9em;
 }
 
 #postCommentButton {
-	margin-top: 4px;
+	margin-top: 10px;
 	margin-right: 5px;
 	height: 22px;
 	font-size: 0.85em;
@@ -301,6 +352,29 @@
 	margin-top: 20px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+}
+
+#event_show_venue_suggestion_off_tag {
+	float:right;
+	font-style: italic;
+	margin-top: 25px;
+	margin-right: 10px;
+	font-size: 0.9em;
+	color: gray;
+}
+
+#venueSuggestionIndicator {
+	font-weight: bold;
+	color: #40ABCB;
+	text-align: center;
+
+	margin-left: 0px;
+	margin-bottom: 5px;
+	border: inset 2px #40ABCB;
+	border-radius: 2px;
+	padding: 5px;
+	padding-right: 0px;
+	background: white;
 }
 
 #venueList-container {
@@ -462,6 +536,31 @@
 			color: blue;
 
 		}
+		.voteIcon {
+			position: absolute;
+			bottom: 2px;
+			right: 0px;
+			margin: 0px;
+		}
+		.voteButton img {
+			width: 35px;
+			height: auto;
+		}
+		.voteButton img:hover {
+			-moz-transform: scale(1.2);
+			-webkit-transform: scale(1.2);
+			transform: scale(1.2);
+		}
+
+		#checked_venue {
+			width: 32px;
+			height: auto;
+
+			position: relative;
+			bottom: 2px;
+			right: 2px;
+			margin: 0px;
+		}
 
 	.voteList {
 		background: white;
@@ -553,11 +652,11 @@
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
 
-.new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field {
+.new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field, #invite_guest_form .field {
 	text-align: center;
 }
 
-.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions {
+.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions, #invite_guest_form .actions {
 	text-align: center;
 	margin-top: 20px;
 }
@@ -661,6 +760,14 @@ button.ui-dialog-titlebar-close {
 	background: white;
 }
 
+#event_allow_venue_suggestion {
+	margin-bottom: 5px;
+}
+
+#allow_venue_suggestion_select label {
+	display: inline;
+}
+
 /*----------------------------------------------------------------------------- 
 = TEMPORARY DIALOG POPUPS
 -----------------------------------------------------------------------------*/
@@ -697,7 +804,11 @@ button.ui-dialog-titlebar-close {
 	font-weight: bold;
 }
 
+.green {
+	color: green;
+	font-weight: bold;
+}
+
 .italic {
 	font-style: italic;
 }
-

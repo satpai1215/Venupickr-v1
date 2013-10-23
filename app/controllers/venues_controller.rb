@@ -17,30 +17,36 @@ class VenuesController < ApplicationController
   # GET /venues/new.json
   def new
     @event_id = params[:event_id]
-    @event_user = Event.find(@event_id).user
-    @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
+    @event = Event.find(@event_id)
 
-    #only allow multiple venue suggestion if user is event owner
-    if @already_suggested_venue and (current_user != @event_user)
-      respond_to do |format|
-        format.html { redirect_to event_path(@event_id),
-                      notice: "You have already suggested a venue for this event. Try removing your existing venue."}
-        format.js
+    if (@event.allow_venue_suggestion)
+      @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
+
+      #only allow multiple venue suggestion if user is event owner
+      if @already_suggested_venue and (current_user.id != @event.owner_id)
+        respond_to do |format|
+          format.html { redirect_to event_path(@event_id),
+                        notice: "You have already suggested a venue for this event. Try removing your existing venue."}
+          format.js
+        end
+      else
+        @venue = Venue.new
+        respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @venue }
+          format.js
+        end
       end
-    else
-      @venue = Venue.new
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { render json: @venue }
-        format.js
-      end
+
+    else #venue_suggestion turned off
+      redirect_to event_path(@event_id), notice: "The owner has turned off venue suggestion for this event."
     end
   end
 
   # GET /venues/1/edit
   def edit
-    if current_user.id == @venue.user_id
-      @event_id = @venue.event.id
+    if current_user.id == @venue.user.id
+      #@event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
       respond_to do |format|
@@ -73,13 +79,14 @@ class VenuesController < ApplicationController
           end
 
           @content = "#{current_user} just suggested a venue"
-          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"")
+          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
           @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-          if(@venue.event.user != current_user)
-            AutoMailer.venue_suggested_email_owner(@venue.event.id, current_user.id).deliver
+          if(@venue.event.owner_id === current_user.id)
+            AutoMailer.venue_suggested_email_owner(@venue.event.id, @venue.user.id).deliver
+          else
+            AutoMailer.venue_suggested_email_guest(@venue.event.id, current_user.id).deliver
           end
-          AutoMailer.venue_suggested_email_guest(@venue.event.id, current_user.id).deliver
           
           format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
           format.json { render json: @venue.event, status: :created, location: @venue.event }
@@ -118,10 +125,10 @@ class VenuesController < ApplicationController
         end
 
         @content = "#{current_user} modified a venue"
-        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"")
+        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-        if(@venue.event.user != current_user)
+        if(@venue.event.owner_id != current_user.id)
           AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
         end
     end
@@ -146,7 +153,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     @content = "#{current_user} deleted a venue"
-    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"")
+    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
     @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
 
@@ -167,7 +174,8 @@ class VenuesController < ApplicationController
        @venue = Venue.find(params[:venue_id])
        @event = @venue.event
        @already_voted = Voter.exists?(:user_id => current_user.id, :venue_id => params[:venue_id ])
-       @show_votecounts = (current_user.id == @event.user_id or current_user.username == "Spaiderman")
+
+       @show_votecounts = (current_user.id == @venue.event.owner_id or current_user.username == "Spaiderman")
 
       #user has already voted for this venue
       if (@already_voted)
@@ -197,7 +205,7 @@ class VenuesController < ApplicationController
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         @venue.update_column(:votecount, @venue.voters.count + 1)
 
-        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"")
+        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"", :event_id => @venue.event.id)
         @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count

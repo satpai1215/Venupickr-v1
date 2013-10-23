@@ -1,6 +1,6 @@
 <div id = "eventHistory" class ="eventList">
 	<div id = "history-header-container" class = "row">
-            <div id="history-header" class = "span9"><h2>Past Events</h2>
+            <div id="history-header" class = "span9"><h2>Your Past Events</h2>
             <%= will_paginate @events %></div>
     </div>
     <div class = "row">
@@ -20,7 +20,7 @@
                               <tr class = "notfirst">
                                 <td><%= event.event_start.strftime("%d%b%Y") %></td>
                                 <td><%= link_to event.name, event_path(event) %>
-                                <td><%= event.user.username %></td>
+                                <td><%= event.owner.to_s %></td>
                                 <td><%= (event.winner == nil ? "No Venues Suggested" : Venue.find(event.winner).name) %></td>
                               </tr>
                     <% end %>

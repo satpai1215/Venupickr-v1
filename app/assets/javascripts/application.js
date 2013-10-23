@@ -14,10 +14,10 @@
 //= require jquery_ujs
 //= require jquery-ui-1.10.3.custom.min.js
 //= require jquery.timepicker.min.js
-//= require_tree
+//= require_tree .
 
 
-$(function() {
+$(document).ready(function() {
   $(document).ajaxError(function (e, xhr, settings) {
        // if (xhr.status == 401) {
           $('#notice').html(xhr.responseText);
@@ -27,9 +27,18 @@ $(function() {
    $('.voteButton').ajaxSuccess(function() {  
       votesort();  
     });
-   
 
+  $(document).on('click', '#guest_form_selectall_btn', function(event) {
+    $('.guest_checkbox').prop('checked', true);
+  });
+  $(document).on('click', '#guest_form_deselectall_btn', function(event) {
+    $('.guest_checkbox').prop('checked', false);
+  });
 
+  $(document).on('click', '#invite_guest_form_submit', function(event) {
+    $('#event-loading-gif').css('visibility', 'visible');
+    $('#invite_guest_form_submit').hide();
+  });
   $(document).on('click', '#eventSubmitButton', function(event) {
     $('#event-loading-gif').css('visibility', 'visible');
     $('#eventSubmitButton').hide();
@@ -37,6 +46,15 @@ $(function() {
   $(document).on('click', '#venueSubmitButton', function(event) {
     $('#event-loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
+  });
+  
+  $(document).on('click', '#rsvpButton-yes', function(event) {
+    $(this).addClass('green').css('background', '#d6e6e6');
+    $("#rsvpButton-no").removeClass('red').css('background', '#f5f5f5');;
+  });
+  $(document).on('click', '#rsvpButton-no', function(event) {
+    $(this).addClass('red').css('background', '#eebfda');;
+    $("#rsvpButton-yes").removeClass('green').css('background', '#f5f5f5');;
   });
 
   $(document).on('click', '.appActions', function(event) {
@@ -54,8 +72,9 @@ $(function() {
       }
     }); 
 
-   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }, closeText: 'hide'});
+   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
+   $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 
    $(".voteCount").hover( 

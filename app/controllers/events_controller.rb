@@ -1,6 +1,7 @@
 
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
+
+  before_filter :authenticate_user!
   before_filter :get_event, :only => [:show, :edit, :update, :destroy]
   before_filter :auth_owner, :only => [:edit, :destroy, :update]
 
@@ -19,48 +20,78 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
 
-    @name_entered = false
-    if user_signed_in?
       @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
-    end
-    @events = Event.where(:stage => "Voting").order("event_start ASC")
-    @upcoming_events = Event.where(:stage => "Finished").order("event_start ASC")
-    gon.numUpcoming = @upcoming_events.count
-    gon.totalIndexEvents = @upcoming_events.count + @events.count
+      #only show events that user is a guest of
+      @events = current_user.events.stage_voting
+      @upcoming_events = current_user.events.stage_finished
+      gon.numUpcoming = @upcoming_events.count
+      gon.totalIndexEvents = @upcoming_events.count + @events.count
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-      format.js
-    end
+      @updates = []
+
+      @events.each do |event|
+        @updates.concat(event.updates)
+      end
+
+      @upcoming_events.each do |event|
+        @updates.concat(event.updates)
+      end
+
+      @updates = @updates.sort {|u1, u2| u2.created_at <=> u1.created_at}
+      
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @events }
+      end
+
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    #only show new feature dialog until Aug 31st
-    @show_new_features = (DateTime.now < DateTime.new(2013, 8, 31))
+    @venues = @event.venues.includes(:voters).order("votecount DESC, created_at ASC")
 
-    #only show vote counts if voting period is over, or if user is event owner or admin
-    @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.user_id or current_user.username == "Spaiderman")
-    @total_votecounts = @event.voters.count
-    
     #update :votecount attribute in venues
-    @event.venues.each do |venue|
+    @venues.each do |venue|
       venue.update_column(:votecount, venue.voters.count)
     end
 
-    @venues = @event.venues.order("votecount DESC, created_at ASC")
-    #@vote_date = @event.event_start - @event.vote_start.days
-
-    if @event.stage == "Voting"
-       @no_venues_text = "No venues have been suggested yet.  Suggest one!"
+    if !current_user.invited?(@event)
+      redirect_to events_path, notice: 'You do not have access that page.'
     else
-      @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
-    end
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
+      @owner = @event.owner
+      @owner_as_guest = Guest.where(:user_id => @event.owner_id, :event_id => @event.id).first
+      @current_user_as_guest = Guest.where(:user_id => current_user.id, :event_id => @event.id).first
+      @guests = []
+      @guests_not_going = []
+
+      #create array of guests with RSVP'd ones first, removing current user and event owner
+      @event.guests.each do |g|
+        if g.id == @owner_as_guest.id or g.id == @current_user_as_guest.id
+        elsif g.isgoing
+          @guests << g
+        else
+          @guests_not_going << g
+        end
+      end
+      @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
+
+      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? AND id != ? ", true, @owner_as_guest.id, @current_user_as_guest.id)) #remove owner from guestlist
+      #@guests.concat(@event.guests.where("isgoing = ? AND id != ? ", false, @current_user_as_guest.id))
+
+      #only show vote counts if voting period is over, or if user is event owner or admin
+      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
+      @total_votecounts = @event.voters.count
+
+      if @event.stage == "Voting"
+         @no_venues_text = "No venues have been suggested yet."
+      else
+        @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
+      end
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+      end
     end
   end
 
@@ -80,7 +111,9 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    #if current_user.id == @event.user.id or current_user.username == "Spaiderman"
+
+    if current_user.id == @event.owner_id or current_user.username == "Spaiderman"
+
       #convert event_start back into date and time components
       @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
       @event.timepicker = @event.event_start.strftime("%I:%M%p")
@@ -92,9 +125,9 @@ class EventsController < ApplicationController
         format.json { render json: @event }
         format.js
       end
-   # else
-   #   redirect_to @event, notice: 'You are not authorized to access that page.'
-   # end
+    else
+      redirect_to @event, notice: 'You are not authorized to access that page.'
+    end
   end
 
   # POST /events
@@ -102,16 +135,21 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
-    @event.user = current_user
+    #save event owner as current_user
+    @event.owner_id = current_user.id
+
+    #add current_user to guests of this event
+    @event.users << current_user
 
       respond_to do |format|
         if @event.save
-          #flash[:alert] = "#{@event.event_start}"
-          AutoMailer.event_create_email(@event.id).deliver
+          #AutoMailer.event_create_email(@event.id).deliver
           write_jobs(@event.id)
-          @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"")
-          
-          format.html { redirect_to @event, notice: 'Event was successfully created.' }
+          @update = Update.create!(:content => "#{current_user} just created a new event: \"#{@event}\"", :event_id => @event.id)
+
+          flash[:new_event?] = true; #sends message to event#show to open guestlist dialog
+
+          format.html { redirect_to @event, notice: 'Event was successfully created.'}
           format.json { render json: @event, status: :created, location: @event }
           format.js
         else
@@ -130,13 +168,15 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         @content = "#{current_user} updated the event"
-        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"")
+        @update = Update.create!(:content => "#{current_user} just updated \"#{@event}\"", :event_id => @event.id)
         @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
-        
+        #only write new jobs for changed event if still in voting mode, otherwise voting is complete otherwise there's no need
         if @event.stage == "Voting"
           write_jobs(@event.id)
         end
+
+        AutoMailer.event_update_email(@event.id).deliver
 
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
@@ -154,7 +194,7 @@ class EventsController < ApplicationController
   def destroy
     destroy_jobs(@event.id)
     @event.destroy
-    @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"")
+    @update = Update.create!(:content => "#{current_user} just deleted \"#{@event}\"", :event_id => @event.id)
 
     respond_to do |format|
       format.html { redirect_to events_url }
@@ -165,22 +205,17 @@ class EventsController < ApplicationController
 
   #rsvp_yes
   def rsvp_yes
-    @event = Event.find(params[:event_id])
-   # if !user_signed_in?
-      #redirect_to @event, notice: "You must be signed in to RSVP."
-  
-    @already_rsvp = Rsvp.exists?(:user_id => current_user.id, :event_id => params[:event_id ])
+    @guest = Guest.find(params[:guest_id])
+    @event = @guest.event
 
-      if (@already_rsvp)
+      if (!@guest)
          respond_to do |format|
-           format.html {redirect_to @venue.event, notice: "You have already RSVP'd for this event"}
+           format.html {redirect_to @event, notice: "You are not a guest for this event."}
            format.js
          end
-
       else
-        Rsvp.create!(:user_id => current_user.id, :event_id => @event.id)
-        Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"")
-
+        @guest.update_column(:isgoing, true)
+        @update = Update.create!(:content => "#{current_user} just RSVP'd to \"#{@event}\"", :event_id => @event.id)
         respond_to do |format|
           format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
           format.js
@@ -189,19 +224,21 @@ class EventsController < ApplicationController
   end
 
   def rsvp_no
-    @rsvp = Rsvp.find(params[:rsvp_id])
-    @event = Event.find(@rsvp.event.id)
-    @index = params[:index]
+    @guest = Guest.find(params[:guest_id])
+    @event = @guest.event
 
-    if !@rsvp.nil?
-        @rsvp.destroy
-        #Update.create!(:content => "#{current_user} just RSVP'd for \"#{@event.name}\"")
-
+      if (!@guest)
+         respond_to do |format|
+           format.html {redirect_to @event, notice: "You are not a guest for this event."}
+           format.js
+         end
+      else
+        @guest.update_column(:isgoing, false)
         respond_to do |format|
           format.html {redirect_to @event, notice: "You are no longer RSVP'd for this event."}
           format.js
         end
-    end
+      end
 
   end
 
@@ -224,15 +261,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @content = params[:comment]
  
-      @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
-      Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"")
+    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
+    Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"", :event_id => @event.id)
 
-      respond_to do |format|
-        format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}
-        format.js
-      end
-
+    respond_to do |format|
+      format.html {redirect_to event_path(params[:event_id]), notice: "Commented Posted."}
+      format.js
+    end
   end
+
+
+
 
 private
 

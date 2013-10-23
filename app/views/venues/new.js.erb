@@ -1,5 +1,5 @@
 
-<% if @already_suggested_venue and current_user != @event_user %>
+<% if @already_suggested_venue and current_user.id != @event.owner_id %>
     $("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.");
 
 <% else %> {

@@ -1,0 +1,50 @@
+#inviteGuestsForm {
+	width: 100%;
+}
+
+#select_buttons {
+	font-size: 0.7em;
+	text-align: center;
+}
+
+#invite_guest_form_userlist_header {
+	font-size: 1.0em;
+	font-style: normal;
+	font-weight: normal;
+	text-align: center;
+	margin: 5px 0px;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid gray;
+}
+
+#invite_guest_form_userlist {
+	width: 80%;
+	margin: 0 auto;
+	max-height: 600px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.invite_guest_form_user_field {
+	display: block;
+	padding: 5px 0px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	width: 32%;
+	text-align: left;
+	float: left;
+}
+
+input[class = "guest_checkbox"] {
+	margin: 0px;
+}
+
+.guest_checkbox_label {
+	font-size: 0.8em;
+	display: inline-block;
+	width: 80%;
+	margin: 0px;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}

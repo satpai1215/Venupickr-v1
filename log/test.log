@@ -1,0 +1,480 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:25', '2013-10-18 19:55:25', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (1.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:55:26', '2013-10-18 19:55:26', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (1.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 19:58:08', '2013-10-18 19:58:08', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:11:19', '2013-10-18 20:11:19', 980190962)[0m
+SQLite3::SQLException: table comments has no column named user: INSERT INTO "comments" ("content", "user", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:11:19', '2013-10-18 20:11:19', 980190962)
+  [1m[35m (1.3ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:17:45', '2013-10-18 20:17:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:17:45', '2013-10-18 20:17:45', 298486374)
+  [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:17:45', '2013-10-18 20:17:45', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:17:45', '2013-10-18 20:17:45', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "password", "username", "created_at", "updated_at", "id") VALUES ('one@example.com', 'one', 'userOne', '2013-10-18 20:19:24', '2013-10-18 20:19:24', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "password", "username", "created_at", "updated_at", "id") VALUES ('two@example.xom', 'two', 'userTwo', '2013-10-18 20:19:24', '2013-10-18 20:19:24', 298486374)
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user0', 'user0@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 338193910)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user1', 'user1@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 590306657)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user2', 'user2@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 975572189)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user3', 'user3@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 220281934)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user4', 'user4@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 323332591)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user5', 'user5@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 608344442)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user6', 'user6@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 1028376774)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user7', 'user7@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 172816471)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user8', 'user8@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 452191684)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user9', 'user9@example.com', '2013-10-18 20:20:08', '2013-10-18 20:20:08', 771020115)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user0', 'user0@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 338193910)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user1', 'user1@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 590306657)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user2', 'user2@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 975572189)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user3', 'user3@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 220281934)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user4', 'user4@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 323332591)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user5', 'user5@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 608344442)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user6', 'user6@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 1028376774)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user7', 'user7@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 172816471)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user8', 'user8@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 452191684)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("username", "email", "created_at", "updated_at", "id") VALUES ('user9', 'user9@example.com', '2013-10-18 20:20:21', '2013-10-18 20:20:21', 771020115)
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "comments"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "comments" ("content", "username", "created_at", "updated_at", "id") VALUES ('MyString', NULL, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "events"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+SQLite3::SQLException: table events has no column named date: INSERT INTO "events" ("name", "date", "address", "votecount", "created_at", "updated_at", "id") VALUES ('MyString', NULL, 'MyString', 1, '2013-10-18 20:40:29', '2013-10-18 20:40:29', 980190962)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m

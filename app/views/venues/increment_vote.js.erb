@@ -4,6 +4,7 @@
 //updates vote count and voteList when user changes vote
 //only show vote counts and update if user is admin or event owner
 <% if @show_votecounts %>
+	console.log("test");
 	venueItemVoteCount = <%= @votecount %>;
 	$currentListItem = $("#venue_" + <%= @venue.id %> + " .voteCount");
 	$oList = $currentListItem.siblings("ol.voteList");
@@ -16,6 +17,7 @@
 	}
 
 	$currentListItem.text(<%= @votecount %>);
+
 
 	<% if !@voter.nil? %>
 		$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteCount");

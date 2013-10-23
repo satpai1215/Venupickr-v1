@@ -52,7 +52,11 @@ gem 'newrelic_rpm'
 gem 'heroku'
 gem 'heroku-api'
 
+
 gem 'roadie'
+
+gem "koala", "~> 1.7.0rc1" #for facebook API
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

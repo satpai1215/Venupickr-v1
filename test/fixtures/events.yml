@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  date: 
-  address: MyString
   votecount: 1
 
 two:
   name: MyString
-  date: 
-  address: MyString
   votecount: 1

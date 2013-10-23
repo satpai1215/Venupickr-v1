@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mo' Mondays Email Template</title>
+<style type="text/css">
+
+.mm_ttb {
+  font-family: Arial, Verdana, Geneva, sans-serif;
+  background-color: #F4F4F4;
+  font-size: 14px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Mo' Mondays Mo' Problems</td>
+  </tr>
+</table>
+
+<!-- Body -->
+<table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="background-color:#f3f3f3;">
+  <tr>
+    <td>
+    
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">THE EVENT HAS BEEN UPDATED!</h1>
+    <p><%= @owner %> has just updated an event on the MoMondaysApp! Below is the current event information:</p>
+    
+    <table width="100%" border="0" cellspacing="2">
+      <tr>
+        <td width="20%"><p style="color: #888888;">Event:</p></td>
+        <td><a href= <%= "#{@url}"%> ><b><%= @event.name  %></b></a></td>
+      </tr>
+      <tr>
+        <td><p style="color: #888888;">Event Date:</p></td>
+        <td><p><%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %></p></td>
+      </tr>
+      <tr>
+        <td><p style="color: #888888;">Vote Closes:</p></td>
+        <td><p><%= @vote_end.strftime("%B %d, %Y %I:%M%p") %></p></td>
+      </tr>
+
+      <% if !@event.notes.blank? %>
+        <tr>
+          <td valign="top"><p style="color: #888888;">Notes to Guests:</p></td>
+          <td valign="top">
+              <p> "<%= @event.notes %>"</p>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    
+    <p align="center">Go to the <%= link_to("Event Page", @url) %> to checkout the updates.</p>
+    <p align = "center"><i><small>Remember, you can suggest venues and vote up until voting closes. Your opinion matters!</small></i></p>
+    
+    </td>
+  </tr>
+</table>
+
+<!-- Footer -->
+<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.mo-mondays.com</td>
+  </tr>
+</table>
+
+</body>
+</html>

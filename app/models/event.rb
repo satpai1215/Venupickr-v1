@@ -1,14 +1,16 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :user_id, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
-                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id
+  attr_accessible :name, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
+                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion
 
   attr_accessor :datepicker, :timepicker
 
-  belongs_to :user
   has_many :venues, dependent: :destroy
   has_many :voters, through: :venues
   has_many :rsvps, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :users, through: :guests
+  has_many :guests, dependent: :destroy
+  has_many :updates
 
   validates :name, :datepicker, :timepicker, :presence => true
   validates_format_of :datepicker, with: /^\d{2}[\/-]\d{2}[\/-]\d{4}/
@@ -18,10 +20,33 @@ class Event < ActiveRecord::Base
   before_save :build_event_start_and_validate, :on => [:create, :update]
   before_validation :sanitize_user_input
 
+  scope :stage_voting, where(stage: "Voting").order("event_start ASC")
+  scope :stage_finished, where(stage: "Finished").order("event_start ASC")
+  scope :stage_archived, where(stage: "Archived").order("event_start DESC")
 
   def to_s
     self.name
   end
+
+  def invite!(user_id)
+    association = self.guests.where(:user_id => user_id).first
+    if !association
+      self.guests.create!(:user_id => user_id)
+     # AutoMailer.send_invite_email(self.id, user_id).deliver
+    end
+  end
+
+  def uninvite!(user_id)
+    association = self.guests.where(:user_id => user_id).first
+    if association
+      association.destroy
+    end
+  end
+
+  def owner
+    User.find(self.owner_id)
+  end
+
 
 
 private

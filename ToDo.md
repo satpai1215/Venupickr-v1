@@ -1,35 +1,26 @@
-- Validate upon change of event date (disabled)
-- redirect on sign in to previous page (done)
-- highlight winning venue on Event Finished page  (done)
-- add graphic for loading (esp when events are created to prevent double submission)
-- What to do if event has no venues suggested and countdown ends (done)
-- have a checkbox to determine if people other than event_owner can suggest venues (optional)
-- email users when events are created (tell them to suggest venues)
-- allow users to remove name from RSVP list (done)
+GROUPS TO DO
+-**** DONE **** allow guest selection during event creation (DONE, after event#show)
+-**** DONE **** allow guest selection on event#show (DONE)
+-**** DONE **** show guests on event#show (DONE, needs styling)
+-**** DONE **** only show events that users are guests of (DONE)
+-**** DONE **** change mailers to only email guests (DONE)
+-**** DONE **** allow event guests to invite other guests?
+-**** DONE **** allow guests to remove themselves from events
+-**** DONE **** reformat guest list box on show
+-**** DONE **** change event form to include checkbox options to allow for venue suggestion
+-**** DONE **** Include RSVP toggle on event guest list
+-**** DONE **** change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
+- update Updates to only updates for user's events show up
+- checkbox for guest invites (will not allow guests to invites others yet, because they can also uninvite others)
+- update already existing events on heroku to include all guests (migration?)
+
+OTHER TO DO\
+- allow for venue editing without vote reset?
+- checkbox for guest invites? (disable uninviting of guests by non-owners)
 
 
 
-No Venue Suggested Exception:
-	- Catch in VoteStartJob, check for venues.count == 0
-	- If venues.count == 0, email owner (no_venue_email) to warn them to add venues (need to add suggest venue button)
-	- Owner can add venues throughout voting process
-	- Catch in EventFinishJob that venues == 0, email owner (no_venue_email_final).  Archive event as "Finished"
-	- 
 
-
-
-Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote whenever
-- Need to keep track of votes --> remove old vote from old venue and add to new venue when vote is changed
-	1. Already check if user has voting for venue --> modify to delete old venue-vote associate and create new one
-	2. Make sure vote count gets changed dynamically (on vote click)
-- Remove all "Pre-Voting" and "Voting" decision points
-	1. Event#index countdowns
-	2. Event#show countdowns
-	3. Action buttons on index
-	4. Showing of Suggest venue button
-- Change all countdowns to just "Time Left to Vote"
-- Change delayed jobs
-- change mailers
 
 -RSVP list code for show.html.erb
 
@@ -62,3 +53,5 @@ Merge Venue Suggestion/Voting Phases: Allow people to suggest venues and vote wh
   </div> -->
 
   ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
+
+
