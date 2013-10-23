@@ -3,7 +3,7 @@ class AutoMailer < ActionMailer::Base
 
   
   def mm_update_102213_email
-    mail(:bcc => pai.satyan@gmail.com, :subject => "The MoMondaysApp Has Been Updated!")
+    mail(:bcc => 'pai.satyan@gmail.com', :subject => "The MoMondaysApp Has Been Updated!")
   end
 
   def event_create_email(event_id)
