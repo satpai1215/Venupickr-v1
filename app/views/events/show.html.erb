@@ -137,7 +137,7 @@
                     <% else %>
                    
 						<% @venues.each do |venue| %>
-						 <div class = "row listItem-row">
+						 
 							<li class = "listItem" id = <%= "venue_" + (venue.id).to_s %>>
 								
 								<div class = "venueSticky"%>
@@ -180,7 +180,7 @@
 
 								</div> <!-- voteCount-container -->
 							</li><!--listItem -->
-						</div>
+				
 						<% end %>
 					<% end %>
 				</ul>
