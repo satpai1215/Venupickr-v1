@@ -11,6 +11,7 @@
   <div class="field">
     <div ul id = "invite_guest_form_userlist">
         <div id = "invite_guest_form_userlist_header">CURRENT MO' MONDAYS' USERS</div>
+
       <% User.all.each do |user| %>
         <% if current_user.id != user.id %>
              <li class = "invite_guest_form_user_field">
@@ -21,6 +22,7 @@
             </li>
         <% end %>
       <% end %>
+
     </ul>
   </div>
 

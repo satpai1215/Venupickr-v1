@@ -3,6 +3,7 @@ MoMondays::Application.routes.draw do
   get "pages/info"
   get "pages/upcoming"
   get "pages/archived"
+  get "pages/welcome"
   get "venues/autocomplete_venue_name"
 
 
