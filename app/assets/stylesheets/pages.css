@@ -143,14 +143,19 @@
 	display: none;
 	padding: 5px 0px;
 	margin: 0px 20px;
-	list-style: circle;
-	list-style-position: inside;
+	list-style: none;
 }
 
 .appActionsInfo li {
 	margin: 5px 0px;
 	font-size: 0.9em;
+	padding-left: 1em; 
+    text-indent: -.7em;
 }
+	.appActionsInfo li:before {
+    	content: "• ";
+    	color: #2e6ab1; /* or whatever color you prefer */
+	}
 
 .eventCompletionInfo-container {
 	clear: both;
@@ -176,6 +181,7 @@
 .selected {
 	background :#56A4DB;
   	font-weight: bold;
+  	list-style: none;
 }
 
 /*----------------------------------------------------------------------------- 
