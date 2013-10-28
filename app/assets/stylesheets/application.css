@@ -22,6 +22,7 @@
  html, body {
  	height: 100%;
  	color: #4C494D;
+ 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  }
 
  body h2 {
@@ -97,7 +98,6 @@
 -----------------------------------------------------------------------------*/
 
  #main {
- 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
  	/*background: #ededed;
  	min-height: 700px;
 	border-radius: 5px; */

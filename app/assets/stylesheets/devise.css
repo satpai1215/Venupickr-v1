@@ -9,51 +9,47 @@
 .user_session_page {
 	padding-top: 25px;
 	padding-left: 0px;
-	width: 40%;
+	width: 50%;
 	margin: 0 auto;
 }
 
-.user_session_page h2 {
+
+#sign-in-container {
+	padding-left: 10px;
+	height: 80px;
+	width: 460px;
+}
+
+#sign-in-container h2 {
 	text-align: center;
 	font-weight: normal;
+	margin-left: 10px;
 }
 
-.user_session_page form {
-	width: 100%;
-	margin: 0 auto;
 
-}
-
-.user_session_page label {
+#sign-in-container label {
 	display: inline;
 }
 
-.user_session_page input {
-	width: 95%;
+#sign-in-container input {
+	margin-bottom: 0px;
 }
 
-.user_session_page .actions {
-	width: 35%;
-	margin: 30px auto;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	padding-right: 0px;
+#sign-in-email {
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 5px;
+	
 }
-
-.sign_in_btn {
-	width: 100%;
-}
-
-.user_session_page a {
-	display: block;
-	text-align: center;
+#sign-in-password {
+	float: left;
 	margin-bottom: 5px;
 }
 
 #user_remember_select {
-	width: 40%;
-	text-align: center;
-	margin: 0 auto;
+	clear:	both;
+	display: inline-block;
+	float: left;
 }
 
 #user_remember_me {
@@ -62,9 +58,33 @@
 	text-align: center;
 }
 
+#sign-in-container .actions {
+	float: right;
+	margin-right: 5px;
+	padding-right: 0px;
+}
+
+.sign_in_btn {
+	padding: 0px 5px;
+	font-size: 0.9em;
+	width: 500px;
+}
+
+#devise-links {
+	clear: both;
+
+}
+
+	#devise-links a {
+		display: inline;
+		text-align: center;
+		margin: 5px 25px;
+	}
+
 #notification_email_select {
 	margin-bottom: 20px;
 	margin-top: 10px;
+	float: left;
 }
 
 #user_notification_emails {

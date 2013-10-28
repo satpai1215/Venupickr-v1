@@ -1,5 +1,23 @@
 <div id = "welcome-hero">
-	<h2>Event planning...</h2>
-	<h2>..just got social</h2>
+	<h1 id = "hero-header1">Planning your event...</h1>
+	<h1 id = "hero-header2">...just became social</h1>
 </div>
 
+
+<ul id = "steps-container" class = "row">
+	<li class = "steps-box span4" id = "step1">
+		<h2>Create an Event</h2>
+		<div class = "steps-box-content">Set the date, time, and guestlist</div>
+	</li>
+	<li class = "steps-box span4" id = "step2">
+		<h2>Suggest a Venue</h2>
+		<div class = "steps-box-content">Event owners and guests can recommend venues</div>
+	</li>
+	<li class = "steps-box span4" id = "step3">
+		<h2>VOTE!</h2>
+		<div class = "steps-box-content">Upvote the venue you like. Venue with the most votes wins!</div>
+	</li>
+
+</ul>
+
+<%= render "devise/shared/sign_in_boxes" %>
