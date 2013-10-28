@@ -58,7 +58,7 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.appActions', function(event) {
-    var prev_index = $('.appActions').index('.selected');
+    var prev_index = $('.selected').index();
     var index = $('.appActions').index(this);
     console.log(prev_index + " and " + index);
 
@@ -66,9 +66,9 @@ $(document).ready(function() {
     $('.appActions').removeClass('selected');
     $(this).toggleClass('selected');
     
-    $('.appActionsInfo').removeClass('block');
-    $('.appActionsInfo:eq(' + prev_index + ')').hide('slide', 'left');
-    $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
+    //$('.appActionsInfo').removeClass('block');
+    $('.appActionsInfo:eq(' + prev_index + ')').hide();
+    //$('.appActionsInfo:eq(' + index + ')').toggleClass('block');
     $('.appActionsInfo:eq(' + index + ')').show('slide', 'right');
   
   });

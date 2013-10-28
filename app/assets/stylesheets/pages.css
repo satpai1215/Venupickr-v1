@@ -2,17 +2,27 @@
 = LANDING PAGE (/pages/welcome)
 -----------------------------------------------------------------------------*/
 #welcome-hero {
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 	margin: 10px auto;
 	border-radius: 15px;
 	color: white;
-	background: #c5c5c5;
-	height: 200px;
+	height: 180px;
 	padding-top: 30px;
+
+		background: #c5c5c5;
+		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+		background-image: -webkit-linear-gradient(top, #0A3482, #2e6ab1 );
+		background-image: -moz-linear-gradient(100% 100% 90deg, #0A3482, #2e6ab1);
 
 }
 
+	#welcome-hero span {
+		font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	}
+
 #hero-header1 {
-	margin-left: 100px;
+	margin-left: 60px;
 	margin-bottom: 40px;
 	font-weight: normal;
 }
@@ -21,8 +31,26 @@
 	display: inline;
 	font-weight: normal;
 	float: right;
-	margin-right: 100px;
+	margin-right: 60px;
+	margin-bottom: 40px;
 }
+#hero-signin-links {
+	clear: both;
+	text-align: right;
+	margin-right: 12px;
+}
+#hero-signin-links a{
+	color: black;
+	text-decoration: none;
+	font-size: 1.1em;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+#hero-signin-links a:hover{
+	color: #A5D2F2;
+	text-decoration: none;
+}
+
 
 #steps-container {
 }
@@ -55,10 +83,15 @@
 	font-size: 1.1em;
 }
 
+.appInfo h2, .appInfo h3 {
+	color: #2e6ab1;
+	font-weight: bold;
+}
 
-.appInfo h2 {
+#more-info-header {
 	font-weight: normal;
 }
+
 .appInfo p {
 	margin: 0px;
 	text-align: left;
@@ -72,19 +105,21 @@
 }
 
 .appActions {
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 	display: block;
 	border: ridge 2px black;
 	border-radius: 15px;
 	margin: 25px;
 	margin-left: 30px;
-	background: white;
 	cursor: pointer;
+
+	background: #2e6ab1;
 
 	padding: 10px 0px;
 	text-align: center;
-	color: #2e6ab1;
+	color: white;
 	font-weight: normal;
-	font-size: 1.1em;
+	font-size: 0.9em;
 }
 
 #rulesDetails-container {
@@ -125,9 +160,6 @@
 	font-weight: normal;
 }
 
-.appInfo h3 {
-	font-weight: normal;
-}
 
 #futureFeatures {
 	margin: 20px;
@@ -140,8 +172,9 @@
 	display: block;
 }
 
+
 .selected {
-	background :#F9F9C9;
+	background :#56A4DB;
   	font-weight: bold;
 }
 

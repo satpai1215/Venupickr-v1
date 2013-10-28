@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     if !user_signed_in?
+      flash.keep #to keep notices during redirect
       redirect_to pages_info_path
     else
         @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
