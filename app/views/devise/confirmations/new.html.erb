@@ -1,12 +1,18 @@
-<h2>Resend confirmation instructions</h2>
+<div class = "user_session_page">
+	<h2>Resend Confirmation Instructions?</h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	  <div class = "resend-info-form">
+	  	<%= f.label :email, "Enter Email Address: " %><br/>
+	  	<%= f.email_field :email, :autofocus => true %>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
+	  	<div><%= f.submit "Resend", {:class => "sign_up_btn btn btn-primary"} %></div>
 
-<%= render "devise/shared/links" %>
+	  </div>
+	<% end %>
+
+
+	 <%= link_to "Go Back", :back, {:id => "back-link"} %>
+</div>

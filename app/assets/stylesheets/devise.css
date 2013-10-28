@@ -1,34 +1,46 @@
-#sign-in-header{
+/*----------------------------------------------------------------------------- 
+= USER SIGN IN PAGE
+-----------------------------------------------------------------------------*/
+.sign-in-header{
 	text-align: center;
 	margin-top: 20px;
+	margin-bottom: 40px;
 }
-	#sign-in-header h1 {
+	.sign-in-header h1 {
 		font-weight: normal;
 	}
 
 .user_session_page {
-	padding-top: 25px;
-	padding-left: 0px;
 	width: 50%;
-	margin: 0 auto;
+	margin: 20px auto;
+
+	border: solid black 1px;
+	border-radius: 15px;
+	box-shadow: 0px 2px 5px 0px #000;
+		-moz-box-shadow: 0px 2px 5px 0px #000;
+		-webkit-box-shadow: 0px 2px 5px 0px #000;
+	padding: 0px 10px;
 }
 
 
 #sign-in-container {
 	padding-left: 10px;
-	height: 80px;
+	height: 100px;
 	width: 460px;
 }
 
-#sign-in-container h2 {
+.user_session_page h2 {
 	text-align: center;
 	font-weight: normal;
-	margin-left: 10px;
 }
 
 
-#sign-in-container label {
+.user_session_page label {
 	display: inline;
+}
+
+.user_session_page input {
+	margin-bottom: 5px;
 }
 
 #sign-in-container input {
@@ -64,10 +76,10 @@
 	padding-right: 0px;
 }
 
-.sign_in_btn {
+#sign_in_btn {
 	padding: 0px 5px;
 	font-size: 0.9em;
-	width: 500px;
+	width: 50px;
 }
 
 #devise-links {
@@ -76,15 +88,34 @@
 }
 
 	#devise-links a {
-		display: inline;
+		display: block;
 		text-align: center;
 		margin: 5px 25px;
 	}
 
+/*----------------------------------------------------------------------------- 
+= USER REGISTRATION PAGE
+-----------------------------------------------------------------------------*/
+.user_reg_page .field input {
+	width: 90%;
+	margin-left: 20px;
+}
+
+.sign_up_btn {
+	display: block;
+	margin: 0 auto;
+}
+
+/*----------------------------------------------------------------------------- 
+= USER SETTINGS PAGE
+-----------------------------------------------------------------------------*/
 #notification_email_select {
-	margin-bottom: 20px;
-	margin-top: 10px;
-	float: left;
+	margin: 5px 0px;
+	text-align: center;
+}
+
+#user_notification_emails {
+	margin-left: 0px;
 }
 
 #user_notification_emails {
@@ -97,20 +128,49 @@
 }
 
 #user-edit-confirmation-container {
-	border: 3px solid blue;
-	border-radius: 2px;
-	box-shadow: 0px 2px 5px 0px #000;
-		-moz-box-shadow: 0px 2px 5px 0px #000;
-		-webkit-box-shadow: 0px 2px 5px 0px #000;
-	padding: 10px;
+	margin: 20px auto;
+	padding-top: 10px;
+	width: 80%;
+	border-top: solid 1px black;
 }
 	#user-edit-confirmation-container label {
 		font-weight: bold;
-		font-size: 1.2em;
-		text-align: center;
 		display: block;
+		text-align: center;
+		margin-bottom: 0px;
+		margin-top: 5px;
+	}
+	#user-edit-confirmation-container input {
+		display: block;
+		width: 200px;
+		margin: 0px auto;
+	}
+	#user-edit-confirmation-container .sign_up_btn {
+		width: 100px;
+		font-size: 0.85em;
+		text-align: center;
+		padding: 0px 5px;
 	}
 
+/*----------------------------------------------------------------------------- 
+= RESEND CONFIRMATION FORM
+-----------------------------------------------------------------------------*/
+.resend-info-form {
+	text-align: center;
+	margin-bottom: 10px;
+}
+	.resend-info-form #user_email {
+		margin-bottom: 10px;
+	}
+
+
+
+
+
+.user_session_page #back-link {
+	display: block;
+	text-align: center;
+}
 .cancel_action {
 	margin: 50px auto;
 	width: 40%;

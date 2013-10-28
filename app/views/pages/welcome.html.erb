@@ -15,9 +15,12 @@
 	</li>
 	<li class = "steps-box span4" id = "step3">
 		<h2>VOTE!</h2>
-		<div class = "steps-box-content">Upvote the venue you like. Venue with the most votes wins!</div>
+		<div class = "steps-box-content">Venue with the most votes wins!</div>
 	</li>
 
 </ul>
 
-<%= render "devise/shared/sign_in_boxes" %>
+<% if !user_signed_in? %>
+	<div id = "welcome-page-signin"><%= render "devise/shared/sign_in_boxes" %></div>
+<% end %>
+
