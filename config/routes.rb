@@ -29,7 +29,9 @@ MoMondays::Application.routes.draw do
   match '/guests/update_guestlist' => 'guests#update_guestlist'
   match '/guests/leave_event/' => 'guests#leave_event'
 
+
   root :to => 'events#index'
+
 
 
   # The priority is based upon order of creation:

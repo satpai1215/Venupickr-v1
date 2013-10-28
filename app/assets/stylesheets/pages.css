@@ -52,6 +52,7 @@
 -----------------------------------------------------------------------------*/
 #about-container {
 	padding: 20px 30px;
+	font-size: 1.1em;
 }
 
 
@@ -87,12 +88,8 @@
 }
 
 #rulesDetails-container {
-	background: white;
 	margin-top: 10px;
 	margin-bottom: 15px;
-
-	border: 2px solid black;
-	border-radius: 15px;
 
 	height: 275px;
 	overflow-y: auto;
@@ -109,7 +106,6 @@
 
 .appActionsInfo {
 	display: none;
-	font-size: 1.1em;
 	padding: 5px 0px;
 	margin: 0px 20px;
 	list-style: circle;
@@ -118,6 +114,7 @@
 
 .appActionsInfo li {
 	margin: 5px 0px;
+	font-size: 0.9em;
 }
 
 .eventCompletionInfo-container {

@@ -12,7 +12,7 @@
     <div ul id = "invite_guest_form_userlist">
         <div id = "invite_guest_form_userlist_header">CURRENT MO' MONDAYS' USERS</div>
 
-      <% User.all.each do |user| %>
+      <% User.order('username ASC').each do |user| %>
         <% if current_user.id != user.id %>
              <li class = "invite_guest_form_user_field">
               <%#= check_box "guest_array", "guests_ids", {:multiple => true, :class => "guest_checkbox"}, user.id, -user.id %>

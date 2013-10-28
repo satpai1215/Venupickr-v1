@@ -146,14 +146,14 @@
 		margin: 0px auto;
 	}
 	#user-edit-confirmation-container .sign_up_btn {
-		width: 100px;
+		width: 120px;
 		font-size: 0.85em;
 		text-align: center;
 		padding: 0px 5px;
 	}
 
 /*----------------------------------------------------------------------------- 
-= RESEND CONFIRMATION FORM
+= RESEND CONFIRMATION AND PASSWORD FORM
 -----------------------------------------------------------------------------*/
 .resend-info-form {
 	text-align: center;

@@ -58,11 +58,19 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.appActions', function(event) {
+    var prev_index = $('.appActions').index('.selected');
+    var index = $('.appActions').index(this);
+    console.log(prev_index + " and " + index);
+
+
     $('.appActions').removeClass('selected');
     $(this).toggleClass('selected');
-    var index = $('.appActions').index(this);
+    
     $('.appActionsInfo').removeClass('block');
+    $('.appActionsInfo:eq(' + prev_index + ')').hide('slide', 'left');
     $('.appActionsInfo:eq(' + index + ')').toggleClass('block');
+    $('.appActionsInfo:eq(' + index + ')').show('slide', 'right');
+  
   });
 
 

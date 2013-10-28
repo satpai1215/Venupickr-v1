@@ -1,7 +1,7 @@
 
 class EventsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: :index
   before_filter :get_event, :only => [:show, :edit, :update, :destroy]
   before_filter :auth_owner, :only => [:edit, :destroy, :update]
 
@@ -19,31 +19,33 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    if !user_signed_in?
+      redirect_to pages_info_path
+    else
+        @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
+        #only show events that user is a guest of
+        @events = current_user.events.stage_voting
+        @upcoming_events = current_user.events.stage_finished
+        gon.numUpcoming = @upcoming_events.count
+        gon.totalIndexEvents = @upcoming_events.count + @events.count
 
-      @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
-      #only show events that user is a guest of
-      @events = current_user.events.stage_voting
-      @upcoming_events = current_user.events.stage_finished
-      gon.numUpcoming = @upcoming_events.count
-      gon.totalIndexEvents = @upcoming_events.count + @events.count
+        @updates = []
 
-      @updates = []
+        @events.each do |event|
+          @updates.concat(event.updates)
+        end
 
-      @events.each do |event|
-        @updates.concat(event.updates)
-      end
+        @upcoming_events.each do |event|
+          @updates.concat(event.updates)
+        end
 
-      @upcoming_events.each do |event|
-        @updates.concat(event.updates)
-      end
-
-      @updates = @updates.sort {|u1, u2| u2.created_at <=> u1.created_at}
-      
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @events }
-      end
-
+        @updates = @updates.sort {|u1, u2| u2.created_at <=> u1.created_at}
+        
+        respond_to do |format|
+          format.html # index.html.erb
+          format.json { render json: @events }
+        end
+    end
   end
 
   # GET /events/1
