@@ -60,7 +60,6 @@ $(document).ready(function() {
   $(document).on('click', '.appActions', function(event) {
     var prev_index = $('.selected').index();
     var index = $('.appActions').index(this);
-    console.log(prev_index + " and " + index);
 
 
     $('.appActions').removeClass('selected');
