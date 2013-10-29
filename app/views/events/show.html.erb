@@ -65,7 +65,7 @@
 												<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
 											</div>
 										<% else %>	
-											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "Going" : "Not RSVP'd" %></span></div>	
 										<% end %>
 									</li>
 								<% end %>
