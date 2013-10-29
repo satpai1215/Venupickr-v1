@@ -98,7 +98,8 @@
 		text-align: center;
 	}
 	.eventActionLink a {
-		width: 100px;
+		width: 120px;
+		padding: 4px 0px;
 	}
 
 .event-voting-btn {
@@ -284,7 +285,7 @@
 
 .rsvp-response {
 	float: right;
-	width: 40%;
+	width: 45%;
 }
 .rsvp-response-text {
 	display: block;
