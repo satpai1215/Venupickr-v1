@@ -72,7 +72,7 @@ class EventsController < ApplicationController
       @event.guests.each do |g|
         if g.id == @owner_as_guest.id
         elsif g.id == @current_user_as_guest.id
-          @guests << g
+          @guests.unshift(g)
         elsif g.isgoing
           @guests << g
         else
