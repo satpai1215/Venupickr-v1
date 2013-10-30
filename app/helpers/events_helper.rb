@@ -97,7 +97,7 @@ module EventsHelper
 		html = ""
 
 		if (event.stage == 'Voting')
-			if(event.allow_venue_suggestion or current_user.id === @event.owner_id)
+			if(event.allow_venue_suggestion or current_user.id === event.owner_id)
 				html << "#{link_to 'Suggest a Venue', 
 				new_venue_path(:event_id => event.id), {:id => 'suggestVenueLink', :class => 'btn btn-info', :remote => true}}"
 			else
