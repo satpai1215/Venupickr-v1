@@ -554,3 +554,21 @@
 [10/29/13 16:57:48 -0700 Satyans-MacBook-Pro.local (1140)] INFO : Installing Rails3 Error instrumentation
 [10/29/13 16:57:48 -0700 Satyans-MacBook-Pro.local (1140)] INFO : Finished instrumentation
 [10/29/13 16:57:48 -0700 Satyans-MacBook-Pro.local (1140)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Starting the New Relic agent in "development" environment.
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Reading configuration from config/newrelic.yml
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Enabling the Request Sampler.
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Environment: development
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Dispatcher: webrick
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Application: My Application
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] WARN : Agent configured not to send data in this environment.
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing DelayedJob instrumentation hooks
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing ActiveRecord instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing DelayedJob instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing middleware-based Excon instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing Net instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing Rails 3 Controller instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Installing Rails3 Error instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : Finished instrumentation
+[10/30/13 11:42:29 -0700 satyans-mbp (2091)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present

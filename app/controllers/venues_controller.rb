@@ -19,7 +19,7 @@ class VenuesController < ApplicationController
     @event_id = params[:event_id]
     @event = Event.find(@event_id)
 
-    if (@event.allow_venue_suggestion)
+    if (@event.allow_venue_suggestion or current_user.id === @event.owner_id)
       @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
 
       #only allow multiple venue suggestion if user is event owner
