@@ -53,19 +53,19 @@
 
 					<div class = 'eventbox-content'>
 						<ul class = "eventbox-content-ul" id = "event-guestlist">	
-							<% if @guests_usernames.empty? %>
+							<% if @guests.empty? %>
 								<li class = "guestlist-row italic">no guests yet</li>
 							<% else %>
-								<% @guests_usernames.each do |guest| %>
+								<% @guests.each do |guest| %>
 									<li class = "guestlist-row">
-										<div class = "guestlist-name"><%= guest[0] %></div>
-										<% if guest[0] === current_user.username and @event.stage != "Archived" %>
+										<div class = "guestlist-name"><%= guest.user.username %></div>
+										<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
 											<div class = "rsvp-response">
-												<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :event_id => @event.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
-												<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :event_id => @event.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
+												<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
+												<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
 											</div>
 										<% else %>	
-											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest[1] ? "Going" : "Not RSVP'd" %></span></div>	
+											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
 										<% end %>
 									</li>
 								<% end %>
