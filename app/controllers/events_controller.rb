@@ -65,25 +65,25 @@ class EventsController < ApplicationController
       @owner = @event.owner
       @owner_as_guest = Guest.where(:user_id => @event.owner_id, :event_id => @event.id).first
       @current_user_as_guest = Guest.where(:user_id => current_user.id, :event_id => @event.id).first
-      @guests = []
-      @guests_not_going = []
+      @guests_usernames = []
+      @guests_usernames_not_going = []
 
       #create array of guests with RSVP'd ones first, removing current user and event owner
       ordered_invitelist = @event.users.ordered_by_username
       @event.guests.each do |g|
         if g.id == @owner_as_guest.id
         elsif g.id == @current_user_as_guest.id
-          @guests.unshift(g)
+          @guests_usernames.unshift([g.user.username, g.isgoing])
         elsif g.isgoing
-          @guests << g
+          @guests_usernames << [g.user.username, true]
         else
-          @guests_not_going << g
+          @guests_usernames_not_going << [g.user.username, false]
         end
       end
 
-      @guests.sort {|x,y| x.user.username <=> y.user.username }
-      @guests_not_going.sort {|x,y| x.user.username <=> y.user.username }
-      @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
+      @guests_usernames.sort {|x,y| x[0] <=> y[0]} unless @guests_usernames.empty?
+      @guests_usernames_not_going.sort {|x,y| x[0] <=> y[0]} unless @guests_usernames_not_going.empty?
+      @guests_usernames.concat(@guests_usernames_not_going) #merge RSVP'd with non-RSVP'd
 
 
       #only show vote counts if voting period is over, or if user is event owner or admin
@@ -214,8 +214,9 @@ class EventsController < ApplicationController
 
   #rsvp_yes
   def rsvp_yes
-    @guest = Guest.find(params[:guest_id])
-    @event = @guest.event
+    #@guest = Guest.find(params[:guest_id])
+    @event = Event.find(params[:event_id])
+    @guest = Guest.where(:event_id => params[:event_id], :user_id => current_user.id)
 
       if (!@guest)
          respond_to do |format|
@@ -233,8 +234,10 @@ class EventsController < ApplicationController
   end
 
   def rsvp_no
-    @guest = Guest.find(params[:guest_id])
+    #@guest = Guest.find(params[:guest_id])
     @event = @guest.event
+    @event = Event.find(params[:event_id])
+    @guest = Guest.where(:event_id => params[:event_id], :user_id => current_user.id)
 
       if (!@guest)
          respond_to do |format|
