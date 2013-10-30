@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
 
   validate :access_code_match, :on => :create
 
+  scope :ordered_by_username, order('username ASC')
+
   def to_s
     if self.nil?
       "Invalid User"

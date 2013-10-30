@@ -69,6 +69,7 @@ class EventsController < ApplicationController
       @guests_not_going = []
 
       #create array of guests with RSVP'd ones first, removing current user and event owner
+      ordered_invitelist = @event.users.ordered_by_username
       @event.guests.each do |g|
         if g.id == @owner_as_guest.id
         elsif g.id == @current_user_as_guest.id
@@ -79,7 +80,11 @@ class EventsController < ApplicationController
           @guests_not_going << g
         end
       end
+
+      @guests.sort {|x,y| x.user.username <=> y.user.username }
+      @guests_not_going.sort {|x,y| x.user.username <=> y.user.username }
       @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
+
 
       #only show vote counts if voting period is over, or if user is event owner or admin
       @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
