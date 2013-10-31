@@ -112,7 +112,7 @@ class AutoMailer < ActionMailer::Base
     end
 
     if(exclude_owner)
-      list -= [@event.owner.email]
+      list.delete(@event.owner.email)
     end
 
     return list
