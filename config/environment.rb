@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 MoMondays::Application.initialize!
 
 #Mailer settings
- config.action_mailer.smtp_settings = {
+ActionMailer::Base.smtp_settings = {
   :address              => "smtpout.secureserver.net",
   :port                 => 80,
   :domain               => 'mo-mondays.com',
