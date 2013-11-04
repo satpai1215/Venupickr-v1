@@ -26,13 +26,13 @@ class AutoMailer < ActionMailer::Base
     mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Updated '#{@event.name}' on the MoMondaysApp!")
   end
 
-  def send_invite_email(event_id, user_id)
+  def send_invite_email(event_id, guest_emails)
     @event = Event.find(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
     @owner = @event.owner
-    @invited_user = User.find(user_id)
+    #@invited_user = User.find(user_id)
     @url = event_url(@event)
-    mail(:bcc => @invited_user.email, :subject => "You have been invited to an event on the Mo' Mondays App!")
+    mail(:bcc => guest_emails, :subject => "You have been invited to an event on the Mo' Mondays App!")
   end
 
   def venue_suggested_email_owner(event_id, user_id)

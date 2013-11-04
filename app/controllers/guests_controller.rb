@@ -44,13 +44,16 @@ class GuestsController < ApplicationController
 			end
 
 			#invite users that are checked if they aren't already invited
+			guest_emails = Array.new
 			@new_guest_ids.each do |id|
 				id = id.to_i
 				if !@current_guest_ids.find_index(id)
 					@event.invite!(id)
-					AutoMailer.send_invite_email(@event.id, id).deliver
+					guest_emails.push(User.find(id).email)
+					#AutoMailer.send_invite_email(@event.id, id).deliver
 				end
 			end
+			AutoMailer.send_invite_email(@event.id, guest_emails).deliver
 
 		else #if no guests are checked, remove all guests except owner
 			@event.guests.destroy_all
