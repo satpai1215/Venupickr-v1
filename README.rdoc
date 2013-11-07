@@ -1,9 +1,9 @@
 ===> Welcome to Mo' Mondays Mo' Problems!
 Have you ever wanted to have a birthday dinner but just couldn't decide on a restaurant? Or are you sick of having happy hours at the same bars week after week? Do you stress out trying to pick locations for your group get togethers?
 
-Mo Mondays is here to help! MoMondays is a social event-planning application designed to take the hassle out of choosing locations for your next get together by letting your friends suggest venues. All you need to do is create an event, specify the date, and choose your guests. After the event is created, you can allow your guests to suggest venues for the event and even vote for the venues they prefer. You can also suggest your own venues to add the list. When the voting period ends, the venue with the most votes will be chosen and an email will be sent out with event details, including the winning venue.
+Mo' Mondays is here to help! Mo' Mondays is a social event-planning application designed to take the hassle out of choosing locations for your next get together by letting your friends suggest venues. All you need to do is create an event, specify the date, and choose your guests. After the event is created, you can allow your guests to suggest venues for the event and even vote for the venues they prefer. You can also suggest your own venues to add the list. When the voting period ends, the venue with the most votes will be chosen and an email will be sent out with event details, including the winning venue.
 
-Currently, the MoMondays app is in beta. The app is currently only available for use by a select group of individuals. If you wish you grant your friends access, please contact Satyan so he can give you the access code. Future features will include:
+Currently, the Mo' Mondays app is in beta. The app is currently only available for use by a select group of individuals. If you wish you grant your friends access, please contact Satyan so he can give you the access code. Future features will include:
   ==> Setting up a recurring event (for example, a weekly "Mo' Mondays Happy Hour")
   ==> Improved mobile device compatibility
   ==> Other features recommended by YOU!
