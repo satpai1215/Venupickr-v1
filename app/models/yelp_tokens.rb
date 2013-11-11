@@ -1,11 +1,10 @@
 module YelpTokens
 
 	TOKENS = {
-	    consumerKey: "xIeBBXL6bTqP5MDheNuehw",
-        consumerSecret: "843wPzWYIVym8o9MG4X5jwsMt9U",
-        accessToken: "NQQE9MaKFgSgzrzTKWKLSfVIaWPxYfa_",
-        accessTokenSecret: "VVkDuwQTQPiLxW0yMJX_K4OSRqc"
+	    consumerKey: ENV['YELP_CONSUMERKEY'],
+        consumerSecret: ENV['YELP_CONSUMERSECRET'],
+        accessToken: ENV['YELP_ACCESSTOKEN'],
+        accessTokenSecret: ENV['YELP_ACCESSTOKENSECRET']
     }.freeze
-
 
 end
