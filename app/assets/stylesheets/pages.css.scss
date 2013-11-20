@@ -1,0 +1,348 @@
+/*----------------------------------------------------------------------------- 
+= LANDING PAGE (/pages/welcome)
+-----------------------------------------------------------------------------*/
+#welcome-hero {
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+	margin: 10px auto;
+	border-radius: 15px;
+	color: white;
+	height: 150px;
+	padding-top: 20px;
+
+		background: #c5c5c5;
+		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
+		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
+		background-image: -webkit-linear-gradient(top, #0A3482, #2e6ab1 );
+		background-image: -moz-linear-gradient(100% 100% 90deg, #0A3482, #2e6ab1);
+		box-shadow: 0px 2px 5px 0px #000;
+			-moz-box-shadow: 0px 2px 5px 0px #000;
+			-webkit-box-shadow: 0px 2px 5px 0px #000;
+
+}
+
+	#welcome-hero span {
+		font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	}
+
+#hero-header1 {
+	font-size: 2em;
+	margin-left: 60px;
+	margin-bottom: 20px;
+	font-weight: normal;
+
+	opacity: 1;
+	-webkit-animation: wipeRight 5s linear 4 0s;
+	-moz-animation: wipeRight 5s linear 4 0s;
+	animation: wipeRight 5s linear 4 0s;
+	}
+
+
+#hero-header2 {
+	font-size: 3em;
+	display: inline;
+	font-weight: normal;
+	float: right;
+	margin-right: 60px;
+	margin-bottom: 20px;
+
+	opacity: 1;
+	-webkit-animation: wipeLeft 5s linear 4 0s;
+	-moz-animation: wipeLeft 5s linear 4 0s;
+	animation: wipeLeft 5s linear 4 0s;
+}
+
+
+@-webkit-keyframes wipeRight {
+  0% { opacity: 0; -webkit-transform: translateX(-200px); }
+  5% {opacity: 0.5; -webkit-transform: translateX(-100px); }
+  10% { opacity: 1; -webkit-transform: translateX(10px); }
+  20% { opacity: 1; -webkit-transform: translateX(15px); }
+  30% { opacity: 1; -webkit-transform: translateX(20px);}
+  40% { opacity: 1;  -webkit-transform: translateX(25px);}
+  50% { opacity: 1;  -webkit-transform: translateX(30px);}
+  60% { opacity: 1; -webkit-transform: translateX(35px);}
+  70% { opacity: 1; -webkit-transform: translateX(40px);}
+  80% { opacity: 1; -webkit-transform: translateX(45px);}
+  90% { opacity: 0; -webkit-transform: translateX(1000px);}
+  100% { opacity: 0; -webkit-transform: translateX(1000px);}
+}
+
+@-moz-keyframes wipeRight {
+  0% { opacity: 0; -moz-transform: translateX(-200px); }
+  5% {opacity: 0.5; -moz-transform: translateX(-100px); }
+  10% { opacity: 1; -moz-transform: translateX(10px); }
+  20% { opacity: 1; -moz-transform: translateX(15px); }
+  30% { opacity: 1; -moz-transform: translateX(20px);}
+  40% { opacity: 1;  -moz-transform: translateX(25px);}
+  50% { opacity: 1;  -moz-transform: translateX(30px);}
+  60% { opacity: 1; -moz-transform: translateX(35px);}
+  70% { opacity: 1; -moz-transform: translateX(40px);}
+  80% { opacity: 1; -moz-transform: translateX(45px);}
+  90% { opacity: 0; -moz-transform: translateX(1000px);}
+  100% { opacity: 0; -moz-transform: translateX(1000px);}
+}
+
+@-webkit-keyframes wipeLeft {
+  0% { opacity: 0; -webkit-transform: translateX(1000px); }
+  30% { opacity: 0; -webkit-transform: translateX(200px);}
+  35% { opacity: 0.5;  -webkit-transform: translateX(100px);}
+  40% { opacity: 1;  -webkit-transform: translateX(0px);}
+  50% { opacity: 1;  -webkit-transform: translateX(-10px);}
+  60% { opacity: 1; -webkit-transform: translateX(-15px);}
+  70% { opacity: 1; -webkit-transform: translateX(-20px);}
+  80% { opacity: 1; -webkit-transform: translateX(-25px);}
+  90% { opacity: 0; -webkit-transform: translateX(-1000px);}
+  100% { opacity: 0; -webkit-transform: translateX(-1000px);}
+}
+
+@-moz-keyframes wipeLeft {
+  0% { opacity: 0; -moz-transform: translateX(1000px); }
+  30% { opacity: 0; -moz-transform: translateX(200px);}
+  35% { opacity: 0.5;  -moz-transform: translateX(100px);}
+  40% { opacity: 1;  -moz-transform: translateX(0px);}
+  50% { opacity: 1;  -moz-transform: translateX(-10px);}
+  60% { opacity: 1; -moz-transform: translateX(-15px);}
+  70% { opacity: 1; -moz-transform: translateX(-20px);}
+  80% { opacity: 1; -moz-transform: translateX(-25px);}
+  90% { opacity: 0; -moz-transform: translateX(-1000px);}
+  100% { opacity: 0; -moz-transform: translateX(-1000px);}
+}
+
+
+
+#hero-signin-links {
+	float: right;
+	margin-right: 12px;
+	margin-top: 10px;
+}
+#hero-signin-links a{
+	color: black;
+	text-decoration: none;
+	font-size: 0.95em;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+#hero-signin-links a:hover{
+	color: #A5D2F2;
+	text-decoration: none;
+}
+
+
+#steps-container {
+}
+
+.steps-box {
+	background: white;
+	text-align: center;
+	border-radius: 5px;
+}
+
+	.steps-box h2 {
+		margin-bottom: 0px;
+		font-size: 1.5em;
+
+	}
+
+	.steps-box-content {
+		border-radius: 5px;
+	}
+
+#welcome-page-signin {
+
+}
+
+/*----------------------------------------------------------------------------- 
+= ABOUT PAGE (/pages/info)
+-----------------------------------------------------------------------------*/
+#about-container {
+	padding: 15px 30px;
+	font-size: 1.1em;
+	border-radius: 15px;
+
+	box-shadow: 0px 2px 5px 0px #000;
+		-moz-box-shadow: 0px 2px 5px 0px #000;
+		-webkit-box-shadow: 0px 2px 5px 0px #000;
+}
+
+.appInfo h2, .appInfo h3 {
+	color: #2e6ab1;
+	font-weight: bold;
+}
+
+#more-info-header {
+	font-weight: normal;
+}
+
+.appInfo p {
+	margin: 0px;
+	text-align: left;
+	font-size: 1em;
+}
+
+
+
+.appActions-container {
+	margin-left: 10px;
+}
+
+.appActions {
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+	display: block;
+	border: ridge 2px black;
+	border-radius: 15px;
+	margin: 25px;
+	margin-left: 30px;
+	cursor: pointer;
+
+	background: #2e6ab1;
+
+	padding: 10px 0px;
+	text-align: center;
+	color: white;
+	font-weight: normal;
+	font-size: 0.9em;
+}
+
+#rulesDetails-container {
+	margin-top: 10px;
+	margin-bottom: 15px;
+
+	height: 275px;
+	overflow-y: auto;
+}
+
+#demo-btn {
+	font-size: 0.85em;
+}
+
+#demo-upvote {
+	width: 35px;
+	height: auto;
+}
+
+.appActionsInfo {
+	display: none;
+	padding: 5px 0px;
+	margin: 0px 20px;
+	list-style: none;
+}
+
+.appActionsInfo li {
+	margin: 5px 0px;
+	font-size: 0.9em;
+	padding-left: 1em; 
+    text-indent: -.7em;
+}
+	.appActionsInfo li:before {
+    	content: "• ";
+    	color: #2e6ab1; /* or whatever color you prefer */
+	}
+
+.eventCompletionInfo-container {
+	clear: both;
+}
+
+.eventCompletionInfo-container h3 {
+	font-weight: normal;
+}
+
+
+#futureFeatures {
+	margin: 20px;
+	margin-left: 160px;
+	list-style: circle;
+	list-style-position: inside;
+}
+
+.block {
+	display: block;
+}
+
+
+.selected {
+	background :#56A4DB;
+  	font-weight: bold;
+  	list-style: none;
+}
+
+/*----------------------------------------------------------------------------- 
+= EVENT HISTORY TABLE (/pages/history)
+-----------------------------------------------------------------------------*/
+#history-header-container {
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+#eventHistory h2 {
+	float: left;
+	padding-left: 30px;
+	font-weight: normal;
+
+}
+#eventHistoryTable {
+	margin-top: 5px;
+	background: white;
+	border: inset 1px gray;
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px 0px #000;
+		-moz-box-shadow: 0px 0px 5px 0px #000;
+		-webkit-box-shadow: 0px 0px 5px 0px #000;
+	padding: 10px 10px;
+	height: 480px;
+}
+
+#eventHistoryTable table {
+	padding: 10px 10px;
+	overflow-y: scroll;
+	table-layout: fixed;
+}
+
+#eventHistoryTable table td {
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#eventHistoryTable table th {
+	text-align: center;
+}
+
+#pagination-container {
+
+}
+
+.pagination a, .pagination span, .pagination em {
+	padding: 0.2em 0.5em;
+	margin-right: 1px;
+}
+
+.pagination a {
+	text-decoration: none;
+	color: black;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.pagination .current {
+	font-style: normal;
+	font-weight: bold;
+	background: #2e6ab1;
+	color: white;
+	border: 1px solid #2e6ab1;
+}
+
+.pagination {
+	float: left;
+	margin-left: 10px;
+	margin-top: 23px;
+	display: inline;
+}
+
+a.previous_page, a.next_page {
+	border: none;
+	color: #2e6ab1;
+}
+
+
+
+
