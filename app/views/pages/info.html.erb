@@ -2,19 +2,16 @@
 <div id = "welcome-hero">
 	<h1 id = "hero-header1">Planning your next <span>EVENT</span>...</h1>
 	<h1 id = "hero-header2">...just became <span>SOCIAL</span></h1>
-
-
 </div>
-	<% if !user_signed_in? %>
-		<div id = "hero-signin-links"><%= link_to "← Sign Up", new_user_registration_path %> |
-		<%= link_to "Sign In →", new_user_session_path %></div>
-	<% end %>
 
 
 <div class = "row">
 <div class = "span12">
 	<div id = "about-container">
-
+	<% if !user_signed_in? %>
+		<div id = "hero-signin-links"><%= link_to "← Sign Up", new_user_registration_path %> |
+		<%= link_to "Sign In →", new_user_session_path %></div>
+	<% end %>
 	<div class="appInfo">
 		<h2>Welcome to Mo' Mondays Mo' Problems!</h2>
 		<p style = "font-style: italic;">Have you ever wanted to have a birthday dinner but just couldn't decide on a restaurant? Or are you sick of having happy hours at the same bars week after week? Do you stress out trying to pick locations for your group get togethers?</p><br/>

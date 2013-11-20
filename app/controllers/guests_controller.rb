@@ -31,12 +31,12 @@ class GuestsController < ApplicationController
 		@event = Event.find(params[:event_id])
 
 		@current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
-		@new_guest_ids = params[:guest_ids]
-		@invite_emails = []
+		@new_guest_ids = params[:guest_ids] #checked guests on form
+
 
 		if !@new_guest_ids.nil?
 
-			#uninvite users that are not checked
+			#uninvite users that are not checked unless owner
 			@current_guest_ids.each do |id|
 				if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
 					@event.uninvite!(id)
@@ -50,7 +50,6 @@ class GuestsController < ApplicationController
 				if !@current_guest_ids.find_index(id)
 					@event.invite!(id)
 					guest_emails.push(User.find(id).email)
-					#AutoMailer.send_invite_email(@event.id, id).deliver
 				end
 			end
 			AutoMailer.send_invite_email(@event.id, guest_emails).deliver
