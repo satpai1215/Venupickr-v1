@@ -46,7 +46,7 @@ class VenuesController < ApplicationController
   # GET /venues/1/edit
   def edit
     if current_user.id == @venue.user.id
-      #@event_id = @venue.event.id
+      @event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
       respond_to do |format|
