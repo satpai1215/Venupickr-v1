@@ -29,18 +29,6 @@ class EventsController < ApplicationController
         @upcoming_events = current_user.events.stage_finished
         gon.numUpcoming = @upcoming_events.count
         gon.totalIndexEvents = @upcoming_events.count + @events.count
-
-        @updates = []
-
-        @events.each do |event|
-          @updates.concat(event.updates)
-        end
-
-        @upcoming_events.each do |event|
-          @updates.concat(event.updates)
-        end
-
-        @updates = @updates.sort {|u1, u2| u2.created_at <=> u1.created_at}
         
         respond_to do |format|
           format.html # index.html.erb
