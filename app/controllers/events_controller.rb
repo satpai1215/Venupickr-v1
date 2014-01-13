@@ -23,7 +23,6 @@ class EventsController < ApplicationController
       flash.keep #to keep notices during redirect
       redirect_to pages_info_path
     else
-        @name_entered = (current_user.firstname.nil? or current_user.lastname.nil?)
         #only show events that user is a guest of
         @events = current_user.events.stage_voting
         @upcoming_events = current_user.events.stage_finished

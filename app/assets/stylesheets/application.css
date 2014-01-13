@@ -17,20 +17,24 @@
  *= require "pages"
  *= require "devise"
  *= require "guest"
+ *= require "mobile"
  */
 
  html {height: 100%;}
 
  body {
  	height: 100%;
+ 	line-height: 1em;
  	color: #4C494D;
  	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  }
 
  body h2 {
- 	font-size: 1.8em;
 	font-weight: normal;
 	margin-top: 0px;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 1em;
  }
 
  #content_body {
@@ -53,6 +57,7 @@
 #notice {
 	text-align: center;
 	font-size: 1.5em;
+	height: inherit;
 	color: #c09853;
 	background: #F9F9C9;
 }
@@ -63,21 +68,20 @@
 
 #page_title {
 	border-bottom: 1px solid gray;
-	min-width: 940px;
+	min-width: 100%;
 	box-shadow: 0px 0px 5px 0px #000;
 		-moz-box-shadow: 0px 0px 5px 0px #000;
 		-webkit-box-shadow: 0px 0px 5px 0px #000;
 }
 
  #banner {
- 	width: 650px;
+ 	width: 100%;
  	height: auto;
  }
 
 #login-nav {
-	margin-right: 5px;
-	float: right;
-	margin-top: 50px;
+	text-align: center;
+	margin: 10px auto;
 }
 
 
@@ -86,12 +90,10 @@
 = NAV
 -----------------------------------------------------------------------------*/
  #nav-container {
- 	width: 940px;
-	margin: 0px auto;
+ 	width: 100%;
  }
 .nav {
- 	margin-bottom: 0px;
- 	font-size: 1.2em;
+	margin: 5px auto;
  }
 
  #navbar {

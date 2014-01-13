@@ -8,26 +8,24 @@
 <%= csrf_meta_tag %>
 </head>
 <body>
-	<div id = "page_title">
+	<div><img src = "/assets/beta_banner.png" id = "banner"/></div>
+	<div class = "row" id = "page_title">
 		<div id="login-nav">
 			<% if user_signed_in? %>
 				Logged in as <%= current_user %> 
 				<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
-				<%= link_to "Settings",  edit_user_registration_path %>
+				<%= link_to "User Settings",  edit_user_registration_path %>
 			<% else %>
 				<%= link_to "Sign Up", new_user_registration_path %> |
 				<%= link_to "Sign In", new_user_session_path %>
 			<% end %>
 		</div>
-
-		<img src = "/assets/beta_banner.png" id = "banner"/>&copy
 	</div> <!--page_title -->
 <% if user_signed_in? %>
 	<div id = "nav_body">
 		<header>
 			<div id = "nav-container">
-				<div class = "row">
-					<div class = "span6" id = "navbar">
+					<div id = "navbar">
 						<nav>	
 							<ul class = "nav nav-pills">
 								<li><%= link_to "Home", events_path %></li>
@@ -36,7 +34,6 @@
 							</ul>
 						</nav>
 					</div>
-				</div>
 			</div>  <!--nav_body-->
 <% end %>
 		</header>

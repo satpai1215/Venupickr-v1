@@ -8,8 +8,8 @@
         <div class = "eventList" >
             <div id = "upcomingEvents" >
 
-                <div class = "row">
-                    <div class = "span6"><h2>Upcoming Events:</h2></div>
+                <div class = "eventList-header">
+                    <div class = "row"><h2>Upcoming Events:</h2></div>
                 </div>
                 <ul>
                     <%if @upcoming_events.count === 0 %>
@@ -17,25 +17,27 @@
                             <div class = "row eventItem"><li> No upcoming events </li></div>
                         </div>
                     <% else %>
-                        <% @upcoming_events.each_with_index do |event, index| %>
-                                <li>
-                                    <div class = "row eventItem">
-                                        <div class = "span6 eventLabel" >
-                                            <!--<span id = "eventName"><%#= link_to event.name, event_path(event) %> </span> -->
-                                            <div class = "eventName"><%= h(event.name) %></div>
-                                            <%= event.event_start.strftime("%B %d, %Y") %> at 
-                                                <%= event.event_start.strftime("%I:%M%p") %>
-                                            <br/> Created By: <%= h(event.owner) %>
-                                        </div>
-                                        <div class = "span2 eventActions">
-                                            <div class = "eventClock">
-                                                <p>Event Starts In:</p>
-                                                <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
-                                             <div class = "eventActionLink"><%=action_links(event)%></div>
-                                            </div>
+                        <% @upcoming_events.each_with_index do |event, index| %> 
+                           <li class = "eventItem">
+                                <%= link_to(event, {class: "eventItem-link"}) do %>
+                                <span class = "eventItem-span"></span>
+                                    <div class = "eventLabel" >
+                                        <!--<span id = "eventName"><%#= link_to event.name, event_path(event) %> </span> -->
+                                        <div class = "eventName"><%= h(event.name) %></div>
+                                        <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                            <%= event.event_start.strftime("%I:%M%p") %>
+                                        <br/> Created By: <%= h(event.owner) %>
+                                    </div>
+                                    <div class = "eventProgress">
+                                        <div class = "eventClock">
+                                            <p>Event Starts In:</p>
+                                            <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
+                            
                                         </div>
                                     </div>
-                                </li>
+                                <% end %>
+                            </li>
+                                
                         <% end %>
                     <% end %>
        
@@ -44,10 +46,14 @@
             </div> <!--upcomingEvents -->
 
             <div id = "votingEvents" >
-                <div class = "row">
-                    <div class = "span6"><h2>Events on the Clock:</h2></div>
-                    <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventCreate", :class => "btn btn-success", :remote => true} %> <% end %>
-                    <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
+                <div class = "eventList-header">
+                    <div class = "row">
+                        <h2>Events on the Clock:</h2>
+                        <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
+                     </div>
+                     <div class = "row" id = "newEventBtn-container">
+                         <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventBtn", :class => "btn btn-success", :remote => true} %> <% end %>
+                     </div>
                  </div>
                 <ul>
                     <%if @events.count === 0 %>
@@ -56,28 +62,34 @@
                         </div>
                     <% else %>
                         <% @events.each_with_index do |event, index| %>
-                            <li id = <%= "event_" + (event.id).to_s %>>
-                                <div class = "row eventItem">
-                                    <div class = "span6 eventLabel" >
-                                            <!--<span id = "eventName"><%= link_to event.name, event_path(event) %> </span> -->
-                                            <div class = "eventName"><%= h(event.name) %></div>
-                                            <% if user_signed_in? and current_user.id === event.owner_id %>
-                                                <div class = "eventIndexModifiers">(<%= display_edit_event(event) %>) | (<%= display_delete_event(event, true) %>)</div>
-                                            <% end %>
-                                            <%= event.event_start.strftime("%B %d, %Y") %> at 
-                                                <%= event.event_start.strftime("%I:%M%p") %>
-                                            <br/> Created By: <%= h(event.owner) %>
+                            
+                            <li class = "eventItem" id = <%= "event_" + (event.id).to_s %>>
+                                <%= link_to event, class: "eventItem-link" do %> 
+                                    <span class = "eventItem-span"></span>
+                                    <div class = "eventLabel" >
+                                        <div class = "eventName"><%= h(event.name) %>
+                                        <% if user_signed_in? and current_user.id === event.owner_id %>
+                                            <div class = "eventIndexModifiers">
+                                            <%=link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)%>
+                                            <%=link_to('Delete', event_path(event, from_index: true), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) %>
+                                            </div>
+                                        <% end %>
+                                        </div>
+                                        <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                            <%= event.event_start.strftime("%I:%M%p") %>
+                                        <br/> Created By: <%= h(event.owner) %>
                                     </div>
-                                    <div class = "span2 eventActions">
+                                    <div class = "eventProgress">
                                         <div class = "eventClock">
                                             <p>Voting Ends In:</p>
                                             <%= tag(:span, id: "eventIndexTimer" + (index + @upcoming_events.count).to_s, class: "eventIndexTimer", data: {date: (event.event_start-event.vote_end.hours).to_s})%><%= timeLeft_days(event) %>
                                             </span>
-                                             <div class = "eventActionLink"><%=action_links(event)%></div>
+                                             <!-- <div class = "eventActionLink"><%=action_links(event)%></div> -->
                                         </div>
-                                    </div>
-                                </div>    
+                                    </div> 
+                                <% end %>
                             </li>
+                           
                         <% end %>
                     <% end %>
                 </ul>
