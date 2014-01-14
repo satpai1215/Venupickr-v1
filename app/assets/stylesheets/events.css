@@ -107,7 +107,7 @@
 .eventList .eventProgress {
 	float: right;
 	margin-right: 20px;
-
+	margin-top: 2%;
 }
 	.eventClock p {
 		text-align: center;
@@ -185,8 +185,8 @@
 
 .noEventsLabel {
 	font-weight: bold;
+	font-size: 0.8em;
 	color: red;
-	border: inset 2px red;
 	text-align: center;
 	line-height: 1em;
 }
@@ -332,8 +332,9 @@
 	margin-bottom: 0px;
 }
 #enterCommentsField {
-	height: inherit;
-	width: 70%;
+	height: 2em;
+	width: 97%;
+	text-align: center;
 	margin-top: 8px;
 	margin-left: 8px;
 	margin-bottom: 0px;
@@ -341,10 +342,9 @@
 }
 
 #postCommentButton {
-	float: right;
+	display: block;
+	margin: 10px auto;
 	width: 20%;
-	margin-right: 30px;
-	margin-top: 10px;
 	color: black;
 	border: solid 2px black;
 }
@@ -380,6 +380,7 @@
 
 .newVenueBtn {
 	width: 50%;
+	padding: 40px;
 }
 
 #event_show_venue_suggestion_off_tag {
@@ -389,7 +390,6 @@
 }
 
 #venueList-container {
-	margin-left: 10px;	
 }
 	#venueList-header {
 		margin-left: 30px;
@@ -406,6 +406,7 @@
 	}
 
 	.venueList-note {
+		font-size: 0.8em;
 		margin-left: 0px;
 		margin-bottom: 5px;
 		padding: 10px 0px;
@@ -415,7 +416,6 @@
 
 	#venueList {
 		text-align: left;
-		padding-left: 20px;
 		padding-bottom: 30px;
 		margin: 0px 0px;
 	}
@@ -553,6 +553,7 @@
 		position: absolute;
 		display: none;
 		z-index: 10000;
+		font-size: 0.8em;
 
 		border: 2px solid gray;
 		border-radius: 5px;
@@ -561,6 +562,7 @@
 		padding: 5px;
 	}
 		.voteList h5 {
+			font-size: inherit;
 			margin-bottom: 2px;
 			margin-top: 0px;
 		}
@@ -667,7 +669,8 @@ button.ui-dialog-titlebar-close {
 }
 
 #venue_name, #venue_comments, #event_name {
-	width: 60%;
+	width: 100%;
+	height: 2em;
 }
 
 .createForm input {
@@ -742,8 +745,8 @@ button.ui-dialog-titlebar-close {
 }
 
 #event_vote_end_calc {
-	height: 30px;
 	font-style: italic;
+	font-size: 0.8em;
 }
 #event_notes {
 	resize: none;
@@ -752,14 +755,12 @@ button.ui-dialog-titlebar-close {
 	font-size: 0.85em;
 }
 
-#event_timepicker {
+#event_timepicker, #event_datepicker {
 	cursor: pointer;
 	background: white;
-}
-
-#event_datepicker {
-	cursor: pointer;
-	background: white;
+	width: 50%;
+	height: 2em;
+	text-align: center;
 }
 
 #event_allow_venue_suggestion {
@@ -768,6 +769,10 @@ button.ui-dialog-titlebar-close {
 
 #allow_venue_suggestion_select label {
 	display: inline;
+}
+
+#eventSubmitButton, #venueSubmitButton {
+	padding: 40px;
 }
 
 /*----------------------------------------------------------------------------- 

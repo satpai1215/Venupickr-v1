@@ -42,7 +42,7 @@
 
   <div class="actions">
     <div class ="newVenueBtn-container">
-      <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {class: "newVenueBtn btn"} %>
+      <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {id: "venueSubmitButton", class: "newVenueBtn btn"} %>
     </div>
      <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>

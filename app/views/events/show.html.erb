@@ -122,11 +122,11 @@
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
-					<% if @is_owner and @event.stage == 'Voting' %>
+				<!-- 	<#% if @is_owner and @event.stage == 'Voting' %>
 						<div id = "venueSuggestionIndicator" class ="venueList-note">  
-                            <div><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+                            <div><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%#= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
                         </div>
-                    <% end %>
+                    <#% end %> -->
 
 					<%if @venues.count === 0 %>
                         <div class = "noEventsLabel venueList-note">  
