@@ -79,9 +79,11 @@ $(document).ready(function() {
       }
     }); 
 
-   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: 400, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
-   var wWidth = $(window).width();
+    var wWidth = $(window).width();
    var wHeight = $(window).height();
+
+   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, minHeight: 0.8*wHeight, show: 500, position: { my: "center top", at: "center top", of: "body" }});
+
    $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, minHeight: wHeight, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});

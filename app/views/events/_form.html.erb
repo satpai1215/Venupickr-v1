@@ -42,7 +42,7 @@
 
   <div class="field">
     <%= f.label :notes, "Notes to Guests:" %>
-    <%= f.text_area :notes, :rows => 3 %>
+    <%= f.text_area :notes %>
   </div>
 
   <div class ="field" id = "allow_venue_suggestion_select">
@@ -52,7 +52,7 @@
 
 
   <div class="actions">
-    <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {id: "eventSubmitButton"} %>
+    <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {class: "btn", id: "eventSubmitButton"} %>
     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>

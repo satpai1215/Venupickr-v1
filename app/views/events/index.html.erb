@@ -70,8 +70,8 @@
                                         <div class = "eventName"><%= h(event.name) %>
                                         <% if user_signed_in? and current_user.id === event.owner_id %>
                                             <div class = "eventIndexModifiers">
-                                            <%=link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)%>
-                                            <%=link_to('Delete', event_path(event, from_index: true), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) %>
+                                            (<%=link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)%>) |
+                                            (<%=link_to('Delete', event_path(event, from_index: true), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) %>)
                                             </div>
                                         <% end %>
                                         </div>

@@ -11,18 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field venue-name-input">
     <%= f.label :name, "Name of Venue:" %>
     <%= f.text_field :name %>
-
-      <div id = "venue-loading-gif-container">
+    <div id = "venue-loading-gif-container">
     <%= image_tag("/assets/ajax-loader.gif", :id => "venue-loading-gif",  :style => "visibility: hidden;") %>
-  </div>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :address, "Address Info:" %>
-    <%= f.text_area :address, :size => "30x5" %>
+    <%= f.text_area :address %>
   </div>
 
   <div class="field">
@@ -42,7 +41,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {id: "venueSubmitButton"} %>
+    <div class ="newVenueBtn-container">
+      <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {class: "newVenueBtn btn"} %>
+    </div>
      <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
   </div>
 

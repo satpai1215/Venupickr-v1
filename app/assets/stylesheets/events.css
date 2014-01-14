@@ -83,6 +83,9 @@
 		z-index: 1;
 	}
 
+	.eventIndexModifiers {
+		font-weight: normal;
+	}
 	.edit-event, .delete-event {
 		position: relative;
 		z-index: 2;
@@ -183,17 +186,11 @@
 .noEventsLabel {
 	font-weight: bold;
 	color: red;
-	text-align: center;
-}
-.noVenues  {
-	margin-left: 0px;
-	margin-bottom: 5px;
 	border: inset 2px red;
-	border-radius: 2px;
-	padding: 5px;
-	padding-right: 0px;
-	background: white;
+	text-align: center;
+	line-height: 1em;
 }
+
 
 #voteMeterDialog {
 	color: #2D46CF;
@@ -215,21 +212,13 @@
 -----------------------------------------------------------------------------*/
 
 #eventShow {
-
+	margin-top: 30px;
 }
 
 
-#eventShow .span4 {
-}
-
-#eventSideBar {
-	margin-top: 20px;
-	padding-left: 0px;
-	text-align: left; 
-	font-size: 0.9em;
-}
 
 .eventbox {
+	margin-left: 0px;
 	margin-bottom: 20px;
 	border: inset 1px gray;
 	border-radius: 2px;
@@ -246,6 +235,12 @@
 	.eventInfo-header-text {
 		font-size: 1.6em;
 		font-weight: bold;
+		padding: 10px 0px;
+		text-align: center;
+	}
+	#eventShowModifiers {
+		display: block;
+		text-align: center;
 	}
 
 	.eventbox-header span {
@@ -329,7 +324,6 @@
 
 
 #discussionBoard-container {
-	height:	500px;
 	padding-right: 0px;
 	background: white;
 }
@@ -338,7 +332,7 @@
 	margin-bottom: 0px;
 }
 #enterCommentsField {
-	height: 15px;
+	height: inherit;
 	width: 70%;
 	margin-top: 8px;
 	margin-left: 8px;
@@ -347,29 +341,30 @@
 }
 
 #postCommentButton {
-	margin-top: 10px;
-	margin-right: 5px;
-	height: 22px;
-	font-size: 0.85em;
-	padding: 2px 10px;
 	float: right;
+	width: 20%;
+	margin-right: 30px;
+	margin-top: 10px;
+	color: black;
+	border: solid 2px black;
 }
 
-#discussionBoard {
+#discussionBoard-comments {
 	font-size: 0.85em;
 }
 
-#discussionBoard ul {
+#discussionBoard-comments ul {
 	clear: both;
 	display: block;
 	padding-top: 5px;
+	padding-bottom: 20px;
 	margin-right: 5px;
 	margin-left: 10px;
 	margin-bottom: 10px;
-	height: 430px;
+	max-height: 300px;
 	overflow: auto;
 }
-#discussionBoard ul:hover {
+#discussionBoard-comments ul:hover {
 }
 
 .comment_timestamp {
@@ -377,35 +372,20 @@
 	font-weight: bold;
 }
 
+.newVenueBtn-container {
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
+}
 
-#suggestVenueLink {
-	float: right;
-	margin-top: 20px;
-	margin-right: 0px;
-	margin-bottom: 0px;
+.newVenueBtn {
+	width: 50%;
 }
 
 #event_show_venue_suggestion_off_tag {
-	float:right;
 	font-style: italic;
-	margin-top: 25px;
-	margin-right: 10px;
 	font-size: 0.9em;
 	color: gray;
-}
-
-#venueSuggestionIndicator {
-	font-weight: bold;
-	color: #40ABCB;
-	text-align: center;
-
-	margin-left: 0px;
-	margin-bottom: 5px;
-	border: inset 2px #40ABCB;
-	border-radius: 2px;
-	padding: 5px;
-	padding-right: 0px;
-	background: white;
 }
 
 #venueList-container {
@@ -416,7 +396,21 @@
 	}
 
 	#venueList-header h2 {
-		margin: 10px 0px;
+		margin: 0px 0px;
+		color: #2e6ab1;
+	}
+	#venueSuggestionIndicator {
+		font-weight: bold;
+		color: #40ABCB;
+		border: inset 2px #40ABCB;
+	}
+
+	.venueList-note {
+		margin-left: 0px;
+		margin-bottom: 5px;
+		padding: 10px 0px;
+		background: white;
+		text-align: center;
 	}
 
 	#venueList {
@@ -467,27 +461,25 @@
 	}
 
 	.venueStickyInfo {
-		margin-left: 10px;
 		margin-bottom: 10px;
-		font-size: 1em;
 	}
 	.venueStickyInfo p {
 		margin-bottom: 0px;
 	}
 
 	.venueSticky-footer {
-		position: relative;
 		border-top: solid 1px black;
-		box-shadow: 0px 0px 5px 0px #000;
-			-moz-box-shadow: 0px 0px 5px 0px #000;
-			-webkit-box-shadow: 0px 0px 2px 0px;
-		padding: 5px;
-		height: 15px;
+		display: inline-block;
+		width: 100%;
+		padding: 5px 0px;
+		box-shadow: inset 0 5px 5px -5px #000;
+			-moz-box-shadow: inset 0 5px 5px -5px #000;
+			-webkit-box-shadow: inset 0 5px 5px -5px;
 	}
 		.venue_modifiers {
 			font-family: Courier;
-			width: 200px;
 			float: left;
+			margin-left: 10px;
 		}
 
 	#venueList .voteCount-container {
@@ -500,17 +492,19 @@
 		.voteCount {
 			font-size: 2.5em;
 			position: absolute;
-			top: 10px;
-			right: 7px;
+			top: 8%;
+			right: 1%;
 			cursor: pointer;
 			color: blue;
 
 		}
 		.voteIcon {
-			position: absolute;
-			right: 70px;
-			bottom: 2px;
+			float: right;
 		}
+				.checked_venue {
+					width: 15%;
+					height: auto;
+				}
 
 		.voteButton {
 			font-size: 0.9em;
@@ -528,18 +522,12 @@
 			color: green;
 		}
 
-		.checked_venue {
-			width: 20px;
-			height: auto;
-			margin-right: 5px;
-		}
-
 		.voteMeter{
-			float: right;
 			position: relative;
+			float: right;
 			margin-left: 10px;
-			height: 90%;
-			width: 10%;
+			height: 25px;
+			width: 20%;
 			background: gray;
 		}
 			.voteMeter-value {
@@ -662,12 +650,24 @@
 	margin-bottom: 2%;
 }
 
+
 button.ui-dialog-titlebar-close {
 }
 
 .createForm label {
 	font-size: inherit;
 	margin-bottom: 20px;
+	line-height: 1em;
+}
+
+#venue_address, #event_notes {
+	height: 200px;
+	width: 60%;
+	line-height: 1em;
+}
+
+#venue_name, #venue_comments, #event_name {
+	width: 60%;
 }
 
 .createForm input {
@@ -682,13 +682,12 @@ button.ui-dialog-titlebar-close {
   margin: 0 auto;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  text-align: center;
 }
 
 #error_explanation h2 {
-	 text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
@@ -696,18 +695,21 @@ button.ui-dialog-titlebar-close {
 }
 
 #error_explanation ul li {
-    font-size: 12px;
-    list-style: square;
+    list-style: none;
 }
 
 #venue_url {
 	width: 300px;
 }
 
+.venue-name-input {
+	position: relative;
+}
+
 #venue-loading-gif-container {
 	position: absolute;
-	right: 60px;
-	top: 37px;
+	right: 15%;
+	top: 50%;
 }
 
 #datetime_select select:nth-child(1) {
@@ -732,7 +734,8 @@ button.ui-dialog-titlebar-close {
 }
 
 #event_vote_end {
-	width: 80px;
+	height: inherit;
+	text-align: center;
 }
 #event_vote_end_label {
 	font-size: 0.83em;
@@ -742,26 +745,19 @@ button.ui-dialog-titlebar-close {
 	height: 30px;
 	font-style: italic;
 }
-#event_name {
-	width: 350px;
-}
 #event_notes {
-	width: 350px;
 	resize: none;
 }
-
 #eventDateSelect-container {
 	font-size: 0.85em;
 }
 
 #event_timepicker {
-	width: 80px;
 	cursor: pointer;
 	background: white;
 }
 
 #event_datepicker {
-	width: 100px;
 	cursor: pointer;
 	background: white;
 }
@@ -799,7 +795,9 @@ button.ui-dialog-titlebar-close {
 /*----------------------------------------------------------------------------- 
 = GLOBAL STYLINGS
 -----------------------------------------------------------------------------*/
-
+.btn {
+	padding: 10px;
+}
 .red {
 	color: red;
 	font-weight: bold;
@@ -815,6 +813,21 @@ button.ui-dialog-titlebar-close {
 	font-weight: bold;
 }
 
+.float-right {
+	float: right;
+}
+
 .italic {
 	font-style: italic;
+}
+
+.expand-toggle {
+	float: right;
+	color: blue;
+	cursor: pointer;
+	padding-left: 30px;
+}
+
+.hide-toggle {
+	display: none;
 }

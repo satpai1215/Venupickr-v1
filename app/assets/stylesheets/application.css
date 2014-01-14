@@ -37,6 +37,10 @@
 	font-size: 1em;
  }
 
+ body li {
+ 	line-height: 1em;
+ }
+
  #content_body {
  	background: #ededed;
  	min-height: 100%;

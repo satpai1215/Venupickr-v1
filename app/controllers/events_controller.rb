@@ -46,6 +46,7 @@ class EventsController < ApplicationController
       venue.update_column(:votecount, venue.voters.count)
     end
 
+    @is_owner = (current_user.id == @event.owner_id)
     if !current_user.invited?(@event)
       redirect_to events_path, notice: 'You do not have access that page.'
     else

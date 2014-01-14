@@ -1,4 +1,4 @@
-$("#discussionBoard ul").prepend('<li><span class = "comment_timestamp"><%= @comment.username %> (<%= time_ago_in_words(@comment.created_at) %> ago):</span> <%= @content %></li>');
+$("#discussionBoard-comments ul").prepend('<li><span class = "comment_timestamp"><%= @comment.username %> (<%= time_ago_in_words(@comment.created_at) %> ago):</span> <%= @content %></li>');
 $("#notice").text("Comment Posted.");
 
  $('#enterCommentsField').val("");

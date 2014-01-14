@@ -1,21 +1,21 @@
-<div class = "row">
-	<div id = "eventShow">
-		<div class = "span4">
-			<div id = "eventSideBar">
 
+	<div id = "eventShow">
 				<div class = "eventbox">
 					<div class = "eventbox-header">
 						<div class = "eventInfo-header-text"><%= h(@event.name) %></div>
-						<% if current_user.id == @event.owner_id %>
-							<span class = "italic">You are the owner</span><br/>
-							<%= display_edit_event(@event) %>
-							<%= display_delete_event(@event) %>
-							<%= display_invite_guests(@event) %>
-							<%= display_reminder_link(@event) %>
-						<% else %>
-							<%= display_leave_event(@event) %>
-						<% end %>
-					</div> <!--eventInfo-header -->
+		
+						<span id = "eventShowModifiers">
+							<% if @is_owner %>
+								
+									<%= display_edit_event(@event) %>
+									<%= display_delete_event(@event) %>
+									<%= display_invite_guests(@event) %>
+									<%= display_reminder_link(@event) %>
+							<% else %>
+									<%= display_leave_event(@event) %>
+							<% end %>
+						</span>
+					</div> <!--eventbox-header -->
 
 					<div class = 'eventbox-content'>
 
@@ -48,89 +48,88 @@
 
 			<div class = "eventbox" id = "event-guestlist-container">
 					<div class = "eventbox-header">
-						<div class = "eventbox-secondary-header-text">Invited Guests</div>
+						<div class = "eventbox-secondary-header-text">Invited Guests
+							<span class = "expand-toggle">+</span>
+						</div>
 					</div> <!--eventInfo-header -->
-
-					<div class = 'eventbox-content'>
-						<ul class = "eventbox-content-ul" id = "event-guestlist">	
-							<% if @guests.empty? %>
-								<li class = "guestlist-row italic">no guests yet</li>
-							<% else %>
-								<% @guests.each do |guest| %>
-									<li class = "guestlist-row">
-										<div class = "guestlist-name"><%= guest.user.username %></div>
-										<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
-											<div class = "rsvp-response">
-												<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
-												<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
-											</div>
-										<% else %>	
-											<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
-										<% end %>
-									</li>
-								<% end %>
-							<% end %>						
-						</ul>
-					</div><!--eventbox-content -->
+					<div class = "hide-box hide-toggle">
+						<div class = 'eventbox-content'>
+							<ul class = "eventbox-content-ul" id = "event-guestlist">	
+								<% if @guests.empty? %>
+									<li class = "guestlist-row italic">no guests yet</li>
+								<% else %>
+									<% @guests.each do |guest| %>
+										<li class = "guestlist-row">
+											<div class = "guestlist-name"><%= guest.user.username %></div>
+											<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
+												<div class = "rsvp-response">
+													<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
+													<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
+												</div>
+											<% else %>	
+												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+											<% end %>
+										</li>
+									<% end %>
+								<% end %>						
+							</ul>
+						</div><!--eventbox-content -->
+					</div> <!--hide-toggle -->
 			</div> <!-- event-guestlist-container -->
 
 			<div class = "eventbox" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-secondary-header-text">Discussion Board</div>
+					<div class = "eventbox-secondary-header-text">Discussion Board
+						<span class = "expand-toggle">+</span>
+					</div>
 				</div><!--discussionBoard-header -->
-				
-				<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
-						<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
-						<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
-				<% end %>
+				<div class = "hide-box hide-toggle">
+					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
+							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
+							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
+					<% end %>
 
-				<div id = "discussionBoard">
-					<ul>
-						<% @event.comments.order("created_at DESC").each do |comment| %>
-							<% if comment.username != nil %>
-								<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
-                        		<%= comment.content %></li>
-                        	<% else %> <!--check if comment is an update -->
-                        		<li class = "italic"><%= comment.content %></li>
-                        	<% end %>
-						<% end %>
-					</ul>
-				</div><!--discussionBoard -->
+					<div id = "discussionBoard-comments">
+						<ul>
+							<% @event.comments.order("created_at DESC").each do |comment| %>
+								<% if comment.username != nil %>
+									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
+	                        		<%= comment.content %></li>
+	                        	<% else %> <!--check if comment is an update -->
+	                        		<li class = "italic"><%= comment.content %></li>
+	                        	<% end %>
+							<% end %>
+						</ul>
+					</div><!--discussionBoard-comments -->
+				</div><!--hide-toggle -->
 			</div> <!--discussionBoard-container -->
 			<!--insert rsvpList code here -->
 
-			</div> <!--eventSidebar -->
-		</div> <!--span4-->
-
-
-
-		<div class = "span8">
 
 			<div id = "venueList-header">
-				<div class = "row">
-            		<div class = "span4"><h2>Recommended Venues:</h2></div>
-            		<%= display_venue_suggest_button(@event) %>
+        		<h2>Recommended Venues:</h2>
+        		<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 
-	         		<% if @event.stage != "Voting" %>
-						<% if @venues.count == 0 %>
-							<div id = 'eventCancelledHeading'>EVENT CANCELLED</div>
-						<% else %>
-							<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
-						<% end %>
+         		<% if @event.stage != "Voting" %>
+					<% if @venues.count == 0 %>
+						<div id = 'eventCancelledHeading'>EVENT CANCELLED</div>
+					<% else %>
+						<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
 					<% end %>
-				</div>
+				<% end %>
+
 			</div> <!--venueList-header-->
 			<div id = "venueList-container">
 
 				<ul id = "venueList">
-					<% if current_user.id === @event.owner_id and @event.stage == 'Voting' %>
-						<div id = "venueSuggestionIndicator">  
-                            <div class = "row"><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
+					<% if @is_owner and @event.stage == 'Voting' %>
+						<div id = "venueSuggestionIndicator" class ="venueList-note">  
+                            <div><li>NOTE TO OWNERS: Venue Suggestion Is Turned <%= @event.allow_venue_suggestion ? "ON" : "OFF" %></li></div>
                         </div>
                     <% end %>
 
 					<%if @venues.count === 0 %>
-                        <div class = "noEventsLabel noVenues">  
+                        <div class = "noEventsLabel venueList-note">  
                             <div class = "row"><li> <%= @no_venues_text %></li></div>
                         </div>
 
@@ -185,9 +184,7 @@
 					<% end %>
 				</ul>
 			</div><!-- venueList-container -->
-		</div> <!--span8-->
 
-	
 
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
 				</div> <!--createVenueForm-->
@@ -196,7 +193,7 @@
    				 <div id = "inviteGuestsForm" class = "createForm modal-dialog" title = "Select Guests to Invite">
    				 </div>
 		</div> <!--#eventShow -->
-</div> <!--row-->
+
 
 <%= javascript_tag do %>
 	$(function() {
@@ -228,12 +225,23 @@
 
 		//color code rsvp buttons on page refresh
 		<% if @current_user_as_guest.isgoing %>
-			$('#rsvpButton-yes').addClass('green').css('background', '#d6e6e6');;
-			$('#rsvpButton-no').removeClass('red').css('background', '#f5f5f5');; 
+			$('#rsvpButton-yes').addClass('green').css('background', '#d6e6e6');
+			$('#rsvpButton-no').removeClass('red').css('background', '#f5f5f5');;
 		<% else %>
-			$('#rsvpButton-no').addClass('red').css('background', '#eebfda');;
-			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');;
+			$('#rsvpButton-no').addClass('red').css('background', '#eebfda');
+			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');
 		<% end %>
+
+		$('.expand-toggle').click(function() {
+			$(this).parent().parent().siblings('.hide-box').toggleClass('hide-toggle');
+			if($(this).html() === "+") {
+				$(this).html("-");
+			}
+			else {
+				$(this).html("+");
+			}
+		});
+
 
 	});
 <% end %>
