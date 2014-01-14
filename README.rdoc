@@ -1,3 +1,5 @@
+(This is a mobile web refactor for MoMondays)
+
 ===> Welcome to Mo' Mondays Mo' Problems!
 Have you ever wanted to have a birthday dinner but just couldn't decide on a restaurant? Or are you sick of having happy hours at the same bars week after week? Do you stress out trying to pick locations for your group get togethers?
 
