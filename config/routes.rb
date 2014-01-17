@@ -4,8 +4,7 @@ MoMondays::Application.routes.draw do
   get "pages/upcoming"
   get "pages/archived"
 
-
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users, :only => [:edit, :update, :destroy]
 

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :username, :password_confirmation, :remember_me, :access_code, :notification_emails, :firstname, :lastname
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of :username, with: /^[a-zA-Z0-9]+[a-zA-Z0-9_\-]*$/
   validates_length_of :username, :minimum => 4, :maximum => 20
-  validates_length_of :firstname, :lastname, :minimum => 2, :maximum => 20
+  validates_length_of :firstname, :lastname, :minimum => 1, :maximum => 20
 
   validate :access_code_match, :on => :create
 
@@ -43,6 +44,27 @@ class User < ActiveRecord::Base
 
   def invited?(event)
       !self.guests.where(:event_id => event.id).empty?
+  end
+
+  def self.find_for_facebook_oauth(auth)
+  where(auth.slice(:info['email'])).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.firstname ||= auth.info.first_name
+      user.lastname ||= auth.info.last_name
+      #user.image = auth.info.image # assuming the user model has an image
+      user.save!
+    end
+  end
+
+    def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
   end
 
 end
