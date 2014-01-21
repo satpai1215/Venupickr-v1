@@ -119,7 +119,7 @@ module EventsHelper
 		venue_comments = h(venue.comments)
 		html = ""
 		html << "<div class = 'venueStickyHeader'>#{venue_name}</div>"
-		html << "<div class = 'venueSuggestor'>Suggested By: #{venue.user.username} </div>"
+		html << "<div class = 'venueSuggestor'>Suggested By: #{venue.user.to_s} </div>"
 		html << "<div class = 'venueStickyInfo'> <p>#{venue_address}</p>"
 		if !venue.url.blank? 
 			html << "<p>#{link_to "Yelp Page", venue.url, :target => '_blank'} </p> "

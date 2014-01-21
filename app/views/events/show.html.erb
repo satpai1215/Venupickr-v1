@@ -32,7 +32,7 @@
 							<% end %>
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
-								<span id = "eventOwner"><%= h(@owner.username)%></span>
+								<span id = "eventOwner"><%= h(@owner.to_s)%></span>
 							</li>								
 						</ul>
 
@@ -60,7 +60,7 @@
 								<% else %>
 									<% @guests.each do |guest| %>
 										<li class = "guestlist-row">
-											<div class = "guestlist-name"><%= guest.user.username %></div>
+											<div class = "guestlist-name"><%= guest.user.to_s %></div>
 											<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
 												<div class = "rsvp-response">
 													<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>

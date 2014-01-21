@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def auth_owner
-    if !(current_user.id == @event.owner_id or current_user.username == "Spaiderman")
+    if !(current_user.id == @event.owner_id or current_user.uid == "4802244")
       redirect_to @event, notice: 'You are not authorized to carry out that action.'
     end
   end
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
       @guests_not_going = []
 
       #create array of guests with RSVP'd ones first, removing current user and event owner
-      ordered_invitelist = @event.users.ordered_by_username
+      ordered_invitelist = @event.users.ordered_by_name
       @event.guests.each do |g|
         if g.id == @owner_as_guest.id
         elsif g.id == @current_user_as_guest.id
@@ -71,7 +71,7 @@ class EventsController < ApplicationController
       @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
 
       #only show vote counts if voting period is over, or if user is event owner or admin
-      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
+      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.uid == "4802244")
       @total_votecounts = @event.voters.count
 
       if @event.stage == "Voting"
@@ -103,7 +103,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
 
-    if current_user.id == @event.owner_id or current_user.username == "Spaiderman"
+    if current_user.id == @event.owner_id or current_user.uid == "4802244"
 
       #convert event_start back into date and time components
       @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
@@ -254,7 +254,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @content = params[:comment]
  
-    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.username)
+    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.firstname)
     Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"", :event_id => @event.id)
 
     respond_to do |format|

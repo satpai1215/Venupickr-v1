@@ -22,15 +22,15 @@ class User < ActiveRecord::Base
   #validates_length_of :username, :minimum => 4, :maximum => 20
   validates_length_of :firstname, :lastname, :minimum => 1, :maximum => 20
 
-  validate :access_code_match, :on => :create
+  #validate :access_code_match, :on => :create
 
-  scope :ordered_by_username, order('username ASC')
+  scope :ordered_by_name, order('lastname ASC')
 
   def to_s
     if self.nil?
       "Invalid User"
     else
-      self.username
+      fullname
     end
   end
 
@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def fullname 
+    [firstname, lastname].join(" ")
+  end
 
   def invited?(event)
       !self.guests.where(:event_id => event.id).empty?

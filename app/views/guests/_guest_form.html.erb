@@ -12,12 +12,12 @@
     <div ul id = "invite_guest_form_userlist">
         <div id = "invite_guest_form_userlist_header">CURRENT MO' MONDAYS' USERS</div>
 
-      <% User.order('username ASC').each do |user| %>
+      <% User.order('lastname ASC').each do |user| %>
         <% if current_user.id != user.id %>
              <li class = "invite_guest_form_user_field">
               <%#= check_box "guest_array", "guests_ids", {:multiple => true, :class => "guest_checkbox"}, user.id, -user.id %>
               <%= check_box_tag "guest_ids[]", user.id, user.invited?(@event), {:class => "guest_checkbox"} %>
-              <%= label_tag :user, user.username, :class => "guest_checkbox_label" %>
+              <%= label_tag :user, user.to_s, :class => "guest_checkbox_label" %>
               <%#= label_tag :user, (user.firstname.nil? ? '' : ' (' + user.firstname + ', ') + (user.lastname.nil? ? '' : user.lastname + ')'), :class => "guest_name_label" %>
             </li>
         <% end %>

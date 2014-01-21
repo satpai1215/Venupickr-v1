@@ -10,10 +10,10 @@
 	$oList = $currentListItem.siblings("ol.voteList");
 
 	if ($oList.length > 0) {
-		$oList.append("<li><%= escape_javascript(current_user.username) %></li>");
+		$oList.append("<li><%= escape_javascript(current_user.firstname) %></li>");
 	}
 	else {
-		$currentListItem.parent(".voteCount-container").append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.username) %></li></ol>");
+		$currentListItem.parent(".voteCount-container").append("<ol class = 'voteList'><h5>Voters:</h5><li><%=escape_javascript(current_user.firstname) %></li></ol>");
 	}
 
 	$currentListItem.text(<%= @votecount %>);
@@ -23,7 +23,7 @@
 		$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteCount");
 		$previousListItem.text(<%= @previous_votecount %>);
 		$oList = $previousListItem.siblings("ol.voteList");
-		$oList.find("li:contains(<%= escape_javascript(current_user.username) %>)").remove();
+		$oList.find("li:contains(<%= escape_javascript(current_user.firstname) %>)").remove();
 
 		if ($oList.children('li').length === 0) {
 			$oList.remove();
