@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
   has_many :voters, dependent: :destroy
   has_many :guests, dependent: :destroy
 
-  validates :username, :email, :firstname, :lastname, presence: true
-  validates :username, :email, uniqueness: true
+  validates :email, :firstname, :lastname, presence: true
+  validates :email, uniqueness: true
   validates :password, presence: true, :on => :create
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-  validates_format_of :username, with: /^[a-zA-Z0-9]+[a-zA-Z0-9_\-]*$/
-  validates_length_of :username, :minimum => 4, :maximum => 20
+  #validates_format_of :username, with: /^[a-zA-Z0-9]+[a-zA-Z0-9_\-]*$/
+  #validates_length_of :username, :minimum => 4, :maximum => 20
   validates_length_of :firstname, :lastname, :minimum => 1, :maximum => 20
 
   validate :access_code_match, :on => :create
