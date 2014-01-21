@@ -48,7 +48,7 @@
               <div><%= @winner.name %></div>
             <% end %>  
                 <span style="font-size:12px;color:#888888;"><%= @winner.address.html_safe %><br />
-                <em>&raquo; suggested by <%= @winner.user.username %></em></span>
+                <em>&raquo; suggested by <%= @winner.user.to_s %></em></span>
           </p>
         </td>
       </tr>

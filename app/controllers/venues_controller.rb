@@ -8,7 +8,7 @@ class VenuesController < ApplicationController
   end
 
   def auth_owner
-    if !(current_user.id == @venue.user.id or current_user.username == "Spaiderman")
+    if !(current_user.id == @venue.user.id or current_user.uid == "4802244")
       redirect_to @event, notice: 'You are not authorized to carry out that action.'
     end
   end
@@ -174,7 +174,7 @@ class VenuesController < ApplicationController
        @event = @venue.event
        @already_voted = Voter.exists?(:user_id => current_user.id, :venue_id => params[:venue_id ])
 
-       @show_votecounts = (current_user.id == @venue.event.owner_id or current_user.username == "Spaiderman")
+       @show_votecounts = (current_user.id == @venue.event.owner_id or current_user.uid == "4802244")
 
       #user has already voted for this venue
       if (@already_voted)
