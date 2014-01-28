@@ -75,9 +75,9 @@ class EventsController < ApplicationController
       @total_votecounts = @event.voters.count
 
       if @event.stage == "Voting"
-         @no_venues_text = "No venues have been suggested yet."
+         @no_venues_text = "No venues have been suggested yet"
       else
-        @no_venues_text = "No venues were suggested for this event.  The event has been cancelled"
+        @no_venues_text = "No venues were suggested for this event"
       end
       respond_to do |format|
         format.html # show.html.erb

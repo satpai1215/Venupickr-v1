@@ -204,7 +204,9 @@
 	text-align: center;
 	line-height: 1em;
 }
-
+	.noVenuesLabel li {
+		list-style: none;
+	}
 
 #voteMeterDialog {
 	color: #2D46CF;
@@ -625,25 +627,13 @@
 /*----------------------------------------------------------------------------- 
 = FINISHED EVENT#SHOW
 -----------------------------------------------------------------------------*/
-#eventOverHeading {
+.eventOverHeading {
 	font-size: 2.0em;
 	color: red;
 	font-weight: bold;
 	line-height: 1.2em;
-	float: left;
-	margin-top: 15px;
+	text-align: center;
 
-}
-
-#eventCancelledHeading {
-	font-size: 2em;
-	color: red;
-	font-weight: bold;
-	line-height: 1.2em;
-	width: 500px;
-	position: absolute;
-	top: 250px;
-	right: 150px;
 }
 
 #rsvpList {

@@ -117,17 +117,16 @@
                     <% end %>
 					
 				</div> <!--venueList-header -->
-        		
+			</div> <!--eventbox-->
+
 
          		<% if @event.stage != "Voting" %>
 					<% if @venues.count == 0 %>
-						<div id = 'eventCancelledHeading'>EVENT CANCELLED</div>
+						<div class = 'eventOverHeading'>EVENT CANCELLED</div>
 					<% else %>
-						<span id ='eventOverHeading'><%= event_over_text(@event.stage) %></span>
+						<div class ='eventOverHeading'><%= event_over_text(@event.stage) %></div>
 					<% end %>
 				<% end %>
-
-			</div> <!--eventbox-->
 			<div id = "venueList-container" class = "clear">
 				<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 				<ul id = "venueList">
