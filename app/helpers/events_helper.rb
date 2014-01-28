@@ -24,7 +24,8 @@ module EventsHelper
 	def display_invite_guests(event)
 		html = ""
 		if(event.stage != "Archived")
-	        html << '<span>' + link_to("Invite Guests", {:controller => 'guests', :action => 'new', :event_id => event.id}, :remote => true) + '</span>'
+	        #html << '<span>' + link_to("Invite Guests", {:controller => 'guests', :action => 'new', :event_id => event.id}, :remote => true) + '</span>'
+	        html << link_to("Invite Guests", "/contacts/gmail", {id: "show-friends-invite-dialog"})
 		end
 
     	return html.html_safe

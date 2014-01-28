@@ -49,6 +49,7 @@ gem 'newrelic_rpm'
 gem 'heroku'
 gem 'heroku-api'
 
+gem 'omnicontacts'
 
 gem "koala", "~> 1.7.0rc1" #for facebook API
 
