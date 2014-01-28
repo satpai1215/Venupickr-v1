@@ -15,6 +15,24 @@ class GuestsController < ApplicationController
 	end
 #end before_filter methods
 
+	def omnicontacts
+		@contacts = request.env['omnicontacts.contacts']
+		@user = request.env['omnicontacts.user']
+		@emails = []
+		@contacts.each do |c|
+		@emails << c[:email] unless c[:email] === nil
+	end
+
+		puts "emails: #{@emails}"
+	end
+
+
+	def omnicontacts_failure
+
+	end
+
+
+
 	def new
 		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
