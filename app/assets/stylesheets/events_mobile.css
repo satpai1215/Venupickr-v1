@@ -1,3 +1,4 @@
+
 #hero-pic {
 	width: 940px;
 	height: 200px;
@@ -110,7 +111,7 @@
 
 	width: 35%;
 	vertical-align: top;
-	margin-left: 100px;
+	margin-left: 10%;
 	margin-top: 3%;
 }
 	.eventClock p {
@@ -240,11 +241,12 @@
 		font-size: 1.6em;
 		font-weight: bold;
 		padding: 10px 0px;
-		text-align: center;
+		margin-bottom: 20px;
+		text-align: left;
 	}
 	#eventShowModifiers {
 		display: block;
-		text-align: center;
+		text-align: right;
 	}
 
 	.eventbox-header span {
@@ -255,6 +257,7 @@
 	.eventbox-secondary-header-text {
 		font-size: 1.1em;
 		font-weight: bold;
+		text-align: center;
 	}
 
 .eventbox-content {
@@ -296,6 +299,13 @@
 	overflow-y: auto;
 }
 
+#show-friends-invite-dialog {
+	font-style: italic;
+	text-align: center;
+	font-weight: normal;
+	font-size: 1em;
+}
+
 .guestlist-row {
 	padding: 3px 0px;
 	clear: both;
@@ -308,7 +318,6 @@
 	padding-right: 5px;
 	overflow-x: hidden;
 	text-overflow: ellipsis;
-
 }
 
 .rsvp-response {
@@ -379,7 +388,7 @@
 .newVenueBtn-container {
 	display: block;
 	text-align: center;
-	margin-bottom: 20px;
+	margin: 10px 0;
 }
 
 .newVenueBtn {
@@ -402,6 +411,7 @@
 	#venueList-header h2 {
 		margin: 0px 0px;
 		color: #2e6ab1;
+		float: left;
 	}
 	#venueSuggestionIndicator {
 		font-weight: bold;
@@ -573,6 +583,18 @@
 		.voteList li {
 			display: block;
 		}
+
+	#event-nav {
+		margin: 30px 0;
+		text-align: center;
+	}
+	.event-nav-link {
+		margin: 0 20px;
+	}
+
+	.hide-toggle-2, .hide-toggle-3 {
+		display: none;
+	}
 
 
 /*----------------------------------------------------------------------------- 
@@ -826,6 +848,14 @@ button.ui-dialog-titlebar-close {
 	float: right;
 }
 
+.clear {
+	clear:both;
+}
+
+.center {
+	text-align: center;
+}
+
 .italic {
 	font-style: italic;
 }
@@ -839,4 +869,8 @@ button.ui-dialog-titlebar-close {
 
 .hide-toggle {
 	display: none;
+}
+
+.event-nav-link {
+	cursor: pointer;
 }
