@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   attr_accessor :datepicker, :timepicker
 
   has_many :venues, dependent: :destroy
+  #accepts_nested_attributes_for :venues
   has_many :voters, through: :venues
   has_many :rsvps, dependent: :destroy
   has_many :comments, dependent: :destroy

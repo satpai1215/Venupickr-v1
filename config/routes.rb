@@ -8,9 +8,11 @@ MoMondays::Application.routes.draw do
 
   resources :users, :only => [:edit, :update, :destroy]
 
-  resources :events
-  resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
-  resources :guests, :only => :new
+  resources :events do
+    resources :guests, only: :new, as: 'add_guests'
+    resources :venues, except: [:index, :show]
+  end
+  #resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
 
 
   #match "/users/:id/edit" => 'devise/registrations#edit'
@@ -22,7 +24,7 @@ MoMondays::Application.routes.draw do
   match 'rsvp_no', :controller => 'events', :action => 'rsvp_no'
  # match '/events/new', :controller => 'events', :action => 'new'
 
-  match '/event/invite_guests', :controller => 'guests', :action => 'new'
+  #match '/event/invite_guests', :controller => 'guests', :action => 'new'
   match '/guests/update_guestlist' => 'guests#update_guestlist'
   match '/guests/leave_event/' => 'guests#leave_event'
 

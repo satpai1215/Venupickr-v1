@@ -25,7 +25,7 @@ module EventsHelper
 		html = ""
 		if(event.stage != "Archived")
 	        #html << '<span>' + link_to("Invite Guests", {:controller => 'guests', :action => 'new', :event_id => event.id}, :remote => true) + '</span>'
-	        html << link_to("Invite Guests", "/contacts/gmail", {id: "show-friends-invite-dialog"})
+	        html << link_to("Invite Guests", new_event_add_guest_path(event.id), {id: "show-friends-invite-dialog"})
 		end
 
     	return html.html_safe
@@ -100,7 +100,7 @@ module EventsHelper
 		if (event.stage == 'Voting')
 			if(event.allow_venue_suggestion or current_user.id === event.owner_id)
 				html << "#{link_to 'Suggest a Venue', 
-				new_venue_path(:event_id => event.id), {:class => 'newVenueBtn btn btn-info', :remote => true}}"
+				new_event_venue_path(event), {:class => 'newVenueBtn btn btn-info', :remote => true}}"
 			else
 				html <<"<span id = 'event_show_venue_suggestion_off_tag'>venue suggestion has been turned OFF</span>"
 			end

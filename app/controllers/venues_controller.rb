@@ -16,21 +16,20 @@ class VenuesController < ApplicationController
   # GET /venues/new
   # GET /venues/new.json
   def new
-    @event_id = params[:event_id]
-    @event = Event.find(@event_id)
+    @event = Event.find(params[:event_id])
 
     if (@event.allow_venue_suggestion or current_user.id === @event.owner_id)
-      @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event_id)
+      @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event.id)
 
       #only allow multiple venue suggestion if user is event owner
       if @already_suggested_venue and (current_user.id != @event.owner_id)
         respond_to do |format|
-          format.html { redirect_to event_path(@event_id),
+          format.html { redirect_to event_path(@event.id),
                         notice: "You have already suggested a venue for this event. Try removing your existing venue."}
           format.js
         end
       else
-        @venue = Venue.new
+        @venue = @event.venues.build
         respond_to do |format|
           format.html # new.html.erb
           format.json { render json: @venue }
@@ -45,8 +44,9 @@ class VenuesController < ApplicationController
 
   # GET /venues/1/edit
   def edit
+    @event = Event.find(params[:event_id])
+
     if current_user.id == @venue.user.id
-      @event_id = @venue.event.id
       @venue.address = @venue.address.gsub("<br>", "\n").html_safe
 
       respond_to do |format|
@@ -55,7 +55,7 @@ class VenuesController < ApplicationController
         format.js {render action: 'new'}
       end
     else
-      redirect_to @venue.event, notice: 'You are not authorized to access that page.'
+      redirect_to @event, notice: 'You are not authorized to access that page.'
     end
 
   end
@@ -63,35 +63,36 @@ class VenuesController < ApplicationController
   # POST /venues
   # POST /venues.json
   def create
-    @venue = Venue.new(params[:venue])
+    @event = Event.find(params[:event_id])
+    @venue = @event.venues.build(params[:venue])
     @venue.address = @venue.address.gsub("\n", "<br>").html_safe
 
-    if(@venue.event != nil)
+    if(@event != nil)
       @venue.user = current_user
       #@venue.votecount = 1
 
       respond_to do |format|
         if @venue.save
           #automatically votes for suggested venue if not already voted for this event
-          if !Voter.exists?(:user_id => current_user.id, :event_id => @venue.event.id)
-            Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
+          if !Voter.exists?(:user_id => current_user.id, :event_id => @event.id)
+            Voter.create!(:user_id => current_user.id, :event_id => @event.id, :venue_id => @venue.id)
             @venue.update_column(:votecount, 1)
           end
 
           @content = "#{current_user} just suggested a venue"
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
-          @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
+          @comment = Comment.create!(:content => @content, :event_id => @event.id)
 
           if(@venue.event.owner_id != current_user.id)
-            AutoMailer.venue_suggested_email_owner(@venue.event.id, @venue.user.id).deliver
+            AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver
           end
-            AutoMailer.venue_suggested_email_guest(@venue.event.id, @venue.user.id).deliver
+            AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
           
-          format.html { redirect_to @venue.event, notice: 'Venue added successfully.' }
-          format.json { render json: @venue.event, status: :created, location: @venue.event }
+          format.html { redirect_to @event, notice: 'Venue added successfully.' }
+          format.json { render json: @event, status: :created, location: @event }
           format.js
         else
-          @event_id = @venue.event.id
+         # @event_id = @venue.event.id
           format.html { render action: "new"}
           format.json { render json: @venue.errors, status: :unprocessable_entity }
           format.js {render action: "new"}
