@@ -9,7 +9,8 @@ MoMondays::Application.routes.draw do
   resources :users, :only => [:edit, :update, :destroy]
 
   resources :events do
-    resources :guests, only: :new, as: 'add_guests'
+    #resources :guests, only: :new, as: "guestlist"
+    match '/guests', controller: 'guests', action: 'new', as: 'guests'
     resources :venues, except: [:index, :show]
   end
   #resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
