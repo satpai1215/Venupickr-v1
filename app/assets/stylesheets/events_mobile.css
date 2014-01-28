@@ -196,6 +196,15 @@
 	line-height: 1em;
 }
 
+.noVenuesLabel {
+	font-weight: bold;
+	font-style: italic;
+	font-size: 0.8em;
+	color: red;
+	text-align: center;
+	line-height: 1em;
+}
+
 
 #voteMeterDialog {
 	color: #2D46CF;
@@ -334,7 +343,6 @@
 	font-size: 0.85em;
 	padding: 0px 5px;
 }
-
 
 #discussionBoard-container {
 	padding-right: 0px;
@@ -588,13 +596,30 @@
 		margin: 30px 0;
 		text-align: center;
 	}
-	.event-nav-link {
-		margin: 0 20px;
+	.hide-toggle {
+		display: none;
 	}
 
+	.event-nav-link {
+		cursor: pointer;
+		display: inline-block;
+		width: 30%;
+	}
+	.event-nav-link:hover {
+		text-decoration: none;
+		color: green;
+	}
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
 	}
+	.expand-toggle {
+		float: right;
+		color: blue;
+		cursor: pointer;
+		padding-left: 30px;
+	}
+
+
 
 
 /*----------------------------------------------------------------------------- 
@@ -860,17 +885,6 @@ button.ui-dialog-titlebar-close {
 	font-style: italic;
 }
 
-.expand-toggle {
-	float: right;
-	color: blue;
-	cursor: pointer;
-	padding-left: 30px;
-}
-
-.hide-toggle {
-	display: none;
-}
-
-.event-nav-link {
-	cursor: pointer;
+.bold {
+	font-weight: bold;
 }

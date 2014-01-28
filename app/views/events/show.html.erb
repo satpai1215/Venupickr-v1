@@ -46,7 +46,7 @@
 				</div> <!-- eventbox -->
 
 				<div id = "event-nav">
-					<a class = "event-nav-link" id = "event-nav-link-1">Venue List</a>
+					<a class = "event-nav-link bold green" id = "event-nav-link-1">Venue List</a>
 					<a class = "event-nav-link" id = "event-nav-link-2">Guest List</a>
 					<a class = "event-nav-link" id = "event-nav-link-3">Discussion Board</a>
 				</div>
@@ -111,7 +111,11 @@
 			<div class = "eventbox">
         		<div class = "eventbox-header">
 					<div class = "eventbox-secondary-header-text">Recommended Venues:</div>
-					<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
+
+					<%if @venues.count === 0 %>
+                         <div class = "noVenuesLabel row"><li> <%= @no_venues_text %></li></div>
+                    <% end %>
+					
 				</div> <!--venueList-header -->
         		
 
@@ -125,7 +129,7 @@
 
 			</div> <!--eventbox-->
 			<div id = "venueList-container" class = "clear">
-
+				<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 				<ul id = "venueList">
 				<!-- 	<#% if @is_owner and @event.stage == 'Voting' %>
 						<div id = "venueSuggestionIndicator" class ="venueList-note">  
@@ -133,12 +137,8 @@
                         </div>
                     <#% end %> -->
 
-					<%if @venues.count === 0 %>
-                        <div class = "noEventsLabel venueList-note">  
-                            <div class = "row"><li> <%= @no_venues_text %></li></div>
-                        </div>
 
-                    <% else %>
+                    <% if @venues.count > 0 %>
                    
 						<% @venues.each do |venue| %>
 						 
