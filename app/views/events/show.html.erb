@@ -3,13 +3,12 @@
 				<div class = "eventbox">
 					<div class = "eventbox-header">
 						<div class = "eventInfo-header-text"><%= h(@event.name) %></div>
-		
+			
 						<span id = "eventShowModifiers">
 							<% if @is_owner %>
 								
 									<%= display_edit_event(@event) %>
 									<%= display_delete_event(@event) %>
-									<%= display_invite_guests(@event) %>
 									<%= display_reminder_link(@event) %>
 							<% else %>
 									<%= display_leave_event(@event) %>
@@ -46,13 +45,18 @@
 					</div><!--eventbox-content -->
 				</div> <!-- eventbox -->
 
-			<div class = "eventbox" id = "event-guestlist-container">
+				<div id = "event-nav">
+					<a class = "event-nav-link" id = "event-nav-link-1">Venue List</a>
+					<a class = "event-nav-link" id = "event-nav-link-2">Guest List</a>
+					<a class = "event-nav-link" id = "event-nav-link-3">Discussion Board</a>
+				</div>
+
+			<div class = "eventbox hide-box hide-toggle-2" id = "event-guestlist-container">
 					<div class = "eventbox-header">
-						<div class = "eventbox-secondary-header-text">Invited Guests
-							<span class = "expand-toggle">+</span>
-						</div>
+						<div class = "eventbox-secondary-header-text">Guest List<br/>
+						<%= display_invite_guests(@event) %></div>
 					</div> <!--eventInfo-header -->
-					<div class = "hide-box hide-toggle">
+					<div>
 						<div class = 'eventbox-content'>
 							<ul class = "eventbox-content-ul" id = "event-guestlist">	
 								<% if @guests.empty? %>
@@ -77,13 +81,11 @@
 					</div> <!--hide-toggle -->
 			</div> <!-- event-guestlist-container -->
 
-			<div class = "eventbox" id = "discussionBoard-container">
+			<div class = "eventbox hide-box hide-toggle-3" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-secondary-header-text">Discussion Board
-						<span class = "expand-toggle">+</span>
-					</div>
+					<div class = "eventbox-secondary-header-text">Discussion Board</div>
 				</div><!--discussionBoard-header -->
-				<div class = "hide-box hide-toggle">
+				<div>
 					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
 							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
 							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
@@ -105,10 +107,13 @@
 			</div> <!--discussionBoard-container -->
 			<!--insert rsvpList code here -->
 
-
-			<div id = "venueList-header">
-        		<h2>Recommended Venues:</h2>
-        		<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
+			<div class = "hide-box hide-toggle-1" id = "venueTab-container">
+			<div class = "eventbox">
+        		<div class = "eventbox-header">
+					<div class = "eventbox-secondary-header-text">Recommended Venues:</div>
+					<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
+				</div> <!--venueList-header -->
+        		
 
          		<% if @event.stage != "Voting" %>
 					<% if @venues.count == 0 %>
@@ -118,8 +123,8 @@
 					<% end %>
 				<% end %>
 
-			</div> <!--venueList-header-->
-			<div id = "venueList-container">
+			</div> <!--eventbox-->
+			<div id = "venueList-container" class = "clear">
 
 				<ul id = "venueList">
 				<!-- 	<#% if @is_owner and @event.stage == 'Voting' %>
@@ -185,7 +190,7 @@
 				</ul>
 			</div><!-- venueList-container -->
 
-
+		</div>
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
 				</div> <!--createVenueForm-->
 				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
@@ -219,8 +224,8 @@
 
   		//popup guest dialog if event was just created
 		<% if flash[:new_event?] %>
-			$('#inviteGuestsForm').dialog('open');
-			$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
+			//$('#inviteGuestsForm').dialog('open');
+			//$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
 		<% end %>
 
 		//color code rsvp buttons on page refresh
@@ -231,16 +236,6 @@
 			$('#rsvpButton-no').addClass('red').css('background', '#eebfda');
 			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');
 		<% end %>
-
-		$('.expand-toggle').click(function() {
-			$(this).parent().parent().siblings('.hide-box').toggleClass('hide-toggle');
-			if($(this).html() === "+") {
-				$(this).html("-");
-			}
-			else {
-				$(this).html("+");
-			}
-		});
 
 
 	});
