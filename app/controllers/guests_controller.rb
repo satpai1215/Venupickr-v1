@@ -16,14 +16,23 @@ class GuestsController < ApplicationController
 #end before_filter methods
 
 	def omnicontacts
+		@event = Event.find(session[:event_id])
+		if @event
 		@contacts = request.env['omnicontacts.contacts']
 		@user = request.env['omnicontacts.user']
 		@emails = []
 		@contacts.each do |c|
 		@emails << c[:email] unless c[:email] === nil
-	end
+		end
 
 		puts "emails: #{@emails}"
+
+
+		#redirect_to event_guests_path(@event), flash: {gmail_auth: true}
+
+		else #eventpage not stored properly
+
+		end
 	end
 
 
@@ -34,6 +43,7 @@ class GuestsController < ApplicationController
 
 
 	def new
+		session[:back] = event_guests_path(@event)
 		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
 		    respond_to do |format|
