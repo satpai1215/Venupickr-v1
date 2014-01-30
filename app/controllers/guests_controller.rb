@@ -16,7 +16,7 @@ class GuestsController < ApplicationController
 #end before_filter methods
 
 	def omnicontacts
-		@event = Event.find(session[:event_id])
+		@event = Event.find_by_id(session[:event_id])
 		if @event
 		@contacts = request.env['omnicontacts.contacts']
 		@user = request.env['omnicontacts.user']
@@ -25,10 +25,7 @@ class GuestsController < ApplicationController
 		@emails << c[:email] unless c[:email] === nil
 		end
 
-		puts "emails: #{@emails}"
-
-
-		#redirect_to event_guests_path(@event), flash: {gmail_auth: true}
+		redirect_to event_guests_path(@event), flash: {gmail_auth: true}
 
 		else #eventpage not stored properly
 
@@ -37,13 +34,18 @@ class GuestsController < ApplicationController
 
 
 	def omnicontacts_failure
-
+		@event  = Event.find_by_id(session[:event_id])
+		if @event
+			redirect_to event_guests_path(@event), notice: "Could not authenicate our gMail Account"
+		else
+			redirect_to events_path, notice: "Could not authenicate our gMail Account"
+		end
 	end
 
 
 
 	def new
-		session[:back] = event_guests_path(@event)
+		session[:event_id] = @event.id
 		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
 		    respond_to do |format|

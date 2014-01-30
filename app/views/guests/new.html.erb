@@ -3,13 +3,13 @@
 	<h3>Invite List</h3>
 </div>
 
-<% if flash[:gmail_auth] %>
-	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
-
-<% else %>
-	<%= link_to "Find Gmail Contacts", "/contacts/gmail", event_id: @event.id %>
-<% end %>
-
+<div id = "email-entry-container">
+	<% if flash[:gmail_auth] %>
+		<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
+	<% else %>
+		<%= link_to "Find Gmail Contacts", "/contacts/gmail" %>
+	<% end %>
+</div>
 <%= render 'guest_form' %>
 
 <script>

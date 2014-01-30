@@ -30,7 +30,7 @@ MoMondays::Application.routes.draw do
   match '/guests/leave_event/' => 'guests#leave_event'
 
 
-  match "/contacts/gmail/callback", controller: "guests", action: "new"
+  match "/contacts/gmail/callback", controller: "guests", action: "omnicontacts"
   match "/contacts/failure", controller: "guests", action: "omnicontacts_failure"
 
 
