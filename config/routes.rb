@@ -33,8 +33,6 @@ MoMondays::Application.routes.draw do
   match "/contacts/gmail/callback", controller: "guests", action: "omnicontacts"
   match "/contacts/failure", controller: "guests", action: "omnicontacts_failure"
 
-  get "users/getcontacts" => "users#retrieve_contacts"
-
   root :to => 'events#index'
 
 

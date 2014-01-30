@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   
   #return json of user's contacts
-  def retrieve_contacts
-    if(user_signed_in?)
-      respond_to do |format|
-        format.json {render json: current_user.gmail_contacts}
-      end
-    else
-      redirect_to root_path, notice: "You are not authorized to do that."    
-    end
-  end
+  # def retrieve_contacts
+  #   if(user_signed_in?)
+  #     respond_to do |format|
+  #       format.json {render json: current_user.gmail_contacts}
+  #     end
+  #   else
+  #     redirect_to root_path, notice: "You are not authorized to do that."    
+  #   end
+  # end
 
 
   # GET /users

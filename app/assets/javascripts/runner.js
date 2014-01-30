@@ -177,6 +177,33 @@ function populateEmailDropdown() {
     });
 }
 
+function getEmails() {
+    $( "#email-dropdown" ).autocomplete({
+        source: gon.contacts,
+        autoFocus: true,
+        minLength: 3,
+        dataType: 'json',
+        delay: 500,
+        select: function( event, ui ) {
+            /*var addy = ""
+            ui.item.address.forEach(function(line) {
+                addy += line + "\n";
+            });*/
+           $("#email-list").append("<li>"+ ui.item.value + "</li>");
+           $("#email-dropdown").val("");
+           console.log("poop");
+
+        },
+        open: function() {
+            $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+        },
+        close: function() {
+            $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+        }
+    });
+}
+
+
 /********************
 END EMAIL DROPDOWN FUNCTION
 *********************/

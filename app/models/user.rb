@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def contacts_up_to_date? 
-    self.gmail_contacts_updated_at and self.gmail_contacts_updated_at > DateTime.now - 10.days
+    self.gmail_contacts and self.gmail_contacts_updated_at > DateTime.now - 10.days
   end
 
  

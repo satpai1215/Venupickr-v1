@@ -21,7 +21,7 @@ class GuestsController < ApplicationController
 		current_user.get_contacts(request)
 
 		if @event
-			redirect_to event_guests_path(@event), flash: {gmail_auth: true}
+			redirect_to event_guests_path(@event)
 		else #session event_id not stored properly
 			redirect_to events_path, notice: "Could not authenticate your gmail account"
 		end
@@ -31,7 +31,7 @@ class GuestsController < ApplicationController
 	def omnicontacts_failure
 		@event  = Event.find_by_id(session[:event_id])
 		if @event
-			redirect_to event_guests_path(@event), notice: "Could not authenicate our gMail Account"
+			redirect_to event_guests_path(@event), notice: "Could not authenicate our gmail Account"
 		else
 			redirect_to events_path, notice: "Could not authenicate our gMmil Account"
 		end
@@ -41,6 +41,9 @@ class GuestsController < ApplicationController
 
 	def new
 		session[:event_id] = @event.id
+		if (current_user.gmail_contacts) 
+			gon.contacts = current_user.gmail_contacts
+		end
 		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
 		    respond_to do |format|
