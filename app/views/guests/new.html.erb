@@ -4,7 +4,7 @@
 </div>
 
 <div id = "email-entry-container">
-	<% if current_user.gmail_contacts %>
+	<% if current_user.contacts_up_to_date? %>
 		<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
 	<% else %>
 		<%= link_to "Find Gmail Contacts", "/contacts/gmail" %>

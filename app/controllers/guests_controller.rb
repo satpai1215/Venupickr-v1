@@ -18,7 +18,7 @@ class GuestsController < ApplicationController
 	def omnicontacts
 		@event = Event.find_by_id(session[:event_id])
 
-		current_user.update_contacts(request)
+		current_user.get_contacts(request)
 
 		if @event
 			redirect_to event_guests_path(@event), flash: {gmail_auth: true}

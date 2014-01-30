@@ -66,26 +66,21 @@ class User < ActiveRecord::Base
       end
   end
 
-  def update_contacts(req)
-
-    #checks it gmail contacts have been initialize at all, or updated in the past 10 days
-    if gmail_contacts_updated_at and gmail_contacts_updated_at > DateTime.now - 10.days
-    #otherwise update gmail_contacts
-    else
-      @contacts = req.env['omnicontacts.contacts']
-      #@user = request.env['omnicontacts.user']
-      @emails = []
-      @contacts.each do |c|
-        @emails << c[:email] unless c[:email] === nil
-      end
-
-      update_attribute(:gmail_contacts, @emails)
-      update_attribute(:gmail_contacts_updated_at, DateTime.now)
+  def get_contacts(req)
+    @contacts = req.env['omnicontacts.contacts']
+    #@user = request.env['omnicontacts.user']
+    @emails = []
+    @contacts.each do |c|
+      @emails << c[:email] unless c[:email] === nil
     end
+
+    update_attribute(:gmail_contacts, @emails)
+    update_attribute(:gmail_contacts_updated_at, DateTime.now)
   end
 
-  def get_contacts
-    self.gmail_contacts
+  def contacts_up_to_date? 
+    self.gmail_contacts_updated_at and self.gmail_contacts_updated_at > DateTime.now - 10.days
   end
 
+ 
 end
