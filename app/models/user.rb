@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  serialize :gmail_contacts
+  serialize :gmail_contacts, Array
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :username, :password_confirmation, :remember_me, :access_code, :notification_emails, :firstname, :lastname
+  attr_accessible :email, :password, :username, :password_confirmation, :remember_me, :access_code, 
+                :notification_emails, :firstname, :lastname, :gmail_contacts
+
   has_many :events, through: :guests
   has_many :guests, dependent: :destroy
   has_many :venues,  dependent: :destroy
@@ -52,24 +54,38 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_facebook_oauth(auth)
-  where(auth.slice(:info['email'])).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.firstname ||= auth.info.first_name
-      user.lastname ||= auth.info.last_name
-      #user.image = auth.info.image # assuming the user model has an image
-      user.save!
+    where(auth.slice(:info['email'])).first_or_initialize.tap do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.firstname ||= auth.info.first_name
+        user.lastname ||= auth.info.last_name
+        #user.image = auth.info.image # assuming the user model has an image
+        user.save!
+      end
+  end
+
+  def update_contacts(req)
+
+    #checks it gmail contacts have been initialize at all, or updated in the past 10 days
+    if gmail_contacts_updated_at and gmail_contacts_updated_at > DateTime.now - 10.days
+    #otherwise update gmail_contacts
+    else
+      @contacts = req.env['omnicontacts.contacts']
+      #@user = request.env['omnicontacts.user']
+      @emails = []
+      @contacts.each do |c|
+        @emails << c[:email] unless c[:email] === nil
+      end
+
+      update_attribute(:gmail_contacts, @emails)
+      update_attribute(:gmail_contacts_updated_at, DateTime.now)
     end
   end
 
-    def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
+  def get_contacts
+    self.gmail_contacts
   end
 
 end

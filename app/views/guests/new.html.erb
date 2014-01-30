@@ -4,7 +4,7 @@
 </div>
 
 <div id = "email-entry-container">
-	<% if flash[:gmail_auth] %>
+	<% if current_user.gmail_contacts %>
 		<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
 	<% else %>
 		<%= link_to "Find Gmail Contacts", "/contacts/gmail" %>
@@ -16,7 +16,8 @@
 
 $(function() {
     //console.log("here");
-    //console.log(getEmails());
+    //console.log(getEmails())
+    generateEmailDropdown();
 $( "#email-dropdown" ).autocomplete({
     source: getEmails(),
     autoFocus: true,
@@ -42,9 +43,9 @@ $( "#email-dropdown" ).autocomplete({
 });
 
 function getEmails() {
-       var emails = <%= raw flash[:emails].to_json %>;
+   var emails = <%= raw current_user.get_contacts %>;
 
-        return emails;
+   return emails;
 }
 
 
