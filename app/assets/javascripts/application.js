@@ -82,6 +82,19 @@ $(document).ready(function() {
       $('.hide-toggle-' + index).show();
   });
 
+    $(document).on('keypress', '#email-dropdown', function(event) {
+        if(event.keyCode == 13) {
+            var span = $("#new-guest-form-invitelist").prepend(
+                "<span>" + $("#email-dropdown").val() + "<a class = 'remove-email'>X</a>" + "</span>"
+           );
+            $("#email-dropdown").val("");
+        }
+    });
+
+  $(document).on('click', '.remove-email', function(event) {
+    $(this).parent().remove();
+  });
+
    $('#user_notification_emails').change(function() {  
       if (!$(this).prop('checked')) {
         window.alert("Are you sure?  You will no longer get reminders about events and voting.");

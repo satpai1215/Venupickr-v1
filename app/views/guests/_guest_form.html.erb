@@ -1,16 +1,26 @@
-<%= form_tag("/guests/update_guestlist", :method => :post, :id => "new-guest-form", :remote => true ) do %>
 
-  <div class="field">
-    <div id = "new-guest-form-invitelist">
+<div id = "email-entry-container">
+	<h3>Invite List</h3>
+	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
+	<span id = "gmail-contacts-hint">
+		<% if current_user.contacts_up_to_date? %>
+			<p>Gmail Contacts Loaded</p>
+		<% else %>
+			<%= link_to "Find Gmail Contacts", "/contacts/gmail", {id: "gmail-contcts-link"} %>
+		<% end %>
+	</span>
+</div>
+
+<%= form_tag("/guests/updaste_guestlist", :method => :post, :id => "new-guest-form", :remote => true ) do %>
+
+	<div id = "new-guest-form-invitelist">
+	</div>
 
 
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag "Update Guestlist", :id => "new-guest-form-submit" %><br/>
-    <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
-  </div>
+	<div class="actions">
+		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit" %><br/>
+		<%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
+	</div>
 <% end %>
 
 

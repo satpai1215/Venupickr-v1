@@ -148,35 +148,6 @@ END COUTNDOWN CREATION FUNCTIONS
 START EMAIL DROPDOWN FUNCTION
 *********************/
 
-function populateEmailDropdown() {
-    //console.log(getEmails());
-    $.getJSON("/users/getcontacts", function(data) {
-        $( "#email-dropdown" ).autocomplete({
-        source: data,
-        autoFocus: true,
-        minLength: 3,
-        dataType: 'json',
-        delay: 500,
-        select: function( event, ui ) {
-            /*var addy = ""
-            ui.item.address.forEach(function(line) {
-                addy += line + "\n";
-            });*/
-           $("#email-list").append("<li>"+ ui.item.value + "</li>");
-           $("#email-dropdown").val("");
-           console.log("poop");
-
-        },
-        open: function() {
-            $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-        },
-        close: function() {
-            $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-        }
-        });
-    });
-}
-
 function getEmails() {
     $( "#email-dropdown" ).autocomplete({
         source: gon.contacts,
@@ -185,14 +156,15 @@ function getEmails() {
         dataType: 'json',
         delay: 500,
         select: function( event, ui ) {
+            event.preventDefault();
             /*var addy = ""
             ui.item.address.forEach(function(line) {
                 addy += line + "\n";
             });*/
-           $("#email-list").append("<li>"+ ui.item.value + "</li>");
+           var span = $("#new-guest-form-invitelist").prepend(
+                "<span>" + ui.item.value + "<a class = 'remove-email'>X</a>" + "</span>"
+           );
            $("#email-dropdown").val("");
-           console.log("poop");
-
         },
         open: function() {
             $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );

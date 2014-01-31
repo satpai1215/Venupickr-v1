@@ -1,16 +1,9 @@
 <div id = "new-guest-form-header">
 	<h2>"<%= @event.name %>"</h2>
-	<h3>Invite List</h3>
+	<%= link_to "Back to Event Page", event_path(@event), id: "back-link" %>
 </div>
 
-<div id = "email-entry-container">
-	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
-	<% if current_user.contacts_up_to_date? %>
-	<% else %>
-		<%= link_to "Find Gmail Contacts", "/contacts/gmail" %>
-	<% end %>
-</div>
-<%= render 'guest_form' %>
+<div id = "new-guest-form-container"><%= render 'guest_form' %></div>
 
 <script>
 
