@@ -11,7 +11,7 @@ group :development do
 end
 
 gem 'devise'
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
 
 
 gem 'sass-rails',   '~> 3.2.3'

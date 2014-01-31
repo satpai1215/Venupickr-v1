@@ -60,7 +60,6 @@ GEM
     gon (4.0.2)
       actionpack (>= 2.3.0)
       json
-    hashie (2.0.5)
     heroku (2.35.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -70,7 +69,6 @@ GEM
     heroku-api (0.3.9)
       excon (~> 0.20.1)
     hike (1.2.1)
-    httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -80,8 +78,6 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.7)
-    jwt (0.1.8)
-      multi_json (>= 1.5)
     koala (1.7.0rc1)
       addressable
       faraday
@@ -98,20 +94,6 @@ GEM
     netrc (0.7.7)
     newrelic_rpm (3.6.5.130)
     oauth (0.4.7)
-    oauth2 (0.8.1)
-      faraday (~> 0.8)
-      httpauth (~> 0.1)
-      jwt (~> 0.1.4)
-      multi_json (~> 1.0)
-      rack (~> 1.2)
-    omniauth (1.1.4)
-      hashie (>= 1.2, < 3)
-      rack
-    omniauth-facebook (1.4.1)
-      omniauth-oauth2 (~> 1.1.0)
-    omniauth-oauth2 (1.1.1)
-      oauth2 (~> 0.8.0)
-      omniauth (~> 1.0)
     omnicontacts (0.3.4)
       json
       rack
@@ -189,7 +171,6 @@ DEPENDENCIES
   koala (~> 1.7.0rc1)
   newrelic_rpm
   oauth (~> 0.4.7)
-  omniauth-facebook
   omnicontacts
   pg
   rails (= 3.2.11)

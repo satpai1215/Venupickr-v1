@@ -41,11 +41,11 @@ class GuestsController < ApplicationController
 
 	def new
 		session[:event_id] = @event.id
-		if (current_user.gmail_contacts) 
-			gon.contacts = current_user.gmail_contacts
-		end
 		#replace true with allow_invite_guests? or equivalent
 		if(current_user.id === @event.owner_id or true)
+			if (current_user.gmail_contacts) 
+				gon.contacts = current_user.gmail_contacts
+			end
 		    respond_to do |format|
 	        	format.html
 	        	format.js

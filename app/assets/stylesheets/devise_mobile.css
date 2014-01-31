@@ -83,16 +83,13 @@
 	width: 50px;
 }
 
-#devise-links {
-	clear: both;
 
+.devise-links a {
+	clear:both;
+	display: block;
+	text-align: center;
+	margin: 5px 25px;
 }
-
-	.devise-links a {
-		display: block;
-		text-align: center;
-		margin: 5px 25px;
-	}
 
 /*----------------------------------------------------------------------------- 
 = USER REGISTRATION PAGE

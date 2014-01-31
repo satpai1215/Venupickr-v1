@@ -11,13 +11,9 @@
 
       <div class = "field"><%= f.label :lastname, "Last Name" %><br/><%= f.text_field :lastname %></div>
 
-      <div class = "field"><%= f.label :username %><%= f.text_field :username %></div>
-
       <div class = "field"><%= f.label :password %><%= f.password_field :password %></div>
 
       <div class = "field"><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></div>
-
-      <div class = "field"><%= f.label :access_code %><%= f.password_field :access_code %></div>
 
        <div class = "actions"><%= f.submit "Sign Up", {:class => "sign_up_btn btn btn-primary"} %></div>
     <% end %>

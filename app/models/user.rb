@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  #devise :omniauthable, :omniauth_providers => [:facebook]
 
   serialize :gmail_contacts, Array
 
@@ -71,15 +71,16 @@ class User < ActiveRecord::Base
     #@user = request.env['omnicontacts.user']
     @emails = []
     @contacts.each do |c|
-      @emails << c[:email] unless c[:email] === nil
+      email = c[:email].nil? ?  "" : c[:email]
+      name = c[:name].nil? ?  "" : "#{c[:name]}:  "
+      @emails << {label: "#{name} #{email}", value: email}
     end
-
     update_attribute(:gmail_contacts, @emails)
     update_attribute(:gmail_contacts_updated_at, DateTime.now)
   end
 
   def contacts_up_to_date? 
-    self.gmail_contacts and self.gmail_contacts_updated_at > DateTime.now - 10.days
+    !self.gmail_contacts.nil? and self.gmail_contacts_updated_at > DateTime.now - 10.days
   end
 
  

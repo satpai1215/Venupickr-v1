@@ -7,27 +7,24 @@
 }
 
 
-#invite_guest_form_userlist_header {
+#new-guest-form-header {
 	color: #2e6ab1;
 	font-weight: normal;
 	text-align: center;
 }
 
-#invite_guest_form_userlist {
+#new-guest-form-invitelist {
+	cursor: text;
+	width: 70%;
+	margin: 0 auto;
+	background: white;
+	position: relative;
+	min-height: 300px;
+	border: solid 1px black;
 }
 
 
-
-input[class = "guest_checkbox"] {
-	margin: 0px;
-}
-
-.guest_checkbox_label {
-	font-size: 0.8em;
-	display: inline-block;
-	width: 80%;
-	margin: 0px;
-	overflow-x: hidden;
-	text-overflow: ellipsis;
-	vertical-align: middle;
+#new-guest-form-submit {
+	display: block;
+	margin: 0 auto;
 }
