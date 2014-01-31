@@ -306,7 +306,7 @@
 	}
 
 #event-guestlist {
-	max-height: 150px;
+	min-height: 150px;
 	overflow-y: auto;
 }
 
@@ -318,26 +318,28 @@
 }
 
 .guestlist-row {
-	padding: 3px 0px;
+	height: 50px;
+	margin-bottom: 5px;
+	border-bottom: dotted 1px gray;
 	clear: both;
+	text-align: center;
 }
 
 .guestlist-name {
 	clear: both;
 	float: left;
 	width: 50%;
-	padding-right: 5px;
-	overflow-x: hidden;
+	line-height: 50px;
 	text-overflow: ellipsis;
 }
 
 .rsvp-response {
 	float: right;
-	width: 45%;
+	width: 50%;
 }
 .rsvp-response-text {
 	display: block;
-	text-align: center;
+	line-height: 50px;
 	font-style: italic;
 }
 
