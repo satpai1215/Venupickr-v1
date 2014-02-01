@@ -1,7 +1,7 @@
 
 <div id = "email-entry-container">
 	<h3>Invite List</h3>
-	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails"} %>
+	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails (hit 'enter' to add)"} %>
 	<span id = "gmail-contacts-hint">
 		<% if current_user.contacts_up_to_date? %>
 			<p>Gmail Contacts Loaded</p>

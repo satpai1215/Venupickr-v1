@@ -161,10 +161,14 @@ function getEmails() {
             ui.item.address.forEach(function(line) {
                 addy += line + "\n";
             });*/
-           var span = $("#new-guest-form-invitelist").prepend(
+            if(ui.item.value != "") {
+                var span = $("#new-guest-form-invitelist").prepend(
                 "<span>" + ui.item.value + "<a class = 'remove-email'>X</a>" + "</span>"
-           );
-           $("#email-dropdown").val("");
+                );
+                $("#email-dropdown").val("");
+             } else {
+                $("#notice").text("No email associated with contact.").delay(3000).fadeOut(1000);
+             }
         },
         open: function() {
             $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -178,7 +182,7 @@ function getEmails() {
 
 /********************
 END EMAIL DROPDOWN FUNCTION
-*********************/
+********************/
 
 
 /********************

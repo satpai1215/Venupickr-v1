@@ -107,16 +107,13 @@
 /*----------------------------------------------------------------------------- 
 = USER SETTINGS PAGE
 -----------------------------------------------------------------------------*/
-#notification_email_select {
+#notification_email_select, #unlink_gmail_select {
 	margin: 5px 0px;
 	text-align: center;
 }
 
-#user_notification_emails {
+#user_notification_emails, #unlink_gmail_select input {
 	margin-left: 0px;
-}
-
-#user_notification_emails {
 	width: 20px;
 	margin-top: 0px;
 }

@@ -36,6 +36,11 @@
         <%= f.label  :notification_emails, "Send Notification Emails?" %>
       </div>
 
+      <div class ="field" id = "unlink_gmail_select">
+        <%= check_box :keep_gmail_contacts, checked: false  %>
+        <%= f.label  :keep_gmail_contacts, "Unlink Gmail Contacts?", id: "unlink_gmail_checkbox" %>
+      </div>
+
 
       <div id = "user-edit-confirmation-container">
           <div class="field">
