@@ -88,7 +88,7 @@ $(document).ready(function() {
             if(validateEmail(emailinput)) {
                 addEmailToRecipientList(emailinput);
               } else {
-                $("#notice").text("That email address is invalid.").fadeIn(1000).delay(3000).fadeOut(1000);
+                $("#notice").text("That email address is invalid.").fadeIn().delay(3000).fadeOut(1000);
               }
           $("#email-dropdown").val("");
         }

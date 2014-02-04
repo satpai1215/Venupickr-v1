@@ -59,6 +59,8 @@ class GuestsController < ApplicationController
 
 		@event = Event.find(params[:event_id])
 
+		@recipient_emails = params[:recipients]
+
 
 		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
 		# @new_guest_ids = params[:guest_ids] #checked guests on form

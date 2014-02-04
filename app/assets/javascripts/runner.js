@@ -165,7 +165,7 @@ function getEmails() {
             if(ui.item.value != "" && validateEmail(emailinput)) {
                 addEmailToRecipientList(emailinput);
              } else {
-                $("#notice").text("The email associated with the contact is invalid.").fadeIn(1000).delay(3000).fadeOut(1000);
+                $("#notice").text("The email associated with the contact is invalid.").fadeIn().delay(3000).fadeOut(1000);
              }
         },
         open: function() {
@@ -178,12 +178,8 @@ function getEmails() {
 }
 
 function addEmailToRecipientList(email) {
-    var span = $("#new-guest-form-invitelist").prepend(
-                    "<span>" + email + "<a class = 'remove-email'>X</a>" + "</span>"
-                );
-    span.append(
+    $("<span>" + email + "<a class = 'remove-email'>X</a>" + "</span>").prependTo("#new-guest-form-invitelist").append(
         '<input name="recipients[]" type="hidden" value="' + email + '">'
-
     );
     $("#email-dropdown").val("");
 }
