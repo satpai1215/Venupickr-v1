@@ -59,7 +59,12 @@ class GuestsController < ApplicationController
 
 		@event = Event.find(params[:event_id])
 
-		@recipient_emails = params[:recipients]
+		#AutoMailer.send_invite_email(@event.id, params[:recipients]).deliver
+
+		respond_to do |format|
+			format.html {redirect_to @event, notice: "An invitation has been emailed to your guests."}
+			#format.js
+		end
 
 
 		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
@@ -91,10 +96,6 @@ class GuestsController < ApplicationController
 		# 	@event.invite!(current_user.id)
 		# end
 
-		respond_to do |format|
-			format.html {redirect_to @event, notice: "An invitation has been emailed to your guests."}
-			#format.js
-		end
 
 	end
 

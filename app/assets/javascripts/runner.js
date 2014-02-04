@@ -178,8 +178,9 @@ function getEmails() {
 }
 
 function addEmailToRecipientList(email) {
-    $("<span>" + email + "<a class = 'remove-email'>X</a>" + "</span>").prependTo("#new-guest-form-invitelist").append(
-        '<input name="recipients[]" type="hidden" value="' + email + '">'
+    $("<span>" + email + "<a class = 'remove-email'>X</a>" + "</span>")
+        .prependTo("#new-guest-form-invitelist")
+        .append('<input name="recipients[]" type="hidden" value="' + email + '">'
     );
     $("#email-dropdown").val("");
 }
