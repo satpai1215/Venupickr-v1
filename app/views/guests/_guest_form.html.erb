@@ -6,7 +6,7 @@
 		<% if current_user.contacts_up_to_date? %>
 			<p>Gmail Contacts Loaded</p>
 		<% else %>
-			<%= link_to "Find Gmail Contacts", "/contacts/gmail", {id: "gmail-contcts-link"} %>
+			<%= link_to "Find Gmail Contacts", "/contacts/gmail", {id: "gmail-contacts-link"} %>
 		<% end %>
 	</span>
 </div>
@@ -15,7 +15,7 @@
 	<div class = "field">
     <%= hidden_field_tag :event_id, event_id %>
   	</div>
-	<%= hidden_field_tag :recipients, nil,  id: "new-guest-form-invitelist" %>
+	<div id= "new-guest-form-invitelist" ></div>
 
 
 	<div class="actions">

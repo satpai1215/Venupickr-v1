@@ -59,6 +59,7 @@ class GuestsController < ApplicationController
 
 		@event = Event.find(params[:event_id])
 
+
 		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
 		# @new_guest_ids = params[:guest_ids] #checked guests on form
 
@@ -89,7 +90,7 @@ class GuestsController < ApplicationController
 		# end
 
 		respond_to do |format|
-			format.html {redirect_to @event}
+			format.html {redirect_to @event, notice: "An invitation has been emailed to your guests."}
 			#format.js
 		end
 

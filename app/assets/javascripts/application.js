@@ -84,10 +84,13 @@ $(document).ready(function() {
 
     $(document).on('keypress', '#email-dropdown', function(event) {
         if(event.keyCode == 13) {
-            var span = $("#new-guest-form-invitelist").prepend(
-                "<span>" + $("#email-dropdown").val() + "<a class = 'remove-email'>X</a>" + "</span>"
-           );
-            $("#email-dropdown").val("");
+            var emailinput = $("#email-dropdown").val();
+            if(validateEmail(emailinput)) {
+                addEmailToRecipientList(emailinput);
+              } else {
+                $("#notice").text("That email address is invalid.").fadeIn(1000).delay(3000).fadeOut(1000);
+              }
+          $("#email-dropdown").val("");
         }
     });
 
