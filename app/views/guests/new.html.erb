@@ -3,7 +3,7 @@
 	<%= link_to "Back to Event Page", event_path(@event), id: "back-link" %>
 </div>
 
-<div id = "new-guest-form-container"><%= render 'guest_form' %></div>
+<div id = "new-guest-form-container"><%= render 'guest_form', event_id: @event.id%></div>
 
 <script>
 

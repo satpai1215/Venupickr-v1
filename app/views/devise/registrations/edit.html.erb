@@ -36,10 +36,12 @@
         <%= f.label  :notification_emails, "Send Notification Emails?" %>
       </div>
 
-      <div class ="field" id = "unlink_gmail_select">
-        <%= check_box :keep_gmail_contacts, checked: false  %>
-        <%= f.label  :keep_gmail_contacts, "Unlink Gmail Contacts?", id: "unlink_gmail_checkbox" %>
-      </div>
+      <% if !current_user.gmail_contacts.blank? %>    
+        <div class ="field" id = "unlink_gmail_select">
+          <%= check_box_tag :unlink_gmail_contacts, "unlink_gmail_box", false  %>
+          <%= label_tag  :unlink_gmail_contacts, "Unlink Gmail Contacts?", id: "unlink_gmail_checkbox" %>
+        </div>
+      <% end %>
 
 
       <div id = "user-edit-confirmation-container">
@@ -54,6 +56,15 @@
 <% end %>
 
 </div>
+
+<script>
+  $("#keep_gmail_contacts").change(function() {
+    if(this.checked) {
+      alert("Are you sure you want to unlink your gmail contacts? Keeping them linked makes finding your friends easier.");
+    }
+  });
+
+</script>
 <!-- 
     <div class = "cancel_action">
       <h5>Cancel Account?</h5>

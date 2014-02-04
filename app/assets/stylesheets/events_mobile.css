@@ -306,15 +306,13 @@
 	}
 
 #event-guestlist {
-	min-height: 150px;
 	overflow-y: auto;
 }
 
 #show-friends-invite-dialog {
-	font-style: italic;
 	text-align: center;
 	font-weight: normal;
-	font-size: 1em;
+	font-size: 0.6em;
 }
 
 .guestlist-row {

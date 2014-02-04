@@ -56,40 +56,41 @@ class GuestsController < ApplicationController
 	end
 
 	def update_guestlist
+
 		@event = Event.find(params[:event_id])
 
-		@current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
-		@new_guest_ids = params[:guest_ids] #checked guests on form
+		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
+		# @new_guest_ids = params[:guest_ids] #checked guests on form
 
 
-		if !@new_guest_ids.nil?
+		# if !@new_guest_ids.nil?
 
-			#uninvite users that are not checked unless owner
-			@current_guest_ids.each do |id|
-				if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
-					@event.uninvite!(id)
-				end
-			end
+		# 	#uninvite users that are not checked unless owner
+		# 	@current_guest_ids.each do |id|
+		# 		if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
+		# 			@event.uninvite!(id)
+		# 		end
+		# 	end
 
-			#invite users that are checked if they aren't already invited
-			guest_emails = Array.new
-			@new_guest_ids.each do |id|
-				id = id.to_i
-				if !@current_guest_ids.find_index(id)
-					@event.invite!(id)
-					guest_emails.push(User.find(id).email)
-				end
-			end
-			AutoMailer.send_invite_email(@event.id, guest_emails).deliver
+		# 	#invite users that are checked if they aren't already invited
+		# 	guest_emails = Array.new
+		# 	@new_guest_ids.each do |id|
+		# 		id = id.to_i
+		# 		if !@current_guest_ids.find_index(id)
+		# 			@event.invite!(id)
+		# 			guest_emails.push(User.find(id).email)
+		# 		end
+		# 	end
+		# 	AutoMailer.send_invite_email(@event.id, guest_emails).deliver
 
-		else #if no guests are checked, remove all guests except owner
-			@event.guests.destroy_all
-			@event.invite!(current_user.id)
-		end
+		# else #if no guests are checked, remove all guests except owner
+		# 	@event.guests.destroy_all
+		# 	@event.invite!(current_user.id)
+		# end
 
 		respond_to do |format|
 			format.html {redirect_to @event}
-			format.js
+			#format.js
 		end
 
 	end
