@@ -53,6 +53,7 @@ gem 'omnicontacts'
 
 gem "koala", "~> 1.7.0rc1" #for facebook API
 
+gem 'foundation-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
