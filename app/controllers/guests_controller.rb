@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :get_event, :only => [:new, :edit, :destroy, :leave_event]
-	#before_filter :auth_owner, :only => [:edit, :destroy]
+	before_filter :get_event, :only => [:new, :destroy, :leave_event, :update_guestlist]
+	before_filter :auth_owner
 
 #before_filter methods
 	def get_event
@@ -56,8 +56,6 @@ class GuestsController < ApplicationController
 	end
 
 	def update_guestlist
-
-		@event = Event.find(params[:event_id])
 
 		#AutoMailer.send_invite_email(@event.id, params[:recipients]).deliver
 

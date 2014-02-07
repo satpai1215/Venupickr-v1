@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def auth_owner
-    if !(current_user.id == @event.owner_id or current_user.uid == "4802244")
+    if !(current_user.id == @event.owner_id or current_user.username == "Spaiderman")
       redirect_to @event, notice: 'You are not authorized to carry out that action.'
     end
   end
@@ -71,7 +71,7 @@ class EventsController < ApplicationController
       @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
 
       #only show vote counts if voting period is over, or if user is event owner or admin
-      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.uid == "4802244")
+      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @owner.id or current_user.username == "Spaiderman")
       @total_votecounts = @event.voters.count
 
       if @event.stage == "Voting"
@@ -103,7 +103,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
 
-    if current_user.id == @event.owner_id or current_user.uid == "4802244"
+    if current_user.id == @event.owner_id or current_user.username == "Spaiderman"
 
       #convert event_start back into date and time components
       @event.datepicker = @event.event_start.strftime("%m/%d/%Y")
