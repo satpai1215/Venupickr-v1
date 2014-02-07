@@ -35,6 +35,10 @@ class AutoMailer < ActionMailer::Base
     mail(:bcc => guest_emails, :subject => "You have been invited to an event on the Mo' Mondays App!")
   end
 
+  def send_new_user_invite_email(event_id, new_guest_emails)
+
+  end
+
   def venue_suggested_email_owner(event_id, user_id)
     find_event_info(event_id)
     @venue_owner = User.find(user_id)

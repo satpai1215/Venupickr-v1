@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :get_event, :only => [:new, :destroy, :leave_event, :update_guestlist]
-	before_filter :auth_owner
+	before_filter :auth_owner, only: [:new, :update]
 
 #before_filter methods
 	def get_event
@@ -21,7 +21,7 @@ class GuestsController < ApplicationController
 		current_user.get_contacts(request)
 
 		if @event
-			redirect_to event_guests_path(@event)
+			redirect_to event_guests_path(@event), notice: "Gmail contacts loaded."
 		else #session event_id not stored properly
 			redirect_to events_path, notice: "Could not authenticate your gmail account"
 		end
@@ -57,43 +57,20 @@ class GuestsController < ApplicationController
 
 	def update_guestlist
 
+		#pseudo-code
+		# Step 1: Step through params[:recipients]
+		# Step 2: If recipient is a user (i.e. User.find_by_email), invite, add email to invite_array, send invite email
+		# Step 3: If recipient is not a user, send app invite to user (include invitation_token in url)
+		# Step 4: When new user clicks on sign_up link in invite, check for invitation_token.
+				#a: if invitation_token exists, link user to corresponding event after signup
+				#b: else sign up user as normal, no link to event
+
 		#AutoMailer.send_invite_email(@event.id, params[:recipients]).deliver
 
 		respond_to do |format|
 			format.html {redirect_to @event, notice: "An invitation has been emailed to your guests."}
 			#format.js
 		end
-
-
-		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
-		# @new_guest_ids = params[:guest_ids] #checked guests on form
-
-
-		# if !@new_guest_ids.nil?
-
-		# 	#uninvite users that are not checked unless owner
-		# 	@current_guest_ids.each do |id|
-		# 		if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
-		# 			@event.uninvite!(id)
-		# 		end
-		# 	end
-
-		# 	#invite users that are checked if they aren't already invited
-		# 	guest_emails = Array.new
-		# 	@new_guest_ids.each do |id|
-		# 		id = id.to_i
-		# 		if !@current_guest_ids.find_index(id)
-		# 			@event.invite!(id)
-		# 			guest_emails.push(User.find(id).email)
-		# 		end
-		# 	end
-		# 	AutoMailer.send_invite_email(@event.id, guest_emails).deliver
-
-		# else #if no guests are checked, remove all guests except owner
-		# 	@event.guests.destroy_all
-		# 	@event.invite!(current_user.id)
-		# end
-
 
 	end
 

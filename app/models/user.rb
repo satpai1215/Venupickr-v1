@@ -71,9 +71,12 @@ class User < ActiveRecord::Base
     #@user = request.env['omnicontacts.user']
     @emails = []
     @contacts.each do |c|
-      email = c[:email].nil? ?  "" : c[:email]
-      name = c[:name].nil? ?  "" : "#{c[:name]}:  "
-      @emails << {label: "#{name} #{email}", value: email}
+      if c[:email].nil? #don't add to contact list
+      else
+        email = c[:email]
+        name = c[:name].nil? ?  "" : "#{c[:name]}:  "
+        @emails << {label: "#{name} #{email}", value: email}
+      end
     end
     update_attribute(:gmail_contacts, @emails)
     update_attribute(:gmail_contacts_updated_at, DateTime.now)

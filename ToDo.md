@@ -55,3 +55,35 @@ OTHER TO DO\
   ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
 
 
+  #OLD GUEST CONTROLLER CODE:
+
+  		# @current_guest_ids = (@event.users.map { |u| u.id }).sort #cannot be nil since owner is always a guest
+		# @new_guest_ids = params[:guest_ids] #checked guests on form
+
+
+		# if !@new_guest_ids.nil?
+
+		# 	#uninvite users that are not checked unless owner
+		# 	@current_guest_ids.each do |id|
+		# 		if !@new_guest_ids.find_index(id.to_s) and current_user.id != id
+		# 			@event.uninvite!(id)
+		# 		end
+		# 	end
+
+		# 	#invite users that are checked if they aren't already invited
+		# 	guest_emails = Array.new
+		# 	@new_guest_ids.each do |id|
+		# 		id = id.to_i
+		# 		if !@current_guest_ids.find_index(id)
+		# 			@event.invite!(id)
+		# 			guest_emails.push(User.find(id).email)
+		# 		end
+		# 	end
+		# 	AutoMailer.send_invite_email(@event.id, guest_emails).deliver
+
+		# else #if no guests are checked, remove all guests except owner
+		# 	@event.guests.destroy_all
+		# 	@event.invite!(current_user.id)
+		# end
+
+
