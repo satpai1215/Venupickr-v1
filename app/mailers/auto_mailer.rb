@@ -36,7 +36,10 @@ class AutoMailer < ActionMailer::Base
   end
 
   def send_new_user_invite_email(event_id, new_guest_emails)
-
+    find_event_info(event_id)
+    @token = Event.encrypt(@event.id)
+    @url = new_user_registration_with_token_url(@token)
+    mail(:bcc => new_guest_emails, :subject => "You have been invited to join the Mo' Mondays App!")
   end
 
   def venue_suggested_email_owner(event_id, user_id)

@@ -3,6 +3,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		c.link_new_user_to_event(params[:invitation_token])
 	end
 
+	def new
+		puts "!!!!!!!!!!!!!!!!!!!!!!#{params}!!!!!!!!!!!!!!!!!!!!!!!"
+		super
+	end
+
 	def update
 		if params[:unlink_gmail_contacts]
 			current_user.update_attribute(:gmail_contacts, [])
@@ -18,7 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 		if token
 			puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! YES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			@event = Event.find_by_invitation_token
+			@event = Event.decrypt(token)
 			@event.invite!(current_user.id) unless @event.nil?
 		end
 	end

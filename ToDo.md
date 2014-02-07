@@ -18,7 +18,8 @@ OTHER TO DO\
 - allow for venue editing without vote reset?
 - checkbox for guest invites? (disable uninviting of guests by non-owners)
 
-
+ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
+include Rails.application.routes.url_helpers
 
 
 
@@ -52,7 +53,7 @@ OTHER TO DO\
     </div>
   </div> -->
 
-  ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
+
 
 
   #OLD GUEST CONTROLLER CODE:

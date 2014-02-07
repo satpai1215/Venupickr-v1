@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
-                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion
+                  :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion,
+                  :invitation_token
 
   attr_accessor :datepicker, :timepicker
 
@@ -29,6 +30,10 @@ class Event < ActiveRecord::Base
     self.name
   end
 
+  def owner
+    User.find(self.owner_id)
+  end
+
   def invite!(user_id)
     association = self.guests.where(:user_id => user_id).first
     if !association
@@ -44,8 +49,20 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def owner
-    User.find(self.owner_id)
+  def self.decrypt(token)
+    begin
+      hashids = Hashids.new("this is my salt", 25)
+      id = hashids.decrypt(token)
+    rescue NoMethodError
+      return nil
+    else
+      return id.empty? ? nil : Event.find_by_id(id)
+    end
+  end
+
+  def self.encrypt(id)
+    hashids = Hashids.new("this is my salt", 25)
+    hashids.encrypt(id)
   end
 
 

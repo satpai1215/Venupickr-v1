@@ -5,6 +5,9 @@ MoMondays::Application.routes.draw do
   get "pages/archived"
 
   devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations" }
+  devise_scope :user do
+    match '/users/sign_up/:invitation_token', controller: 'users/registrations', :action => 'new', as: "new_user_registration_with_token"
+  end
 
   resources :users, :only => [:edit, :update, :destroy]
 

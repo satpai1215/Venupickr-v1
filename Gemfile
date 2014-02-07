@@ -51,7 +51,7 @@ gem 'heroku-api'
 
 gem 'omnicontacts'
 
-gem "koala", "~> 1.7.0rc1" #for facebook API
+gem 'hashids'
 
 
 # To use ActiveModel has_secure_password
