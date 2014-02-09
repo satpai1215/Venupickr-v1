@@ -1,12 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 	after_filter only: :create do |c|
-		c.link_new_user_to_event(params[:invitation_token])
+		c.link_new_user_to_event(params)
 	end
 
 	def new
-		puts "!!!!!!!!!!!!!!!!!!!!!!#{params}!!!!!!!!!!!!!!!!!!!!!!!"
+		#puts "!!!!!!!!!!!!!!!!!!!!!!#{params}!!!!!!!!!!!!!!!!!!!!!!!"
+		@token = params[:invitation_token]
 		super
 	end
+
 
 	def update
 		if params[:unlink_gmail_contacts]
@@ -18,13 +20,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 	#if user signed up via an event invitation, add user as guest to event after signup
-	def link_new_user_to_event(token)
-		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{token} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
-		if token
+	def link_new_user_to_event(params)
+		@token = params[:invitation_token]
+		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #{params} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		if @token
 			puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! YES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			@event = Event.decrypt(token)
-			@event.invite!(current_user.id) unless @event.nil?
+			@event = Event.decrypt(@token)
+			@user = User.find_by_email(params[:user][:email])
+			if @event
+				@event.invite!(@user.id) unless @user.nil?
+			end
 		end
 	end
 
