@@ -186,9 +186,7 @@
 }
 
 .noEventsLabel {
-	border: solid 1px black;
 	font-weight: bold;
-	font-size: 0.8em;
 	color: red;
 	text-align: center;
 	line-height: 1em;
@@ -197,7 +195,6 @@
 .noVenuesLabel {
 	font-weight: bold;
 	font-style: italic;
-	font-size: 0.8em;
 	color: red;
 	text-align: center;
 	line-height: 1em;
