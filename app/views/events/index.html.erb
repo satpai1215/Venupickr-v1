@@ -14,7 +14,7 @@
                 <ul>
                     <%if @upcoming_events.count === 0 %>
                         <div class = "noEventsLabel">  
-                            <div class = "row eventItem"><li> No upcoming events </li></div>
+                            <div class = "eventItem"><li> No upcoming events </li></div>
                         </div>
                     <% else %>
                         <% @upcoming_events.each_with_index do |event, index| %> 
