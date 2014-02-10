@@ -2,26 +2,30 @@
 <html>
 <head>
   <title>MoMondays</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= include_gon %>
-  <%= stylesheet_link_tag    "application_mobile", :media => "all" %>
+  <%= stylesheet_link_tag "application_mobile", :media => "all" %>
   <%= javascript_include_tag "application" %>
 	<%= csrf_meta_tag %>
 </head>
 <body>
-	<div><img src = "/assets/beta_banner.png" id = "banner"/></div>
-	<div class = "row" id = "page_title">
-		<div id="login-nav">
-			<% if user_signed_in? %>
-				Logged in as <%= current_user %> 
-				<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
-				<%= link_to "User Settings",  edit_user_registration_path %>
-			<% else %>
-				<%= link_to "Sign Up", new_user_registration_path %> |
-				<%= link_to "Sign In", new_user_session_path %>
-			<% end %>
-		</div>
-	</div> <!--page_title -->
+	
+		
+		<div id = "page_title">
+			<img src = "/assets/beta_banner.png" id = "banner"/>
+			<div id="login-nav">
+				<% if user_signed_in? %>
+					Logged in as <%= current_user %> 
+					<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
+					<%= link_to "User Settings",  edit_user_registration_path %>
+				<% else %>
+					<%= link_to "Sign Up", new_user_registration_path %> |
+					<%= link_to "Sign In", new_user_session_path %>
+				<% end %>
+			</div>
+		</div> <!--page_title -->
+
+
 <% if user_signed_in? %>
 	<div id = "nav_body">
 		<header>

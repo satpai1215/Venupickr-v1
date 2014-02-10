@@ -17,7 +17,7 @@
  *= require "pages_mobile"
  *= require "devise_mobile"
  *= require "guest"
- *= require "mobile"
+ *= require "desktop"
  */
 
  html {height: 100%;}
@@ -27,7 +27,6 @@
  	line-height: 1em;
  	color: #4C494D;
  	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
- 	font-size: 1em;
  }
 
  body h2 {
@@ -40,7 +39,7 @@
  body li {
  	line-height: 1em;
  }
- 
+
 
  #content_body {
  	background: #ededed;
@@ -61,7 +60,6 @@
 -----------------------------------------------------------------------------*/
 #notice {
 	text-align: center;
-	font-size: 1.5em;
 	height: inherit;
 	color: #c09853;
 	background: #F9F9C9;
@@ -79,9 +77,12 @@
 		-webkit-box-shadow: 0px 0px 5px 0px #000;
 }
 
+
+
  #banner {
  	width: 100%;
  	height: auto;
+ 	margin-bottom: 5px;
  }
 
 #login-nav {
@@ -96,6 +97,7 @@
 -----------------------------------------------------------------------------*/
  #nav-container {
  	width: 100%;
+ 	clear: both;
  }
 .nav {
 	margin: 5px auto;

@@ -1,0 +1,26 @@
+
+ @media only screen and (min-width: 600px) {
+
+	body {
+		font-size: 1.5em;
+	}
+
+	#page-title {
+		min-width: 1200px;
+	}
+	#banner {
+		width: 650px;
+		height: auto;
+	}
+
+	#login-nav {
+		margin-right: 5px;
+		float: right;
+		margin-top: 45px;
+	}
+
+	.btn {
+		font-size: 1em;
+	}
+
+} 
