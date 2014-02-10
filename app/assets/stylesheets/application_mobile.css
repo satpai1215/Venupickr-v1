@@ -24,7 +24,6 @@
 
  body {
  	height: 100%;
- 	line-height: 1em;
  	color: #4C494D;
  	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  }
@@ -37,7 +36,6 @@
  }
 
  body li {
- 	line-height: 1em;
  }
 
 
