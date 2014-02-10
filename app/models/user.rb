@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
                 :notification_emails, :firstname, :lastname, :gmail_contacts
 
   has_many :events, through: :guests
-  has_many :guests, dependent: :destroy
   has_many :venues,  dependent: :destroy
   has_many :voters, dependent: :destroy
   has_many :guests, dependent: :destroy

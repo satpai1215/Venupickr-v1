@@ -65,10 +65,27 @@ class GuestsController < ApplicationController
 				#a: if invitation_token exists, link user to corresponding event after signup
 				#b: else sign up user as normal, no link to event
 
-		#AutoMailer.send_invite_email(@event.id, params[:recipients]).deliver
+		@notice = ""
+		@guests = params[:recipients] || []
+		@new_user_emails = []
+		@existing_user_emails = []
+
+		@guests.each do |email|
+			@user = User.find_by_email(email)
+			@notice = "An invitation has been emailed to your guests."
+			#check if user exists and if user is already a guest for the event
+			if @user and !@event.guests.find_by_user_id(@user.id)
+				@event.invite!(@user.id)
+				@existing_user_emails.push(email)
+			else
+				@new_user_emails.push(email)
+			end
+			AutoMailer.send_invite_email(@event.id, @existing_user_emails).deliver unless @existing_user_emails.blank?
+			AutoMailer.send_new_user_invite_email(@event.id, @existing_user_emails).deliver unless @new_user_emails.blank?
+		end
 
 		respond_to do |format|
-			format.html {redirect_to @event, notice: "An invitation has been emailed to your guests."}
+			format.html {redirect_to @event, notice: @notice }
 			#format.js
 		end
 

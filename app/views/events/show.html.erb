@@ -31,7 +31,7 @@
 							<% end %>
 							<li class = "eventInfo-row">
 								<label class = "eventInfo-content-heading">Created by:</label>
-								<span id = "eventOwner"><%= h(@owner.to_s)%></span>
+								<span id = "eventOwner"><%= h(@owner)%></span>
 							</li>								
 						</ul>
 
@@ -253,7 +253,7 @@
   		//popup guest dialog if event was just created
 		<% if flash[:new_event?] %>
 			//$('#inviteGuestsForm').dialog('open');
-			//$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/guest_form') %>");
+			//$('#inviteGuestsForm').html("<%#= escape_javascript(render :partial => 'guests/guest_form') %>");
 		<% end %>
 
 		//color code rsvp buttons on page refresh

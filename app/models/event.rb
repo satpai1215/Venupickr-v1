@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   end
 
   def owner
-    User.find(self.owner_id)
+    User.find_by_id(self.owner_id) 
   end
 
   def invite!(user_id)
