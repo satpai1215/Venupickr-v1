@@ -27,6 +27,7 @@
  	line-height: 1em;
  	color: #4C494D;
  	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+ 	font-size: 1em;
  }
 
  body h2 {
@@ -34,7 +35,6 @@
 	margin-top: 0px;
 	text-align: center;
 	margin-bottom: 10px;
-	font-size: 1em;
  }
 
  body li {
@@ -116,7 +116,6 @@
 		box-shadow: 0px 5px 20px 0px #000 */
 	z-index: -99999;
 	min-height: 100%;
-	font-size: 1em;
 		
  }
 

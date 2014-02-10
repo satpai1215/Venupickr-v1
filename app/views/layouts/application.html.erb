@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>MoMondays</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= include_gon %>
   <%= stylesheet_link_tag    "application_mobile", :media => "all" %>
   <%= javascript_include_tag "application" %>
-<%= csrf_meta_tag %>
+	<%= csrf_meta_tag %>
 </head>
 <body>
 	<div><img src = "/assets/beta_banner.png" id = "banner"/></div>
