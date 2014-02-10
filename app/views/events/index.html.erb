@@ -58,7 +58,7 @@
                 <ul>
                     <%if @events.count === 0 %>
                         <div class = "noEventsLabel">  
-                            <div class = "row eventItem"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>
+                            <div class = "eventItem"><li> No Events on the Clock.  Click "Create New Event" button to make one! </li></div>
                         </div>
                     <% else %>
                         <% @events.each_with_index do |event, index| %>
