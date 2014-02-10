@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :get_event, :only => [:new, :destroy, :leave_event, :update_guestlist]
-	before_filter :auth_owner, only: [:new, :update]
+	before_filter :auth_owner, only: [:new, :update_guestlist]
 
 #before_filter methods
 	def get_event
@@ -10,7 +10,7 @@ class GuestsController < ApplicationController
 
 	def auth_owner
 		if(current_user.id != @event.owner_id)
-			redirect_to events_path, :notice => "You are not authorized to do that."
+			redirect_to @event, :notice => "You are not authorized to do that."
 		end
 	end
 #end before_filter methods
@@ -41,18 +41,15 @@ class GuestsController < ApplicationController
 
 	def new
 		session[:event_id] = @event.id
-		#replace true with allow_invite_guests? or equivalent
-		if(current_user.id === @event.owner_id or true)
-			if (current_user.gmail_contacts) 
-				gon.contacts = current_user.gmail_contacts
-			end
-		    respond_to do |format|
-	        	format.html
-	        	format.js
-		    end
-		else
-			redirect_to events_path, :notice => "You are not authorized to do that."
+
+		if (current_user.gmail_contacts) 
+			gon.contacts = current_user.gmail_contacts
 		end
+	    respond_to do |format|
+        	format.html
+        	format.js
+	    end
+
 	end
 
 	def update_guestlist
@@ -80,9 +77,10 @@ class GuestsController < ApplicationController
 			else
 				@new_user_emails.push(email)
 			end
-			AutoMailer.send_invite_email(@event.id, @existing_user_emails).deliver unless @existing_user_emails.blank?
-			AutoMailer.send_new_user_invite_email(@event.id, @existing_user_emails).deliver unless @new_user_emails.blank?
 		end
+
+		AutoMailer.send_invite_email(@event.id, @existing_user_emails).deliver unless @existing_user_emails.blank?
+		AutoMailer.send_new_user_invite_email(@event.id, @new_user_emails).deliver unless @new_user_emails.blank?
 
 		respond_to do |format|
 			format.html {redirect_to @event, notice: @notice }

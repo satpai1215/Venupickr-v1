@@ -54,7 +54,8 @@
 			<div class = "eventbox hide-box hide-toggle-2" id = "event-guestlist-container">
 					<div class = "eventbox-header">
 						<div class = "eventbox-secondary-header-text">Guest List<br/>
-						<%= display_invite_guests(@event) %></div>
+						<% if @is_owner %><%= display_invite_guests(@event) %><% end %>
+						</div>
 					</div> <!--eventInfo-header -->
 					<div>
 						<div class = 'eventbox-content'>
