@@ -82,5 +82,8 @@
 		width: 80%;
 		margin: 0 auto;
 	}
+	#venue_name, #venue_comments, #venue_address, #event_name, #event_notes {
+		width: 50%;
+	}
 
 } 
