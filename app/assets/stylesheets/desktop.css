@@ -2,21 +2,30 @@
  @media only screen and (min-width: 600px) {
 
 	body {
-		font-size: 1.5em;
+		font-size: 2.5em;
 	}
 
-	#page-title {
+	#page_title {
 		min-width: 1200px;
+		position: relative;
 	}
+
+	.nav>li>a {
+		margin: 0px 30px;
+ 	}
 	#banner {
-		width: 650px;
+		width: 50%;
 		height: auto;
 	}
 
 	#login-nav {
-		margin-right: 5px;
-		float: right;
-		margin-top: 45px;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-bottom: 0px;
+		text-align: right;
+		width: 45%;
+		font-size: 0.8em;
 	}
 
 	.btn {

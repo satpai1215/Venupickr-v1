@@ -18,7 +18,7 @@
                 <tbody>
                     <% @events.each do |event| %>
                               <tr class = "notfirst">
-                                <td><%= event.event_start.strftime("%d%b%Y") %></td>
+                                <td><%= event.event_start.strftime("%b %d, %Y") %></td>
                                 <td><%= link_to event.name, event_path(event) %>
                                 <td><%= event.owner %></td>
                                 <td><%= (event.winner == nil ? "No Venues Suggested" : Venue.find_by_id(event.winner)) %></td>

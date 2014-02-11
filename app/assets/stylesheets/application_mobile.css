@@ -31,7 +31,6 @@
  body h2 {
 	font-weight: normal;
 	margin-top: 0px;
-	text-align: center;
 	margin-bottom: 10px;
  }
 
@@ -75,8 +74,6 @@
 		-webkit-box-shadow: 0px 0px 5px 0px #000;
 }
 
-
-
  #banner {
  	width: 100%;
  	height: auto;
@@ -96,12 +93,14 @@
  #nav-container {
  	width: 100%;
  	clear: both;
+ 	text-align: center;
  }
-.nav {
-	margin: 5px auto;
+nav {
+	display: inline-block;
+	margin: 0px;
  }
 
- #navbar {
+ .nav>li>a {
  }
  /*----------------------------------------------------------------------------- 
 = MAIN

@@ -16,6 +16,7 @@
 
 .eventList h2 {
 	color: #2e6ab1;
+	text-align: center;
 }
 
 #upcomingEvents {
@@ -23,6 +24,7 @@
 }
 #votingEvents h2{
 	margin-top: 10px;
+	text-align: center;
 }
 
 .eventList-header{
@@ -836,7 +838,6 @@ button.ui-dialog-titlebar-close {
 = GLOBAL STYLINGS
 -----------------------------------------------------------------------------*/
 .btn {
-	padding: 10px;
 }
 .red {
 	color: red;
