@@ -727,6 +727,7 @@ button.ui-dialog-titlebar-close {
 
 #error_explanation h2 {
     font-weight: bold;
+    font-size: 1em;
     padding: 5px 5px 5px 15px;
     margin: -7px;
     margin-bottom: 0px;

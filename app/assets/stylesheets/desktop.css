@@ -6,7 +6,7 @@
 	}
 
 	#page_title {
-		min-width: 1200px;
+		min-width: 960px;
 		position: relative;
 	}
 
@@ -21,7 +21,7 @@
 	#login-nav {
 		position: absolute;
 		bottom: 0;
-		right: 0;
+		right: 10px;
 		margin-bottom: 0px;
 		text-align: right;
 		width: 45%;
@@ -30,6 +30,16 @@
 
 	.btn {
 		font-size: 1em;
+	}
+	.user_session_page {
+		width: 600px;
+	}
+	.user_reg_page {
+		width: 700px;
+		margin: 0 auto;
+	}
+	.user_reg_page .field input {
+		margin-left: 40px;
 	}
 
 } 

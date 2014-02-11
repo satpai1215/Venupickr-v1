@@ -11,10 +11,9 @@
 		color: #2e6ab1;
 	}
 
-.user_session_page {
-	width: 50%;
-	margin: 20px auto;
-
+.user_session_page, .user_reg_page {
+	width: 90%;
+	margin: 0 auto;
 	border: solid black 1px;
 	border-radius: 15px;
 	box-shadow: 0px 2px 5px 0px #000;
@@ -25,9 +24,9 @@
 
 
 #sign-in-container {
-	padding-left: 10px;
-	height: 100px;
-	width: 460px;
+	margin-left: 10%;
+	margin-right: 10%;
+
 }
 
 .user_session_page h2 {
@@ -44,18 +43,12 @@
 	margin-bottom: 5px;
 }
 
-#sign-in-container input {
-	margin-bottom: 0px;
+#sign-in-container .field input {
+	width: 100%;
+	margin-bottom: 5px;
 }
 
-#sign-in-email {
-	float: left;
-	margin-right: 15px;
-	margin-bottom: 5px;
-	
-}
-#sign-in-password {
-	float: left;
+#sign-in-email, #sign-in-password {
 	margin-bottom: 5px;
 }
 
@@ -73,17 +66,11 @@
 
 #sign-in-container .actions {
 	float: right;
-	margin-right: 5px;
-	padding-right: 0px;
 }
 
-#sign_in_btn {
-	padding: 0px 5px;
-	font-size: 0.9em;
-	width: 50px;
+.devise-links {
+	margin-top: 20px;
 }
-
-
 .devise-links a {
 	clear:both;
 	display: block;
@@ -94,6 +81,11 @@
 /*----------------------------------------------------------------------------- 
 = USER REGISTRATION PAGE
 -----------------------------------------------------------------------------*/
+
+.user_reg_page h2 {
+	text-align: center;
+	font-weight: normal;
+}
 .user_reg_page .field input {
 	width: 90%;
 	margin-left: 20px;
@@ -101,7 +93,7 @@
 
 .sign_up_btn {
 	display: block;
-	margin: 0 auto;
+	margin: 10px auto;
 }
 
 /*----------------------------------------------------------------------------- 
@@ -159,13 +151,6 @@
 	}
 
 
-
-
-
-.user_session_page #back-link {
-	display: block;
-	text-align: center;
-}
 .cancel_action {
 	margin: 50px auto;
 	width: 40%;
