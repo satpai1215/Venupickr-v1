@@ -57,6 +57,7 @@
 
 	#createEventForm, #createVenueForm {
 		margin-bottom: 0px;
+		width: 60%;
 	}
 	#datepicker-container, #timepicker-container {
 		display: inline;
