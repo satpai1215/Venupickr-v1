@@ -21,12 +21,14 @@
     <%#= label_tag :datepicker, "Date:", :style => "display:inline" %>
     <%#= text_field_tag(:datepicker, nil, :placeholder => "mm/dd/yyyy") %>
     <%#= select_time(Time.new(Time.now.year, Time.now.month, Time.now.day, 20, 0, 0), {:ampm => true, :prefix => :time}) %>
-
-    <%= f.label :datepicker, "Date:", :style => "display:inline" %>
-    <%= f.text_field :datepicker, {:placeholder => "mm/dd/yyyy", :readonly => 'true'} %> <br/>
-
-    <%= f.label(:timepicker, "Time:", :style => "display:inline") %>
-    <%= f.text_field(:timepicker, {:placeholder => "hh:mm"}) %>
+    <div id = "datepicker-container">
+      <%= f.label :datepicker, "Date:" %>
+      <%= f.text_field :datepicker, {:placeholder => "mm/dd/yyyy", :readonly => 'true'} %>
+    </div>
+    <div id = "timepicker-container">
+      <%= f.label(:timepicker, "Time:") %>
+      <%= f.text_field(:timepicker, {:placeholder => "hh:mm"}) %>
+    </div>
   </div>
 
   <% if @event.stage != 'Finished' and @event.stage != 'Archived' %>

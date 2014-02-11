@@ -20,7 +20,7 @@
 }
 
 #upcomingEvents {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 #votingEvents h2{
 	margin-top: 10px;
@@ -435,7 +435,6 @@
 
 	#venueList {
 		text-align: left;
-		padding-bottom: 30px;
 		margin: 30px 0px;
 	}
 
@@ -685,7 +684,7 @@
 }
 
 .field {
-	margin-bottom: 2%;
+	margin-bottom: 25px;
 }
 
 
@@ -693,19 +692,21 @@ button.ui-dialog-titlebar-close {
 }
 
 .createForm label {
+	display: block;
 	font-size: inherit;
+	font-weight: normal;
 	margin-bottom: 20px;
 	line-height: 1em;
 }
 
 #venue_address, #event_notes {
-	height: 200px;
-	width: 60%;
+	height: 100px;
 	line-height: 1em;
+	font-size: 0.8em;
 }
 
 #venue_name, #venue_comments, #event_name {
-	width: 100%;
+	width: 75%;
 	height: 2em;
 }
 
@@ -777,8 +778,12 @@ button.ui-dialog-titlebar-close {
 	height: inherit;
 	text-align: center;
 }
+#event_vote_end optgroup {
+	font-size: 2em;
+}
 #event_vote_end_label {
 	font-size: 0.83em;
+	margin-bottom: 2px;
 }
 
 #event_vote_end_calc {
@@ -789,14 +794,35 @@ button.ui-dialog-titlebar-close {
 	resize: none;
 }
 #eventDateSelect-container {
-	font-size: 0.85em;
+	margin-bottom: 40px;
+}
+
+#eventDateSelect-container label {
+	display: inline;
+}
+
+#datepicker-container, #timepicker-container {
+	display: block;
+}
+
+#datepicker-container {
+	padding-left: 21px;
 }
 
 #event_timepicker, #event_datepicker {
 	cursor: pointer;
 	background: white;
-	width: 50%;
 	height: 2em;
+	text-align: center;
+	font-size: 0.85em;
+	margin-right: 30px;
+}
+
+#event_datepicker {
+	margin-right: 50px;
+}
+
+.ui-timepicker-list {
 	text-align: center;
 }
 
@@ -809,7 +835,6 @@ button.ui-dialog-titlebar-close {
 }
 
 #eventSubmitButton, #venueSubmitButton {
-	padding: 40px;
 }
 
 /*----------------------------------------------------------------------------- 

@@ -55,6 +55,22 @@
 		width: 50%;
 	}
 
+	#createEventForm, #createVenueForm {
+		margin-bottom: 0px;
+	}
+	#datepicker-container, #timepicker-container {
+		display: inline;
+	}
+	#event_datepicker {
+		margin-right: 10px;
+	}
+	#event_timepicker, #event_datepicker {
+		width: 25%;
+	}
+	#eventDateSelect-container label {
+		display: inline;
+	}
+
 	/* EVENTS.CSS FOR SHOW */
 	#eventShow {
 		width: 80%;

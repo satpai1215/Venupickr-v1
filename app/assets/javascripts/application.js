@@ -101,12 +101,11 @@ $(document).ready(function() {
       }
     }); 
 
-    var wWidth = 0.7*$(window).width();
+  var wWidth = 0.7*$(window).width();
    var wHeight = 0.9*$(window).height();
 
-   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, minHeight: wHeight, show: 500, position: { my: "center top", at: "center top", of: "body" }});
-
-   $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, minHeight: wHeight, show: 500, position: { my: "center top", at: "center top", of: "body" }});
+   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, show: 500, position: { my: "center top", at: "center top", of: "body" }});
+   $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: wWidth, show: 500, position: { my: "center top", at: "center top", of: "body" }});
    $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 
