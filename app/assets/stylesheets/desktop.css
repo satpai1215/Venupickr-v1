@@ -1,6 +1,7 @@
 
  @media only screen and (min-width: 600px) {
 
+ 	/* APPLICATION.CSS */
 	body {
 		font-size: 2.5em;
 	}
@@ -31,6 +32,8 @@
 	.btn {
 		font-size: 1em;
 	}
+
+	/* DEVISE.CSS */
 	.user_session_page {
 		width: 600px;
 	}
@@ -40,6 +43,27 @@
 	}
 	.user_reg_page .field input {
 		margin-left: 40px;
+	}
+
+	/* EVENTS.CSS FOR INDEX */
+	.eventList {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	#newEventBtn, #newVenueBtn {
+		width: 50%;
+	}
+
+	/* EVENTS.CSS FOR SHOW */
+	#eventShow {
+		width: 80%;
+		margin: 30px auto;
+	}
+
+	#venueList {
+		width: 80%;
+		margin: 0 auto;
 	}
 
 } 

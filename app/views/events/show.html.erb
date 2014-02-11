@@ -48,7 +48,7 @@
 				<div id = "event-nav">
 					<a class = "event-nav-link bold green" id = "event-nav-link-1">Venue List</a>
 					<a class = "event-nav-link" id = "event-nav-link-2">Guest List</a>
-					<a class = "event-nav-link" id = "event-nav-link-3">Discussion Board</a>
+					<a class = "event-nav-link" id = "event-nav-link-3">Message Board</a>
 				</div>
 
 			<div class = "eventbox hide-box hide-toggle-2" id = "event-guestlist-container">
@@ -113,7 +113,7 @@
 
 			<div class = "eventbox hide-box hide-toggle-3" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-secondary-header-text">Discussion Board</div>
+					<div class = "eventbox-secondary-header-text">Message Board</div>
 				</div><!--discussionBoard-header -->
 				<div>
 					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
@@ -147,7 +147,7 @@
                     <% end %>
 					
 				</div> <!--venueList-header -->
-			</div> <!--eventbox-->
+	
 
 
          		<% if @event.stage != "Voting" %>
@@ -218,8 +218,8 @@
 					<% end %>
 				</ul>
 			</div><!-- venueList-container -->
-
-		</div>
+		</div> <!--eventbox-->
+		</div> <!-- hidebox -->
 				<div id = "createVenueForm" class = "createForm modal-dialog" title = "Enter Venue Information">
 				</div> <!--createVenueForm-->
 				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">

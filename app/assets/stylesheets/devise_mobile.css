@@ -4,7 +4,7 @@
 .sign-in-header{
 	text-align: center;
 	margin-top: 20px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 	.sign-in-header h1 {
 		font-weight: normal;
@@ -13,7 +13,7 @@
 
 .user_session_page, .user_reg_page {
 	width: 90%;
-	margin: 0 auto;
+	margin: 15px auto;
 	border: solid black 1px;
 	border-radius: 15px;
 	box-shadow: 0px 2px 5px 0px #000;
