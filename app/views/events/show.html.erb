@@ -62,36 +62,7 @@
 						<div class = 'eventbox-content'>
 							<ul class = "eventbox-content-ul" id = "event-guestlist">	
 								<% if @guests.empty? %>
-									<li class = "guestlist-row italic">no guests yet</li>
-
-										<!---->
-									<li class = "guestlist-row">
-											<div class = "guestlist-name">GuestUser1</div>
-											<div class = "rsvp-response">
-												<%= link_to "Going", "#", {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
-												<%= link_to "Not Going", "#", {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
-											</div>
-											<% if false %>	
-												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
-											<% end %>
-									</li>
-									<li class = "guestlist-row">
-											<div class = "guestlist-name">GuestUser1</div>
-											<div class = "rsvp-response"><span class = "rsvp-response-text">RSVP'd</span></div>	
-											<% if false %>	
-												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
-											<% end %>
-									</li>
-									<li class = "guestlist-row">
-											<div class = "guestlist-name">GuestUser1</div>
-											<div class = "rsvp-response"><span class = "rsvp-response-text">RSVP'd</span></div>	
-											<% if false %>	
-												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
-											<% end %>
-									</li>
-										<!---->
-
-
+									<li class = "guestlist-row-no-guests italic">no guests yet</li>
 								<% else %>
 									<% @guests.each do |guest| %>
 										<li class = "guestlist-row">
@@ -120,7 +91,7 @@
 				<div>
 					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
 							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
-							<%= submit_tag("POST", {:disabled => true, :class => "btn", :id => "postCommentButton"}) %>
+							<%= submit_tag("POST", {:disabled => true, :class => "btn btn-primary", :id => "newCommentBtn"}) %>
 					<% end %>
 
 					<div id = "discussionBoard-comments">
@@ -143,13 +114,9 @@
 			<div class = "eventbox">
         		<div class = "eventbox-header">
 					<div class = "eventbox-secondary-header-text">Recommended Venues:</div>
-
-					<%if @venues.count === 0 %>
-                         <div class = "noVenuesLabel row"><li> <%= @no_venues_text %></li></div>
-                    <% end %>
+					<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 					
 				</div> <!--venueList-header -->
-	
 
 
          		<% if @event.stage != "Voting" %>
@@ -160,7 +127,6 @@
 					<% end %>
 				<% end %>
 			<div id = "venueList-container" class = "clear">
-				<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 				<ul id = "venueList">
 				<!-- 	<#% if @is_owner and @event.stage == 'Voting' %>
 						<div id = "venueSuggestionIndicator" class ="venueList-note">  
@@ -217,6 +183,8 @@
 							</li><!--listItem -->
 				
 						<% end %>
+					<% else %>
+                         <div class = "noVenuesLabel row"><li> <%= @no_venues_text %></li></div>
 					<% end %>
 				</ul>
 			</div><!-- venueList-container -->

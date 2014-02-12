@@ -81,7 +81,7 @@ class VenuesController < ApplicationController
 
           @content = "#{current_user} just suggested a venue"
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
-          @comment = Comment.create!(:content => @content, :event_id => @event.id)
+          #@comment = Comment.create!(:content => @content, :event_id => @event.id)
 
           if(@venue.event.owner_id != current_user.id)
             AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver
@@ -126,7 +126,7 @@ class VenuesController < ApplicationController
 
         @content = "#{current_user} modified a venue"
         @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
-        @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
+        #@comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         if(@venue.event.owner_id != current_user.id)
           AutoMailer.venue_suggested_email(@venue.event.id, @venue.id).deliver
@@ -206,7 +206,7 @@ class VenuesController < ApplicationController
         @venue.update_column(:votecount, @venue.voters.count + 1)
 
         @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"", :event_id => @venue.event.id)
-        @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
+       # @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
         @total_votecounts = @event.voters.count

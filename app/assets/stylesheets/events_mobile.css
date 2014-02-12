@@ -40,9 +40,10 @@
 	text-align: center;
 }
 
-#newEventBtn, #newVenueBtn {
+#newEventBtn, #newVenueBtn, #newCommentBtn, #newGuestsBtn {
 	width: 90%;
 	margin-bottom: 10px;
+	font-size: 0.85em;
 }
 
 .eventItem-link {
@@ -200,6 +201,7 @@
 }
 	.noVenuesLabel li {
 		list-style: none;
+		padding: 10px;
 	}
 
 #voteMeterDialog {
@@ -321,6 +323,12 @@
 	text-align: center;
 }
 
+.guestlist-row-no-guests {
+	margin-bottom: 5px;
+	clear: both;
+	text-align: center;
+}
+
 .guestlist-name {
 	clear: both;
 	float: left;
@@ -361,12 +369,9 @@
 	font-size: 0.9em;
 }
 
-#postCommentButton {
+#newCommentBtn {
 	display: block;
 	margin: 10px auto;
-	width: 20%;
-	color: black;
-	border: solid 2px black;
 }
 
 #discussionBoard-comments {
@@ -399,9 +404,7 @@
 	text-align: center;
 }
 
-.newVenueBtn {
-	padding: 5px 40px;
-}
+
 
 #event_show_venue_suggestion_off_tag {
 	font-style: italic;

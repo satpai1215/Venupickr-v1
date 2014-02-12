@@ -56,11 +56,15 @@
 		width: 80%;
 		margin: 0 auto;
 	}
+
+	.eventList h2 {
+		font-size: 2em;
+	}
 	.eventList .eventItem {
 		padding: 15px;
 	}
 
-	#newEventBtn, #newVenueBtn {
+	#newEventBtn, #newVenueBtn, #newCommentBtn, #newGuestsBtn {
 		width: 30%;
 		font-size: 0.8em;
 	}

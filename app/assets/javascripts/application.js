@@ -121,9 +121,9 @@ $(document).ready(function() {
    $('#enterCommentsField').keyup(function(){
       var str = $('#enterCommentsField').val();
       if(!(!str || /^\s*$/.test(str))) 
-           $('#postCommentButton').attr('disabled', false);    
+           $('#newCommentBtn').attr('disabled', false);    
       else
-           $('#postCommentButton').attr('disabled', true);   
+           $('#newCommentBtn').attr('disabled', true);   
   });
 
  //$('#suggestVenueLink, .edit-venue').bind('ajax:success', function () {

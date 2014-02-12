@@ -254,7 +254,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @content = params[:comment]
  
-    #@comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.firstname)
+    @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.firstname)
     Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"", :event_id => @event.id)
 
     respond_to do |format|
