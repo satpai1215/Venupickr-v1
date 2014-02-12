@@ -12,10 +12,10 @@
 	}
 
 .user_session_page, .user_reg_page {
-	width: 90%;
+	width: 95%;
 	margin: 15px auto;
 	border: solid black 1px;
-	border-radius: 15px;
+	border-radius: 2px;
 	box-shadow: 0px 2px 5px 0px #000;
 		-moz-box-shadow: 0px 2px 5px 0px #000;
 		-webkit-box-shadow: 0px 2px 5px 0px #000;
@@ -24,27 +24,30 @@
 
 
 #sign-in-container {
-	margin-left: 10%;
-	margin-right: 10%;
 
 }
 
-.user_session_page h2 {
+.user_session_page h2, .user_session_page h3 {
 	text-align: center;
 	font-weight: normal;
 }
 
-
+.user_session_page .field {
+	margin-bottom: 10px;
+}
 .user_session_page label {
 	display: inline;
 }
 
 .user_session_page input {
-	margin-bottom: 5px;
+	padding-left: 10px;
+	line-height: 2em;
+	width: 100%;
 }
 
-#sign-in-container .field input {
-	width: 100%;
+#sign-in-container input {
+	text-align: center;
+	padding-left: 0px;
 	margin-bottom: 5px;
 }
 
@@ -52,21 +55,25 @@
 	margin-bottom: 5px;
 }
 
+#user_email, #user_password {
+
+}
+
 #user_remember_select {
 	clear:	both;
 	display: inline-block;
-	float: left;
+	margin-left: 0px;
+	margin-bottom: 10px;
 }
 
 #user_remember_me {
 	margin-top: 0px;
+	margin-bottom: 20px;
 	width: 10px;
 	text-align: center;
 }
 
-#sign-in-container .actions {
-	float: right;
-}
+
 
 .devise-links {
 	margin-top: 20px;
@@ -78,22 +85,9 @@
 	margin: 5px 25px;
 }
 
-/*----------------------------------------------------------------------------- 
-= USER REGISTRATION PAGE
------------------------------------------------------------------------------*/
-
-.user_reg_page h2 {
-	text-align: center;
-	font-weight: normal;
-}
-.user_reg_page .field input {
-	width: 90%;
-	margin-left: 20px;
-}
-
 .sign_up_btn {
-	display: block;
-	margin: 10px auto;
+	margin: 10px 0px;
+	width: 100%;
 }
 
 /*----------------------------------------------------------------------------- 
@@ -129,11 +123,11 @@
 	}
 	#user-edit-confirmation-container input {
 		display: block;
-		width: 200px;
 		margin: 0px auto;
+		text-align: center;
 	}
 	#user-edit-confirmation-container .sign_up_btn {
-		width: 120px;
+
 		font-size: 0.85em;
 		text-align: center;
 		padding: 0px 5px;

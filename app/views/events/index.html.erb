@@ -3,47 +3,46 @@
                 <div id = "hero" class = "span12"></div>
     </div>
 <% end %>
-
-
-        <div class = "eventList" >
+    <div class = "eventList" >
+    
+    <%if @upcoming_events.count === 0 %>
+        <!-- <div class = "noEventsLabel">  
+        <div class = "eventItem"><li> No upcoming events </li></div>
+        </div> -->
+    <% else %>
+        
             <div id = "upcomingEvents" >
 
                 <div class = "eventList-header">
                     <div class = "row"><h2>Upcoming Events:</h2></div>
                 </div>
-                <ul>
-                    <%if @upcoming_events.count === 0 %>
-                        <div class = "noEventsLabel">  
-                            <div class = "eventItem"><li> No upcoming events </li></div>
-                        </div>
-                    <% else %>
-                        <% @upcoming_events.each_with_index do |event, index| %> 
-                           <li class = "eventItem">
-                                <%= link_to(event, {class: "eventItem-link"}) do %>
-                                <span class = "eventItem-span"></span>
-                                    <div class = "eventLabel" >
-                                        <!--<span id = "eventName"><%#= link_to event.name, event_path(event) %> </span> -->
-                                        <div class = "eventName"><%= h(event.name) %></div>
-                                        <%= event.event_start.strftime("%B %d, %Y") %> at 
-                                            <%= event.event_start.strftime("%I:%M%p") %>
-                                        <br/> Created By: <%= h(event.owner) %>
-                                    </div>
-                                    <div class = "eventProgress">
-                                        <div class = "eventClock">
-                                            <p>Event Starts In:</p>
-                                            <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
-                            
-                                        </div>
-                                    </div>
-                                <% end %>
-                            </li>
-                                
+                 <ul>
+                <% @upcoming_events.each_with_index do |event, index| %> 
+                    <li class = "eventItem">
+                        <%= link_to(event, {class: "eventItem-link"}) do %>
+                        <span class = "eventItem-span"></span>
+                            <div class = "eventLabel" >
+                                <!--<span id = "eventName"><%#= link_to event.name, event_path(event) %> </span> -->
+                                <div class = "eventName"><%= h(event.name) %></div>
+                                <%= event.event_start.strftime("%B %d, %Y") %> at 
+                                    <%= event.event_start.strftime("%I:%M%p") %>
+                                <br/> Created By: <%= h(event.owner) %>
+                            </div>
+                            <div class = "eventProgress">
+                                <div class = "eventClock">
+                                    <p>Event Starts In:</p>
+                                    <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
+
+                                </div>
+                            </div>
                         <% end %>
-                    <% end %>
-       
+                    </li>
+                <% end %>
                 </ul>
-                   <!-- <div id = "eventPagination">More Events: <%#= link_to "#" %></div> -->
             </div> <!--upcomingEvents -->
+    <% end %>
+       
+            
 
             <div id = "votingEvents" >
                 <div class = "eventList-header">

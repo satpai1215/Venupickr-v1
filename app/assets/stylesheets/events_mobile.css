@@ -41,7 +41,7 @@
 }
 
 #newEventBtn, #newVenueBtn {
-	width: 70%;
+	width: 90%;
 	margin-bottom: 10px;
 }
 
@@ -107,12 +107,9 @@
 	}
 
 .eventList .eventProgress {
-	display: inline-block;
-
-	width: 35%;
-	vertical-align: top;
-	margin-left: 10%;
-	margin-top: 3%;
+	position: absolute;
+	top: 20%;
+	right: 15px;
 }
 	.eventClock p {
 		text-align: center;
@@ -249,16 +246,16 @@
 		font-size: 1.6em;
 		font-weight: bold;
 		padding: 10px 0px;
-		text-align: left;
+		text-align: center;
 	}
 	#eventShowModifiers {
 		display: block;
-		text-align: right;
+		text-align: center;
 	}
 
 	.eventbox-header span {
 		margin-bottom: 2px;
-		margin-left: 30px;
+		padding: 0px 15px;
 		font-size: 0.95em;
 	}
 	.eventbox-secondary-header-text {
@@ -275,11 +272,13 @@
 }
 	#eventInfo-notes-container {
 		border-top: solid 1px #e9eaed;
+		padding: 5px 25px;
+	}
+	#eventInfo-notes-header {
+		margin-top: 10px;
+		font-weight: bold;
 	}
 	#eventInfo-notes{
-		padding: 5px 15px;
-		max-height: 150px;
-		overflow: auto;
 		font-style: italic;
 	}
 	#eventInfo-notes p {
@@ -290,16 +289,21 @@
 		margin-bottom: 5px;
 		padding-left: 15px;
 	}
-	.eventInfo-content-heading {
-		cursor: auto;
-		font-size: 1em;
-		display: inline;
+	.eventInfo-row {
+		display: block;
+		margin: 0 auto;
 	}
-	.eventInfo-row span {
-		font-weight: bold;
+	.eventInfo-content {
 		float: right;
 		margin-right: 10px;
 	}
+	.eventInfo-content-heading {
+		cursor: auto;
+		font-size: 1em;
+		font-weight: normal;
+		text-align: left;
+	}
+
 
 #event-guestlist {
 	overflow-y: auto;
@@ -311,7 +315,6 @@
 }
 
 .guestlist-row {
-	height: 50px;
 	margin-bottom: 5px;
 	border-bottom: dotted 1px gray;
 	clear: both;
@@ -338,7 +341,6 @@
 
 .rsvpButton {
 	font-size: 0.85em;
-	padding: 0px 5px;
 }
 
 #discussionBoard-container {

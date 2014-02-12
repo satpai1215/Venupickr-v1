@@ -29,13 +29,13 @@
 		font-size: 0.8em;
 	}
 
-	.btn {
-		font-size: 1em;
-	}
 
 	/* DEVISE.CSS */
 	.user_session_page {
 		width: 600px;
+	}
+	.user_session_page input {
+		line-height: 1.5em;
 	}
 	.user_reg_page {
 		width: 700px;
@@ -45,14 +45,24 @@
 		margin-left: 40px;
 	}
 
+	.actions .sign_up_btn {
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+	}
+
 	/* EVENTS.CSS FOR INDEX */
 	.eventList {
 		width: 80%;
 		margin: 0 auto;
 	}
+	.eventList .eventItem {
+		padding: 15px;
+	}
 
 	#newEventBtn, #newVenueBtn {
-		width: 50%;
+		width: 30%;
+		font-size: 0.8em;
 	}
 
 	#createEventForm, #createVenueForm {
@@ -77,6 +87,9 @@
 		width: 80%;
 		margin: 30px auto;
 	}
+	.eventInfo-row {
+		width: 70%;
+	}
 
 	#venueList {
 		width: 80%;
@@ -84,6 +97,11 @@
 	}
 	#venue_name, #venue_comments, #venue_address, #event_name, #event_notes {
 		width: 50%;
+	}
+
+	/* ABOUT.PAGE */
+	#about-container {
+		padding: 5px 30px 10px 30px;
 	}
 
 } 

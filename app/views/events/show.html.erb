@@ -7,8 +7,8 @@
 						<span id = "eventShowModifiers">
 							<% if @is_owner %>
 								
-									<%= display_edit_event(@event) %>
-									<%= display_delete_event(@event) %>
+									<%= display_edit_event(@event) %> &raquo 
+									<%= display_delete_event(@event) %> &raquo
 									<%= display_reminder_link(@event) %>
 							<% else %>
 									<%= display_leave_event(@event) %>
@@ -20,23 +20,24 @@
 
 						<ul class = "eventbox-content-ul">
 							<li class = "eventInfo-row">
-								<label class = "eventInfo-content-heading">Event Date:</label>
-								<span id = "eventDate"><%= @event.event_start.strftime("%B %d, %Y at %I:%M%p") %></span>
+								<span class = "eventInfo-content-heading">Event Date:</span>
+								<span class = "eventInfo-content" id = "eventDate"><%= @event.event_start.strftime("%b %d, %Y at %I:%M%p") %></span>
 							</li>
 							<% if @event.stage == "Voting" %>
 								<li class = "eventInfo-row">
-									<label class = "eventInfo-content-heading">Time Left to Vote:</label>
-									<span id = "voteCountdown" class = "red">00:00:00</span>
+									<span class = "eventInfo-content-heading">Time Left to Vote:</span>
+									<span class = "eventInfo-content red" id = "voteCountdown">00:00:00</span>
 								</li>
 							<% end %>
 							<li class = "eventInfo-row">
-								<label class = "eventInfo-content-heading">Created by:</label>
-								<span id = "eventOwner"><%= h(@owner)%></span>
+								<span class = "eventInfo-content-heading">Created by:</span>
+								<span class = "eventInfo-content" id = "eventOwner"><%= h(@owner)%></span>
 							</li>								
 						</ul>
 
 						<% if !h(@event.notes).blank? %>
 							<div id = "eventInfo-notes-container">
+								<div id = "eventInfo-notes-header">Notes:</div>
 								<div id = "eventInfo-notes" >
 									<p>"<%= endlines_to_breaks(h(@event.notes)) %>"</p>
 								</div>
@@ -103,6 +104,7 @@
 											<% else %>	
 												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
 											<% end %>
+											<div class = "clear"></div>
 										</li>
 									<% end %>
 								<% end %>						
