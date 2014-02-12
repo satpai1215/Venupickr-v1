@@ -356,17 +356,18 @@
 	padding-right: 0px;
 	background: white;
 }
-
+#post-comment-form-container {
+	padding: 0px 10px;
+}
 #post_comment_form {
-	margin-bottom: 0px;
+	display: block;
+	margin: 0 auto;
 }
 #enterCommentsField {
-	height: 2em;
-	width: 97%;
+	line-height: 2em;
+	width: 100%;
 	text-align: center;
-	margin-top: 8px;
-	margin-left: 8px;
-	margin-bottom: 0px;
+	margin-top: 10px;
 	font-size: 0.9em;
 }
 
@@ -382,13 +383,11 @@
 #discussionBoard-comments ul {
 	clear: both;
 	display: block;
-	padding-top: 5px;
-	padding-bottom: 20px;
-	margin-right: 5px;
-	margin-left: 10px;
+	padding: 10px;
 	margin-bottom: 10px;
-	max-height: 300px;
+	
 	overflow: auto;
+	border: 1px solid black;
 }
 #discussionBoard-comments ul:hover {
 }
@@ -405,7 +404,9 @@
 	text-align: center;
 }
 
-
+#newVenueBtn, #newGuestsBtn {
+	margin-top: 10px;
+}
 
 #event_show_venue_suggestion_off_tag {
 	font-style: italic;
@@ -596,7 +597,7 @@
 		}
 
 	#event-nav {
-		margin: 30px 0;
+		margin-top: 30px;
 		text-align: center;
 	}
 	.hide-toggle {
@@ -606,11 +607,17 @@
 	.event-nav-link {
 		cursor: pointer;
 		display: inline-block;
-		width: 30%;
+		color: black;
+		width: 32%;
+		border: 1px solid black;
+		border-top-right-radius: 2px;
+		border-top-left-radius: 2px;
+		padding: 5px 0px;
 	}
 	.event-nav-link:hover {
 		text-decoration: none;
-		color: green;
+		font-weight: bold;
+		color: white;
 	}
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
@@ -885,6 +892,12 @@ button.ui-dialog-titlebar-close {
 
 .green {
 	color: green;
+	font-weight: bold;
+}
+
+.selected-nav {
+	background: #D6767F;
+	color: white;
 	font-weight: bold;
 }
 

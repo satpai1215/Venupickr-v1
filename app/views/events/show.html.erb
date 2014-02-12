@@ -47,15 +47,15 @@
 				</div> <!-- eventbox -->
 
 				<div id = "event-nav">
-					<a class = "event-nav-link bold green" id = "event-nav-link-1">Venue List</a>
-					<a class = "event-nav-link" id = "event-nav-link-2">Guest List</a>
+					<a class = "event-nav-link selected-nav" id = "event-nav-link-1">Venue List</a>
+					<a class = "event-nav-link " id = "event-nav-link-2">Guest List</a>
 					<a class = "event-nav-link" id = "event-nav-link-3">Message Board</a>
 				</div>
 
 			<div class = "eventbox hide-box hide-toggle-2" id = "event-guestlist-container">
 					<div class = "eventbox-header">
-						<div class = "eventbox-secondary-header-text">Guest List<br/>
-						<% if @is_owner %><%= display_invite_guests(@event) %><% end %>
+						<div class = "eventbox-secondary-header-text">
+							<% if @is_owner %><%= display_invite_guests(@event) %><% end %>
 						</div>
 					</div> <!--eventInfo-header -->
 					<div>
@@ -86,12 +86,12 @@
 
 			<div class = "eventbox hide-box hide-toggle-3" id = "discussionBoard-container">
 				<div class = "eventbox-header">
-					<div class = "eventbox-secondary-header-text">Message Board</div>
+					<div class = "eventbox-secondary-header-text"></div>
 				</div><!--discussionBoard-header -->
-				<div>
+				<div id = "post-comment-form-container">
 					<%= form_tag({:controller => "events", :action => "post_comment", :event_id => @event.id}, {:remote => true, :id => "post_comment_form"}) do %>
 							<%= text_field_tag :comment, nil, {:id => "enterCommentsField", :placeholder => 'enter comments here...'}%>
-							<%= submit_tag("POST", {:disabled => true, :class => "btn btn-primary", :id => "newCommentBtn"}) %>
+							<%= submit_tag("POST", {:disabled => true, :class => "action-btn btn btn-primary", :id => "newCommentBtn"}) %>
 					<% end %>
 
 					<div id = "discussionBoard-comments">
@@ -106,14 +106,14 @@
 							<% end %>
 						</ul>
 					</div><!--discussionBoard-comments -->
-				</div><!--hide-toggle -->
+				</div><!--comment form -->
 			</div> <!--discussionBoard-container -->
 			<!--insert rsvpList code here -->
 
 			<div class = "hide-box hide-toggle-1" id = "venueTab-container">
 			<div class = "eventbox">
         		<div class = "eventbox-header">
-					<div class = "eventbox-secondary-header-text">Recommended Venues:</div>
+					<div class = "eventbox-secondary-header-text"></div>
 					<div class = "newVenueBtn-container"><%= display_venue_suggest_button(@event) %></div>
 					
 				</div> <!--venueList-header -->
