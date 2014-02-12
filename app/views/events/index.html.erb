@@ -51,7 +51,7 @@
                         <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
                      </div>
                      <div class = "row" id = "newEventBtn-container">
-                         <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventBtn", :class => "btn btn-primary", :remote => true} %> <% end %>
+                         <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventBtn", :class => "btn btn-primary action-btn", :remote => true} %> <% end %>
                      </div>
                  </div>
                 <ul>

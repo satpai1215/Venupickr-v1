@@ -1,14 +1,14 @@
 
 <div id = "email-entry-container">
 	<h3>Invite List</h3>
-	<%= text_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Emails (hit 'enter' to add)"} %>
-	<span id = "gmail-contacts-hint">
+		<div id = "gmail-contacts-hint">
 		<% if current_user.contacts_up_to_date? %>
 			<p>Gmail Contacts Loaded</p>
 		<% else %>
-			<%= link_to "Find Gmail Contacts", "/contacts/gmail", {id: "gmail-contacts-link"} %>
+			<%= link_to "Find Gmail Contacts >>", "/contacts/gmail", {id: "gmail-contacts-link"} %>
 		<% end %>
-	</span>
+	</div>
+	<%= email_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Email Addresses (hit 'enter' to add)"} %>
 </div>
 
 <%= form_tag("/guests/update_guestlist", :method => :post, :id => "new-guest-form" ) do %>
@@ -19,8 +19,9 @@
 
 
 	<div class="actions">
-		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit" %><br/>
-		<%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
+		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit", class: "sign_up_btn btn btn-primary" %>
+		<div id = "form-submit-filler-text">Inviting guests. Please wait...</div>
+		<%#= image_tag("/assets/ajax-loader.gif", :id => "invite-guests-loading-gif", class: "loading-gif",  :style => "visibility: hidden;") %>
 	</div>
 <% end %>
 

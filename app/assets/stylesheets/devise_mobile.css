@@ -12,7 +12,7 @@
 	}
 
 .user_session_page, .user_reg_page {
-	width: 95%;
+	width: 100%;
 	margin: 15px auto;
 	border: solid black 1px;
 	border-radius: 2px;

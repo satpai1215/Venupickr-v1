@@ -35,16 +35,17 @@ $(document).ready(function() {
     $('.guest_checkbox').prop('checked', false);
   });
 
-  $(document).on('click', '#invite_guest_form_submit', function(event) {
-    $('#event-loading-gif').css('visibility', 'visible');
-    $('#invite_guest_form_submit').hide();
+  $(document).on('click', '#new-guest-form-submit', function(event) {
+    //$('.loading-gif').css('visibility', 'visible');
+    $('#form-submit-filler-text').show();
+    $('#new-guest-form-submit').hide();
   });
   $(document).on('click', '#eventSubmitButton', function(event) {
-    $('#event-loading-gif').css('visibility', 'visible');
+    $('.loading-gif').css('visibility', 'visible');
     $('#eventSubmitButton').hide();
   });
   $(document).on('click', '#venueSubmitButton', function(event) {
-    $('#event-loading-gif').css('visibility', 'visible');
+    $('#venue-loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
   });
   

@@ -14,8 +14,8 @@
   <div class="field venue-name-input">
     <%= f.label :name, "Name of Venue:" %>
     <%= f.text_field :name %>
-    <div id = "venue-loading-gif-container">
-    <%= image_tag("/assets/ajax-loader.gif", :id => "venue-loading-gif",  :style => "visibility: hidden;") %>
+    <div class = "loading-gif-container">
+    <%= image_tag("/assets/ajax-loader.gif", :class => 'loading-gif', :id => "venue-loading-gif",  :style => "visibility: hidden;") %>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
     <div class ="newVenueBtn-container">
       <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {id: "venueSubmitButton", class: "newVenueBtn btn"} %>
     </div>
-     <%= image_tag("/assets/ajax-loader.gif", :id => "event-loading-gif",  :style => "visibility: hidden;") %>
+     <%= image_tag("/assets/ajax-loader.gif", :class => "loading-gif",  :style => "visibility: hidden;") %>
   </div>
 
 <% end %>

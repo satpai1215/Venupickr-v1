@@ -40,7 +40,7 @@
 	text-align: center;
 }
 
-#newEventBtn, #newVenueBtn, #newCommentBtn, #newGuestsBtn {
+.action-btn {
 	width: 90%;
 	margin-bottom: 10px;
 	font-size: 0.85em;
@@ -272,20 +272,7 @@
 	line-height: 1.1em;
 	background: white;
 }
-	#eventInfo-notes-container {
-		border-top: solid 1px #e9eaed;
-		padding: 5px 25px;
-	}
-	#eventInfo-notes-header {
-		margin-top: 10px;
-		font-weight: bold;
-	}
-	#eventInfo-notes{
-		font-style: italic;
-	}
-	#eventInfo-notes p {
-		margin-bottom: 0px;
-	}
+	
 	.eventbox-content-ul {
 		margin-left: 0px;
 		margin-bottom: 5px;
@@ -302,10 +289,24 @@
 	.eventInfo-content-heading {
 		cursor: auto;
 		font-size: 1em;
-		font-weight: normal;
+		font-weight: bold;
 		text-align: left;
 	}
 
+	#eventInfo-notes-container {
+		border-top: solid 1px #e9eaed;
+		padding: 5px 25px;
+	}
+	#eventInfo-notes-header {
+		margin-top: 10px;
+		font-weight: bold;
+	}
+	#eventInfo-notes{
+		font-style: italic;
+	}
+	#eventInfo-notes p {
+		margin-bottom: 0px;
+	}
 
 #event-guestlist {
 	overflow-y: auto;
@@ -754,7 +755,7 @@ button.ui-dialog-titlebar-close {
 	position: relative;
 }
 
-#venue-loading-gif-container {
+.loading-gif-container {
 	position: absolute;
 	right: 15%;
 	top: 50%;

@@ -2,51 +2,40 @@
 	width: 100%;
 }
 
-#email-entry-container {
-	width: 70%;
-	margin: 0 auto;
-	position: relative;
+#new-guest-form-header h2 {
+	color: black;
+	text-align: center;
+	font-weight: bold;
 }
-
-#email-dropdown {
-	margin-bottom: 0px;
-}
-
-#gmail-contacts-hint {
-	font-size: 0.5em;
-	font-style: italic;
-}
-
 #new-guest-form-header {
-	color: #2e6ab1;
-	font-weight: normal;
 	text-align: center;
 }
-
-#new-guest-form-container h3 {
-	color: #2e6ab1;
-	font-weight: bold;
-	text-align: left;
-	margin-bottom: 0px;
+#new-guest-form-header a {
+	font-size: 0.8em;
 }
 
 	#email-dropdown {
-		width: 40%;
 		margin: 5px 0;
-		border-radius: none;
 	}
 
 	#gmail-contacts-hint {
-		position: absolute;
-		right: 10px;
+		text-align: center;
+		font-style: italic;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
+	#gmail-contacts-hint p {
+		color: blue;
+	}
+
+	#gmail-contacts-link {
+		text-align: center;
 	}
 
 
 
 #new-guest-form-invitelist {
 	cursor: text;
-	width: 70%;
-	margin: 0 auto;
 	margin-bottom: 10px;
 	background: white;
 	min-height: 300px;
@@ -67,7 +56,7 @@
 	    	border-radius:5px;
 
 	    color:#333;  
-	    font: normal 0.5em Verdana, Sans-serif;  
+	    font: normal 0.8em Verdana, Sans-serif;  
 	}
 
 	#new-guest-form-invitelist span a {  
@@ -82,9 +71,16 @@
 	    color:blue;
 	} 
 
-
-
-#new-guest-form-submit {
-	display: block;
-	margin: 0 auto;
+#new-guest-form .actions {
+	margin-bottom: 10px;
 }
+
+#form-submit-filler-text {
+	display: none;
+	font-style: italic;
+	text-align: center;
+
+}
+
+
+

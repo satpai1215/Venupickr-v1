@@ -64,7 +64,7 @@
 		padding: 15px;
 	}
 
-	#newEventBtn, #newVenueBtn, #newCommentBtn, #newGuestsBtn {
+	.action-btn {
 		width: 30%;
 		font-size: 0.8em;
 	}
