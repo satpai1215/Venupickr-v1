@@ -118,9 +118,13 @@ module EventsHelper
 		venue_name = h(venue.name)
 		venue_address = venue.address.html_safe #to allow for <br> in the address
 		venue_comments = h(venue.comments)
+		venue_user = (venue.user.id == current_user.id ? "YOU" : "#{venue.user.to_s}")
 		html = ""
-		html << "<div class = 'venueStickyHeader'>#{venue_name}</div>"
-		html << "<div class = 'venueSuggestor'>Suggested By: #{venue.user.to_s} </div>"
+		html << "<div class = 'venueStickyHeader-container'>"
+		html << "<span class = 'venueStickyHeader'>#{venue_name}</span>"
+		html << "<span class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</span>"
+		html << "</div>"
+		html << "<div class = 'venueSuggestor'>was suggested by #{venue_user} </div>"
 		html << "<div class = 'venueStickyInfo'> <p>#{venue_address}</p>"
 		if !venue.url.blank? 
 			html << "<p>#{link_to "Yelp Page", venue.url, :target => '_blank'} </p> "
