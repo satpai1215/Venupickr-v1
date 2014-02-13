@@ -89,6 +89,10 @@
 	#venue_name, #venue_comments, #venue_address, #event_name, #event_notes {
 		width: 70%;
 	}
+	.loading-gif-container {
+		right: 10%;
+		top: 50%;
+	}
 
 	/* EVENTS.CSS FOR SHOW */
 	#eventShow {

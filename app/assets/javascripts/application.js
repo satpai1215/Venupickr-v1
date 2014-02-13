@@ -54,7 +54,7 @@ $(document).ready(function() {
     $('#eventSubmitButton').hide();
   });
   $(document).on('click', '#venueSubmitButton', function(event) {
-    $('#venue-loading-gif').css('visibility', 'visible');
+    $('.loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
   });
   

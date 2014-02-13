@@ -176,11 +176,12 @@
 
 .appInfo p {
 	margin: 0px;
-	text-align: left;
+	text-align: justify;
 }
 
 #seller {
-	font-style: italic;
+	font-weight: bold;
+	text-align: center;
 }
 
 
@@ -243,12 +244,6 @@
 }
 
 
-#futureFeatures {
-	margin: 20px;
-	list-style: circle;
-	list-style-position: inside;
-}
-
 .block {
 	display: block;
 }
@@ -258,6 +253,12 @@
 	background :#56A4DB;
   	font-weight: bold;
   	list-style: none;
+}
+
+#beta-info p {
+	text-align: center;
+	font-style: italic;
+	margin-top: 50px;
 }
 
 /*----------------------------------------------------------------------------- 

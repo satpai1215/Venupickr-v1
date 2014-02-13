@@ -701,7 +701,7 @@
 	text-align: center;
 }
 
-.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions, #invite_guest_form .actions {
+.new_event .actions, #new_venue .actions, .edit_event .actions, .edit_venue .actions, #invite_guest_form .actions, #new-guest-form .actions{
 	text-align: center;
 	margin-top: 20px;
 }
@@ -773,8 +773,11 @@ button.ui-dialog-titlebar-close {
 
 .loading-gif-container {
 	position: absolute;
-	right: 15%;
-	top: 50%;
+	right: 3%;
+	top: 60%;
+}
+.loading-gif {
+	width: 25px;
 }
 
 #datetime_select select:nth-child(1) {

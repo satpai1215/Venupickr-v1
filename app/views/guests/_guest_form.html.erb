@@ -21,7 +21,7 @@
 	<div class="actions">
 		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit", class: "sign_up_btn btn btn-primary" %>
 		<div id = "form-submit-filler-text">Inviting guests. Please wait...</div>
-		<%#= image_tag("/assets/ajax-loader.gif", :id => "invite-guests-loading-gif", class: "loading-gif",  :style => "visibility: hidden;") %>
+		<%= image_tag("/assets/ajax-loader.gif", :class => "loading-gif",  :style => "visibility: hidden;") %>
 	</div>
 <% end %>
 
