@@ -1,6 +1,6 @@
 
 <% if @already_suggested_venue and current_user.id != @event.owner_id %>
-    $("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.").delay(3000).fadeOut(1000);
+    $("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.").fadeIn().delay(3000).fadeOut(1000);
 
 <% else %> {
     $('#createVenueForm').dialog("open");

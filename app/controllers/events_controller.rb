@@ -246,7 +246,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @event, notice: "A reminder email has been sent"}
-      format.js {render :js => '$("#notice").text("A reminder email has been sent");'}
+      format.js {render :js => '$("#notice").text("A reminder email has been sent").fadeIn().delay(3000).fadeOut(1000);'}
     end
   end
 

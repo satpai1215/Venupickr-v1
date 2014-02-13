@@ -1,5 +1,5 @@
 $("#venue_" + <%= @venue.id %>).slideUp();
 
-$("#notice").text("You successfully removed your suggested venue").delay(3000).fadeOut(1000);
+$("#notice").text("You successfully removed your suggested venue").fadeIn().delay(3000).fadeOut(1000);
 
 $("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content) %></li>");
