@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MoMondays</title>
+  <title>Venuepickr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <%= include_gon %>
   <%= stylesheet_link_tag "application_mobile", :media => "all" %>
@@ -15,7 +15,7 @@
 			<img src = "/assets/beta_banner.png" id = "banner"/>
 			<div id="login-nav">
 				<% if user_signed_in? %>
-					Logged in as <%= current_user %> 
+					Logged in as <%= current_user %>  
 					<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
 					<%= link_to "User Settings",  edit_user_registration_path %>
 				<% else %>

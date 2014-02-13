@@ -65,8 +65,16 @@
 		padding: 15px;
 	}
 
+	/* CSS for Forms */
+	.field {
+		margin-bottom: 25px;
+	}
 	.action-btn {
 		width: 30%;
+		font-size: 0.8em;
+	}
+	.modal-dialog {
+		margin: 10px auto;
 		font-size: 0.8em;
 	}
 
@@ -82,7 +90,6 @@
 	}
 	#event_timepicker, #event_datepicker {
 		width: 27%;
-		font-size: 0.75em;
 	}
 	#eventDateSelect-container label {
 		display: inline;

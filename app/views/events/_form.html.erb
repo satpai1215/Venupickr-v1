@@ -54,7 +54,7 @@
 
 
   <div class="actions">
-    <%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {class: "btn", id: "eventSubmitButton"} %>
+    <div><%= f.submit (@event.new_record? ? "Create Event": "Update Event"), {class: "btn", id: "eventSubmitButton"} %></div>
     <%= image_tag("/assets/ajax-loader.gif", :class => "loading-gif",  :style => "visibility: hidden;") %>
   </div>
 <% end %>

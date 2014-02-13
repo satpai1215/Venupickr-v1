@@ -112,7 +112,7 @@ $(document).ready(function() {
     }); 
 
     var wWidth = $(window).width();
-    var formWidth = 0.9 * wWidth;
+    var formWidth = 0.95 * wWidth;
     if(wWidth > 600) {
       formWidth = 0.5 * wWidth;
     }
