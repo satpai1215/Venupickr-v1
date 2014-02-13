@@ -80,10 +80,14 @@
 		margin-right: 10px;
 	}
 	#event_timepicker, #event_datepicker {
-		width: 25%;
+		width: 27%;
+		font-size: 0.75em;
 	}
 	#eventDateSelect-container label {
 		display: inline;
+	}
+	#venue_name, #venue_comments, #venue_address, #event_name, #event_notes {
+		width: 70%;
 	}
 
 	/* EVENTS.CSS FOR SHOW */
@@ -99,9 +103,7 @@
 		/* width: 80%; */
 		margin: 0 auto;
 	}
-	#venue_name, #venue_comments, #venue_address, #event_name, #event_notes {
-		width: 50%;
-	}
+
 
 	/* ABOUT.PAGE */
 	#about-container {
