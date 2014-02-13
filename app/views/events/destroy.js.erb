@@ -8,7 +8,7 @@
 
 //deleted on events#index
 <% if !@from_index %>
-	$('#notice').text('Event Deleted Successfully.');
+	$('#notice').text('Event Deleted Successfully.').delay(3000).fadeOut(1000);
 
 	$('#<%= dom_id(@event) %>').slideUp();
 

@@ -20,7 +20,7 @@
 $(document).ready(function() {
   $(document).ajaxError(function (e, xhr, settings) {
        // if (xhr.status == 401) {
-          $('#notice').html(xhr.responseText);
+         // $('#notice').html(xhr.responseText);
        // }
     });
 
@@ -28,8 +28,17 @@ $(document).ready(function() {
       votesort();  
     });
 
+   $(document).on('click', "#notice", function(event) {
+    //$(this).fadeOut(500);
+    $(this).text("");
+    //$(this).fadeIn();
+   });
+    $(document).on('click', "#alert", function(event) {
+    $(this).fadeOut(500);
+   });
+
   $(document).on('click', '#guest_form_selectall_btn', function(event) {
-    $('.guest_checkbox').prop('checked', true);
+    $('.guest_checkbox  ').prop('checked', true);
   });
   $(document).on('click', '#guest_form_deselectall_btn', function(event) {
     $('.guest_checkbox').prop('checked', false);

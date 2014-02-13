@@ -1,2 +1,3 @@
 console.log("create.js.erb");
+'<%= flash[:notice] = "Venue Added." %>';
 window.location = '<%= event_path(@event) %>';

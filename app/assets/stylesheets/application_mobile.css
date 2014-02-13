@@ -56,10 +56,16 @@
 = NOTICE 
 -----------------------------------------------------------------------------*/
 #notice {
+	cursor: pointer;
 	text-align: center;
 	height: inherit;
-	color: #c09853;
-	background: #F9F9C9;
+	color: white;
+	background: #32B021;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10000000;
 }
 
  /*----------------------------------------------------------------------------- 

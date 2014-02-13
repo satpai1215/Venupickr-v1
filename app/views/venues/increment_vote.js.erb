@@ -53,7 +53,7 @@ $currentListItem.append('<span class = "vote-for-hint">You have voted for this v
 
 
 //voteSort();
-$("#notice").text("<%= escape_javascript(@notice_text) %>"); 
+$("#notice").text("<%= escape_javascript(@notice_text) %>").delay(3000).fadeOut(1000); 
 $("#discussionBoard ul").prepend("<li class = 'italic'><%= escape_javascript(@content)%></li>");
 
 
