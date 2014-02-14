@@ -14,10 +14,10 @@
 	.nav>li>a {
 		margin: 0px 30px;
  	}
-	#banner {
-		width: 50%;
-		height: auto;
-	}
+	 #banner {
+	 	margin-left: 10px;
+	 	text-align: left;
+	 }
 
 	#login-nav {
 		position: absolute;
