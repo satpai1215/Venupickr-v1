@@ -88,8 +88,9 @@
  }
 
  #banner {
- 	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+ 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
  	font-size: 2em;
+ 	margin-left: 10px;
  	text-align: center;
  }
 

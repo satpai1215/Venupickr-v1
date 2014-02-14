@@ -352,6 +352,7 @@
 .rsvpButton {
 	font-size: 0.85em;
 	width: 45%;
+	text-align: center;
 }
 
 #discussionBoard-container {
