@@ -237,23 +237,31 @@ class EventsController < ApplicationController
 
   def send_reminder
     @event = Event.find(params[:event_id])
-    if @event.stage == "Voting"
-      AutoMailer.voting_reminder_email(params[:event_id]).deliver
-    elsif @event.stage == "Finished"
-      AutoMailer.finished_reminder_email(params[:event_id]).deliver
-    else
-    end
+    if @event.guests.count > 1
+      if @event.stage == "Voting"
+        AutoMailer.voting_reminder_email(params[:event_id]).deliver
+      elsif @event.stage == "Finished"
+        AutoMailer.finished_reminder_email(params[:event_id]).deliver
+      else
+      end
 
-    respond_to do |format|
-      format.html {redirect_to @event, notice: "A reminder email has been sent"}
-      format.js {render :js => '$("#notice").text("A reminder email has been sent").fadeIn().delay(3000).fadeOut(1000);'}
+      respond_to do |format|
+        format.html {redirect_to @event, notice: "A reminder email has been sent"}
+        format.js {render :js => '$("#notice").text("A reminder email has been sent").fadeIn().delay(3000).fadeOut(1000);'}
+      end
+
+    else # no guests yet
+     respond_to do |format|
+        format.html {redirect_to @event, notice: "There are no guests yet."}
+        format.js {render :js => '$("#notice").text("You don\'t have any guests yet.").fadeIn().delay(3000).fadeOut(1000);'}
+      end
     end
   end
 
   def post_comment
     @event = Event.find(params[:event_id])
     @content = params[:comment]
- 
+    @first_comment = (@event.comments.count == 0)
     @comment = Comment.create!(:content => @content, :event_id => params[:event_id], :username => current_user.firstname)
     Update.create!(:content => "#{current_user} just posted a comment on \"#{@event.name}\"", :event_id => @event.id)
 

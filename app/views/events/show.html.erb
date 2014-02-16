@@ -62,7 +62,7 @@
 						<div class = 'eventbox-content'>
 							<ul class = "eventbox-content-ul" id = "event-guestlist">	
 								<% if @guests.empty? %>
-									<li class = "guestlist-row-no-guests italic">no guests yet</li>
+									<li class = "guestlist-row-no-guests italic">No guests yet</li>
 								<% else %>
 									<% @guests.each do |guest| %>
 										<li class = "guestlist-row">
@@ -95,16 +95,19 @@
 					<% end %>
 
 					<div id = "discussionBoard-comments">
-						<ul>
-							<% @event.comments.order("created_at DESC").each do |comment| %>
-								<% if comment.username != nil %>
-									<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
-	                        		<%= comment.content %></li>
-	                        	<% else %> <!--check if comment is an update -->
-	                        		<li class = "italic"><%= comment.content %></li>
-	                        	<% end %>
+						
+							<% if @event.comments.count > 0 %>
+								<ul>
+								<% @event.comments.order("created_at DESC").each do |comment| %>
+									<% if comment.username != nil %>
+										<li><span class = "comment_timestamp"><%= comment.username %> (<%= time_ago_in_words(comment.created_at) %> ago):</span>
+		                        		<%= comment.content %></li>
+		                        	<% else %> <!--check if comment is an update -->
+		                        		<li class = "italic"><%= comment.content %></li>
+		                        	<% end %>
+								<% end %>
+								</ul>
 							<% end %>
-						</ul>
 					</div><!--discussionBoard-comments -->
 				</div><!--comment form -->
 			</div> <!--discussionBoard-container -->
@@ -194,7 +197,7 @@
 				</div> <!--createVenueForm-->
 				<div id = "createEventForm" class = "createForm modal-dialog" title = "Enter Event Information">
    				 </div>
-   				 <div id = "inviteGuestsForm" class = "createForm modal-dialog" title = "Select Guests to Invite">
+   				 <div id = "inviteGuestsForm" class = "createForm modal-dialog" title = "Invite Guests">
    				 </div>
 		</div> <!--#eventShow -->
 
@@ -223,8 +226,8 @@
 
   		//popup guest dialog if event was just created
 		<% if flash[:new_event?] %>
-			//$('#inviteGuestsForm').dialog('open');
-			//$('#inviteGuestsForm').html("<%#= escape_javascript(render :partial => 'guests/guest_form') %>");
+			$('#inviteGuestsForm').dialog('open');
+			$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/new_event_guests_form') %>");
 		<% end %>
 
 		//color code rsvp buttons on page refresh

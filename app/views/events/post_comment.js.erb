@@ -1,5 +1,10 @@
-$("#discussionBoard-comments ul").prepend('<li><span class = "comment_timestamp"><%= @comment.username %> (<%= time_ago_in_words(@comment.created_at) %> ago):</span> <%= @content %></li>');
-$("#notice").text("Comment Posted.").fadeIn().delay(3000).fadeOut(1000);;
+<% if @first_comment %>
+	console.log('inside');
+	$("#discussionBoard-comments").append('<ul></ul>');
+<% end %>
 
- $('#enterCommentsField').val("");
- $('#postCommentButton').attr('disabled', true);    
+console.log("outside");
+$("#discussionBoard-comments ul").prepend('<li><span class = "comment_timestamp"><%= @comment.username %> (<%= time_ago_in_words(@comment.created_at) %> ago):</span> <%= @content %></li>');
+$("#notice").text("Comment Posted.").fadeIn().delay(3000).fadeOut(1000);
+$('#enterCommentsField').val("");
+$('#postCommentButton').attr('disabled', true);    
