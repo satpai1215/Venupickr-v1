@@ -14,32 +14,32 @@ class AutoMailer < ActionMailer::Base
     User.all.each do |u|
       emails.push(u.email)
     end
-    mail(:bcc => emails, :subject => "The MoMondaysApp Has Been Updated!")
+    mail(:bcc => emails, :subject => "The Venuepickr Has Been Updated!")
   end
 
   def event_create_email(event_id)
     find_event_info(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Created '#{@event.name}' on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Created '#{@event.name}' on the Venuepickr App!")
   end
 
   def event_update_email(event_id)
     find_event_info(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Updated '#{@event.name}' on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "#{@owner} Has Updated '#{@event.name}' on the Venuepickr App!")
   end
 
   def send_invite_email(event_id, guest_emails)
     find_event_info(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => guest_emails, :subject => "You have been invited to an event on the Mo' Mondays App!")
+    mail(:bcc => guest_emails, :subject => "You have been invited to an event on the Venuepickr App!")
   end
 
   def send_new_user_invite_email(event_id, new_guest_emails)
     find_event_info(event_id)
     @token = Event.encrypt(@event.id)
     @url = new_user_registration_with_token_url(@token)
-    mail(:bcc => new_guest_emails, :subject => "You have been invited to join the Mo' Mondays App!")
+    mail(:bcc => new_guest_emails, :subject => "You have been invited to join the Venuepickr App!")
   end
 
   def venue_suggested_email_owner(event_id, user_id)
@@ -51,7 +51,7 @@ class AutoMailer < ActionMailer::Base
   def venue_suggested_email_guest(event_id, user_id)
     find_event_info(event_id)
     @venue_owner = User.find(user_id)
-    mail(:bcc => email_list(event_id, true), :subject => "ALERT: A venue has been suggested for the event '#{@event.name}' on the MoMondays App!")
+    mail(:bcc => email_list(event_id, true), :subject => "ALERT: A venue has been suggested for the event '#{@event.name}' on the Venuepickr App!")
   end
 
   def event_finish_email(event_id)
@@ -65,14 +65,14 @@ class AutoMailer < ActionMailer::Base
   def voting_reminder_email(event_id)
     find_event_info(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' is on the clock on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' is on the clock on the Venuepickr App!")
   end
 
   def finished_reminder_email(event_id)
     find_event_info(event_id)
     @winner = Venue.find(@event.winner)
     @winner.address = @winner.address.gsub("<br>", "\n")
-    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' has been scheduled on the MoMondaysApp!")
+    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' has been scheduled on the Venuepickr App!")
 
   end
 

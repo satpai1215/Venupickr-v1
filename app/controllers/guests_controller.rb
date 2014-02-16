@@ -68,7 +68,7 @@ class GuestsController < ApplicationController
 		@existing_user_emails = []
 
 		@guests.each do |email|
-			@user = User.find_by_email(email)
+			@user = User.find_by_email(email.downcase)
 			@notice = "An invitation has been emailed to your guests."
 			#check if user exists and if user is already a guest for the event
 			if @user and !@event.guests.find_by_user_id(@user.id)
