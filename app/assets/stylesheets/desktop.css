@@ -8,18 +8,21 @@
 
 	#page_title {
 		min-width: 960px;
-		position: relative;
 	}
 
 	.nav>li>a {
 		margin: 0px 30px;
  	}
-	 #banner {
-	 	margin-left: 10px;
+	 .banner {
+	 	padding-left: 10px;
 	 	text-align: left;
 	 }
 
-	#login-nav {
+	 .banner {
+	 	position: relative;
+	 }
+
+	.login-nav {
 		position: absolute;
 		bottom: 0;
 		right: 10px;
@@ -28,6 +31,11 @@
 		width: 45%;
 		font-size: 0.8em;
 	}
+
+	#banner-bottom-header {
+		display: block;
+	}
+
 
 
 	/* DEVISE.CSS */
