@@ -20,6 +20,12 @@
  *= require "desktop"
  */
 
+ @font-face {
+	font-family: 'Verlag Black';
+	src: url('Verlag-Black.otf') format('opentype');
+	font-style: normal;
+}
+
  html {height: 100%;}
 
  body {
