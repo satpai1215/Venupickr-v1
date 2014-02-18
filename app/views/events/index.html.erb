@@ -109,4 +109,9 @@
 
 
 
-<script type = "text/javascript"> createTimersinIndex(); </script>
+<%= javascript_tag do %> 
+    $(function() {
+        createTimersinIndex();
+        $('.ui-dialog .ui-dialog-titlebar-close').text('X');
+    });
+<% end %>

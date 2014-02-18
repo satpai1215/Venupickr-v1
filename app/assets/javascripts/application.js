@@ -113,12 +113,14 @@ $(document).ready(function() {
 
     var wWidth = $(window).width();
     var formWidth = 0.95 * wWidth;
+    var anchor = "body";
     if(wWidth > 600) {
       formWidth = 0.5 * wWidth;
+      anchor = "#nav_body";
     }
 
-   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: formWidth, show: 500, position: { my: "center top", at: "center top", of: "body" }});
-   $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: formWidth, show: 500, position: { my: "center top", at: "center top", of: "body" }});
+   $("#createVenueForm").dialog({modal: true, autoOpen: false, minWidth: formWidth, show: 500, position: { my: "center top", at: "center top", of: anchor }});
+   $("#createEventForm").dialog({modal: true, autoOpen: false, minWidth: formWidth, show: 500, position: { my: "center top", at: "center top", of: anchor }});
    $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, width: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 

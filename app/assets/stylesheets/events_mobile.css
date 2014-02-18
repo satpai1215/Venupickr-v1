@@ -686,7 +686,12 @@
 }
 
 .ui-widget-content {
+	border: 2px solid black;
 	background: whitesmoke;
+}
+
+.ui-widget-overlay {
+	opacity: 0.7;
 }
 
 .new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field, #invite_guest_form .field {
@@ -703,7 +708,11 @@
 }
 
 
-button.ui-dialog-titlebar-close {
+.ui-dialog .ui-dialog-titlebar-close {
+	color: white;
+	background:none;
+	border:none;
+	font-family: Arial Black;
 }
 
 .createForm label {

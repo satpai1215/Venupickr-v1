@@ -142,6 +142,18 @@
 		top: 50%;
 	}
 
+	.ui-dialog .ui-dialog-titlebar-close {
+		right: 1em;
+		top: 45%;
+		color: white;
+		background:none;
+		border:none;
+		font-family: Arial;
+		font-size: 20px;
+		width: inherit;
+		height: inherit;
+	}
+
 	/* EVENTS.CSS FOR SHOW */
 	#eventShow {
 		width: 80%;

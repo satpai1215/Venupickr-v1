@@ -206,7 +206,6 @@
 	$(function() {
 		//sort venues by votes
 		voteSort();
-
 		//votemeter functionality
   		<% @event.venues.each do |venue| %>
   			calculateVoteMeter('<%= venue.id %>', '<%= venue.voters.count%>', '<%= @total_votecounts%>' )
@@ -239,6 +238,7 @@
 			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');
 		<% end %>
 
+		$('.ui-dialog .ui-dialog-titlebar-close').text('X');
 
 	});
 <% end %>
