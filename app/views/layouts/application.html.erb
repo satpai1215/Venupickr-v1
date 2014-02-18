@@ -13,17 +13,31 @@
 		
 		<div id = "page_title">
 			<!-- <img src = "/assets/beta_banner.png" id = "banner-pic"/> -->
-			<div id = "banner">Venuepickr</div>
-			<div id="login-nav">
-				<% if user_signed_in? %>
-					Logged in as <%= current_user %>  
-					<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
-					<%= link_to "User Settings",  edit_user_registration_path %>
-				<% else %>
-					<%= link_to "Sign Up", new_user_registration_path %> |
-					<%= link_to "Sign In", new_user_session_path %>
-				<% end %>
+			<div class = "banner" id = "banner-top">
+				<div class = "banner-header" id = "banner-top-header">VENUEPICKR</div>
+				<div class = "login-nav" id="login-nav-top">
+					<% if user_signed_in? %>
+						Logged in as <%= current_user %>
+					<% else %>
+						<%= link_to "Sign In", new_user_session_path %>
+					<% end %>
+				</div>
 			</div>
+
+			<div class = "banner" id = "banner-bottom">
+				<div class = "banner-header" id = "banner-bottom-header">the social way to plan events</div>
+				<div class = "login-nav" id="login-nav-bottom">
+					<% if user_signed_in? %> 
+						<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
+						<%= link_to "User Settings",  edit_user_registration_path %>
+					<% else %>
+						<%= link_to "Register", new_user_registration_path %>
+					<% end %>
+				</div>
+			</div>
+
+
+			
 		</div> <!--page_title -->
 
 
