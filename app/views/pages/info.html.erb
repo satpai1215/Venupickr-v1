@@ -1,16 +1,17 @@
 <div id = "aboutPage">
 
-	<div class = "row" id = "welcome-hero">
+<!-- 	<div class = "row" id = "welcome-hero">
 		<h1 id = "hero-header1">Planning your next <span>EVENT</span>...</h1>
 		<h1 id = "hero-header2">...just became <span>SOCIAL</span></h1>
-	</div>
+	</div> -->
 
 
 	<div class = "row">
 		<div id = "about-container">
 
 		<div class="appInfo">
-			<h1>Welcome to the <%= Venupickr::Application::APP_NAME %> App!</h1>
+			<h1><%= Venupickr::Application::APP_NAME.upcase %></h1>
+			<h2>the social way to plan events</h2>
 			<p id = "seller">Have you ever wanted to have a birthday dinner but just couldn't decide on a restaurant? Or are you sick of having happy hours at the same bars week after week? Do you stress out trying to pick locations for your group get togethers?</p><br/>
 			<p>The <%= Venupickr::Application::APP_NAME %> App is here to help! <%= Venupickr::Application::APP_NAME %> is a social event-planning application designed to take the hassle out of choosing locations for your next get together by letting your friends suggest venues. All you need to do is create an event, specify the date, and choose your guests.  After the event is created, you can allow your guests to suggest venues for the event and even vote for the venues they prefer. You can also suggest your own venues to add the list. When the voting period ends, the venue with the most votes will be chosen and an email will be sent out with event details, including the winning venue.
 			</p>

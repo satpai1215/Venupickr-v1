@@ -122,8 +122,8 @@ module EventsHelper
 		html = ""
 		html << "<div class = 'venueStickyHeader-container'>"
 		html << "<span class = 'venueStickyHeader'>#{venue_name}</span>"
-		html << "<span class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</span>"
 		html << "</div>"
+		html << "<div class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</div>"
 		html << "<div class = 'venueSuggestor'>was suggested by #{venue_user} </div>"
 		html << "<div class = 'venueStickyInfo'> <p>#{venue_address}</p>"
 		if !venue.url.blank? 

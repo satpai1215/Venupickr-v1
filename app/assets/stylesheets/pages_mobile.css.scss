@@ -141,7 +141,7 @@
 #about-container {
 	padding: 5px 10px 10px 10px;
 	border-radius: 2px;
-
+	background-color: whitesmoke;
 	box-shadow: 0px 2px 5px 0px #000;
 		-moz-box-shadow: 0px 2px 5px 0px #000;
 		-webkit-box-shadow: 0px 2px 5px 0px #000;
@@ -149,25 +149,22 @@
 
 	#about-container h1, #about-container h2 {
 		text-align: center;
-		font-size: 2em;
+		color: #FF7F00;
 	}
 
 .appInfo h1 {
-	text-align: center;
+	margin-bottom: 5px;
+	font-family: Verlag Black;
+	font-size: 2em;
 }
 
 .appInfo h2 {
-	margin-top: 40px;
+	margin-top: 0px;
+	font-size: 1.5em;
 }
-
-.appInfo h1, .appInfo h2, .appInfo h3 {
-	color: #2e6ab1;
-	font-weight: bold;
-}
-
 
 #more-info-header {
-	color: #2e6ab1;
+	color: #FF7F00;
 	font-size: 1.2em;
 	text-align: center;
 	margin-top: 10px;
@@ -180,7 +177,7 @@
 }
 
 #seller {
-	font-weight: bold;
+	font-family: Verlag Black;
 	text-align: center;
 }
 
@@ -258,7 +255,7 @@
 #beta-info p {
 	text-align: center;
 	font-style: italic;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 /*----------------------------------------------------------------------------- 

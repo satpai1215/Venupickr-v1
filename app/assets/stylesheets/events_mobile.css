@@ -5,7 +5,7 @@
 }
 
 .eventList h2 {
-	color: #2e6ab1;
+	color: black;
 	text-align: center;
 }
 
@@ -15,6 +15,7 @@
 #votingEvents h2{
 	margin-top: 10px;
 	text-align: center;
+	color: black;
 }
 
 .eventList-header{
@@ -50,7 +51,7 @@
 }
 
 .eventList .eventItem {
-		border: inset 1px #808080;
+	border: solid 1px #808080;
 	border-radius: 2px;
 	position: relative;
 	display: block;
@@ -60,6 +61,8 @@
 	padding: 5px;
 	padding-right: 0px;
 	background: white;
+
+
 	/*background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
    	background-image: -moz-linear-gradient(100% 100% 90deg, #EDF0EE, #D7D9D8);*/
 }
@@ -458,9 +461,7 @@
 		font-size: 1.4em;
 	}
 		.venue_modifiers {
-			margin-left: 10px;
 			margin-bottom: 5px;
-			vertical-align: top;
 		}
 
 		.venue_modifiers a {
@@ -607,7 +608,8 @@
 	.event-nav-link:hover {
 		text-decoration: none;
 		font-weight: bold;
-		color: black;
+		color: white;
+		background-color: #FF7F00;
 	}
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
@@ -677,6 +679,15 @@
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
+.ui-widget-header {
+	background: #FF7F00;
+	color: white;
+	border: none;
+}
+
+.ui-widget-content {
+	background: whitesmoke;
+}
 
 .new_event .field, #new_venue .field, .edit_event .field, .edit_venue .field, #invite_guest_form .field {
 	text-align: center;
@@ -847,29 +858,17 @@ button.ui-dialog-titlebar-close {
 }
 
 #eventSubmitButton, #venueSubmitButton {
+	color: white;
+	background: #FF7F00;
 }
+#eventSubmitButton:hover, #venueSubmitButton:hover {
+	background: #CC6702;
+}
+
 
 /*----------------------------------------------------------------------------- 
 = TEMPORARY DIALOG POPUPS
 -----------------------------------------------------------------------------*/
-#addNamestoUserAlert {
-	display: none;
-}
-#addNamestoUserAlert a {
-	text-decoration: underline;
-	text-align: center;
-	color: #08c;
-	margin-left: 180px;
-	
-}
-
-#newFeaturesAlert {
-	display: none;
-}
-#newFeaturesAlert header {
-	text-align: center;
-	margin-bottom: 10px;
-}
 
 /*----------------------------------------------------------------------------- 
 = GLOBAL STYLINGS

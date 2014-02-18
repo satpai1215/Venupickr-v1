@@ -152,7 +152,7 @@
 	}
 
 	#venueList {
-		/* width: 80%; */
+		width: 80%;
 		margin: 0 auto;
 	}
 
@@ -164,6 +164,10 @@
 	/* ABOUT.PAGE */
 	#about-container {
 		padding: 5px 30px 10px 30px;
+	}
+
+	#beta-info p {
+		margin-top: 50px;
 	}
 
 

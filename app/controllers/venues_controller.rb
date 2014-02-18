@@ -153,8 +153,8 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
 
     @content = "#{current_user} deleted a venue"
-    @update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
-    @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
+    #@update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
+   # @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
 
     respond_to do |format|
