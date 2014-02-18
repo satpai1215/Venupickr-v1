@@ -1,4 +1,4 @@
-MoMondays::Application.routes.draw do
+Venupickr::Application.routes.draw do
 
   get "pages/info"
   get "pages/upcoming"

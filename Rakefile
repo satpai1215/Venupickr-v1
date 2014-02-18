@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MoMondays::Application.load_tasks
+Venupickr::Application.load_tasks
