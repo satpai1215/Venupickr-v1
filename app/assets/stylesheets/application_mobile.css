@@ -22,12 +22,12 @@
 
  @font-face {
 	font-family: 'Verlag Black';
-	src: url('Verlag-Black.otf') format('opentype');
+	src: font-url('Verlag-Black.otf') format('opentype');
 	font-style: normal;
 }
  @font-face {
 	font-family: 'Verlag Book';
-	src: url('Verlag-Book.otf') format('opentype');
+	src: font-url('Verlag-Book.otf') format('opentype');
 	font-style: normal;
 }
 
