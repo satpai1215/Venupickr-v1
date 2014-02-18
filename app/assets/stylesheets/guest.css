@@ -1,7 +1,7 @@
 #inviteGuestsForm {
 	width: 100%;
 }
-
+	
 #new-guest-form-header h2 {
 	color: black;
 	text-align: center;
@@ -11,25 +11,31 @@
 	text-align: center;
 }
 #new-guest-form-header a {
-	font-size: 0.8em;
+	font-size: 1.5em;
+}
+
+#email-entry-container h2 {
+	margin: 10px auto;
 }
 
 	#email-dropdown {
 		margin: 5px 0;
+		margin-top: 0px;
 	}
 
 	#gmail-contacts-hint {
-		text-align: center;
 		font-style: italic;
-		font-size: 0.8em;
 		font-weight: bold;
+		text-align: center;
 	}
 	#gmail-contacts-hint p {
 		color: blue;
+		font-size: 0.8em;
+		margin-bottom: 0px;
 	}
 
 	#gmail-contacts-link {
-		text-align: center;
+		font-size: 0.8em;
 	}
 
 
@@ -39,7 +45,6 @@
 	margin-bottom: 10px;
 	background: white;
 	min-height: 300px;
-	border: solid 1px black;
 	padding: 5px;
 }
 

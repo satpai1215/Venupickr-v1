@@ -7,4 +7,4 @@ console.log("outside");
 $("#discussionBoard-comments ul").prepend('<li><span class = "comment_timestamp"><%= @comment.username %> (<%= time_ago_in_words(@comment.created_at) %> ago):</span> <%= @content %></li>');
 $("#notice").text("Comment Posted.").fadeIn().delay(3000).fadeOut(1000);
 $('#enterCommentsField').val("");
-$('#postCommentButton').attr('disabled', true);    
+$('#newCommentBtn').attr('disabled', true);    

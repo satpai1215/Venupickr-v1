@@ -8,7 +8,7 @@
 }
 	.sign-in-header h1 {
 		font-weight: normal;
-		color: #2e6ab1;
+		color: white;
 	}
 
 .user_session_page, .user_reg_page {
@@ -20,6 +20,7 @@
 		-moz-box-shadow: 0px 2px 5px 0px #000;
 		-webkit-box-shadow: 0px 2px 5px 0px #000;
 	padding: 0px 10px;
+	background-color: whitesmoke;
 }
 
 
@@ -83,6 +84,7 @@
 	display: block;
 	text-align: center;
 	margin: 5px 25px;
+	color: black;
 }
 
 .sign_up_btn {
@@ -128,7 +130,7 @@
 	}
 	#user-edit-confirmation-container .sign_up_btn {
 
-		font-size: 0.85em;
+		font-size: 1em;
 		text-align: center;
 		padding: 0px 5px;
 	}

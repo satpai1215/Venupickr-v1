@@ -36,13 +36,15 @@
 		display: block;
 	}
 
-	.login-nav:hover {
+	.register-link:hover {
+		display: block;
 		-webkit-transform: translate(-10px);
 		-moz-transform: translate(-10px);
 		transform: translate(-10px);
 	}
-	.register-link:hover {
-		font-family: Verlag Book;
+	.signed-in-link:hover {
+		display: inline-block;
+		font-family: Verlag Black;
 	}
 
 	footer {
@@ -70,6 +72,14 @@
 		width: 50%;
 		margin: 0 auto;
 		margin-bottom: 10px;
+		font-size: 1em;
+	}
+	.user_session_page .sign_up_btn {
+		display: block;
+		width: 50%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+		font-size: 1em;
 	}
 
 	/* EVENTS.CSS FOR INDEX */
@@ -144,6 +154,10 @@
 	#venueList {
 		/* width: 80%; */
 		margin: 0 auto;
+	}
+
+	#new-guest-form-header a {
+		font-size: 0.8em;
 	}
 
 

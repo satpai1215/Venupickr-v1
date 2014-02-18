@@ -33,9 +33,13 @@
 .action-btn {
 	width: 90%;
 	margin-bottom: 10px;
-	font-size: 0.85em;
+	font-size: 1em;
 	white-space: normal;
 }
+	.action-btn:hover {
+		background-color: #FF7F00;
+		border-color: #FF7F00
+	}
 
 .eventItem-link {
 	color: inherit;
@@ -603,7 +607,7 @@
 	.event-nav-link:hover {
 		text-decoration: none;
 		font-weight: bold;
-		color: white;
+		color: black;
 	}
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
