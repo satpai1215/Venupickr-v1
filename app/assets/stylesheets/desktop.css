@@ -36,6 +36,18 @@
 		display: block;
 	}
 
+	.login-nav:hover {
+		-webkit-transform: translate(-10px);
+		-moz-transform: translate(-10px);
+		transform: translate(-10px);
+	}
+	.register-link:hover {
+		font-family: Verlag Book;
+	}
+
+	footer {
+		font-size: 1em;
+	}
 
 
 	/* DEVISE.CSS */
@@ -71,6 +83,16 @@
 	}
 	.eventList .eventItem {
 		padding: 15px;
+	}
+	.eventList .eventProgress {
+		position: absolute;
+		width: 40%;
+		bottom: 11%;
+		right: 2%;
+		font-size: 0.85em
+	}
+	.eventIndexTimer {
+		display: inline-block;
 	}
 
 	/* CSS for Forms */
@@ -129,5 +151,7 @@
 	#about-container {
 		padding: 5px 30px 10px 30px;
 	}
+
+
 
 } 

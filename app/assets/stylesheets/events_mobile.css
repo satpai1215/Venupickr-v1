@@ -46,15 +46,13 @@
 }
 
 .eventList .eventItem {
+		border: inset 1px #808080;
+	border-radius: 2px;
 	position: relative;
 	display: block;
-	line-height: 1em;
+	line-height: 1.2em;
 	margin-left: 0px;
-	border: solid 1px black;
-	box-shadow: 0px 2px 5px 0px #000;
-		-moz-box-shadow: 0px 2px 5px 0px #000;
-		-webkit-box-shadow: 0px 2px 5px 0px #000;
-
+	margin-bottom: 10px;
 	padding: 5px;
 	padding-right: 0px;
 	background: white;
@@ -92,7 +90,9 @@
 		margin-left: 0px;
 	}
 	.eventName {
-		font-weight: bold;
+		font-family: Verlag Black;
+		color: #FF7F00;
+		margin-bottom: 2px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -100,31 +100,20 @@
 
 .eventList .eventProgress {
 	position: absolute;
-	top: 20%;
-	right: 15px;
+	width: 50%;
+	bottom: 6%;
+	right: 2%;
+	font-size: 0.85em;
+
+	color: #808080;
 }
 	.eventClock p {
-		text-align: center;
+		text-align: right;
 		margin-bottom: 0px;
 	}
 
 	.eventIndexTimer {
-		color: green;
-		text-align: center;
-		font-size: 1.2em;
-		font-weight: bold;
-		line-height: 1.3em;
 		display: block;
-		margin-bottom: 5px 0px;
-	}
-
-	.eventActionLink {
-		margin-top: 10px;
-		text-align: center;
-	}
-	.eventActionLink a {
-		width: 120px;
-		padding: 4px 0px;
 	}
 
 .event-voting-btn {
@@ -211,10 +200,6 @@
 /*----------------------------------------------------------------------------- 
 = SHOW EVENT VIEW
 -----------------------------------------------------------------------------*/
-
-#eventShow {
-	margin-top: 30px;
-}
 
 .eventbox {
 	background: white;
@@ -608,6 +593,7 @@
 		cursor: pointer;
 		display: inline-block;
 		color: black;
+		background-color: white;
 		width: 32%;
 		border: 1px solid black;
 		border-top-right-radius: 2px;
@@ -902,7 +888,7 @@ button.ui-dialog-titlebar-close {
 }
 
 .selected-nav {
-	background: #D6767F;
+	background: #FF7F00;;
 	color: white;
 	font-weight: bold;
 }

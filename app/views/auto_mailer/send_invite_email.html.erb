@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Venuepickr Email Template</title>
+<title><%= Venupickr::Application::APP_NAME %> Email Template</title>
 <style type="text/css">
 
 .mm_ttb {
@@ -17,7 +17,7 @@
 <!-- Header -->
 <table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;">Venuepickr</td>
+    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;"><%= Venupickr::Application::APP_NAME %></td>
   </tr>
 </table>
 
@@ -27,7 +27,7 @@
     <td>
     
     <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">YOU HAVE BEEN INVITED TO AN EVENT!</h1>
-    <p><%= @owner %> has just invited you to an event on the Venuepickr App! Below is the event information:</p>
+    <p><%= @owner %> has just invited you to an event on the <%= Venupickr::Application::APP_NAME %> App! Below is the event information:</p>
     
     <table width="100%" border="0" cellspacing="2">
       <tr>
@@ -63,7 +63,7 @@
 <!-- Footer -->
 <table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.venuepickr.com</td>
+    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.<%= Venupickr::Application::APP_NAME.downcase %>.com</td>
   </tr>
 </table>
 

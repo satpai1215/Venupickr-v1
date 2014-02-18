@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Venuepickr</title>
+  <title><%= Venupickr::Application::APP_NAME.upcase %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <%= include_gon %>
   <%= stylesheet_link_tag "application_mobile", :media => "all" %>
@@ -14,12 +14,12 @@
 		<div id = "page_title">
 			<!-- <img src = "/assets/beta_banner.png" id = "banner-pic"/> -->
 			<div class = "banner" id = "banner-top">
-				<div class = "banner-header" id = "banner-top-header">VENUEPICKR</div>
+				<div class = "banner-header" id = "banner-top-header"><%= Venupickr::Application::APP_NAME.upcase %></div>
 				<div class = "login-nav" id="login-nav-top">
 					<% if user_signed_in? %>
 						Logged in as <%= current_user %>
 					<% else %>
-						<%= link_to "Sign In", new_user_session_path %>
+						<%= link_to "Sign In", new_user_session_path, {class: "register-link"} %>
 					<% end %>
 				</div>
 			</div>
@@ -28,10 +28,10 @@
 				<div class = "banner-header" id = "banner-bottom-header">the social way to plan events</div>
 				<div class = "login-nav" id="login-nav-bottom">
 					<% if user_signed_in? %> 
-						<%= link_to "Logout", destroy_user_session_path, method: :delete %> | 
-						<%= link_to "User Settings",  edit_user_registration_path %>
+						 <%= link_to "User Settings",  edit_user_registration_path, {class: "signed-in-links"} %> | 
+						 <%= link_to "Logout", destroy_user_session_path, {class: "signed-in-links", method: :delete} %>
 					<% else %>
-						<%= link_to "Register", new_user_registration_path %>
+						<%= link_to "Register", new_user_registration_path, {class: "register-link"} %>
 					<% end %>
 				</div>
 			</div>
@@ -47,9 +47,9 @@
 			<div id = "nav-container">
 						<nav>	
 							<ul class = "nav nav-pills">
-								<li><%= link_to "Home", events_path %></li>
-								<li><%= link_to "Your Past Events", pages_archived_path %></li>
-								<li><%= link_to "About", pages_info_path %></li>
+								<li><%= link_to "HOME", events_path %></li>
+								<li><%= link_to "PAST EVENTS", pages_archived_path %></li>
+								<li><%= link_to "ABOUT", pages_info_path %></li>
 							</ul>
 						</nav>
 			</div>  <!--nav_body-->

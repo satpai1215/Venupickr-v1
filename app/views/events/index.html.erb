@@ -66,23 +66,24 @@
                                 <%= link_to event, class: "eventItem-link" do %> 
                                     <span class = "eventItem-span"></span>
                                     <div class = "eventLabel" >
-                                        <div class = "eventName"><%= h(event.name) %>
+                                        <div class = "eventName"><%= h(event.name) %> </div>
                                         <% if user_signed_in? and current_user.id === event.owner_id %>
                                             <div class = "eventIndexModifiers">
-                                            (<%=link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)%>) |
-                                            (<%=link_to('Delete', event_path(event, from_index: true), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) %>)
+                                            <%=link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true)%> |
+                                            <%=link_to('Delete', event_path(event, from_index: true), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) %>
                                             </div>
                                         <% end %>
-                                        </div>
+                                       
                                         <%= event.event_start.strftime("%B %d, %Y") %> at 
-                                            <%= event.event_start.strftime("%I:%M%p") %>
+                                        <%= event.event_start.strftime("%I:%M%p") %>
                                         <br/> Created By: <%= h(event.owner) %>
                                     </div>
                                     <div class = "eventProgress">
                                         <div class = "eventClock">
-                                            <p>Voting Ends In:</p>
+                                            <p>Voting Ends In:
                                             <%= tag(:span, id: "eventIndexTimer" + (index + @upcoming_events.count).to_s, class: "eventIndexTimer", data: {date: (event.event_start-event.vote_end.hours).to_s})%><%= timeLeft_days(event) %>
                                             </span>
+                                            </p>
                                              <!-- <div class = "eventActionLink"><%=action_links(event)%></div> -->
                                         </div>
                                     </div> 

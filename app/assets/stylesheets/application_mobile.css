@@ -37,6 +37,7 @@
  body {
  	height: 100%;
  	font-family: Verlag Book;
+ 	color: black;
  	background-color: #C6B199;
  }
 
@@ -115,13 +116,28 @@
  }
  	#banner-bottom-header {
  		font-family: Verlag Black;
- 	
  	}
 
 .login-nav {
 	text-align: center;
+	font-size: 1.25em;
 	margin: 0px auto;
+	padding: 2px;
 }
+
+	#login-nav-top a {
+		font-weight: bold;
+		text-decoration: none;
+		color: white;
+	}
+	#login-nav-bottom a {
+		font-weight: bold;
+		text-decoration: none;
+		color: #FF7F00;
+	}
+	.register-link:hover {
+		font-family: Verlag Black;
+	}
 
 #banner-bottom-header {
 	display: none;
@@ -144,7 +160,10 @@ nav {
 
  .nav li a {
  	color: white;
+ 	font-family: Verlag Black;
+ 	letter-spacing: 1px;
  	text-decoration: none;
+ 	padding-bottom: 5px;
  }
 
  .nav li:hover {
@@ -155,6 +174,7 @@ nav {
 
 .nav li>a:hover { 
 	background: none;
+	color: #FF7F00;
 }	
 
  /*----------------------------------------------------------------------------- 
@@ -179,7 +199,6 @@ FOOTER
 footer {
 	font-size: 1.3em;
 	text-align: center;
-	font-weight: bold;
 	background: white;
-	padding: 8px 0px;
+	padding: 3px 0px;
 }
