@@ -27,21 +27,16 @@
 }
  @font-face {
 	font-family: 'Verlag Book';
-	src: url('Verlag-Book-Italic.otf') format('opentype');
+	src: url('Verlag-Book.otf') format('opentype');
 	font-style: normal;
 }
 
- @font-face {
-	font-family: 'Verlag Book';
-	src: url('Verlag-Compressed-Book.otf') format('opentype');
-	font-style: normal;
-}
 
  html {height: 100%;}
 
  body {
  	height: 100%;
- 	font-family: Verlag Black;
+ 	font-family: Verlag Book;
  	background-color: #C6B199;
  }
 
@@ -91,7 +86,6 @@
 
 #page_title {
 	min-width: 100%;
-	font-family: Verlag Black;
 }
 
  #banner-pic {
@@ -109,6 +103,7 @@
  	color: white;
  }
  	#banner-top-header {
+ 		font-family: Verlag Black;
  		font-size: 1.5em;
  		padding-top: 2%;
   		letter-spacing: 2px;
@@ -119,6 +114,7 @@
  	color: #FF7F00;
  }
  	#banner-bottom-header {
+ 		font-family: Verlag Black;
  	
  	}
 
@@ -145,6 +141,21 @@ nav {
 	display: inline-block;
 	margin: 0px;
  }
+
+ .nav li a {
+ 	color: white;
+ 	text-decoration: none;
+ }
+
+ .nav li:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+.nav li>a:hover { 
+	background: none;
+}	
 
  /*----------------------------------------------------------------------------- 
 = MAIN
