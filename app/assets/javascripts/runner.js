@@ -90,12 +90,11 @@ function createTimersinIndex() {
             var msInDay = 1000*24*60*60;
             var timeDiff = (eventDate[i]-now)/(msInDay);
     		if (timeDiff > 0 && timeDiff < 1 ) {
-                $("#eventIndexTimer" + i.toString()).wrap("<p>Starts In: </p>")
     	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
                 $("#eventIndexTimer" + i.toString()).addClass('red');
     	  	}
             else if (timeDiff < 0) {
-                $("#eventIndexTimer" + i.toString()).html("In Progress").wrap("<p></p>");
+                $("#eventIndexTimer" + i.toString()).html("In Progress").wrap("<span></span>");
                // $("#eventIndexTimer" + i.toString()).addClass('blue');
             }
 

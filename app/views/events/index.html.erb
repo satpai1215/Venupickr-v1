@@ -80,7 +80,7 @@
                                     </div>
                                     <div class = "eventProgress">
                                         <div class = "eventClock">
-                                            <p>Voting Ends In:
+                                            <p><span class = "eventClock-label">Voting Ends In:</span>
                                             <%= tag(:span, id: "eventIndexTimer" + (index + @upcoming_events.count).to_s, class: "eventIndexTimer", data: {date: (event.event_start-event.vote_end.hours).to_s})%><%= timeLeft_days(event) %>
                                             </span>
                                             </p>
