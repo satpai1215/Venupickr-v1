@@ -46,6 +46,7 @@
 	background: white;
 	min-height: 300px;
 	padding: 5px;
+	border: 1px solid #808080;
 }
 
 	#new-guest-form-invitelist span {
