@@ -38,13 +38,13 @@
 
 	.register-link:hover {
 		display: block;
+		font-family: Verlag Bold;
 		-webkit-transform: translate(-10px);
 		-moz-transform: translate(-10px);
 		transform: translate(-10px);
 	}
 	.signed-in-link:hover {
 		display: inline-block;
-		font-family: Verlag Black;
 	}
 
 	footer {

@@ -30,9 +30,9 @@
                             </div>
                             <div class = "eventProgress">
                                 <div class = "eventClock">
-                                    <p>Event Starts In:</p>
+                                
                                     <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
-
+                                    
                                 </div>
                             </div>
                         <% end %>
@@ -106,7 +106,6 @@
     <!--end dialog boxes -->
 
 </div> <!--row-->
-
 
 
 <%= javascript_tag do %> 

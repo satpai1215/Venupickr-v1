@@ -70,11 +70,10 @@ function createCountdown(end_date, selector) {
 
 
 //creates countdown timers in events#index view for each event
-function createTimersinIndex()
-{
+function createTimersinIndex() {
+    console.log("test");
      //if timeLeft is less than 1 day, show countdown clock
     	var eventDate = [];
-
     	for (var i = 0; i <  gon.totalIndexEvents; i++) { 
     		var dateFromView = $("#eventIndexTimer" + i).data("date");
             //console.log(dateFromView);
@@ -89,15 +88,15 @@ function createTimersinIndex()
     		var x= eventDate[i];
     		var now = new Date();
             var msInDay = 1000*24*60*60;
-            var timeDiff = (eventDate[i]-now)/(msInDay)
-            //console.log();
+            var timeDiff = (eventDate[i]-now)/(msInDay);
     		if (timeDiff > 0 && timeDiff < 1 ) {
+                $("#eventIndexTimer" + i.toString()).wrap("<p>Starts In: </p>")
     	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
                 $("#eventIndexTimer" + i.toString()).addClass('red');
     	  	}
             else if (timeDiff < 0) {
-                $("#eventIndexTimer" + i.toString()).html("In Progress");
-                $("#eventIndexTimer" + i.toString()).addClass('blue');
+                $("#eventIndexTimer" + i.toString()).html("In Progress").wrap("<p></p>");
+               // $("#eventIndexTimer" + i.toString()).addClass('blue');
             }
 
     	}
@@ -195,14 +194,3 @@ function validateEmail(email) {
 END EMAIL DROPDOWN FUNCTION
 ********************/
 
-
-/********************
- $(document).ready() function
- *********************/
-$(function() {
-	   //var dateFromIndex = $("#eventIndexTimer").data("date");
-	   //var dateIndex = $(".eventIndexTimer").data("index");
-	   //var eventDate = new Date(dateFromIndex);
-    	//var t = setInterval(function() {updateCountdown(eventDate, dateIndex)} , 1000);
-
-});
