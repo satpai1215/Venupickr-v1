@@ -4,9 +4,10 @@ Venupickr::Application.routes.draw do
   get "pages/upcoming"
   get "pages/archived"
 
-  devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations" }
+  devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations", sessions: "users/sessions" }
   devise_scope :user do
     match '/users/sign_up/:invitation_token', controller: 'users/registrations', :action => 'new', as: "new_user_registration_with_token"
+    match '/users/sign_in/:invitation_token', controller: 'users/sessions', :action => 'new', as: "new_user_session_with_token"
   end
 
   resources :users, :only => [:edit, :update, :destroy]

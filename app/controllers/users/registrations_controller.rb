@@ -4,8 +4,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def new
+		#need to store token in session in case there are validation errors
 		session[:invite_token] = params[:invitation_token]
-		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
+		#puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
 		super
 	end
 
@@ -26,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	#if user signed up via an event invitation, add user as guest to event after signup
 	def link_new_user_to_event(params)
 		@token = params[:invitation_token]
+		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
 		if @token
 			@event = Event.decrypt(@token)
 			@user = User.find_by_email(params[:user][:email])

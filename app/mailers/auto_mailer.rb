@@ -38,7 +38,8 @@ class AutoMailer < ActionMailer::Base
   def send_new_user_invite_email(event_id, new_guest_emails)
     find_event_info(event_id)
     @token = Event.encrypt(@event.id)
-    @url = new_user_registration_with_token_url(@token)
+    @new_user_url = new_user_registration_with_token_url(@token)
+    @existing_user_url = new_user_session_with_token_url(@token)
     mail(:bcc => new_guest_emails, :subject => "You have been invited to join the #{Venupickr::Application::APP_NAME} App!")
   end
 
