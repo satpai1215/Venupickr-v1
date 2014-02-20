@@ -71,7 +71,9 @@ class EventsController < ApplicationController
       @guests.concat(@guests_not_going) #merge RSVP'd with non-RSVP'd
 
       #only show vote counts if voting period is over, or if user is event owner or admin
-      @show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
+      #@show_votecounts =  (@event.stage != "Voting" or current_user.id == @event.owner_id or current_user.username == "Spaiderman")
+
+      @show_votecounts = true
       @total_votecounts = @event.voters.count
 
       if @event.stage == "Voting"

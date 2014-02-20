@@ -1,17 +1,19 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_venue, :only => [:edit, :update, :destroy]
-  before_filter :auth_owner, :only => [:edit, :update, :destroy]
+  before_filter :auth_owner, :only => [:edit, :update]
+  
 
   def get_venue
     @venue = Venue.find(params[:id])
   end
 
   def auth_owner
-    if !(current_user.id == @venue.user.id or current_user.uid == "4802244")
+    if !(current_user.id == @venue.user.id)
       redirect_to @event, notice: 'You are not authorized to carry out that action.'
     end
   end
+
 
   # GET /venues/new
   # GET /venues/new.json
@@ -151,18 +153,21 @@ class VenuesController < ApplicationController
   # DELETE /venues/1.json
   def destroy
     @venue = Venue.find(params[:id])
+    if(current_user.id == @venue.user.id or current_user.id == @venue.event.owner_id)
+      @content = "#{current_user} deleted a venue"
+      #@update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
+     # @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-    @content = "#{current_user} deleted a venue"
-    #@update = Update.create!(:content => "#{current_user} just deleted a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
-   # @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
-
-    respond_to do |format|
-      format.html { redirect_to @venue.event, notice: "You have successfully removed your suggested venue" }
-      format.js
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to @venue.event, notice: "You have successfully removed your suggested venue" }
+        format.js
+        format.json { head :no_content }
+      end
+        @venue.destroy
+    else
+      redirect_to events_path, notice: 'You are not allowed to do this.'
     end
-      @venue.destroy
   end
 
   def increment_vote

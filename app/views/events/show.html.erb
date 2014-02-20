@@ -7,8 +7,8 @@
 						<span id = "eventShowModifiers">
 							<% if @is_owner %>
 								
-									<%= display_edit_event(@event) %> &raquo 
-									<%= display_delete_event(@event) %> &raquo
+									<%= display_edit_event(@event) %>
+									<%= display_delete_event(@event) %>
 									<%= display_reminder_link(@event) %>
 							<% else %>
 									<%= display_leave_event(@event) %>
@@ -75,7 +75,7 @@
 											<% else %>	
 												<div class = "rsvp-response">
 													<span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %>
-														<% if @is_owner %><%= link_to("X", {:controller => 'guests', :action => "remove_guest", :event_id => @event.id, :guest_id => guest.id}, {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
+														<% if @is_owner and @event.stage != "Archived" %><%= link_to("X", {:controller => 'guests', :action => "remove_guest", :event_id => @event.id, :guest_id => guest.id}, {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
 												</div>	
 											<% end %>
 											<div class = "clear"></div>

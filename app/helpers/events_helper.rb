@@ -7,7 +7,7 @@ module EventsHelper
 		html = ""
 		if(event.stage != "Archived")
 			if(event.stage != nil)
-				html << '<span>' + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true) + '</span>'
+				html << '<span>' + link_to('Edit', edit_event_path(event), :class => 'edit-event', :remote => true) + '</span> &raquo '
 			end
     	end
     	return html.html_safe
@@ -16,7 +16,7 @@ module EventsHelper
 	def display_delete_event(event, from_index = false)
 		html = ""
 		if(event.stage == "Voting")
-	        html << '<span>' + link_to('Delete', event_path(event, from_index: from_index), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) +'</span>'
+	        html << '<span>' + link_to('Delete', event_path(event, from_index: from_index), method: :delete, data:{ confirm: 'Are you sure?' }, :class => 'delete-event', :remote => true) +'</span> &raquo '
 		end
     	return html.html_safe
 	end

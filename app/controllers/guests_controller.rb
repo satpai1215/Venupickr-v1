@@ -103,11 +103,11 @@ class GuestsController < ApplicationController
 		@guest = Guest.find_by_id(params[:guest_id])
 		if @guest
 			@vote = @event.voters.find_by_user_id(@guest.user_id) #remove votes for guest
-			@guest.destroy
 			@vote.destroy unless @vote.nil?
+			@guest.destroy
 		end
 
-		redirect_to @event
+		redirect_to @event, :notice => "The selected guest has been removed."
 	end
 
 
