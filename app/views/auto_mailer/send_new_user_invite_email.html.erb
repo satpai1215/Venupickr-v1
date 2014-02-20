@@ -26,12 +26,12 @@
   <tr>
     <td>
     
-    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">YOU HAVE BEEN INVITED TO AN EVENT!</h1>
-    <p><%= @owner %> has just invited you to an event on the <%= Venupickr::Application::APP_NAME %> App!</p>
+    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;" align ="center">YOU HAVE BEEN INVITED TO AN EVENT!</h1>
+    <p align = "center"><%= @owner %> has just invited you to an event on the <%= Venupickr::Application::APP_NAME %> App!</p>
     
     <p align="center">Register with <%= link_to("this link", @new_user_url) %> to sign up for the app and see the event details! Once registered, you can recommend venues for the event and even vote for the ones you like.</p>
 
-    <p><strong>Already a Registered User?</strong>  Sign in with <%= link_to("this link", @existing_user_url) %> to get added to the event guestlist</p>
+    <br/><p align = "center"><strong>Already a Registered User?</strong>  Sign in with <%= link_to("this link", @existing_user_url) %> to get added to the event guestlist</p>
     
     </td>
   </tr>
