@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
 	def new
 		#need to store token in session in case there are validation errors
 		session[:invite_token] = params[:invitation_token]
-		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
+		#puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
 		super
 	end
 

@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
 	before_filter :authenticate_user!
-	before_filter :get_event, :only => [:new, :destroy, :leave_event, :update_guestlist]
-	before_filter :auth_owner, only: [:new, :update_guestlist]
+	before_filter :get_event, :only => [:new, :destroy, :leave_event, :update_guestlist, :remove_guest]
+	before_filter :auth_owner, only: [:new, :update_guestlist, :remove_guest]
 
 #before_filter methods
 	def get_event
@@ -99,9 +99,15 @@ class GuestsController < ApplicationController
 		end
 	end
 
+	def remove_guest
+		@guest = Guest.find_by_id(params[:guest_id])
+		if @guest
+			@vote = @event.voters.find_by_user_id(@guest.user_id) #remove votes for guest
+			@guest.destroy
+			@vote.destroy unless @vote.nil?
+		end
 
-	def destroy
-
+		redirect_to @event
 	end
 
 

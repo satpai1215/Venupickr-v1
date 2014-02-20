@@ -73,7 +73,10 @@
 													<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
 												</div>
 											<% else %>	
-												<div class = "rsvp-response"><span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %></span></div>	
+												<div class = "rsvp-response">
+													<span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %>
+														<% if @is_owner %><%= link_to("X", {:controller => 'guests', :action => "remove_guest", :event_id => @event.id, :guest_id => guest.id}, {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
+												</div>	
 											<% end %>
 											<div class = "clear"></div>
 										</li>

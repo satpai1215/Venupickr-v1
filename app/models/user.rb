@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   #devise :omniauthable, :omniauth_providers => [:facebook]
 
-  serialize :gmail_contacts, Array
+  serialize :gmail_contacts
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :username, :password_confirmation, :remember_me, :access_code, 

@@ -32,6 +32,7 @@ Venupickr::Application.routes.draw do
   #match '/event/invite_guests', :controller => 'guests', :action => 'new'
   match '/guests/update_guestlist' => 'guests#update_guestlist'
   match '/guests/leave_event/' => 'guests#leave_event'
+  delete '/guests/remove/' => 'guests#remove_guest', as: "remove_guest"
 
 
   match "/contacts/gmail/callback", controller: "guests", action: "omnicontacts"

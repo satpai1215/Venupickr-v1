@@ -43,6 +43,7 @@ class AutoMailer < ActionMailer::Base
     mail(:bcc => new_guest_emails, :subject => "You have been invited to join the #{Venupickr::Application::APP_NAME} App!")
   end
 
+
   def venue_suggested_email_owner(event_id, user_id)
     find_event_info(event_id)
     @venue_owner = User.find(user_id)

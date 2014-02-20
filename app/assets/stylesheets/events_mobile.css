@@ -329,6 +329,12 @@
 	font-style: italic;
 }
 
+.remove-guest-link {
+	float: right;
+	margin-right: 5%;
+	font-style: normal;
+}
+
 .rsvpButton {
 	font-size: 0.85em;
 	width: 45%;
