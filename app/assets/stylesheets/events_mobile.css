@@ -385,7 +385,7 @@ word-wrap: normal;
 }
 
 .comment_timestamp {
-	color: blue;
+	color: #428bca;
 	font-weight: bold;
 }
 
@@ -516,7 +516,7 @@ word-wrap: normal;
 			top: 1%;
 			right: 2%;
 			cursor: pointer;
-			color: blue;
+			color: #428bca;
 
 		}
 		.voteIcon {
@@ -623,12 +623,7 @@ word-wrap: normal;
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
 	}
-	.expand-toggle {
-		float: right;
-		color: blue;
-		cursor: pointer;
-		padding-left: 30px;
-	}
+
 
 
 
@@ -899,7 +894,7 @@ word-wrap: normal;
 }
 
 .blue {
-	color: blue;
+	color: #428bca;
 	font-weight: bold;
 }
 
