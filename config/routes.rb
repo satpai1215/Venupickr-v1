@@ -19,10 +19,9 @@ Venupickr::Application.routes.draw do
       match '/guests/leave_event/', controller: 'guests', action: 'leave_event'
       delete '/guests/remove/', controller: 'guests', action: 'remove_guest', as: "remove_guest"
 
-
     #venue routes
       resources :venues, except: [:index, :show]
-      match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+      match '/venue/increment_vote', controller: 'venues', action: 'increment_vote'
 
     #event interactions
     match '/send_reminder', controller: 'events', action: 'send_reminder'
