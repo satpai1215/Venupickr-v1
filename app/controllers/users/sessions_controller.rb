@@ -10,6 +10,10 @@ class Users::SessionsController < Devise::SessionsController
 		super
 	end
 
+	def destroy
+		reset_session
+		super
+	end
 
 
 	protected 

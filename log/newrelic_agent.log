@@ -1949,3 +1949,84 @@
 [02/19/14 20:09:53 -0800 Satyans-MacBook-Pro.local (42569)] INFO : Installing Rails3 Error instrumentation
 [02/19/14 20:09:53 -0800 Satyans-MacBook-Pro.local (42569)] INFO : Finished instrumentation
 [02/19/14 20:09:53 -0800 Satyans-MacBook-Pro.local (42569)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Starting the New Relic agent in "development" environment.
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Reading configuration from config/newrelic.yml
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Enabling the Request Sampler.
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Environment: development
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Dispatcher: webrick
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Application: My Application
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] WARN : Agent configured not to send data in this environment.
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing DelayedJob instrumentation hooks
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing ActiveRecord instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing DelayedJob instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing middleware-based Excon instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing Net instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing Rails 3 Controller instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Installing Rails3 Error instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : Finished instrumentation
+[02/20/14 10:47:48 -0800 satyans-mbp (43358)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Starting the New Relic agent in "development" environment.
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Reading configuration from config/newrelic.yml
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Enabling the Request Sampler.
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Environment: development
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Dispatcher: webrick
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Application: My Application
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] WARN : Agent configured not to send data in this environment.
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing DelayedJob instrumentation hooks
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing ActiveRecord instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing DelayedJob instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing middleware-based Excon instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing Net instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing Rails 3 Controller instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Installing Rails3 Error instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : Finished instrumentation
+[02/20/14 11:02:19 -0800 satyans-mbp (43396)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
+[02/20/14 11:22:28 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:21 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:21 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:22 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:22 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:43 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:43 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:44 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:23:44 -0800 satyans-mbp (43396)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: No route matches {:controller=>"events", :action=>"rsvp_yes", :guest_id=>139}
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Starting the New Relic agent in "development" environment.
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Reading configuration from config/newrelic.yml
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Enabling the Request Sampler.
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Environment: development
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Dispatcher: webrick
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Application: My Application
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] WARN : Agent configured not to send data in this environment.
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing DelayedJob instrumentation hooks
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing ActiveRecord instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing DelayedJob instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing middleware-based Excon instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing Net instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing Rails 3 Controller instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Installing Rails3 Error instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : Finished instrumentation
+[02/20/14 11:27:07 -0800 satyans-mbp (43439)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Starting the New Relic agent in "development" environment.
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Reading configuration from config/newrelic.yml
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Enabling the Request Sampler.
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Environment: development
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Dispatcher: webrick
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Application: My Application
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] WARN : Agent configured not to send data in this environment.
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing DelayedJob instrumentation hooks
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing ActiveRecord instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing DelayedJob instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing middleware-based Excon instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing Net instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing Rails 3 Controller instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Installing Rails3 Error instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : Finished instrumentation
+[02/20/14 11:27:51 -0800 satyans-mbp (43452)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present

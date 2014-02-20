@@ -69,13 +69,13 @@
 											<div class = "guestlist-name"><%= guest.user.to_s %></div>
 											<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
 												<div class = "rsvp-response">
-													<%= link_to "Going", {:controller => 'events', :action => "rsvp_yes", :guest_id => guest.id}, {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
-													<%= link_to "Not Going", {:controller => 'events', :action => "rsvp_no", :guest_id => guest.id}, {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
+													<%= link_to "Going", rsvp_yes_path(guest_id: guest.id), {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
+													<%= link_to "Not Going", rsvp_no_path(guest_id: guest.id), {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
 												</div>
 											<% else %>	
 												<div class = "rsvp-response">
 													<span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %>
-														<% if @is_owner and @event.stage != "Archived" %><%= link_to("X", {:controller => 'guests', :action => "remove_guest", :event_id => @event.id, :guest_id => guest.id}, {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
+														<% if @is_owner and @event.stage != "Archived" %><%= link_to("X", event_remove_guest_path(:event_id => @event.id, :guest_id => guest.id), {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
 												</div>	
 											<% end %>
 											<div class = "clear"></div>
@@ -161,7 +161,7 @@
 													<span class = "vote-for-hint">You have voted for this venue</span>
 													<!-- <div class = 'selected-venue'>Selected!</div> -->
 												<% else %>
-													<%= link_to "Upvote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "btn btn-success voteButton", :remote => true } %>
+													<%= link_to "Upvote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id, :event_id => @event.id }, {:class => "btn btn-success voteButton", :remote => true } %>
 													<%#= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 												<% end %>
 											</div><!--voteIcon-->

@@ -200,39 +200,41 @@ class EventsController < ApplicationController
 
   #rsvp_yes
   def rsvp_yes
-    @guest = Guest.find(params[:guest_id])
-    @event = @guest.event
+     puts "!!!!!!!!!!!!!!!!!!!!YES-#{params}"
+    @guest = Guest.find_by_id(params[:guest_id])
 
-      if (!@guest)
-         respond_to do |format|
-           format.html {redirect_to @event, notice: "You are not a guest for this event."}
-           format.js
-         end
-      else
+
+      if @guest
+        @event = @guest.event
         @guest.update_column(:isgoing, true)
         @update = Update.create!(:content => "#{current_user} just RSVP'd to \"#{@event}\"", :event_id => @event.id)
         respond_to do |format|
           format.html {redirect_to @event, notice: "You have successfully RSVP'd to this event."}
           format.js
         end
+      else
+        respond_to do |format|
+           format.html {redirect_to @event, notice: "You are not a guest for this event."}
+           format.js
+         end
       end
   end
 
   def rsvp_no
-    @guest = Guest.find(params[:guest_id])
-    @event = @guest.event
+    puts "!!!!!!!!!!!!!!!!!!!!NO-#{params}"
+    @guest = Guest.find_by_id(params[:guest_id])
 
-      if (!@guest)
+      if @guest
+        @guest.update_column(:isgoing, false)
+        respond_to do |format|
+          format.html {redirect_to @guest.event, notice: "You are no longer RSVP'd for this event."}
+          format.js
+        end
+      else
          respond_to do |format|
            format.html {redirect_to @event, notice: "You are not a guest for this event."}
            format.js
          end
-      else
-        @guest.update_column(:isgoing, false)
-        respond_to do |format|
-          format.html {redirect_to @event, notice: "You are no longer RSVP'd for this event."}
-          format.js
-        end
       end
 
   end

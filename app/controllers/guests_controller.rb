@@ -88,6 +88,7 @@ class GuestsController < ApplicationController
 		end
 
 	end
+	
 
 	def leave_event
 		#don't allow event_owner to leave their own event (they should delete the event)

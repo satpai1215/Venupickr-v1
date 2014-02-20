@@ -180,7 +180,7 @@ class VenuesController < ApplicationController
        @event = @venue.event
        @already_voted = Voter.exists?(:user_id => current_user.id, :venue_id => params[:venue_id ])
 
-       @show_votecounts = (current_user.id == @venue.event.owner_id or current_user.uid == "4802244")
+       @show_votecounts = true #(current_user.id == @venue.event.owner_id)
 
       #user has already voted for this venue
       if (@already_voted)

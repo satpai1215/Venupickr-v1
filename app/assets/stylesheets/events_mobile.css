@@ -322,6 +322,7 @@
 .rsvp-response {
 	float: right;
 	width: 50%;
+	line-height: 40px;
 }
 .rsvp-response-text {
 	display: block;
@@ -339,6 +340,8 @@
 	font-size: 0.85em;
 	width: 45%;
 	text-align: center;
+	white-space: normal;
+word-wrap: normal;
 }
 
 #discussionBoard-container {

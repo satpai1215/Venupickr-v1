@@ -13,26 +13,27 @@ Venupickr::Application.routes.draw do
   resources :users, :only => [:edit, :update, :destroy]
 
   resources :events do
-    #resources :guests, only: :new, as: "guestlist"
-    match '/guests', controller: 'guests', action: 'new', as: 'guests'
-    resources :venues, except: [:index, :show]
+    #guest routes
+      match '/guests', controller: 'guests', action: 'new', as: 'guests'
+      match '/guests/update_guestlist', controller: 'guests', action: 'update_guestlist'
+      match '/guests/leave_event/', controller: 'guests', action: 'leave_event'
+      delete '/guests/remove/', controller: 'guests', action: 'remove_guest', as: "remove_guest"
+
+
+    #venue routes
+      resources :venues, except: [:index, :show]
+      match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
+
+    #event interactions
+    match '/send_reminder', controller: 'events', action: 'send_reminder'
+    match '/post_comment', controller: 'events', action: 'post_comment'
+
   end
-  #resources :venues, :except =>[:index, :show], :path =>"/event/:id/venues/"
-
-
-  #match "/users/:id/edit" => 'devise/registrations#edit'
   
-  match '/venue/increment_vote', :controller => 'venues', :action => 'increment_vote'
-  match '/event/send_reminder', :controller => 'events', :action => 'send_reminder'
-  match '/event/post_comment', :controller => 'events', :action => 'post_comment'
-  match 'rsvp_yes', :controller => 'events', :action => 'rsvp_yes'
-  match 'rsvp_no', :controller => 'events', :action => 'rsvp_no'
- # match '/events/new', :controller => 'events', :action => 'new'
+  match '/rsvp_yes', controller: 'events', action: 'rsvp_yes', as: "rsvp_yes"
+  match '/rsvp_no', controller: 'events', action: 'rsvp_no', as: "rsvp_no"
 
-  #match '/event/invite_guests', :controller => 'guests', :action => 'new'
-  match '/guests/update_guestlist' => 'guests#update_guestlist'
-  match '/guests/leave_event/' => 'guests#leave_event'
-  delete '/guests/remove/' => 'guests#remove_guest', as: "remove_guest"
+
 
 
   match "/contacts/gmail/callback", controller: "guests", action: "omnicontacts"
