@@ -102,7 +102,7 @@ module EventsHelper
 				html << "#{link_to 'Suggest a Venue', 
 				new_event_venue_path(event), {id: 'newVenueBtn', class: 'btn btn-primary action-btn', :remote => true}}"
 			else
-				html <<"<span id = 'event_show_venue_suggestion_off_tag'>venue suggestion has been turned OFF</span>"
+				html <<"<div id = 'event_show_venue_suggestion_off_tag'>venue suggestion has been turned OFF</div>"
 			end
 		end
 

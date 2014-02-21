@@ -85,10 +85,18 @@ class VenuesController < ApplicationController
           @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
           #@comment = Comment.create!(:content => @content, :event_id => @event.id)
 
-          if(@venue.event.owner_id != current_user.id)
+          if(@event.owner_id != current_user.id)
             AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver
           end
+
+          #prevents multiple emails (within 3 hrs) when owner suggests venues immediately after creating event
+          if(@event.owner_id == @venue.user_id)
+            if((DateTime.now - 3.hours) > @event.created_at)
+              AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
+            end
+          else
             AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
+          end
           
           format.html { redirect_to @event, notice: 'Venue added successfully.' }
           format.json { render json: @event, status: :created, location: @event }

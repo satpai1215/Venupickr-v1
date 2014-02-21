@@ -404,6 +404,7 @@ word-wrap: normal;
 	font-style: italic;
 	font-size: 0.9em;
 	color: gray;
+	padding: 10px 0px;
 }
 
 #venueList-container {
