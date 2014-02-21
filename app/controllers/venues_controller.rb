@@ -69,8 +69,8 @@ class VenuesController < ApplicationController
     @venue = @event.venues.build(params[:venue])
     @venue.address = @venue.address.gsub("\n", "<br>").html_safe
 
-    if@event
-      @ venue.user = current_user
+    if @event
+      @venue.user = current_user
       #@venue.votecount = 1
 
       respond_to do |format|

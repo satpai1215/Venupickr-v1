@@ -95,7 +95,7 @@ function createTimersinIndex() {
     	  	}
             else if (timeDiff < 0) {
                 $("#eventIndexTimer" + i.toString()).html("In Progress").wrap("<span></span>");
-               // $("#eventIndexTimer" + i.toString()).addClass('blue');
+               $("#eventIndexTimer" + i.toString()).addClass('blue');
             }
 
     	}

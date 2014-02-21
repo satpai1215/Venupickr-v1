@@ -69,7 +69,7 @@
 
 .eventList .eventItem:hover {
 	background: #F9F9C9;
-
+	font: black;
 }
 	.eventItem-span {
 		position:absolute; 
