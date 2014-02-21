@@ -51,7 +51,7 @@ class Event < ActiveRecord::Base
 
   def self.decrypt(token)
     begin
-      hashids = Hashids.new("this is my salt", 25)
+      hashids = Hashids.new(ENV["SALT"], 25)
       id = hashids.decrypt(token)
     rescue NoMethodError
       return nil
@@ -61,7 +61,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.encrypt(id)
-    hashids = Hashids.new("this is my salt", 25)
+    hashids = Hashids.new(ENV["SALT"], 25)
     hashids.encrypt(id)
   end
 
