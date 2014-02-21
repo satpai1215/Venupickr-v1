@@ -47,6 +47,7 @@
 	text-decoration: none;
 }
 .eventItem-link:hover {
+	color: #333633;
 	text-decoration: none;
 }
 
@@ -69,7 +70,6 @@
 
 .eventList .eventItem:hover {
 	background: #F9F9C9;
-	font: black;
 }
 	.eventItem-span {
 		position:absolute; 
