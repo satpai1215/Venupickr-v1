@@ -6,6 +6,9 @@ class VenuesController < ApplicationController
 
   def get_venue
     @venue = Venue.find_by_id(params[:id])
+    if !@venue
+      redirect_to root_path, notice: "There was a problem with your request"
+    end
   end
 
   def auth_owner

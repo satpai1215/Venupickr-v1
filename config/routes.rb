@@ -37,6 +37,9 @@ Venupickr::Application.routes.draw do
 
   root :to => 'events#index'
 
+  #catch all unspecified routes
+  match "/*other", :to => "pages#routing_error"
+
 
 
   # The priority is based upon order of creation:
