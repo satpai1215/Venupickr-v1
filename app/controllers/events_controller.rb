@@ -7,6 +7,9 @@ class EventsController < ApplicationController
 
   def get_event
     @event = Event.find_by_id(params[:id])
+    if !@event
+      redirect_to root_path, notice: "That page does not exist"
+    end
   end
 
   def auth_owner
