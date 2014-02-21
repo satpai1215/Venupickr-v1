@@ -1,10 +1,7 @@
 Venupickr::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  #for workless gem
-  #config.after_initialize do 
-    #Delayed::Job.scaler = :heroku_cedar
-  #end
+  config.assets.initialize_on_precompile = false
 
 
 
