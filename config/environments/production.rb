@@ -32,14 +32,26 @@ Venupickr::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # :address              => "smtpout.secureserver.net",
+  # :port                 => 80,
+  # :domain               => 'mo-mondays.com',
+  # :user_name            => 'info@mo-mondays.com',
+  # :password             => 'moproblems',
+  # :authentication       => 'plain',
+  # :enable_starttls_auto => true  }
+
   config.action_mailer.smtp_settings = {
-  :address              => "smtpout.secureserver.net",
-  :port                 => 80,
-  :domain               => 'mo-mondays.com',
-  :user_name            => 'info@mo-mondays.com',
-  :password             => 'moproblems',
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
+    :address              => "smtp.mandrillapp.com",
+    :port                 => 587,
+    #:domain               => 'baci.lindsaar.net',
+    :user_name            => ENV['MANDRILL_USERNAME'],
+    :password             => ENV['MANDRILL_PW'],
+    :authentication       => 'plain',
+    :enable_starttls_auto => true,  
+    :domain => 'venupickr.com'
+  }
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

@@ -1,16 +1,5 @@
 GROUPS TO DO
--**** DONE **** allow guest selection during event creation (DONE, after event#show)
--**** DONE **** allow guest selection on event#show (DONE)
--**** DONE **** show guests on event#show (DONE, needs styling)
--**** DONE **** only show events that users are guests of (DONE)
--**** DONE **** change mailers to only email guests (DONE)
--**** DONE **** allow event guests to invite other guests?
--**** DONE **** allow guests to remove themselves from events
--**** DONE **** reformat guest list box on show
--**** DONE **** change event form to include checkbox options to allow for venue suggestion
--**** DONE **** Include RSVP toggle on event guest list
--**** DONE **** change emailer to send email when inviting guests (need to ensure duplicates are not sent :())
-- update Updates to only updates for user's events show up
+
 - checkbox for guest invites (will not allow guests to invites others yet, because they can also uninvite others)
 - update already existing events on heroku to include all guests (migration?)
 
@@ -20,6 +9,9 @@ OTHER TO DO\
 
 ActiveRecord::Base.connection.reset_pk_sequence!('table_name') #to reset db IDs
 include Rails.application.routes.url_helpers
+
+
+
 
 
 
