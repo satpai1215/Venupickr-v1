@@ -2265,3 +2265,21 @@
 [02/20/14 21:57:28 -0800 Satyans-MacBook-Pro.local (47728)] INFO : Finished instrumentation
 [02/20/14 21:57:28 -0800 Satyans-MacBook-Pro.local (47728)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
 [02/20/14 21:57:29 -0800 Satyans-MacBook-Pro.local (47728)] INFO : Starting Agent shutdown
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Starting the New Relic agent in "development" environment.
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : To prevent agent startup add a NEWRELIC_ENABLE=false environment variable or modify the "development" section of your newrelic.yml.
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Reading configuration from config/newrelic.yml
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Enabling the Request Sampler.
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Environment: development
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Dispatcher: webrick
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Application: My Application
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] WARN : Agent configured not to send data in this environment.
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing DelayedJob instrumentation hooks
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing ActiveRecord instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing DelayedJob instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing middleware-based Excon instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing Net instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing Rails 3 Controller instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing Rails 3.1/3.2 view instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Installing Rails3 Error instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : Finished instrumentation
+[02/20/14 23:08:41 -0800 Satyans-MacBook-Pro.local (48125)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present
