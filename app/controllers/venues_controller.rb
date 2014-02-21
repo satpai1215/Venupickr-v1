@@ -5,7 +5,7 @@ class VenuesController < ApplicationController
   
 
   def get_venue
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find_by_id(params[:id])
   end
 
   def auth_owner
@@ -18,9 +18,9 @@ class VenuesController < ApplicationController
   # GET /venues/new
   # GET /venues/new.json
   def new
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by_id(params[:event_id])
 
-    if (@event.allow_venue_suggestion or current_user.id === @event.owner_id)
+    if (@event and (@event.allow_venue_suggestion or current_user.id === @event.owner_id))
       @already_suggested_venue = Venue.exists?(:user_id => current_user.id, :event_id => @event.id)
 
       #only allow multiple venue suggestion if user is event owner
@@ -65,12 +65,12 @@ class VenuesController < ApplicationController
   # POST /venues
   # POST /venues.json
   def create
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by_id(params[:event_id])
     @venue = @event.venues.build(params[:venue])
     @venue.address = @venue.address.gsub("\n", "<br>").html_safe
 
-    if(@event != nil)
-      @venue.user = current_user
+    if@event
+      @ venue.user = current_user
       #@venue.votecount = 1
 
       respond_to do |format|

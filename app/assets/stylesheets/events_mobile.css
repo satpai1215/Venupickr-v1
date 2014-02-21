@@ -5,7 +5,7 @@
 }
 
 .eventList h2 {
-	color: #484A48;
+	color: #333633;
 	text-align: center;
 }
 
@@ -15,7 +15,7 @@
 #votingEvents h2{
 	margin-top: 10px;
 	text-align: center;
-	color: #484A48;
+	color: #333633;
 }
 
 .eventList-header{
@@ -379,7 +379,7 @@ word-wrap: normal;
 	margin-bottom: 10px;
 	
 	overflow: auto;
-	border: 1px solid #484A48;
+	border: 1px solid #333633;
 }
 #discussionBoard-comments ul:hover {
 }
@@ -448,7 +448,7 @@ word-wrap: normal;
 	    margin-top: 10px;
 	   	padding: 10px 5px 0px 5px;
 		background: #F9F9C9;
-		border: 1px solid #484A48;
+		border: 1px solid #333633;
 		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
 		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
 		background-image: -webkit-linear-gradient(top, #F9F9C9, #F5F5CB );
@@ -492,7 +492,7 @@ word-wrap: normal;
 	}
 
 	.venueSticky-footer {
-		border-top: solid 1px #484A48;
+		border-top: solid 1px #333633;
 		display: inline-block;
 		width: 100%;
 		padding: 5px 0px;
@@ -606,10 +606,10 @@ word-wrap: normal;
 	.event-nav-link {
 		cursor: pointer;
 		display: inline-block;
-		color: #484A48;
+		color: #333633;
 		background-color: white;
 		width: 32%;
-		border: 1px solid #484A48;
+		border: 1px solid #333633;
 		border-top-right-radius: 2px;
 		border-top-left-radius: 2px;
 		padding: 5px 0px;
@@ -668,7 +668,7 @@ word-wrap: normal;
 	overflow-y: auto;
 	
 	background: white;
-	border: solid 2px #484A48;
+	border: solid 2px #333633;
 	border-radius: 10px;
 		-moz-box-shadow: 0px 5px 5px 0px #000;
 		-webkit-box-shadow: 0px 2px 5px 0px #000;
@@ -690,7 +690,7 @@ word-wrap: normal;
 }
 
 .ui-widget-content {
-	border: 2px solid #484A48;
+	border: 2px solid #333633;
 	background: whitesmoke;
 }
 
@@ -894,7 +894,7 @@ word-wrap: normal;
 }
 
 .blue {
-	color: #428bca;
+	color: #2e6ab1;
 	font-weight: bold;
 }
 

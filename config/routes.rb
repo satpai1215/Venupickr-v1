@@ -24,16 +24,13 @@ Venupickr::Application.routes.draw do
       match '/venue/increment_vote', controller: 'venues', action: 'increment_vote'
 
     #event interactions
-    match '/send_reminder', controller: 'events', action: 'send_reminder'
-    match '/post_comment', controller: 'events', action: 'post_comment'
+      match '/send_reminder', controller: 'events', action: 'send_reminder'
+      match '/post_comment', controller: 'events', action: 'post_comment'
 
   end
   
   match '/rsvp_yes', controller: 'events', action: 'rsvp_yes', as: "rsvp_yes"
   match '/rsvp_no', controller: 'events', action: 'rsvp_no', as: "rsvp_no"
-
-
-
 
   match "/contacts/gmail/callback", controller: "guests", action: "omnicontacts"
   match "/contacts/failure", controller: "guests", action: "omnicontacts_failure"

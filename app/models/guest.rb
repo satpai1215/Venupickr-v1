@@ -3,4 +3,8 @@ class Guest < ActiveRecord::Base
 
 	belongs_to :user
   	belongs_to :event
+
+  	scope :going, where(isgoing: true)
+  	scope :not_going, where(isgoing: false)
+
 end
