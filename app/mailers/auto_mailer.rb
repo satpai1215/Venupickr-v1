@@ -1,6 +1,6 @@
 class AutoMailer < ActionMailer::Base
 
-  default from: "info@mo-mondays.com", to: "info@mo-mondays.com"
+  default from: "info@venupickr.com", to: "info@venupickr.com"
 
 
   def find_event_info(event_id)
@@ -67,7 +67,7 @@ class AutoMailer < ActionMailer::Base
   def voting_reminder_email(event_id)
     find_event_info(event_id)
     @vote_end = @event.event_start - @event.vote_end.hours
-    mail(:bcc => email_list(event_id), :subject => "REMINDER: '#{@event.name}' is on the clock on the #{Venupickr::Application::APP_NAME} App!")
+    mail(:to => email_list(event_id), :subject => "REMINDER: '#{@event.name}' is on the clock on the #{Venupickr::Application::APP_NAME} App!")
   end
 
   def finished_reminder_email(event_id)
