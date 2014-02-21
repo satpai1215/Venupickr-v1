@@ -82,19 +82,16 @@ class VenuesController < ApplicationController
           end
 
           @content = "#{current_user} just suggested a venue"
-          @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
+         # @update = Update.create!(:content => "#{current_user} just suggested a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
           #@comment = Comment.create!(:content => @content, :event_id => @event.id)
 
-          if(@event.owner_id != current_user.id)
-            AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver
-          end
-
           #prevents multiple emails (within 3 hrs) when owner suggests venues immediately after creating event
-          if(@event.owner_id == @venue.user_id)
+          if(@event.owner_id == current_user.id)
             if((DateTime.now - 3.hours) > @event.created_at)
               AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
             end
           else
+            AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver
             AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
           end
           
@@ -135,7 +132,7 @@ class VenuesController < ApplicationController
         end
 
         @content = "#{current_user} modified a venue"
-        @update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
+        #@update = Update.create!(:content => "#{current_user} just modified a venue for \"#{@venue.event}\"", :event_id => @venue.event.id)
         #@comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         if(@venue.event.owner_id != current_user.id)
@@ -218,7 +215,7 @@ class VenuesController < ApplicationController
         Voter.create!(:user_id => current_user.id, :event_id => @venue.event.id, :venue_id => @venue.id)
         @venue.update_column(:votecount, @venue.voters.count + 1)
 
-        @update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"", :event_id => @venue.event.id)
+        #@update = Update.create!(:content => @content + " for the event: \"#{@venue.event}\"", :event_id => @venue.event.id)
        # @comment = Comment.create!(:content => @content, :event_id => @venue.event.id)
 
         @votecount = @venue.voters.count
