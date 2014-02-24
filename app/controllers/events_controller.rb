@@ -54,9 +54,15 @@ class EventsController < ApplicationController
       redirect_to events_path, notice: 'You do not have access that page.'
     else
       @owner = @event.owner
-      @owner_as_guest = Guest.where(:user_id => @event.owner_id, :event_id => @event.id).first
+      @owner_as_guest = Guest.where(:user_id => @owner.id, :event_id => @event.id).first
       @current_user_as_guest = Guest.where(:user_id => current_user.id, :event_id => @event.id).first
-      @guests = @event.guests.going + @event.guests.not_going - [@owner_as_guest]
+      @guests = (@event.guests.going + @event.guests.not_going)
+      @guests.delete(@owner_as_guest)
+      if !@is_owner
+        @guests.delete(@current_user_as_guest)
+        @guests.unshift(@current_user_as_guest)
+      end
+
       # @guests = []
       # @guests_not_going = []
 

@@ -167,15 +167,20 @@
 		width: 80%;
 		margin: 0 auto;
 	}
-
-	#new-guest-form-header a {
-		font-size: 0.8em;
+	.rsvp-response {
+		margin-bottom: 5px;
+	}
+	#rsvp-response-header {
+		margin-bottom: 5px;
 	}
 
 	/* GUEST.CSS */
+	#new-guest-form-header a {
+		font-size: 0.8em;
+	}
 	.help-dialog {
 		font-size: 0.75em;
-		width: 80%;
+		width: 120%;
 		top: 4%;
 		right: 4%;
 	}

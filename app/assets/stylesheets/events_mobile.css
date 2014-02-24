@@ -318,11 +318,21 @@
 	line-height: 50px;
 	text-overflow: ellipsis;
 }
+.current_user_guest {
+	font-weight: bold;
+	margin-top: 10px;
+}
 
 .rsvp-response {
 	float: right;
 	width: 50%;
 	line-height: 40px;
+}
+#rsvp-response-header {
+	line-height: 1em;
+	font-style: italic;
+	font-weight: bold;
+	color: #428bca;
 }
 .rsvp-response-text {
 	display: block;
@@ -339,9 +349,10 @@
 .rsvpButton {
 	font-size: 0.85em;
 	width: 45%;
+	font-weight: bold;
 	text-align: center;
 	white-space: normal;
-word-wrap: normal;
+	word-wrap: normal;
 }
 
 #discussionBoard-container {

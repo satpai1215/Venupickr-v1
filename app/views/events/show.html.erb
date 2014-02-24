@@ -66,13 +66,15 @@
 								<% else %>
 									<% @guests.each do |guest| %>
 										<li class = "guestlist-row">
-											<div class = "guestlist-name"><%= guest.user.to_s %></div>
 											<% if guest.user.id == current_user.id and @event.stage != "Archived" %>
+												<div class = "guestlist-name current_user_guest"><%= guest.user.to_s %></div>
 												<div class = "rsvp-response">
-													<%= link_to "Going", rsvp_yes_path(guest_id: guest.id), {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
-													<%= link_to "Not Going", rsvp_no_path(guest_id: guest.id), {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
+													<div id = "rsvp-response-header">Are you going?</div>
+													<%= link_to "Yes", rsvp_yes_path(guest_id: guest.id), {:id => "rsvpButton-yes", :class => "btn rsvpButton", :remote => true } %>
+													<%= link_to "No", rsvp_no_path(guest_id: guest.id), {:id => "rsvpButton-no", :class => "btn rsvpButton", :remote => true } %>
 												</div>
 											<% else %>	
+												<div class = "guestlist-name"><%= guest.user.to_s %></div>
 												<div class = "rsvp-response">
 													<span class = "rsvp-response-text"><%= guest.isgoing ? "RSVP'd" : "Not RSVP'd" %>
 														<% if @is_owner and @event.stage != "Archived" %><%= link_to("X", event_remove_guest_path(:event_id => @event.id, :guest_id => guest.id), {class: "remove-guest-link", method: :delete, data:{confirm: 'Are you sure you want to remove this guest?'}}) %><% end %></span>
