@@ -29,7 +29,7 @@
 
 
 	</div>
-	<%= render 'guest_form', event_id: session[:event_id]%>
+	<%= render 'guest_form'%>
 </div>
 
 <script>
@@ -37,12 +37,15 @@
 $(function() {
 
 	$("#invite-list-help-btn").click(function(event) {
+		event.preventDefault();
 		$("#invite-list-help-dialog").fadeIn(500);
-	})
+
+	});
+
 	$(".close-help-dialog").click(function(event) {
 		event.preventDefault();
 		$("#invite-list-help-dialog").fadeOut(500);
-	})
+	});
 
 	<% if current_user.gmail_contacts %>
 		getEmails();

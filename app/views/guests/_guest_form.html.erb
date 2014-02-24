@@ -11,9 +11,9 @@
 	<%= email_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Email Addresses (hit 'enter' to add to list)"} %>
 </div>
 
-<%= form_tag("/events/#{event_id}/guests/update_guestlist", :method => :post, :id => "new-guest-form" ) do %>
+<%= form_tag("/events/#{@event.id}/guests/update_guestlist", :method => :post, :id => "new-guest-form" ) do %>
 	<div class = "field">
-    <%= hidden_field_tag :event_id, event_id %>
+    <%= hidden_field_tag :event_id, @event.id %>
   	</div>
 	<div id= "new-guest-form-invitelist" ></div>
 

@@ -40,7 +40,7 @@ class GuestsController < ApplicationController
 
 
 	def new
-		session[:event_id] = @event.id
+		#session[:event_id] = @event.id
 
 		if (current_user.gmail_contacts) 
 			gon.contacts = current_user.gmail_contacts
