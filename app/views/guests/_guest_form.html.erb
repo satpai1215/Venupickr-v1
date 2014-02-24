@@ -8,7 +8,7 @@
 			<%= link_to "Find Gmail Contacts >>", "/contacts/gmail", {id: "gmail-contacts-link"} %>
 		<% end %>
 	</div>
-	<%= email_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Email Addresses (hit 'enter' to add)"} %>
+	<%= email_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Enter Email Addresses (hit 'enter' to add to list)"} %>
 </div>
 
 <%= form_tag("/events/#{event_id}/guests/update_guestlist", :method => :post, :id => "new-guest-form" ) do %>
@@ -19,9 +19,9 @@
 
 
 	<div class="actions">
-		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit", class: "sign_up_btn btn btn-primary" %>
+		<%= submit_tag "Invite Guests", :id => "new-guest-form-submit", class: "sign_up_btn action-btn btn btn-primary" %>
 		<div id = "form-submit-filler-text">Inviting guests. Please wait...</div>
-		<%= image_tag("/assets/ajax-loader.gif", :class => "loading-gif",  :style => "visibility: hidden;") %>
+		<%#= image_tag("/assets/ajax-loader.gif", :class => "loading-gif",  :style => "visibility: hidden;") %>
 	</div>
 <% end %>
 

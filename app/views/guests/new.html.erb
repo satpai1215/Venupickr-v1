@@ -29,7 +29,7 @@
 
 
 	</div>
-	<%= render 'guest_form', event_id: @event.id%>
+	<%= render 'guest_form', event_id: session[:event_id]%>
 </div>
 
 <script>

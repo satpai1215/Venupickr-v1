@@ -10,12 +10,16 @@
 #new-guest-form-header {
 	text-align: center;
 }
+#new-guest-form-header h2 {
+	margin-bottom: 0px;
+}
 #new-guest-form-header a {
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 #invite-list-container {
 	position: relative;
+	margin-top: 5px;
 }
 
 #invite-list-help-btn img {
@@ -94,7 +98,7 @@
 		text-align: center;
 	}
 	#gmail-contacts-hint p {
-		color: blue;
+		color: #428bca;
 		font-size: 0.8em;
 		margin-bottom: 0px;
 	}
@@ -109,7 +113,8 @@
 	cursor: text;
 	margin-bottom: 10px;
 	background: white;
-	min-height: 300px;
+	min-height: 150px;
+	overflow: auto;
 	padding: 5px;
 	border: 1px solid #808080;
 }

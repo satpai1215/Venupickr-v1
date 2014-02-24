@@ -183,6 +183,10 @@
 		font-size: 0.8em;
 	}
 
+	#new-guest-form-invitelist {
+		min-height: 300px;
+	}
+
 	/* ABOUT.PAGE */
 	#about-container {
 		padding: 5px 30px 10px 30px;
