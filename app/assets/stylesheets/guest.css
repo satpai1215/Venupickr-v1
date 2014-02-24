@@ -23,6 +23,19 @@
 	height: auto;
 }
 
+.close-help-dialog {
+	text-decoration: none;
+	color: #428bca;
+	position: absolute;
+	cursor: pointer;
+	font-weight: bold;
+	right: 5px;
+	top: 0;
+}
+.close-help-dialog:hover {
+	color: blue;
+}
+
 .help-dialog {
 	background: white;
 	text-align: center;
@@ -32,23 +45,11 @@
 
 	border: 2px solid gray;
 	border-radius: 5px;
-	right: 2%;
-	top: 2%;
+	top: -25%;
+	right: 0%;
 	padding: 20px;
 	width: 100%;
 }
-	.close-help-dialog {
-		text-decoration: none;
-		color: #428bca;
-		position: absolute;
-		cursor: pointer;
-		font-weight: bold;
-		right: 5px;
-		top: 0;
-	}
-	.close-help-dialog:hover {
-		color: blue;
-	}
 	.help-dialog h3 {
 		font-family: Verlag Bold;
 		margin-top: 5px;
@@ -93,7 +94,7 @@
 		text-align: center;
 	}
 	#gmail-contacts-hint p {
-		color: #428bca;
+		color: blue;
 		font-size: 0.8em;
 		margin-bottom: 0px;
 	}

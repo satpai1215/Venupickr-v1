@@ -176,6 +176,8 @@
 	.help-dialog {
 		font-size: 0.75em;
 		width: 80%;
+		top: 4%;
+		right: 4%;
 	}
 	.close-help-dialog {
 		font-size: 0.8em;

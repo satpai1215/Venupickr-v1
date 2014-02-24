@@ -33,7 +33,7 @@
 
   <% if @event.stage != 'Finished' and @event.stage != 'Archived' %>
     <div class="field">
-    <%= f.label :vote_end, "How many hours before the event start will the voting end?", :id => "event_vote_end_label" %>
+    <%= f.label :vote_end, "How many hours before the event will the voting end?", :id => "event_vote_end_label" %>
     <%= f.select :vote_end,  {:options => (1..48).to_a}, :selected => @vote_end %>
     </div>
   <% end %>
