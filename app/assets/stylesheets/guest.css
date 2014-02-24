@@ -14,8 +14,72 @@
 	font-size: 1.5em;
 }
 
+#invite-list-container {
+	position: relative;
+}
+
+#invite-list-help-btn img {
+	width: 5%;
+	height: auto;
+}
+
+.help-dialog {
+	background: white;
+	text-align: center;
+	position: absolute;
+	z-index: 10000;
+	display: none;
+
+	border: 2px solid gray;
+	border-radius: 5px;
+	right: 2%;
+	top: 2%;
+	padding: 20px;
+	width: 100%;
+}
+	.close-help-dialog {
+		text-decoration: none;
+		color: #428bca;
+		position: absolute;
+		cursor: pointer;
+		font-weight: bold;
+		right: 5px;
+		top: 0;
+	}
+	.close-help-dialog:hover {
+		color: blue;
+	}
+	.help-dialog h3 {
+		font-family: Verlag Bold;
+		margin-top: 5px;
+	}
+	.help-dialog ul li {
+		text-align: left;
+		list-style-type: circle;
+		list-style-position: outside;
+		margin-left: 5px;
+		margin-bottom: 5px;
+	}
+	.help-dialog ol li {
+		font-size: 0.9em;
+		list-style: decimal;
+		list-style-position: outside;
+		margin-left: 30px;
+	}
+
+.help-btn {
+	position: absolute;
+	right: 1%;
+	top: 1%;
+	font-style: normal;
+	color: white;
+	padding: 0px 8px;
+
+}
+
 #email-entry-container h2 {
-	margin: 10px auto;
+	margin: 0px auto;
+	margin-top: 15px;
 }
 
 	#email-dropdown {
@@ -29,7 +93,7 @@
 		text-align: center;
 	}
 	#gmail-contacts-hint p {
-		color: blue;
+		color: #428bca;
 		font-size: 0.8em;
 		margin-bottom: 0px;
 	}

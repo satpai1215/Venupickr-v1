@@ -3,11 +3,46 @@
 	<%= link_to "<< Back to Event Page", event_path(@event), id: "back-link" %>
 </div>
 
-<div class = "user_session_page"><%= render 'guest_form', event_id: @event.id%></div>
+<div class = "user_session_page" id = "invite-list-container">
+	
+	<%= link_to "?", "#", {class: "btn btn-primary help-btn", id: "invite-list-help-btn", :remote => true } %>
+	<div class = "help-dialog" id = "invite-list-help-dialog">
+		<ul>
+			<span href = "" class = 'close-help-dialog'>close</span>
+			<h3>Inviting Guests:</h3>
+			<li>Enter your friends' email addresses in the input box.  Hit 'enter' to add them to the list.</li>
+			<li>Remove guests from the list by clicking the 'X' to the right of their email addresses</li>
+			<li>For easiest results, load your Gmail contacts:
+			 	<ol>
+			 		<li>Click on 'Find Gmail Contacts'</li>
+					<li>Enter your Gmail credentials (don't worry, we promise not to spam your friends)</li>
+					<li>Once loaded, start typing your friends' names or email addresses and allow the app to autocomplete their information. Choose the correct contact from the dropdown to add them to the list</li>
+					<li>If you wish to unload your Gmail contacts, you can do so in your 'User Settings'</li>
+				</ol>
+			<li>Click 'Invite Guests' to send an event invitation to the emails in the list.
+				<ol>
+					<li>If the invited guest is already a registered member, they will be added to the guest list.</li>
+					<li>If they are not, they will be sent a registration invitation</li>
+				</ol>
+			</li>
+		</ul>
+
+
+	</div>
+	<%= render 'guest_form', event_id: @event.id%>
+</div>
 
 <script>
 
 $(function() {
+
+	$("#invite-list-help-btn").click(function(event) {
+		$("#invite-list-help-dialog").fadeIn(500);
+	})
+	$(".close-help-dialog").click(function(event) {
+		event.preventDefault();
+		$("#invite-list-help-dialog").fadeOut(500);
+	})
 
 	<% if current_user.gmail_contacts %>
 		getEmails();

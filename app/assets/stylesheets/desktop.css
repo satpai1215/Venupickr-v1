@@ -172,6 +172,14 @@
 		font-size: 0.8em;
 	}
 
+	/* GUEST.CSS */
+	.help-dialog {
+		font-size: 0.75em;
+		width: 80%;
+	}
+	.close-help-dialog {
+		font-size: 0.8em;
+	}
 
 	/* ABOUT.PAGE */
 	#about-container {
