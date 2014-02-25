@@ -51,7 +51,7 @@
 	border-radius: 5px;
 	top: -25%;
 	right: 0%;
-	padding: 20px;
+	padding: 10px;
 	width: 100%;
 }
 	.help-dialog h3 {
@@ -62,8 +62,8 @@
 		text-align: left;
 		list-style-type: circle;
 		list-style-position: outside;
-		margin-left: 5px;
-		margin-bottom: 5px;
+		margin-left: 4%;
+		margin-bottom: 10px;
 	}
 	.help-dialog ol li {
 		font-size: 0.9em;
@@ -76,7 +76,7 @@
 	position: absolute;
 	right: 1%;
 	top: 1%;
-	font-style: normal;
+	font-weight: bold;
 	color: white;
 	padding: 0px 8px;
 
@@ -86,11 +86,6 @@
 	margin: 0px auto;
 	margin-top: 15px;
 }
-
-	#email-dropdown {
-		margin: 5px 0;
-		margin-top: 0px;
-	}
 
 	#gmail-contacts-hint {
 		font-style: italic;
@@ -107,6 +102,23 @@
 		font-size: 0.8em;
 	}
 
+	#email-dropdown {
+		border: none;
+		width: 70%;
+		padding-right: 2px;
+
+	}
+
+	#email-input-border {
+		background-color: white;
+		border: 1px inset #808080;
+		padding: 2px;
+	}
+
+	#addEmailBtn {
+		font-size: 0.7em;
+		float: right;
+	}
 
 
 #new-guest-form-invitelist {

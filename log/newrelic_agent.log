@@ -2628,3 +2628,55 @@
 [02/23/14 23:06:23 -0800 satyans-mbp (49414)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert Guest to Array (Guest#to_ary gives NilClass)
 [02/23/14 23:26:17 -0800 satyans-mbp (49414)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert Guest to Array (Guest#to_ary gives NilClass)
 [02/23/14 23:26:17 -0800 satyans-mbp (49414)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: can't convert Guest to Array (Guest#to_ary gives NilClass)
+[02/24/14 20:45:16 -0800 Satyans-MacBook-Pro.local (49414)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:16: syntax error, unexpected '<', expecting ')'
+</div>
+ ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:17: unknown regexp options - dv
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:20: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+');@output_buffer.safe_concat('	<div class = "field">
+                               	          ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:23: unknown regexp options - dv
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:26: syntax error, unexpected '<'
+	<div class="actions">
+	 ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...t_buffer.safe_concat('		<div id = "form-submit-filler-text">...
+...                      		       ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...it-filler-text">Inviting guests. Please wait...</div>
+...                               ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected '<'
+...nviting guests. Please wait...</div>
+...                               ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:30: unknown regexp options - dv
+unmatched close parenthesis: /div>
+');
+@output_buffer.safe_concat('	</i
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:34: unterminated string meets end of file
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:34: syntax error, unexpected $end, expecting ')'
+[02/24/14 20:45:16 -0800 Satyans-MacBook-Pro.local (49414)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:16: syntax error, unexpected '<', expecting ')'
+</div>
+ ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:17: unknown regexp options - dv
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:20: syntax error, unexpected keyword_class, expecting keyword_do or '{' or '('
+');@output_buffer.safe_concat('	<div class = "field">
+                               	          ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:23: unknown regexp options - dv
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:26: syntax error, unexpected '<'
+	<div class="actions">
+	 ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...t_buffer.safe_concat('		<div id = "form-submit-filler-text">...
+...                      		       ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...it-filler-text">Inviting guests. Please wait...</div>
+...                               ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:28: syntax error, unexpected '<'
+...nviting guests. Please wait...</div>
+...                               ^
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:30: unknown regexp options - dv
+unmatched close parenthesis: /div>
+');
+@output_buffer.safe_concat('	</i
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:34: unterminated string meets end of file
+/Users/Satyan/Documents/WebDev_Learning/Projects/RailsApps/Venupickr-v1/app/views/guests/_guest_form.html.erb:34: syntax error, unexpected $end, expecting ')'

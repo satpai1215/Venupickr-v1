@@ -10,15 +10,15 @@
 		<ul>
 			<span href = "" class = 'close-help-dialog'>close</span>
 			<h3>Inviting Guests:</h3>
-			<li>Enter your friends' email addresses in the input box.  Hit 'enter' to add them to the list.</li>
-			<li>Remove guests from the list by clicking the 'X' to the right of their email addresses</li>
+			<li>Enter your friends' email addresses in the input box.  Hit 'enter' to add them to the list (on mobile, click the 'Add To List' button)</li>
 			<li>For easiest results, load your Gmail contacts:
 			 	<ol>
 			 		<li>Click on 'Find Gmail Contacts'</li>
 					<li>Enter your Gmail credentials (don't worry, we promise not to spam your friends)</li>
 					<li>Once loaded, start typing your friends' names or email addresses and allow the app to autocomplete their information. Choose the correct contact from the dropdown to add them to the list</li>
-					<li>If you wish to unload your Gmail contacts, you can do so in your 'User Settings'</li>
+					<li>Your Gmail contacts will be saved for future reference. If you wish to unlink your Gmail contacts from the app, you can do so in your <%= link_to 'User Settings', edit_user_registration_path %></li>
 				</ol>
+			<li>Remove guests from the list by clicking the 'X' to the right of their email addresses</li>
 			<li>Click 'Invite Guests' to send an event invitation to the emails in the list.
 				<ol>
 					<li>If the invited guest is already a registered member, they will be added to the guest list.</li>
@@ -39,6 +39,7 @@ $(function() {
 	$("#invite-list-help-btn").click(function(event) {
 		event.preventDefault();
 		$("#invite-list-help-dialog").fadeIn(500);
+		$("#invite-list-help-dialog ul").on("blur", function() {alert("test");});
 
 	});
 

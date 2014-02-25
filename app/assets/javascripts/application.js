@@ -36,13 +36,6 @@ $(document).ready(function() {
     $(this).fadeOut(500);
    });
 
-  $(document).on('click', '#guest_form_selectall_btn', function(event) {
-    $('.guest_checkbox  ').prop('checked', true);
-  });
-  $(document).on('click', '#guest_form_deselectall_btn', function(event) {
-    $('.guest_checkbox').prop('checked', false);
-  });
-
   $(document).on('click', '#new-guest-form-submit', function(event) {
     //$('.loading-gif').css('visibility', 'visible');
     $('#form-submit-filler-text').show();
@@ -88,17 +81,18 @@ $(document).ready(function() {
       $('.hide-toggle-' + index).show();
   });
 
-    $(document).on('keypress', '#email-dropdown', function(event) {
-        if(event.keyCode == 13) {
-            var emailinput = $("#email-dropdown").val();
-            if(validateEmail(emailinput)) {
-                addEmailToRecipientList(emailinput);
-              } else {
-                $("#notice").text("That email address is invalid.").fadeIn().delay(3000).fadeOut(1000);
-              }
-          $("#email-dropdown").val("");
-        }
-    });
+
+  $(document).on('click', "#addEmailBtn", function(event) {
+      event.preventDefault();
+      addEmailAction();
+  });
+
+
+  $(document).on('keypress', '#email-dropdown', function(event) {
+      if(event.keyCode == 13) {
+          addEmailAction();
+      }
+  });
 
   $(document).on('click', '.remove-email', function(event) {
     $(this).parent().remove();
@@ -109,6 +103,7 @@ $(document).ready(function() {
         window.alert("Are you sure?  You will no longer get reminders about events and voting.");
       }
     }); 
+
 
     var wWidth = $(window).width();
     var formWidth = 0.95 * wWidth;

@@ -188,6 +188,13 @@
 		font-size: 0.8em;
 	}
 
+	#email-dropdown {
+		width: 100%;
+	}
+	#addEmailBtn {
+		display: none;
+	}
+
 	#new-guest-form-invitelist {
 		min-height: 300px;
 	}

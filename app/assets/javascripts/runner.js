@@ -175,6 +175,16 @@ function getEmails() {
     });
 }
 
+function addEmailAction() {
+    var emailinput = $("#email-dropdown").val();
+    if(validateEmail(emailinput)) {
+      addEmailToRecipientList(emailinput);
+    } else {
+      $("#notice").text("That email address is invalid.").fadeIn().delay(3000).fadeOut(1000);
+    }
+    $("#email-dropdown").val("");
+}
+
 function addEmailToRecipientList(email) {
     $("<span>" + email + "<a class = 'remove-email'>X</a>" + "</span>")
         .prependTo("#new-guest-form-invitelist")
