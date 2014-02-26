@@ -61,6 +61,7 @@ module Venupickr
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.initialize_on_precompile = false
 
     #reads environment variables from config/local_env.yml
     config.before_configuration do
