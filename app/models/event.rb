@@ -71,7 +71,9 @@ private
   def build_event_start_and_validate
     begin
       @date = Date.strptime(@datepicker, '%m/%d/%Y')
-      @time = (@timepicker)
+      @time = Time.zone.parse(@timepicker)
+
+      puts "!!!!!!!!!!!!!!!!!!!Date: #{@date} Time: #{@time}"
     rescue ArgumentError
       errors.add(:event_start, "date is not a valid date or format (must be a valid date with mm/dd/yyyy hh:mm ampm)" )
       return false
