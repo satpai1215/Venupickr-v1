@@ -198,6 +198,14 @@ function validateEmail(email) {
     return re.test(email);
 } 
 
+function displayEventShowTab(index) {
+    $('.event-nav-link').removeClass('selected-nav');
+
+    $('.event-nav-link:eq(' + (index-1) + ')').addClass('selected-nav');
+    $('.hide-box').hide();
+    $('.hide-toggle-' + index).show();
+}
+
 
 /********************
 END EMAIL DROPDOWN FUNCTION

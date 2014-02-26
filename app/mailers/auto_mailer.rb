@@ -1,6 +1,6 @@
 class AutoMailer < ActionMailer::Base
 
-  default from: "do-not-reply@venupickr.com", to: "do-no-reply@venupickr.com"
+  default from: "notifications@venupickr.com", to: "notifications@venupickr.com"
 
 
   def find_event_info(event_id)
@@ -40,7 +40,7 @@ class AutoMailer < ActionMailer::Base
     @token = Event.encrypt(@event.id)
     @new_user_url = new_user_registration_with_token_url(@token)
     @existing_user_url = new_user_session_with_token_url(@token)
-    mail(:bcc => new_guest_emails, :subject => "You have been invited to join the #{Venupickr::Application::APP_NAME} App!")
+    mail(:from => "welcome@venupickr.com", :bcc => new_guest_emails, :subject => "You have been invited to join the #{Venupickr::Application::APP_NAME} App!")
   end
 
 

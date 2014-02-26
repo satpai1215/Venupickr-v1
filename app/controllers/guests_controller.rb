@@ -67,6 +67,8 @@ class GuestsController < ApplicationController
 		@new_user_emails = []
 		@existing_user_emails = []
 
+		puts "!!!!!!!!!!!!!!!!!!!!#{@guests}"
+
 		@guests.each do |email|
 			@user = User.find_by_email(email.downcase)
 			@notice = "An invitation has been emailed to your guests."
@@ -81,6 +83,9 @@ class GuestsController < ApplicationController
 
 		AutoMailer.send_invite_email(@event.id, @existing_user_emails).deliver unless @existing_user_emails.blank?
 		AutoMailer.send_new_user_invite_email(@event.id, @new_user_emails).deliver unless @new_user_emails.blank?
+
+		#decides which tab on event#show to have visible
+		flash[:tab] = 2
 
 		respond_to do |format|
 			format.html {redirect_to @event, notice: @notice }
@@ -107,7 +112,9 @@ class GuestsController < ApplicationController
 			@vote.destroy unless @vote.nil?
 			@guest.destroy
 		end
-
+		
+		#decides which tab on event#show to have visible
+		flash[:tab] = 2
 		redirect_to @event, :notice => "The selected guest has been removed."
 	end
 

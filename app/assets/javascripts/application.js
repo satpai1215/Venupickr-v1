@@ -73,12 +73,7 @@ $(document).ready(function() {
 
     $(document).on('click', '.event-nav-link', function(event) {
       event.preventDefault();
-      $('.event-nav-link').removeClass('selected-nav');
-      $(this).addClass('selected-nav');
-      var index = $('.event-nav-link').index(this) + 1;
-
-      $('.hide-box').hide();
-      $('.hide-toggle-' + index).show();
+      displayEventShowTab($('.event-nav-link').index(this) + 1)
   });
 
 

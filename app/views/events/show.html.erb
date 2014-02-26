@@ -234,6 +234,11 @@
 			$('#inviteGuestsForm').html("<%= escape_javascript(render :partial => 'guests/new_event_guests_form') %>");
 		<% end %>
 
+		//displays tab as indicated
+		<% if flash[:tab] %>
+			displayEventShowTab(<%= flash[:tab] %>);
+		<% end %>
+
 		//color code rsvp buttons on page refresh
 		<% if @current_user_as_guest.isgoing %>
 			$('#rsvpButton-yes').addClass('green').css('background', '#d6e6e6');
