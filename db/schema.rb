@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140130040922) do
+ActiveRecord::Schema.define(:version => 20140226062500) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -120,14 +120,14 @@ ActiveRecord::Schema.define(:version => 20140130040922) do
 
   create_table "venues", :force => true do |t|
     t.string   "name"
-    t.text     "address",    :limit => 255
     t.integer  "votecount"
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "url"
     t.string   "comments"
+    t.text     "address"
   end
 
   add_index "venues", ["event_id"], :name => "index_venues_on_event_id"
