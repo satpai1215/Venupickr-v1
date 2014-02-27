@@ -16,15 +16,17 @@
 .email-container {
   font-family: Verlag Book, Arial, Verdana, Geneva, sans-serif;
   background-color: whitesmoke;
-  font-size: 1em;
+  font-size: 1.2em;
   min-width: 80%;
   margin: 0 auto;
   color: #333633;
+  border-radius: 2px;
 }
 
   .email-container a {
     text-decoration: none;
     color: #2e6ab1;
+    font-weight: bold;
   }
 
 .app-name-header {
@@ -49,7 +51,7 @@
   }
 
 .email-info {
-  width: 75%;
+  width: 90%;
 }
 
   .email-info .venue-winner {
@@ -65,7 +67,7 @@
   font-size: 0.9em;
   margin: 0 auto;
   margin-top: 30px;
-  width: 75%;
+  width: 90%;
  }
 
 
@@ -76,9 +78,12 @@
   .email-footer td {
     background-color: #FF7F00;
     padding: 10px;
-    color: white;
     font-family: Verlag Bold, "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
-    font-size: 0.8em;
+    font-size: 1em;
+  }
+  .email-footer a {
+    text-decoration: none;
+    color: white;
   }
 
 
@@ -89,11 +94,11 @@
 
 <div class = "email-container">
   <div class = "app-name-header">
-    <h2><%= Venupickr::Application::APP_NAME %></h2>
+    <h2><%= Venupickr::Application::APP_NAME.upcase %></h2>
   </div>
 
   <div class = "email-content-body">
-  <table border="0" cellspacing="0" cellpadding="10">
+  <table border="0" cellspacing="0" cellpadding="5">
   <tr>
     <td>
     
@@ -109,7 +114,7 @@
 <!-- Footer -->
 <table class = "email-footer" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td>www.<%= Venupickr::Application::APP_NAME.downcase %>.com</td>
+    <td><a>www.<%= Venupickr::Application::APP_NAME.downcase %>.com<a></td>
   </tr>
 </table>
 
