@@ -1,0 +1,146 @@
+<html>
+<head>
+<title><%= Venupickr::Application::APP_NAME %> Email Template</title>
+<style type="text/css">
+ @font-face {
+  font-family: 'Verlag Bold';
+  src: url(<%= asset_path "VerlagBlack.otf" %>) format('opentype');
+  font-style: normal;
+}
+ @font-face {
+  font-family: 'Verlag Book';
+  src: url(<%= asset_path "VerlagBook.otf" %>) format('opentype');
+  font-style: normal;
+}
+
+.email-container {
+	font-family: Verlag Book, Arial, Verdana, Geneva, sans-serif;
+	background-color: whitesmoke;
+	font-size: 1em;
+  min-width: 80%;
+  margin: 0 auto;
+  color: #333633;
+}
+
+.app-name-header {
+  background-color: #FF7F00;
+}
+  .app-name-header h2 {
+    text-align: center;
+    color: white;
+    font-family: Verlag Bold, Arial Black, sans-serif;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+.email-content-body table {
+  margin: 10px auto;
+  line-height: 1.2em;
+}
+  .email-content-body table h2 {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, serif;
+    color: #FF7F00;
+    text-align: center;
+  }
+
+.email-info {
+  width: 75%;
+}
+  .email-info a {
+    text-decoration: none;
+    color: #2e6ab1;
+  }
+  .email-info .venue-winner {
+    font-size: 0.9em;
+  }
+
+.email-footer {
+    width: 100%;
+    text-align: center;
+}
+  .email-footer td {
+    background-color: #FF7F00;
+    padding: 5px;
+    color: white;
+    font-family: Verlag Bold, Arial, Verdana, Geneva, sans-serif;
+    font-size: 0.8em;
+  }
+
+ .email-info .heading {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, serif;
+    color: #FF7F00;
+ } 
+
+ .email-small {
+  font-size: 0.9em;
+  margin-top: 40px;
+ }
+  .email-small a {
+    text-decoration: none;
+    color: #2e6ab1;
+  }
+
+
+
+</style>
+</head>
+<body>
+
+<div class = "email-container">
+  <div class = "app-name-header">
+    <h2><%= Venupickr::Application::APP_NAME %></h2>
+  </div>
+
+  <div class = "email-content-body">
+  <table border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>
+    
+    <h2>THE EVENT IS SET!</h2>
+    <p align="center">Voting has just finished for <strong>'MO BDAYS!'</strong> created by cz. Below is the event information:</p>
+    
+    <table class = "email-info" order="0" cellspacing="10">
+      <tr>
+        <td width="35%"><p class = "heading">Event:</p></td>
+        <td><a href="#"><b>Mo' Mondays No Mo' Siva</b></a></td>
+      </tr>
+      <tr>
+        <td><p class = "heading">Start Date:</p></td>
+        <td><p>August 12, 2013 at 8:00pm PST</p></td>
+      </tr>
+      <tr>
+        <td valign="top"><p class = "heading">Winning Venue:</p></td>
+        <td valign="top">
+          <p> <a href="http://www.yelp.com/biz/redford-san-francisco-2"><b>Wilson &amp; Wilson</b></a><br />
+                <span class = "venue-winner">673 Geary St (b/t Jones St &amp; Leavenworth St)<br />
+                San Francisco, CA 94102<br />
+                <b>&raquo; suggested by czwang</b></span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top"><p class = "heading">Notes to Guests:</p></td>
+        <td valign="top">
+            <p style = "font-style: italic">I'm getting older... so old that my actual bday day has been commandeered by a family friends wedding, so lets drink to getting older on Monday instead! =)</p>
+        </td>
+      </tr>
+    </table>
+    
+    <p align="center" class = "email-small">Are you going? RSVP using the discussion box on the <a href="#">Event Page &raquo</a></p>
+    
+    </td>
+  </tr>
+</table>
+
+</div> <!-- email-content-body -->
+
+<!-- Footer -->
+<table class = "email-footer" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td>www.<%= Venupickr::Application::APP_NAME.downcase %>.com</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
