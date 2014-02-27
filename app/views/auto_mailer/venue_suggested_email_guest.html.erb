@@ -98,9 +98,11 @@
   <tr>
     <td>
     
-    <h2>THERE'S A NEW VENUE SUGGESTED FOR YOUR EVENT!</h2>
-    <p align="center"><%= @venue_owner %> has suggested/edited a venue for your event,<strong> <%= link_to("#{@event.name}", @url) %></strong>!</p>
-      <p align = "center">Go to the <%= link_to("event page >>", @url)%> to see the venue and remove it if you don't approve. You have the power!</p>
+    <h2>A VENUE HAS BEEN SUGGESTED!</h2>
+    <p align="center"><%= @venue_owner %> has suggested a venue for the event,<strong> <%= link_to("#{@event.name}", @url) %></strong>.</p>
+
+        <p align="center">Go to the <%= link_to("Event Page >>", @url) %> and vote or change your vote if you like it!</p>
+      
 
     </td>
   </tr>
@@ -118,3 +120,4 @@
 
 </body>
 </html>
+
