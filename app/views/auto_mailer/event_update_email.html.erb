@@ -1,72 +1,145 @@
-
-<!DOCTYPE html>
 <html>
 <head>
 <title><%= Venupickr::Application::APP_NAME %> Email Template</title>
 <style type="text/css">
-
-.mm_ttb {
-  font-family: Arial, Verdana, Geneva, sans-serif;
-  background-color: #F4F4F4;
-  font-size: 14px;
+ @font-face {
+  font-family: 'Verlag Bold';
+  src: url(<%= asset_path "VerlagBlack.otf" %>) format('opentype');
+  font-style: normal;
 }
+ @font-face {
+  font-family: 'Verlag Book';
+  src: url(<%= asset_path "VerlagBook.otf" %>) format('opentype');
+  font-style: normal;
+}
+
+.email-container {
+  font-family: Verlag Book, Arial, Verdana, Geneva, sans-serif;
+  background-color: whitesmoke;
+  font-size: 1em;
+  min-width: 80%;
+  margin: 0 auto;
+  color: #333633;
+}
+
+.app-name-header {
+  background-color: #FF7F00;
+}
+  .app-name-header h2 {
+    text-align: center;
+    color: white;
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+.email-content-body table {
+  margin: 10px auto;
+  line-height: 1.2em;
+}
+  .email-content-body table h2 {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    color: #FF7F00;
+    text-align: center;
+  }
+
+.email-info {
+  width: 75%;
+}
+  .email-info a {
+    text-decoration: none;
+    color: #2e6ab1;
+  }
+  .email-info .venue-winner {
+    font-size: 0.9em;
+  }
+
+ .email-info .heading {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    color: #FF7F00;
+ } 
+
+ .email-small {
+  font-size: 0.9em;
+  margin-top: 30px;
+ }
+  .email-small a {
+    text-decoration: none;
+    color: #2e6ab1;
+  }
+
+
+.email-footer {
+    width: 100%;
+    text-align: center;
+}
+  .email-footer td {
+    background-color: #FF7F00;
+    padding: 10px;
+    color: white;
+    font-family: Verlag Bold, "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
+    font-size: 0.8em;
+  }
+
+
 
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
-  <tr>
-    <td style="background-color: #777777;font-family: Arial, Verdana, Geneva, sans-serif;color: white;font-size: 18px;"><%= Venupickr::Application::APP_NAME %></td>
-  </tr>
-</table>
+<div class = "email-container">
+  <div class = "app-name-header">
+    <h2><%= Venupickr::Application::APP_NAME %></h2>
+  </div>
 
-<!-- Body -->
-<table class="mm_ttb" width="600" align="center" border="0" cellspacing="0" cellpadding="10" style="background-color:#f3f3f3;">
+  <div class = "email-content-body">
+  <table border="0" cellspacing="0" cellpadding="10">
   <tr>
     <td>
     
-    <h1 style="font-size: 18px;font-family: Arial, Verdana, Geneva, sans-serif;">THE EVENT HAS BEEN UPDATED!</h1>
-    <p><%= @owner %> has just updated an event on the <%= Venupickr::Application::APP_NAME %> App! Below is the current event information:</p>
+    <h2>THE EVENT HAS BEEN UPDATED!</h2>
+    <p align="center"><%= @owner %> has just updated an event on the <%= Venupickr::Application::APP_NAME %> App! Below is the current event information:</p>
     
-    <table width="100%" border="0" cellspacing="2">
+    <table class = "email-info" order="0" cellspacing="10">
       <tr>
-        <td width="20%"><p style="color: #888888;">Event:</p></td>
+        <td width="35%"><p class = "heading">Event:</p></td>
         <td><a href= <%= "#{@url}"%> ><b><%= @event.name  %></b></a></td>
       </tr>
       <tr>
-        <td><p style="color: #888888;">Event Date:</p></td>
+        <td><p class = "heading">Event Date:</p></td>
         <td><p><%= @event.event_start.strftime("%B %d, %Y") %> at <%= @event.event_start.strftime("%I:%M%p") %></p></td>
       </tr>
       <tr>
-        <td><p style="color: #888888;">Vote Closes:</p></td>
+        <td><p class= "heading">Vote Closes:</p></td>
         <td><p><%= @vote_end.strftime("%B %d, %Y %I:%M%p") %></p></td>
       </tr>
 
-      <% if !@event.notes.blank? %>
+       <% if !@event.notes.blank? %>
         <tr>
-          <td valign="top"><p style="color: #888888;">Notes to Guests:</p></td>
+          <td valign="top"><p class = "heading">Notes to Guests:</p></td>
           <td valign="top">
-              <p> "<%= @event.notes %>"</p>
+              <p style = "font-style: italic"> "<%= @event.notes %>"</p>
           </td>
         </tr>
       <% end %>
     </table>
     
-    <p align="center">Go to the <%= link_to("Event Page", @url) %> to checkout the updates.</p>
-    <% if @event.allow_venue_suggestion %><p align = "center"><i><small>Remember, you can suggest venues and vote up until voting closes. Your opinion matters!</small></i></p> <% end %>
+    <p align="center" class = "email-small">Go to the <%= link_to("Event Page >>", @url) %> to checkout the updates. <% if @event.allow_venue_suggestion %>Remember, you can suggest venues and vote up until voting closes. Your opinion matters!<% end %>
     
     </td>
   </tr>
 </table>
 
+</div> <!-- email-content-body -->
+
 <!-- Footer -->
-<table width="600" align="center" border="0" cellspacing="0" cellpadding="10">
+<table class = "email-footer" border="0" cellspacing="0" cellpadding="10">
   <tr>
-    <td align="center" style="background-color: #e3e3e3;font-family: Arial, Verdana, Geneva, sans-serif;font-size: 11px;">www.<%= Venupickr::Application::APP_NAME.downcase %>.com</td>
+    <td>www.<%= Venupickr::Application::APP_NAME.downcase %>.com</td>
   </tr>
 </table>
 
+
 </body>
 </html>
+
