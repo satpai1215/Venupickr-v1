@@ -53,6 +53,7 @@ gem 'omnicontacts'
 
 gem 'hashids'
 
+gem 'roadie'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
