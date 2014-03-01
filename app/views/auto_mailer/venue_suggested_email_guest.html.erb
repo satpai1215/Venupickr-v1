@@ -1,94 +1,7 @@
 <html>
 <head>
 <title><%= Venupickr::Application::APP_NAME %> Email Template</title>
-<style type="text/css">
- @font-face {
-  font-family: 'Verlag Bold';
-  src: url(<%= asset_path "VerlagBlack.otf" %>) format('opentype');
-  font-style: normal;
-}
- @font-face {
-  font-family: 'Verlag Book';
-  src: url(<%= asset_path "VerlagBook.otf" %>) format('opentype');
-  font-style: normal;
-}
-
-.email-container {
-  font-family: Verlag Book, Arial, Verdana, Geneva, sans-serif;
-  background-color: whitesmoke;
-  font-size: 1.2em;
-  min-width: 80%;
-  margin: 0 auto;
-  color: #333633;
-  border-radius: 2px;
-}
-
-  .email-container a {
-    text-decoration: none;
-    color: #2e6ab1;
-    font-weight: bold;
-  }
-
-.app-name-header {
-  background-color: #FF7F00;
-}
-  .app-name-header h2 {
-    text-align: center;
-    color: white;
-    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-    margin: 0 auto;
-    padding: 5px;
-  }
-
-.email-content-body table {
-  margin: 10px auto;
-  line-height: 1.2em;
-}
-  .email-content-body table h2 {
-    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-    color: #FF7F00;
-    text-align: center;
-  }
-
-.email-info {
-  width: 90%;
-}
-
-  .email-info .venue-winner {
-    font-size: 0.9em;
-  }
-
- .email-info .heading {
-    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-    color: #FF7F00;
- } 
-
- .email-small {
-  font-size: 0.9em;
-  margin: 0 auto;
-  margin-top: 30px;
-  width: 90%;
- }
-
-
-.email-footer {
-    width: 100%;
-    text-align: center;
-}
-  .email-footer td {
-    background-color: #FF7F00;
-    padding: 10px;
-    font-family: Verlag Bold, "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
-    font-size: 1em;
-  }
-  .email-footer a {
-    text-decoration: none;
-    color: white;
-  }
-
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="email.css">   
 </head>
 <body>
 
@@ -103,7 +16,7 @@
   <tr>
     <td>
     
-    <h2>A VENUE HAS BEEN SUGGESTED!</h2>
+    <h3>A VENUE HAS BEEN SUGGESTED!</h3>
     <p align="center"><%= @venue_owner %> has suggested a venue for the event,<strong> <%= link_to("#{@event.name}", @url) %></strong>.</p>
 
         <p align="center">Go to the <%= link_to("Event Page", @url) %> and vote or change your vote if you like it!</p>

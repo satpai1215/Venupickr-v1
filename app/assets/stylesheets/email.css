@@ -1,0 +1,88 @@
+
+.email-container {
+  font-family: Verlag Book, Arial, Verdana, Geneva, sans-serif;
+  background-color: whitesmoke;
+  font-size: 1.2em;
+  width: 600px;
+  margin: 0 auto;
+  color: #333633;
+  border-radius: 2px;
+}
+
+  .email-container a {
+    text-decoration: none;
+    color: #2e6ab1;
+    font-weight: bold;
+  }
+
+.app-name-header {
+  background-color: #FF7F00;
+}
+  .app-name-header h2 {
+    text-align: center;
+    color: white;
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+.email-content-body table {
+  margin: 5px auto;
+  line-height: 1.2em;
+}
+  .email-content-body table h3 {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    color: #FF7F00;
+    text-align: center;
+  }
+  .email-content-body table h4 {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    margin: 2px auto;
+  }
+  .email-content-body .sub-heading {
+      margin-top: 10px;
+      margin-bottom: 0px;
+  }
+
+.email-info {
+  width: 90%;
+  margin: 0px auto;
+}
+  .email-info p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .email-info .venue-winner {
+    font-size: 0.9em;
+  }
+
+ .email-info .heading {
+    font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    color: #FF7F00;
+ } 
+
+ .email-small {
+  font-size: 0.9em;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 90%;
+ }
+
+
+.email-footer {
+    width: 100%;
+    text-align: center;
+}
+  .email-footer td {
+    background-color: #FF7F00;
+    padding: 10px;
+    font-family: Verlag Bold, "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
+    font-size: 1em;
+  }
+  .email-footer a {
+    text-decoration: none;
+    color: white;
+  }
+
+
