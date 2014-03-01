@@ -34,12 +34,6 @@
     <%= f.hidden_field :url %>
   </div>
 
- <div class = "field">
-    <%#=f.hidden_field :event_id, value: @event_id %>
-   <!-- <#%= f.label :event %><br />
-    <#%= f.select :event_id, [[event.name,event.id]] %> -->
-  </div>
-
   <div class="actions">
     <div class ="newVenueBtn-container">
       <%= f.submit (@venue.new_record? ? "Suggest Venue": "Modify Venue"), {id: "venueSubmitButton", class: "newVenueBtn btn"} %>

@@ -36,6 +36,17 @@ $(document).ready(function() {
     $(this).fadeOut(500);
    });
 
+  //EDGE CASE: user choosed yelp suggested venue, but decides to change it to a non-yelp place.
+  // need to reset venue_url so it doesnt link to wrong venue
+  $(document).on('change', '#venue_address', function(event) {
+      $('#venue_url').val('');
+  });
+    $(document).on('change', '#venue_name', function(event) {
+      $('#venue_url').val('');
+  });
+
+
+
   $(document).on('click', '#new-guest-form-submit', function(event) {
     //$('.loading-gif').css('visibility', 'visible');
     $('#form-submit-filler-text').show();
