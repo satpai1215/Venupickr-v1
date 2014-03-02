@@ -46,6 +46,10 @@
 	.signed-in-link:hover {
 		display: inline-block;
 	}
+	.help-dialog {
+		font-size: 0.75em;
+		width: 120%;
+	}
 
 	footer {
 		font-size: 1em;
@@ -174,15 +178,19 @@
 		margin-bottom: 5px;
 	}
 
+	#venue-dialog-help-dialog {
+		font-size: 0.6em;
+		right: 10%;
+	}
+
 	/* GUEST.CSS */
 	#new-guest-form-header a {
 		font-size: 0.8em;
 	}
-	.help-dialog {
-		font-size: 0.75em;
-		width: 120%;
+	#invite-list-help-dialog {
 		top: 4%;
 		right: 4%;
+
 	}
 	.close-help-dialog {
 		font-size: 0.8em;

@@ -695,6 +695,16 @@
 /*----------------------------------------------------------------------------- 
 = CREATE VENUE/EVENT FORMS
 -----------------------------------------------------------------------------*/
+#venue-dialog-help-btn {
+	right: 3em;
+}
+
+#venue-dialog-help-dialog {
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+
 .ui-widget-header {
 	background: #FF7F00;
 	color: white;

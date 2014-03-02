@@ -3,10 +3,23 @@
     $("#notice").text("You have already suggested a venue for this event. Try removing your existing venue.").fadeIn().delay(3000).fadeOut(1000);
 
 <% else %> {
-    $('#createVenueForm').dialog("open");
+    //$('#createVenueForm').dialog("open");
     $('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
+    $('#createVenueForm').dialog('open');
+    $('.ui-dialog').prepend("<%= escape_javascript(render 'help_dialog') %>");
 
     AC();
+
+
+    $("#venue-dialog-help-btn").click(function(event) {
+      event.preventDefault();
+      $("#venue-dialog-help-dialog").fadeIn(500);
+    });
+
+    $(".close-help-dialog").click(function(event) {
+      event.preventDefault();
+      $(this).parent().parent('.help-dialog').fadeOut(500);
+    });
 }
 <% end %>
 
@@ -120,12 +133,18 @@ function yelpRequest(request, response) {
                     
                     //format address string
                     var location = item.location.display_address
-                    if (location.length > 3) {
+                   /* if (location.length > 3) {
                         var addy = location[0] + " " + location[1] + "\n" + location[3];
                     }
 
                     else {
                         var addy = location[0] + "\n" + location[2];
+                    }*/
+                    var addy = "";
+
+                    for (line in location) {
+                        addy += location[line] + "\n";
+                        console.log(addy);
                     }
                     /*if(location.cross_streets != undefined) {
                         addy += "(b/t " + location.cross_streets + ")";}

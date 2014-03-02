@@ -124,6 +124,7 @@ $(document).ready(function() {
    $("#inviteGuestsForm").dialog({modal: true, autoOpen: false, minWidth: formWidth, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
    //$(".voteList").dialog({modal: true, autoOpen: false, minWidth: 500, show: 500, position: { my: "center top", at: "center top", of: "#main" }});
 
+
    $(".voteCount").hover( 
       function () {
         $(this).siblings("ol.voteList").fadeIn();

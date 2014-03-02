@@ -52,7 +52,7 @@ class VenuesController < ApplicationController
     @event = Event.find(params[:event_id])
 
     if current_user.id == @venue.user.id
-      @venue.address = @venue.address.gsub("<br>", "\n").html_safe
+      #@venue.address = @venue.address.gsub(/\r\n|\r|\n/, "<br/>")
 
       respond_to do |format|
         format.html # edit.html.erb
@@ -70,7 +70,6 @@ class VenuesController < ApplicationController
   def create
     @event = Event.find_by_id(params[:event_id])
     @venue = @event.venues.build(params[:venue])
-    @venue.address = @venue.address.gsub("\n", "<br>").html_safe
 
     if @event
       @venue.user = current_user
@@ -78,6 +77,8 @@ class VenuesController < ApplicationController
 
       respond_to do |format|
         if @venue.save
+          #@venue.update_column(:address, @venue.address.gsub("\r\n|\r|\n", "<br/>").html_safe)
+
           #automatically votes for suggested venue if not already voted for this event
           if !Voter.exists?(:user_id => current_user.id, :event_id => @event.id)
             Voter.create!(:user_id => current_user.id, :event_id => @event.id, :venue_id => @venue.id)
@@ -122,6 +123,8 @@ class VenuesController < ApplicationController
     @venue_changed = @venue.changed? #checks is the venue was actually modified or not
 
     if(@venue_changed)
+       #@venue.address = @venue.address.gsub("<br/>", "\n").html_safe
+
         #reset votecount for venue if it is modified
         @venue.assign_attributes(:votecount => 0)
 

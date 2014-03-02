@@ -116,7 +116,7 @@ module EventsHelper
 
 	def generate_venue_sticky(venue)
 		venue_name = h(venue.name)
-		venue_address = venue.address.html_safe #to allow for <br> in the address
+		venue_address = venue.address.gsub("\n", "<br/>").html_safe #to allow for <br> in the address
 		venue_comments = h(venue.comments)
 		venue_user = (venue.user.id == current_user.id ? "YOU" : "#{venue.user.to_s}")
 		html = ""
