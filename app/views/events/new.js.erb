@@ -1,6 +1,7 @@
 
 $('#createEventForm').dialog("open");
 $('#createEventForm').html("<%= escape_javascript(render 'form') %>");
+$('#venue-dialog-help-btn').remove();
 $('#event_datepicker').datepicker();
 $('#event_timepicker').timepicker({
 	'minTime' : '9:00am',

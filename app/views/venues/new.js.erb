@@ -6,7 +6,8 @@
     //$('#createVenueForm').dialog("open");
     $('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
     $('#createVenueForm').dialog('open');
-    $('.ui-dialog').prepend("<%= escape_javascript(render 'help_dialog') %>");
+    $('#createVenueForm').prepend("<%= escape_javascript(render 'help_dialog') %>");
+    $('.ui-dialog .ui-dialog-titlebar').append('<button class = "ui-dialog-titlebar-close" id ="venue-dialog-help-btn" data-remote = "true">?</button>');
 
     AC();
 
@@ -144,7 +145,6 @@ function yelpRequest(request, response) {
 
                     for (line in location) {
                         addy += location[line] + "\n";
-                        console.log(addy);
                     }
                     /*if(location.cross_streets != undefined) {
                         addy += "(b/t " + location.cross_streets + ")";}

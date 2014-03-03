@@ -179,8 +179,9 @@
 	}
 
 	#venue-dialog-help-dialog {
-		font-size: 0.6em;
-		right: 10%;
+		font-size: 0.7em;
+		position: absolute;
+		top: 0;
 	}
 
 	/* GUEST.CSS */

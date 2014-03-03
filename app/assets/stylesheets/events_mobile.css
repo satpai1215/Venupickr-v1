@@ -700,9 +700,11 @@
 }
 
 #venue-dialog-help-dialog {
-	position: absolute;
-	top: 10%;
-	width: 100%;
+	position: fixed;
+	width: inherit;
+	top: 5%;
+	left: 1%;
+	right: 1%;
 }
 
 .ui-widget-header {
