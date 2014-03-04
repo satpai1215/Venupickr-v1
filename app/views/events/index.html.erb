@@ -28,13 +28,17 @@
                                     <%= event.event_start.strftime("%I:%M%p") %>
                                 <br/> Created By: <%= h(event.owner) %>
                             </div>
-                            <div class = "eventProgress">
+
+
+                             <div class = "eventProgress">
                                 <div class = "eventClock">
-                                
-                                    <%= tag(:span, id: "eventIndexTimer" + index.to_s, class: "eventIndexTimer blue", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %></span>
-                                    
+                                    <p><span class = "eventClock-label">Event Starts In:</span>
+                                    <%= tag(:span, id: "eventIndexTimer" + (index).to_s, class: "eventIndexTimer blue", data: {date: (event.event_start).to_s})%><%= timeLeft_days(event) %>
+                                    </span>
+                                    </p>
+                                     <!-- <div class = "eventActionLink"><%=action_links(event)%></div> -->
                                 </div>
-                            </div>
+                            </div> 
                         <% end %>
                     </li>
                 <% end %>

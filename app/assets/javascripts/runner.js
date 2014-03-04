@@ -71,7 +71,7 @@ function createCountdown(end_date, selector) {
 
 //creates countdown timers in events#index view for each event
 function createTimersinIndex() {
-    console.log("test");
+    //console.log("test");
      //if timeLeft is less than 1 day, show countdown clock
     	var eventDate = [];
     	for (var i = 0; i <  gon.totalIndexEvents; i++) { 
@@ -85,17 +85,20 @@ function createTimersinIndex() {
     		eventDate.push(new Date(dateString));
     	}
     	for(var i=0; i < eventDate.length; i++) {
+            var index = i.toString();
     		var x= eventDate[i];
     		var now = new Date();
             var msInDay = 1000*24*60*60;
             var timeDiff = (eventDate[i]-now)/(msInDay);
     		if (timeDiff > 0 && timeDiff < 1 ) {
     	  		setInterval(function(x, i) {return function() {updateCountdown(x, "#eventIndexTimer" + i)}}(x, i) , 1000);
-                $("#eventIndexTimer" + i.toString()).addClass('red');
+                $("#eventIndexTimer" + index).addClass('red');
+                 $("#eventIndexTimer" + index).removeClass('blue');
     	  	}
             else if (timeDiff < 0) {
-                $("#eventIndexTimer" + i.toString()).html("In Progress").wrap("<span></span>");
-               $("#eventIndexTimer" + i.toString()).addClass('blue');
+                $("#eventIndexTimer" + index).html("In Progress");
+                $("#eventIndexTimer" + index).addClass('blue');
+                $("#eventIndexTimer" + index).siblings('.eventClock-label').remove();
             }
 
     	}
