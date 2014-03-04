@@ -7,7 +7,8 @@
     $('#createVenueForm').html("<%= escape_javascript(render 'form') %>");
     $('#createVenueForm').dialog('open');
     $('#createVenueForm').prepend("<%= escape_javascript(render 'help_dialog') %>");
-    $('.ui-dialog .ui-dialog-titlebar').append('<button class = "ui-dialog-titlebar-close" id ="venue-dialog-help-btn" data-remote = "true">?</button>');
+    $('#venue-dialog-help-btn').remove();
+    $('.ui-dialog:eq(0) .ui-dialog-titlebar').append('<button class = "ui-dialog-titlebar-close" id ="venue-dialog-help-btn" data-remote = "true">?</button>');
 
     AC();
 
