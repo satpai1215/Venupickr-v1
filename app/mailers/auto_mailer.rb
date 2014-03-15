@@ -1,6 +1,6 @@
 class AutoMailer < ActionMailer::Base
 
-  default from: "notifications@venupickr.com", to: "notifications@venupickr.com"
+  default from: "Venupickr <notifications@venupickr.com>", to: "notifications@venupickr.com"
   default css: 'email'
 
   def find_event_info(event_id)
