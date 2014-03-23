@@ -61,7 +61,8 @@
 	margin-bottom: 10px;
 	padding: 5px;
 	padding-right: 0px;
-	background: white;
+	background: whitesmoke;
+	opacity: 0.95;
 
 
 	/*background-image: -webkit-linear-gradient(top, #D7D9D8, #EDF0EE );
