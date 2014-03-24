@@ -109,7 +109,8 @@
 	}
 
 	.eventList h2 {
-		font-size: 1.2em;
+		text-align: left;
+		margin-left: 25px;
 	}
 	.eventList .eventItem {
 		padding: 15px;
