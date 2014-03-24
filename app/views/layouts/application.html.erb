@@ -15,7 +15,7 @@
 		<div id = "page_title">
 			<!-- <img src = "/assets/beta_banner.png" id = "banner-pic"/> -->
 			<div class = "banner" id = "banner-top">
-				<div class = "banner-header" id = "banner-top-header"><%= Venupickr::Application::APP_NAME.upcase %></div>
+				<div class = "banner-header" id = "banner-top-header"><%= link_to Venupickr::Application::APP_NAME.upcase, welcome_path %></div>
 				<div class = "login-nav" id="login-nav-top">
 					<% if user_signed_in? %>
 						Logged in as <%= current_user %>
