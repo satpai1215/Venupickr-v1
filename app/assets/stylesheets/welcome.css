@@ -15,6 +15,7 @@
 }
 
 #home_container {
+	font-family: Verlag Bold;
 	position: absolute;
 	color: whitesmoke;
 	left: 0%;
@@ -22,7 +23,6 @@
 }
 	#home_header_text {
 		margin-bottom: 5px;
-		font-family: Verlag Bold;
 		font-size: 3em;
 		text-align: center;
 	}
