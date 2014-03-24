@@ -4,13 +4,15 @@
     </div>
 <% end %>
     <div class = "eventList" >
-    
+    <div class = "row" id = "newEventBtn-container">
+        <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventBtn", :class => "btn btn-primary action-btn", :remote => true} %> <% end %>
+    </div>
     <%if @upcoming_events.count === 0 %>
         <!-- <div class = "noEventsLabel">  
         <div class = "eventItem"><li> No upcoming events </li></div>
         </div> -->
     <% else %>
-        
+    
             <div id = "upcomingEvents" >
 
                 <div class = "eventList-header">
@@ -53,9 +55,6 @@
                     <div class = "row">
                         <h2>Events on the Clock:</h2>
                         <%#= button_to 'Create New Event', {:action => "new"}, {:id => 'newEventCreate', :remote => true} %>
-                     </div>
-                     <div class = "row" id = "newEventBtn-container">
-                         <% if @events.count < 10 %> <%= link_to 'Create New Event', new_event_path, {:id => "newEventBtn", :class => "btn btn-primary action-btn", :remote => true} %> <% end %>
                      </div>
                  </div>
                 <ul>
