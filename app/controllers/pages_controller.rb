@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!, only: [:archived, :upcoming]
 
-  def welcome
-  end
 
   def info
   end

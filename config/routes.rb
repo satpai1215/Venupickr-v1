@@ -1,8 +1,11 @@
 Venupickr::Application.routes.draw do
 
+  get "/", controller: 'welcome', action: 'welcome', as: 'welcome'
+  
   get "pages/info"
   get "pages/upcoming"
   get "pages/archived"
+
 
   devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations", sessions: "users/sessions" }
   devise_scope :user do
@@ -28,7 +31,7 @@ Venupickr::Application.routes.draw do
       match '/post_comment', controller: 'events', action: 'post_comment'
 
   end
-  
+
   match '/rsvp_yes', controller: 'events', action: 'rsvp_yes', as: "rsvp_yes"
   match '/rsvp_no', controller: 'events', action: 'rsvp_no', as: "rsvp_no"
 

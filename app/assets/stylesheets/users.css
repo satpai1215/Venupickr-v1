@@ -1,0 +1,12 @@
+ html {
+ 	 	background: url('venue-bkgd.JPG') no-repeat top center fixed;   
+	  -webkit-background-size: cover;  
+	  -moz-background-size: cover;  
+	  -o-background-size: cover;  
+	  background-size: cover;
+ }
+
+ body {
+ 	background-color: transparent; /*#C6B199*/
+
+ }

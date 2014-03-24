@@ -16,7 +16,7 @@
   }
 
 .app-name-header {
-  background-color: #FF7F00;
+  background-color: #F06305;
 }
   .app-name-header h2 {
     text-align: center;
@@ -32,7 +32,7 @@
 }
   .email-content-body table h3 {
     font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-    color: #FF7F00;
+    color: #F06305;
     text-align: center;
   }
   .email-content-body table h4 {
@@ -59,7 +59,7 @@
 
  .email-info .heading {
     font-family: Verlag Bold, "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-    color: #FF7F00;
+    color: #F06305;
  } 
 
  .email-small {
@@ -75,7 +75,7 @@
     text-align: center;
 }
   .email-footer td {
-    background-color: #FF7F00;
+    background-color: #F06305;
     padding: 10px;
     font-family: Verlag Bold, "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
     font-size: 1em;

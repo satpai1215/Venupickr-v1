@@ -5,7 +5,7 @@
 }
 
 .eventList h2 {
-	color: #333633;
+	color: #F06305;
 	text-align: center;
 }
 
@@ -15,7 +15,7 @@
 #votingEvents h2{
 	margin-top: 10px;
 	text-align: center;
-	color: #333633;
+	color: #F06305;
 }
 
 .eventList-header{
@@ -38,8 +38,8 @@
 	white-space: normal;
 }
 	.action-btn:hover {
-		background-color: #FF7F00;
-		border-color: #FF7F00
+		background-color: #F06305;
+		border-color: #F06305
 	}
 
 .eventItem-link {
@@ -99,7 +99,7 @@
 	}
 	.eventName {
 		font-family: Verlag Bold;
-		color: #FF7F00;
+		color: #F06305;
 		margin-bottom: 2px;
 		white-space: nowrap;
 		overflow: hidden;
@@ -175,7 +175,7 @@
 
 .noEventsLabel {
 	font-weight: bold;
-	color: #FF7F00;
+	color: #F06305;
 	text-align: center;
 	line-height: 1em;
 }
@@ -231,6 +231,7 @@
 		font-weight: bold;
 		padding: 10px 0px;
 		text-align: center;
+		color: #F06305;
 	}
 	#eventShowModifiers {
 		display: block;
@@ -630,7 +631,7 @@
 		text-decoration: none;
 		font-weight: bold;
 		color: white;
-		background-color: #FF7F00;
+		background-color: #F06305;
 	}
 	.hide-toggle-2, .hide-toggle-3 {
 		display: none;
@@ -708,7 +709,7 @@
 }
 
 .ui-widget-header {
-	background: #FF7F00;
+	background: #F06305;
 	color: white;
 	border: none;
 }
@@ -896,7 +897,7 @@
 
 #eventSubmitButton, #venueSubmitButton {
 	color: white;
-	background: #FF7F00;
+	background: #F06305;
 }
 #eventSubmitButton:hover, #venueSubmitButton:hover {
 	background: #CC6702;
@@ -928,7 +929,7 @@
 }
 
 .selected-nav {
-	background: #FF7F00;;
+	background: #F06305;
 	color: white;
 	font-weight: bold;
 }

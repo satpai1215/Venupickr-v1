@@ -1,0 +1,37 @@
+ html {
+ 	 	background: url('venue-bkgd.JPG') no-repeat top center fixed;   
+	  -webkit-background-size: cover;  
+	  -moz-background-size: cover;  
+	  -o-background-size: cover;  
+	  background-size: cover;
+ }
+
+ body {
+ 	background-color: transparent; /*#C6B199*/
+
+ }
+#page_title, #nav_body, footer {
+	display: none;
+}
+
+#home_container {
+	position: absolute;
+	color: whitesmoke;
+	left: 5%;
+	right: 5%;
+}
+	#home_header_text {
+		margin-bottom: 0px;
+		font-family: Verlag Bold;
+		font-size: 3em;
+		text-align: center;
+	}
+	#home_action_links {
+		font-size: 1.5em;
+		color: whitesmoke;
+		text-align: center;
+	}
+	#home_action_links a {
+		color: #FF7F00;
+
+	}

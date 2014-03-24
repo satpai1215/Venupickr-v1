@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   before_filter :get_event, :only => [:show, :edit, :update, :destroy]
   before_filter :auth_owner, :only => [:edit, :destroy, :update]
 
+
   def get_event
     @event = Event.find_by_id(params[:id])
     if !@event
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   def index
     if !user_signed_in?
       flash.keep #to keep notices during redirect
-      redirect_to pages_info_path
+      redirect_to welcome_path
     else
         #only show events that user is a guest of
         @events = current_user.events.stage_voting

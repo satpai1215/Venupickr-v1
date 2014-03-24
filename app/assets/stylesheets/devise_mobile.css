@@ -38,6 +38,7 @@
 }
 .user_session_page label {
 	display: inline;
+	color: #F06305;
 }
 
 .user_session_page input {
@@ -106,6 +107,7 @@
 	margin-top: 0px;
 }
 
+
 #user_notification_emails label {
 	margin-top: 0px;
 }
@@ -117,6 +119,7 @@
 	border-top: solid 1px black;
 }
 	#user-edit-confirmation-container label {
+		color: 	#282828;
 		font-weight: bold;
 		display: block;
 		text-align: center;
@@ -163,4 +166,10 @@
 
 .field_with_errors label {
 	color: red;
+}
+
+.back-link {
+	font-size: 0.8em;
+	display: block;
+	text-align: center;
 }
