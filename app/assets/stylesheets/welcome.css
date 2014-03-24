@@ -17,18 +17,20 @@
 #home_container {
 	position: absolute;
 	color: whitesmoke;
-	left: 5%;
-	right: 5%;
+	left: 0%;
+	right: 0%;
 }
 	#home_header_text {
-		margin-bottom: 0px;
+		margin-bottom: 5px;
 		font-family: Verlag Bold;
 		font-size: 3em;
 		text-align: center;
 	}
 	#home_action_links {
 		font-size: 1.5em;
-		color: whitesmoke;
+		color: #282828;
+		background-color: whitesmoke;
+		opacity: 0.8;
 		text-align: center;
 	}
 	#home_action_links a {
