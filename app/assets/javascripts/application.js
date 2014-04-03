@@ -60,10 +60,9 @@ $(document).ready(function() {
     $('.loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
   });
-  $(document).on('keypress', '#venue_name, #venue_comments', function(event){
+  $(document).on('keypress', '#event_name, #venue_name, #venue_comments', function(event){
     if(event.keyCode == 13) {
       event.preventDefault();
-      console.log("test");
       return false;
     }
   });
