@@ -2,6 +2,9 @@
  @media only screen and (min-width: 600px) {
 
  	/* WELCOME.CSS */
+ 	html {
+
+ 	}
  	#home_container {
 		top: 10%;
 		text-align: center;

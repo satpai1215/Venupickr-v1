@@ -60,8 +60,15 @@ $(document).ready(function() {
     $('.loading-gif').css('visibility', 'visible');
     $('#venueSubmitButton').hide();
   });
+  $(document).on('keypress', '#venue_name, #venue_comments', function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      console.log("test");
+      return false;
+    }
+  });
   
-  $(document).on('click', '#rsvpButton-yes', function(event) {
+;  $(document).on('click', '#rsvpButton-yes', function(event) {
     $(this).addClass('green').css('background', '#d6e6e6');
     $("#rsvpButton-no").removeClass('red').css('background', '#f5f5f5');;
   });
