@@ -462,12 +462,9 @@
 	    margin-bottom: 10px;
 	    margin-top: 10px;
 	   	padding: 10px 5px 0px 5px;
-		background: #F9F9C9;
-		border: 1px solid #333633;
-		/*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F9F9C9), to(#EBEB00));
-		background: -moz-linear-gradient(100% 100% 90deg, #EBEB00, #F9F9C9);*/
-		background-image: -webkit-linear-gradient(top, #F9F9C9, #F5F5CB );
-		background-image: -moz-linear-gradient(100% 100% 90deg, #F5F5CB, #F9F9C9);
+		background: #e8e8e8;
+		border-top: 1px solid #333633;
+		border-bottom: 1px solid #333633;
 	}
 
 	.venueSticky {
@@ -477,6 +474,7 @@
 		padding-left: 20px;
 		padding-right: 60px;
 		padding-top: 5px;
+		color: #333633;
 	}
 
 	.venueStickyHeader {
@@ -497,6 +495,7 @@
 		font-style: italic;
 		font-weight: normal;
 		font-size: 0.8em;
+		color: #F06305;
 	}
 
 	.venueStickyInfo {
@@ -507,7 +506,7 @@
 	}
 
 	.venueSticky-footer {
-		border-top: solid 1px #333633;
+		color: #F06305;
 		display: inline-block;
 		width: 100%;
 		padding: 5px 0px;
@@ -515,6 +514,9 @@
 			-moz-box-shadow: inset 0 5px 5px -5px #000;
 			-webkit-box-shadow: inset 0 5px 5px -5px;
 	}
+		.vote-for-hint {
+			padding-right: 10px;
+		}
 
 
 	#venueList .voteCount-container {
@@ -536,7 +538,7 @@
 		}
 		.voteIcon {
 			margin-left: 10px;
-			text-align: center;
+			text-align: right;
 		}
 				.checked_venue {
 					width: 5%;

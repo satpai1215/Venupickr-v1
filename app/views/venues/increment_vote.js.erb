@@ -37,7 +37,7 @@
 $currentListItem = $("#venue_" + <%= @venue.id %> + " .voteIcon");
 <% if !@voter.nil? %>
 	$previousListItem = $("#venue_" + <%= @previous_venue.id %> + " .voteIcon");
-	$previousListItem.html("<%= escape_javascript(link_to 'Upvote!', {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id, :event_id => @previous_venue.event.id }, {:class => 'btn btn-success voteButton', :remote => true }) %>");
+	$previousListItem.html("<%= escape_javascript(link_to 'Upvote!', {:controller => 'venues', :action => 'increment_vote', :venue_id => @previous_venue.id, :event_id => @previous_venue.event.id }, {:class => 'btn btn-primary voteButton', :remote => true }) %>");
 <% end %>
 
 //$currentListItem.html("<div class = 'selected-venue'>Selected!</div>");

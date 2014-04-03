@@ -188,8 +188,10 @@
 	}
 
 	#venueList {
-		width: 80%;
 		margin: 0 auto;
+	}
+	.venueSticky-content {
+		padding-left: 30px;
 	}
 	.rsvp-response {
 		margin-bottom: 5px;

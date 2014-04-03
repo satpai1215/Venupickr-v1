@@ -163,7 +163,7 @@
 													<span class = "vote-for-hint">You have voted for this venue</span>
 													<!-- <div class = 'selected-venue'>Selected!</div> -->
 												<% else %>
-													<%= link_to "Upvote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id, :event_id => @event.id }, {:class => "btn btn-success voteButton", :remote => true } %>
+													<%= link_to "Upvote!", {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id, :event_id => @event.id }, {:class => "btn btn-primary voteButton", :remote => true } %>
 													<%#= link_to image_tag("upvote.png"), {:controller => 'venues', :action => "increment_vote", :venue_id => venue.id,:event_id => @event.id }, {:class => "voteButton", :remote => true } %>
 												<% end %>
 											</div><!--voteIcon-->
