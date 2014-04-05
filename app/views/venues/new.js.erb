@@ -127,33 +127,37 @@ function yelpRequest(request, response) {
         'cache': true,
         'dataType': 'jsonp',
         'success' : function(data) {
-            //console.log(data.businesses);
+            console.log(data.businesses);
             //var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             var matcher = new RegExp("^(" + request.term + ")", "i");
             response($.map(data.businesses, function(item){
                 if (matcher.test(item.name)) {
                     
                     //format address string
-                    var location = item.location.display_address
-                   /* if (location.length > 3) {
-                        var addy = location[0] + " " + location[1] + "\n" + location[3];
-                    }
-
-                    else {
-                        var addy = location[0] + "\n" + location[2];
-                    }*/
+                    var location = item.location;
                     var addy = "";
 
-                    for (line in location) {
+                   /* for (line in location) {
                         addy += location[line] + "\n";
+                    } */
+                    if(location.cross_streets != undefined) {
+                        addy += location.address;
                     }
-                    /*if(location.cross_streets != undefined) {
-                        addy += "(b/t " + location.cross_streets + ")";}
-                    addy += "\n" + location.city + ", " + location.state_code + " " + location.postal_code;*/
-                   
+                    if(location.cross_streets != undefined) {
+                        addy += " (b/t " + location.cross_streets + ")";
+                    }
+                    if(location.city != undefined) {
+                        addy += "\n" + location.city;
+                    }
+                    if(location.state_code != undefined) {
+                        addy += ", " + location.state_code;
+                    }  
+                    if(location.postal_code != undefined) {
+                        addy += " " + location.postal_code;
+                    }                      
                    //format item name
-                   var item_name = (item.location.neighborhoods == undefined ? 
-                            item.name : item.name + " (" + item.location.neighborhoods[0] + ")");
+                   var item_name = (location.neighborhoods == undefined ? 
+                            item.name : item.name + " (" + location.neighborhoods[0] + ")");
 
                    return {
                         label: item_name,

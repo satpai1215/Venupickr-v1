@@ -92,7 +92,7 @@ class VenuesController < ApplicationController
           #prevents multiple emails (within 3 hrs) when owner suggests venues immediately after creating event
           if(@event.owner_id == current_user.id)
             if((DateTime.now - 3.hours) > @event.created_at)
-              AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver
+              AutoMailer.venue_suggested_email_guest(@event.id, @venue.user.id).deliver unless @event.guests.count < 2
             end
           else
             AutoMailer.venue_suggested_email_owner(@event.id, @venue.user.id).deliver

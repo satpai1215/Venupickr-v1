@@ -123,8 +123,8 @@ module EventsHelper
 		html << "<div class = 'venueStickyHeader-container'>"
 		html << "<span class = 'venueStickyHeader'>#{venue_name}</span>"
 		html << "</div>"
-		html << "<div class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</div>"
-		html << "<div class = 'venueSuggestor'>was suggested by #{venue_user} </div>"
+		html << "<div class = 'venueSuggestor'>was suggested by #{venue_user} - "
+		html << "<span class = 'venue_modifiers'>#{display_modifiers_venue(venue)}</span> </div>"
 		html << "<div class = 'venueStickyInfo'> <p>#{venue_address}</p>"
 		if !venue.url.blank? 
 			html << "<p>#{link_to "Yelp Page", venue.url, :target => '_blank'} </p> "
