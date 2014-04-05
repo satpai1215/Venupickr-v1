@@ -189,6 +189,7 @@
 
 	#venueList {
 		margin: 0 auto;
+		width: 80%;
 	}
 	.venueSticky-content {
 		padding-left: 30px;
