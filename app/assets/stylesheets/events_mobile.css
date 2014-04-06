@@ -54,7 +54,7 @@
 
 .eventList .eventItem {
 	border: solid 1px #808080;
-	border-top: 5px solid #F06305;
+	border-top: 2px solid #F06305;
 	border-radius: 2px;
 	position: relative;
 	display: block;
