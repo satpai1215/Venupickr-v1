@@ -7,6 +7,7 @@
 	
 	<%= link_to "?", "#", {class: "help-btn", id: "invite-list-help-btn", :remote => true } %>
 	<%= render 'help_dialog' %>
+	<%= render 'gmail_help_dialog' %>
 	<%= render 'guest_form'%>
 </div>
 
@@ -23,6 +24,14 @@ $(function() {
       event.preventDefault();
       $(this).parent().parent('.help-dialog').fadeOut(500);
     });
+
+    $("#gmail-contacts-link").hover(
+    	function() {
+			$("#gmail-hover-help-dialog").fadeIn(500);
+		},
+		function() {
+			$("#gmail-hover-help-dialog").fadeOut(500);
+		});
 
 	<% if current_user.gmail_contacts %>
 		getEmails();

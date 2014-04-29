@@ -46,6 +46,16 @@
 	right: 0%;
 }
 
+#gmail-hover-help-dialog {
+	position: absolute;
+	top: 10%;
+	right: -28%;
+	width: 60%;
+}
+	#gmail-hover-help-dialog ul li {
+		list-style: none;
+	}
+
 .help-btn {
 	position: absolute;
 	right: 1%;
