@@ -23,7 +23,7 @@ Venupickr::Application.configure do
   config.assets.digest = true
 
     # Mailer options
-  config.action_mailer.default_url_options = { :host => 'venupickr-test.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'venupickr.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
