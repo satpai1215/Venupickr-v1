@@ -49,7 +49,9 @@
 				<div id = "event-nav">
 					<a class = "event-nav-link selected-nav" id = "event-nav-link-1">Venue List</a>
 					<a class = "event-nav-link " id = "event-nav-link-2">Guest List</a>
-					<a class = "event-nav-link" id = "event-nav-link-3">Message Board</a>
+					<a class = "event-nav-link" id = "event-nav-link-3">Message Board
+						<span id = "new-message-notification" class = "hidden">*</span>
+					</a>
 				</div>
 
 			<div class = "eventbox hide-box hide-toggle-2" id = "event-guestlist-container">
@@ -248,6 +250,11 @@
 		<% else %>
 			$('#rsvpButton-no').addClass('red').css('background', '#eebfda');
 			$('#rsvpButton-yes').removeClass('green').css('background', '#f5f5f5');
+		<% end %>
+
+		//message notification for new messages relative to last sign-in
+		<% if @event.comments.where("created_at > ?", current_user.current_sign_in_at).count > 0 %>
+			$('#new-message-notification').removeClass('hidden').addClass('visible');
 		<% end %>
 
 		$('.ui-dialog .ui-dialog-titlebar-close').text('X');
