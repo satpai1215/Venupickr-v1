@@ -63,9 +63,23 @@
 					<div>
 						<div class = 'eventbox-content'>
 							<ul class = "eventbox-content-ul" id = "event-guestlist">	
-								<% if @guests.empty? %>
+								<% if @guests.empty? and @unreg_guests.empty?  %>
 									<li class = "guestlist-row-no-guests italic">No guests yet</li>
 								<% else %>
+									<% if @is_owner %>
+										<% @unreg_guests.each do |guest| %>
+											<li class = "guestlist-row">
+												<div class = "guestlist-name"><%= guest.to_s %></div>
+												<div class = "rsvp-response">
+													<span class = "rsvp-response-text">
+														Invitation Sent...
+													</span>
+												</div>	
+												<div class = "clear"></div>
+											</li>
+										<% end %>
+									<% end %>		
+
 									<% @guests.each do |guest| %>
 										<li class = "guestlist-row">
 											<% if guest.user.id == current_user.id and @event.stage != "Archived" %>

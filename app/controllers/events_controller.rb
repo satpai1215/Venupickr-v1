@@ -64,6 +64,8 @@ class EventsController < ApplicationController
         @guests.unshift(@current_user_as_guest)
       end
 
+      @unreg_guests = @event.unregistered_guests || []
+
       # @guests = []
       # @guests_not_going = []
 

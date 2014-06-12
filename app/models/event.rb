@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   attr_accessible :name, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
                   :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion,
-                  :invitation_token
+                  :invitation_token, :unregistered_guests
 
   attr_accessor :datepicker, :timepicker
 
@@ -13,6 +13,8 @@ class Event < ActiveRecord::Base
   has_many :users, through: :guests
   has_many :guests, dependent: :destroy
   has_many :updates
+
+  serialize :unregistered_guests, Array
 
   validates :name, :datepicker, :timepicker, :presence => true
   validates_format_of :datepicker, with: /^\d{2}[\/-]\d{2}[\/-]\d{4}/
@@ -47,6 +49,11 @@ class Event < ActiveRecord::Base
     if association
       association.destroy
     end
+  end
+
+  def remove_unreg_email(email)
+    @unreg_emails = unregistered_guests - [email]
+    update_column(:unregistered_guests, @unreg_emails.to_yaml)
   end
 
   def self.decrypt(token)

@@ -67,7 +67,7 @@ class GuestsController < ApplicationController
 		@new_user_emails = []
 		@existing_user_emails = []
 
-		puts "!!!!!!!!!!!!!!!!!!!!#{@guests}"
+		#puts "!!!!!!!!!!!!!!!!!!!!#{@new_user_emails}"
 
 		@guests.each do |email|
 			@user = User.find_by_email(email.downcase)
@@ -77,13 +77,17 @@ class GuestsController < ApplicationController
 				@event.invite!(@user.id)
 				@existing_user_emails.push(email)
 			else
-				@new_user_emails.push(email)
+				@new_user_emails << email
 			end
 		end
 
 		AutoMailer.send_invite_email(@event.id, @existing_user_emails).deliver unless @existing_user_emails.blank?
 		AutoMailer.send_new_user_invite_email(@event.id, @new_user_emails).deliver unless @new_user_emails.blank?
 
+		#stores unregistered emails with event for display on guest list
+		@unreg_emails = @event.unregistered_guests + @new_user_emails
+    	@event.update_column(:unregistered_guests, @unreg_emails.to_yaml)
+    	
 		#decides which tab on event#show to have visible
 		flash[:tab] = 2
 

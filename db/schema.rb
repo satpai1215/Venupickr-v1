@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226062500) do
+ActiveRecord::Schema.define(:version => 20140612024304) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20140226062500) do
     t.integer  "archive_job_id"
     t.integer  "owner_id"
     t.boolean  "allow_venue_suggestion", :default => true
+    t.text     "unregistered_guests"
   end
 
   create_table "guests", :force => true do |t|

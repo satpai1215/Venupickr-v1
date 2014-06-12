@@ -29,10 +29,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		@token = params[:invitation_token]
 		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
 		if @token
+			@email = params[:user][:email]
 			@event = Event.decrypt(@token)
-			@user = User.find_by_email(params[:user][:email])
+			@user = User.find_by_email(@email)
 			if @event
 				@event.invite!(@user.id) unless @user.nil?
+
+				#update unregistered guests list
+				@event.remove_unreg_email(@email)
 			end
 		end
 	end
