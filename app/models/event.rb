@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+
+  serialize :unregistered_guests, Array
+
   attr_accessible :name, :stage, :event_start, :vote_end, :winner, :event_email_job_id,
                   :voting_email_job_id, :notes, :datepicker, :timepicker, :archive_job_id, :owner_id, :allow_venue_suggestion,
                   :invitation_token, :unregistered_guests
@@ -13,8 +16,6 @@ class Event < ActiveRecord::Base
   has_many :users, through: :guests
   has_many :guests, dependent: :destroy
   has_many :updates
-
-  serialize :unregistered_guests, Array
 
   validates :name, :datepicker, :timepicker, :presence => true
   validates_format_of :datepicker, with: /^\d{2}[\/-]\d{2}[\/-]\d{4}/
