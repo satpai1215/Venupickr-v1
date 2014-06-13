@@ -12,7 +12,7 @@
 	<%= email_field_tag :contact_dropdown, "", {id: "email-dropdown", placeholder: "Type email address, then hit 'enter'"} %>
 	<%= button_tag "Add To List", type: "button", class: "btn btn-primary", id: "addEmailBtn" %>
 
-</div>
+	</div>
 </div>
 
 <%= form_tag("/events/#{@event.id}/guests/update_guestlist", :method => :post, :id => "new-guest-form" ) do %>
