@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	#if user signed up via an event invitation, add user as guest to event after signup
 	def link_new_user_to_event(params)
 		@token = params[:invitation_token]
-		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
+
 		if @token
 			@email = params[:user][:email]
 			@event = Event.decrypt(@token)
