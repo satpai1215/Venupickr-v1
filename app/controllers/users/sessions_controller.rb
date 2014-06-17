@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
 	#if user signed in via an event invitation, add user as guest to event after sign in
 	def link_new_user_to_event(params)
 		@token = params[:invitation_token]
-		puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
+		#puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#{params}"
 		if @token
 			@event = Event.decrypt(@token)
 			@user = User.find_by_email(params[:user][:email])
