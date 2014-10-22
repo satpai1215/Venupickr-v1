@@ -57,7 +57,7 @@ class EventsController < ApplicationController
       @owner = @event.owner
       @owner_as_guest = Guest.where(:user_id => @owner.id, :event_id => @event.id).first
       @current_user_as_guest = Guest.where(:user_id => current_user.id, :event_id => @event.id).first
-      @guests = (@event.guests.going + @event.guests.not_going)
+      @guests = (@event.guests.includes(:user).going + @event.guests.includes(:user).not_going)
       @guests.delete(@owner_as_guest)
       if !@is_owner
         @guests.delete(@current_user_as_guest)
